@@ -3,13 +3,87 @@
 ## Commands 
 
 ```
+
+You can change the port mapping by directly editing the hostconfig.json file at /var/lib/docker/containers/[hash_of_the_container]/hostconfig.json or /var/snap/docker/common/var-lib-docker/containers/[hash_of_the_container]/hostconfig.json, I believe, if You installed Docker as a snap.
+
+You can determine the [hash_of_the_container] via the docker inspect <container_name> command and the value of the "Id" field is the hash.
+
+    Stop the container (docker stop <container_name>).
+    Stop docker service (per Tacsiazuma's comment)
+    Change the file.
+    Restart your docker engine (to flush/clear config caches). [ service docker restart ]
+    Start the container (docker start <container_name>).
+```
+https://stackoverflow.com/questions/19335444/how-do-i-assign-a-port-mapping-to-an-existing-docker-container
+
+## Docker basics
+```
+docker pull <image-name> 	# downloads the specified image from Docker Hub;
+docker image ls 		    # lists all the downloaded images stored on your machine;
+docker rmi <image-name> 	# removes the specified image from your machine;
+docker run <image-name> 	# creates and runs a container using the specified image;
+docker ps 			        # lists all the containers currently up;
+docker ps -a 			    # lists all the containers, also the ones stopped;
+docker stop <container-name> 	# stops the specified container;
+docker start <container-name> 	# stops the specified container;
+docker rm <container-name> 	    # stops and removes the specified container;
+
+docker run -p 8089:80 image-name             # The -p flag maps the external and the internal ports, allowing us to access the container navigating to localhost:8089.When the container exposes the port 80, we can run.
+
+docker pull mongo
+docker image inspect mongo
+docker run -d --name mongo-on-docker -p 27666:27017 -e MONGO_INITDB_ROOT_USERNAME=<username> -e MONGO_INITDB_ROOT_PASSWORD=<password> mongo
+	# docker run runs the image and starts the container;
+        # -d runs the container in background, so that we are free to use the current terminal instance;
+        # --name mongo-on-docker defines a friendly name for the container;
+        # -p 27666:27017 declares that the local port 27666 is mapped to the internal 27017 port;
+        # -e MONGO_INITDB_ROOT_USERNAME=<username> sets the root username (-e sets the environment variables);
+        # -r MONGO_INITDB_ROOT_PASSWORD=<password> sets the root password;
+        # mongo is the name of the image to run;
+	#   this create your connection string with this format: 
+	#   mongodb://<username>:<password>@<host>:<port>/?authSource=admin. 
+	#   You will get 
+	#   mongodb://<username>:<password>@localhost:27666/?authSource=admin.
+
+docker exec -it <MONGO_CONTAINER_NAME>  mongo		# to get a mongo shell
+docker exec -it <MONGO_CONTAINER_NAME>  bash		# to get a bash shell
+
+--- mongodb commands
+
+show roles
+db.createUser({ user: "newUser", pwd: "123123123", roles: [{ role: "readWrite", db: "dbTest" }] })
+docker exec -it MONGO_CONTAINER mongo --username newUser --password 123123123 --authenticationDatabase dbTest
+
+show dbs
+use dbTest
+db.createCollection('CollectionName')
+db.CollectionName.insert({item: "name1", age: 10})
+db.CollectionName.insert({item: "name2", age: 20})
+db.CollectionName.find()
+db.CollectionName.find({ item: "name1" })
+db.CollectionName.find({ age: { $gt: 4 } })
+db.CollectionName.find({ age: { $gt: 14 } })
+
+show collections
+
+```
+
+https://www.mongodb.com/blog/post/running-mongodb-as-a-microservice-with-docker-and-kubernetes
+https://dev.to/arantespp/mongodb-shell-commands-running-on-docker-101-1l73
+https://www.surenderthakran.com/articles/tech/production-mongodb-using-docker
+
+---
+```
+
+apt get install -y gzip vim tar git unzip wget
+
 docker run -it --rm -v ${PWD}:/work -w /work --entrypoint /bin/sh directory/aws-cli:2.0.43
 
 # here we run in iterative mode, mounts all files into the container into a working directory and set entrypong to sh and then run the aws cli command
 
-apt get install -y gzip vim tar git unzip wget
-
-
+```
+---
+```
 docker attach   Attach local standard input, output, and error streams to a running container
 docker build    Build an image from a Dockerfile
 docker builder  Manage builds
@@ -76,21 +150,15 @@ docker version  Show the Docker version information
 docker volume   Manage volumes
 docker wait     Block until one or more containers stop, then print their exit codes
 
-
-
-
-
--------------------------------------------------
-
+```
 https://docs.docker.com/engine/reference/commandline/docker/
 
 https://docs.docker.com/config/containers/container-networking/
 
 https://docs.docker.com/engine/swarm/admin_guide/
 
-
-
---------------------------------------------
+---
+```
 What is docker-machine?
 
 https://www.macadamian.com/learn/docker-machine-basic-examples/
@@ -100,18 +168,21 @@ docker-machine -h               #can be used for playing with docker
 docker-machine create -d virtualbox node1
                                 #create a vm named node1
 
-
---------------------------------------------
+```
+---
+```
 docker swarm -h
 docker swarm --help
 
 docker swarm leave              #node leaves the swarm
 
---------------------------------------------
-
 docker -h
 docker swarm init -h
---------------------------------------------
+```
+---
+
+## docker build
+```
 docker build . -f docker/Dockefile -t my-rails-app:latest
                 #The -f specifies the path to the actual Dockerfile, whereas the PATH (. in the example) tells Docker what to use for its context or current directory when building the image. (This is important when considering commands specifying files and paths within the Dockerfile.) The -t will tag the image built by Docker.
 
@@ -147,11 +218,11 @@ docker exec -it 90cdc54358fa bash
 
 
 
---------------------------------------------
+```
 Docker Tutorial for Beginners [FULL COURSE in 3 Hours]
 https://youtu.be/3c-iBn73dDE
 
---------------------------------------------
+```
 ---installing docker on linux mint
 
 sudo apt-get update
@@ -178,12 +249,13 @@ sudo reboot now
 
 
 
------------------------------------------------
+```
+---
+```
 docker container ls -a --format "{{.Names}}"
                         #gives output of all contaienrs available
 docker container ls -aq
                         #gives output with only container ids
------------------------------------------------
 
 docker run -itd --name ansible_master ubuntu /bin/bash
 docker attach <container id>
@@ -226,7 +298,9 @@ ansible -m ping <client ip addrss>
                         # ping is a module in ansible
 
 
------------------------------------------------
+```
+---
+```
 
 once we run an image a correspoding container is created
 then you can simply use the existing container ids to start
@@ -451,19 +525,18 @@ The following flags can also be added:
     a display all of a resource (including the ones that are stopped)
     q or --quiet (display only the numeric ID)
 
------------------------------------------------
 
+```
+---
 
 https://labs.play-with-docker.com/
 
+```
 docker-compose version          #its installed in windows along with the
                                 docker toolbox
-
 docker-compose up -d            #runs the compose file in the local directory
                                 in detached mode
 docker-compose down             #brings everything down
-
-
 
 docker swarm
 
@@ -531,7 +604,10 @@ docker service rm web
 docker service ls
 
 
----------stack
+```
+---
+## stack
+```
 
 docker image build -t nigelpoulton/gsd:swarm-stack .
 
@@ -563,9 +639,10 @@ NOTE: the desired way to make changes to the no of replicas is
 
 
 
-------------------------------------------------
+```
+---
 https://docs.docker.com/engine/swarm/admin_guide/
-
+```
 docker swarm leave              #run this on a node to remove it from swarm
 
 
@@ -583,8 +660,6 @@ ready
 
 docker node ls
 
-
-
 To cleanly re-join a manager node to a cluster:
 
     To demote the node to a worker, run docker node demote <NODE>.
@@ -597,14 +672,9 @@ docker node rm node9
 docker node rm --force node9
                 #f a node becomes unreachable, unresponsive, or compromised you can forcefully remove the node without shutting it down by passing the --force flag.
 
-
-
-
-
-
-
-------------------------------------------------
-
+```
+---
+```
 git clone https://github.com/nigelpoulton/gsd.git
 docker image build -t username/gsd:first-ctr .
                         # -t stands for with terminal
@@ -643,11 +713,10 @@ docker contianer rm test -f     #forcefully removes the stops and removes
                                 the container
 
 
-
-
---------------------------------------------------
-using a jenkins docker container
-
+```
+---
+## using a jenkins docker container
+```
 docker run -p 8080:8080 -p 50000:50000 -d -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts
 
 Here we are using a named volume which call as Jenkins_home and we are binding
@@ -664,7 +733,9 @@ all the jenkin plugins and also the Jenkins users will be stored there. So
 without this data you will have to reninitialize the whole Jenkins. Port 50000
 is where Jenkins master and slave communicate.
 
-------------------------------------------
+```
+---
+```
 docker network ls               #show the networks created by docker
 docker logs <container id>      #show the logs of that particular container
 
@@ -673,7 +744,9 @@ docker network create mongo-network
 
 
 
-----------------------------------------------------------------
+```
+---
+```
 installing docker on ubuntu VM
 
 apt-get update && apt-get install -y docker.io
@@ -752,8 +825,9 @@ touch test              #this test file will also get created at
                         inside the container since these two
                         directories are now mapped.
 
-----------------------------------------------------------------
-
+```
+---
+```
 
 
 
@@ -840,6 +914,9 @@ docker rmi <iamge id>           #to delet the image
 docker build -t my-app:1.0
 
 docker run my-app:1.0
+```
+---
+```
 ---------demo project
 -development
 -CI/CD
@@ -915,6 +992,9 @@ docker logs <container id>
 
 
 
+```
+---
+```
 --------docker compose
 
 mongo.yaml
@@ -947,6 +1027,9 @@ docker-compose -f mongo.yaml up
 docker-compose -f mongo.yaml down
 
 
+```
+---
+```
 ---------------dockerfile
 --------------- Dockerfile
 
@@ -962,6 +1045,9 @@ COPY . /home/app
 CMD ["node","server.js"]
 
 
+```
+---
+```
 ----------------- docker volumes
 
 In usual case the data is gone, while restarting or removing
@@ -988,6 +1074,9 @@ that gets mounted. This voloumes are called anonymous volumes
 
 
 
+```
+---
+```
 ---------ssh into docker machine
 
 docker-machine ssh default
@@ -1009,7 +1098,9 @@ eval "$(docker-machine env default)"
 docker-machine ip default  : shows ip address of default machine
 
 
----------------------------------------------------------
+```
+---
+```
 
 docker images                   :list out images
 docker-machine                  :
@@ -1017,7 +1108,6 @@ docker-machine active           :show active machines
 docker-machine stop             :stops it
 docker-machine stop default     :stops default
 
----------------------------------------------------------
 docker run -d -t --name newos1 centos
 docker ps
 
