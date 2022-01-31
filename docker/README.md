@@ -56,6 +56,8 @@ docker exec -it MONGO_CONTAINER mongo --username newUser --password 123123123 --
 
 show dbs
 use dbTest
+
+db.getName()       			# to show the current db in use
 db.createCollection('CollectionName')
 db.CollectionName.insert({item: "name1", age: 10})
 db.CollectionName.insert({item: "name2", age: 20})
@@ -64,6 +66,7 @@ db.CollectionName.find({ item: "name1" })
 db.CollectionName.find({ age: { $gt: 4 } })
 db.CollectionName.find({ age: { $gt: 14 } })
 
+db.CollectionName.drop()
 show collections
 
 ```
