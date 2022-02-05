@@ -105,13 +105,89 @@ Immutable infrastructure
 Disposable infrastructure  
 
 
+> Features
+
+Infra automation
+Open source
+Declarative syntax
+Push based deployment
+Integrate multiple providers
+Abstract and Reusable components
+Idempotent and Consistent
+Repeatable
+
+terraform reach out to the api for any given service and tell it what to create  
+
+executable  
+cofiguration files ( .tf files, in json or HCL )
+provider plugins  
+state data 
+
+
+> commands  
+
+```
+terraform version  
+terraform -help  
+
+terraform init   
+
+terraform plan
+terraform apply
+terraform destroy
+
+
+
+
+```
+
+
+
+
+vpc 
+a public subnet  
+ec2  
+routing resources  
+security groups  
+
+blocks:  
+providers - the cloud provider you want to use, along with account and region  
+resources - any resource like instance, database, etc.  
+data sources - asking for information for configs from cloud providers  
+
+
+
+IaC : Provisioning infra via software to get consistent and predictable deployments
+stored in source control
+
+```
+block_type "label" "name_label" {
+  key = "value"
+  nested_block {
+    key = "value"
+  }
+}
+
+```
+
+- [http://registry.terraform.io/browse/providers](http://registry.terraform.io/browse/providers)  
+- [http://registry.terraform.io/browse/modules](http://registry.terraform.io/browse/modules)
+
+
 
 
 ## Links
 
+
 - Hashicorp Certification [https://www.hashicorp.com/certification/terraform-associate](https://www.hashicorp.com/certification/terraform-associate)
 - Provision an EKS cluster(AWS)
 [https://learn.hashicorp.com/tutorials/terraform/eks](https://learn.hashicorp.com/tutorials/terraform/eks) 
+
+- [https://medium.com/javarevisited/7-best-terraform-online-courses-for-devops-engineers-5e4dab297785](https://medium.com/javarevisited/7-best-terraform-online-courses-for-devops-engineers-5e4dab297785)
+- [https://www.udemy.com/course/terraform-beginner-to-advanced](https://www.udemy.com/course/terraform-beginner-to-advanced)
+- [https://www.pluralsight.com/courses/terraform-getting-started-2021](https://www.pluralsight.com/courses/terraform-getting-started-2021)
+- [https://www.udemy.com/course/learn-devops-infrastructure-automation-with-terraform](https://www.udemy.com/course/learn-devops-infrastructure-automation-with-terraform)
+- [https://app.pluralsight.com/library/courses/terraform-deep-dive](https://app.pluralsight.com/library/courses/terraform-deep-dive)
 - AWS localstack   
 Easy-to-use test/mocking framework for developing Cloud applications.  
 https://localstack.cloud/  

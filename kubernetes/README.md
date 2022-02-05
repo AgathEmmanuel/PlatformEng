@@ -1,5 +1,5 @@
 
-# Kubernetes CKA
+# Kubernetes 
 
 
 - Core Concepts
@@ -94,8 +94,100 @@
  - container runtime
 ```
 - ETCD  
-distributed reliable key-value store that is simple, secure and fast 
+distributed reliable key-value store that is simple, secure and fast
 
+
+
+## CKA Curriculum
+[https://www.cncf.io/certification/training/](https://www.cncf.io/certification/training/)  
+[https://github.com/cncf/curriculum](https://github.com/cncf/curriculum)  
+
+
+25% - Cluster Architecture, Installation & Configuration  
+
+• Manage role based access control (RBAC)  
+• Use Kubeadm to install a basic cluster  
+• Manage a highly-available Kubernetes cluster  
+• Provision underlying infrastructure to deploy a Kubernetes cluster  
+• Perform a version upgrade on a Kubernetes cluster using Kubeadm  
+• Implement etcd backup and restore  
+  
+15% - Workloads & Scheduling    
+
+• Understand deployments and how to perform rolling update and rollbacks  
+• Use ConfigMaps and Secrets to configure applications  
+• Know how to scale applications  
+• Understand the primitives used to create robust, self-healing, application deployments  
+• Understand how resource limits can affect Pod scheduling  
+• Awareness of manifest management and common templating tools    
+  
+20% - Services & Networking  
+
+• Understand host networking configuration on the cluster nodes  
+• Understand connectivity between Pods  
+• Understand ClusterIP, NodePort, LoadBalancer service types and endpoints  
+• Know how to use Ingress controllers and Ingress resources  
+• Know how to configure and use CoreDNS  
+• Choose an appropriate container network interface plugin  
+  
+10% - Storage  
+
+• Understand storage classes, persistent volumes  
+• Understand volume mode, access modes and reclaim policies for volumes  
+• Understand persistent volume claims primitive  
+• Know how to configure applications with persistent storage  
+  
+30% - Troubleshooting  
+
+• Evaluate cluster and node logging  
+• Understand how to monitor applications  
+• Manage container stdout & stderr logs  
+• Troubleshoot application failure  
+• Troubleshoot cluster component failure  
+• Troubleshoot networking  
+
+
+##  CKAD Curriculum
+
+[https://training.linuxfoundation.org/ckad-program-change-2021/](https://training.linuxfoundation.org/ckad-program-change-2021/)
+
+
+Application Design and Build – 20%
+
+    Define, build and modify container images
+    Understand Jobs and CronJobs
+    Understand multi-container Pod design patterns (e.g. sidecar, init and others)
+    Utilize persistent and ephemeral volumes
+
+Application Environment, Configuration and Security – 25%
+
+    Discover and use resources that extend Kubernetes (CRD)
+    Understand authentication, authorization and admission control
+    Understanding and defining resource requirements, limits and quotas
+    Understand ConfigMaps
+    Create & consume Secrets
+    Understand ServiceAccounts
+    Understand SecurityContexts
+
+Application Deployment – 20% 
+
+    Use Kubernetes primitives to implement common deployment strategies (e.g. blue/green or canary)
+    Understand Deployments and how to perform rolling updates
+    Use the Helm package manager to deploy existing packages
+
+Services and Networking – 20%
+
+    Demonstrate basic understanding of NetworkPolicies
+    Provide and troubleshoot access to applications via services
+    Use Ingress rules to expose applications
+
+Application Observability and Maintenance – 15%
+
+    Understand API deprecations
+    Implement probes and health checks
+    Use provided tools to monitor Kubernetes applications
+    Utilize container logs
+    Debugging in Kubernetes
 
 
 
