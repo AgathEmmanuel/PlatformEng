@@ -94,7 +94,101 @@
  - container runtime
 ```
 - ETCD  
-distributed reliable key-value store that is simple, secure and fast
+distributed reliable key-value store that is simple, secure and fast  
+stores information regarding the cluster  
+
+
+./etcd  
+./etcdctl  
+./etcdctl set key1 value1  
+./etcdctl get key1  
+
+
+k exec etcd-master -n kube-system etcdctl get / --prefix -keys-only  
+
+ETCDCTL is the CLI tool used to interact with ETCD.
+
+ETCDCTL can interact with ETCD Server using 2 API versions - Version 2 and Version 3.  By default its set to use Version 2. Each version has different sets of commands.
+
+For example ETCDCTL version 2 supports the following commands:
+
+    etcdctl backup
+    etcdctl cluster-health
+    etcdctl mk
+    etcdctl mkdir
+    etcdctl set
+
+
+Whereas the commands are different in version 3
+
+    etcdctl snapshot save 
+    etcdctl endpoint health
+    etcdctl get
+    etcdctl put
+
+
+To set the right version of API set the environment variable ETCDCTL_API command
+
+export ETCDCTL_API=3
+
+
+When API version is not set, it is assumed to be set to version 2. And version 3 commands listed above don't work. When API version is set to version 3, version 2 commands listed above don't work.
+
+
+Apart from that, you must also specify path to certificate files so that ETCDCTL can authenticate to the ETCD API Server. The certificate files are available in the etcd-master at the following path. We discuss more about certificates in the security section of this course. So don't worry if this looks complex:
+
+    --cacert /etc/kubernetes/pki/etcd/ca.crt     
+    --cert /etc/kubernetes/pki/etcd/server.crt     
+    --key /etc/kubernetes/pki/etcd/server.key
+
+
+for the commands  you must specify the ETCDCTL API version and path to certificate files as shown: 
+
+kubectl exec etcd-master -n kube-system -- sh -c "ETCDCTL_API=3 etcdctl get / --prefix --keys-only --limit=10 --cacert /etc/kubernetes/pki/etcd/ca.crt --cert /etc/kubernetes/pki/etcd/server.crt  --key /etc/kubernetes/pki/etcd/server.key" 
+
+
+
+Kube-API Server  
+
+Authenticate user  
+Validate Request  
+Retrieve data  
+Update ETCD  
+Schedular  
+Kubelet  
+
+schedular continously monitors kube api server, it identifies the new pods to be assigned and assigns it the right node and communicate it back to the kube-api server, kube-api server then updates the info in etcd cluster, api server then passes that info to kubelet in appropriate worker node, kubelet then deploys the application and instructs the container runtime to deploy application image, kubelet then pass this info to api-server and it will update data back in etcd cluster  
+
+
+curl -X POST /api/v1/namespaces/default/pods ...[other]
+
+
+cat /etc/kubernetes/manifests/kube-apiserver.yaml  
+cat /etc/systemd/system/kube-apiserver.service  
+
+
+Kube Controller Manager  
+
+deployment controller  
+namespace controller  
+endpoint controller  
+job controller 
+etc...
+
+
+Kube Schedular  
+
+shedules pods based node ranking  
+whichever node with higher cpu when a specific pod is placed on it is ranked top.
+
+Kubelet  
+
+register node  
+create pods  
+monitor nodes and pods  
+
+
+
 
 
 

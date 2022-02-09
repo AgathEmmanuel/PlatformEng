@@ -137,13 +137,20 @@ terraform apply
 terraform destroy
 
 
+terraform state list
 
+terraform state show <resource type>
+terraform state show <resource_type.name>
+	
+terraform state mv <source> <destination>
+
+terraform state rm <resource type>
 
 ```
 
 
 
-
+For a basic example:
 vpc 
 a public subnet  
 ec2  
@@ -161,9 +168,9 @@ IaC : Provisioning infra via software to get consistent and predictable deployme
 stored in source control
 
 ```
-block_type "label" "name_label" {
+blocktype "label" "namelabel" {
   key = "value"
-  nested_block {
+  nestedblock {
     key = "value"
   }
 }
@@ -173,6 +180,62 @@ block_type "label" "name_label" {
 - [http://registry.terraform.io/browse/providers](http://registry.terraform.io/browse/providers)  
 - [http://registry.terraform.io/browse/modules](http://registry.terraform.io/browse/modules)
 
+
+Data in terraform  
+
+input variables  
+local values  
+output values  
+
+data types  
+
+primitives  string,number,boolean
+collection  list,set,map
+structural  tuple,object
+
+looping constructs  
+
+Count  		integer  
+For_each  	map or set  
+Dynamic blocks  map or set
+
+
+
+
+
+Variable values priority  
+
+TF_VAR_ environment variable 
+terraform.tfvars  
+terraform.tfvars.json  
+.auto.tfvars  
+.auto.tfvars.json
+-var-file flag  
+-var flag 
+default value 
+cmd prompt  
+
+
+
+```
+variable "variable_name" {
+  type = type_value	
+  description = "description_value"
+  default = "default_value"
+  sensitive = true|false
+}
+  
+```
+
+
+splitting resources in separate files inprove readability 
+terraform state data (stored in JSON format)  should not be altered directly  
+
+terraform modules  
+module components:  
+input variables  
+output values  
+resources and data sources  
 
 
 
