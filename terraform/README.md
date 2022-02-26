@@ -105,6 +105,29 @@ Immutable infrastructure
 Disposable infrastructure  
 
 
+you can freely use data from 1 resource to create another  
+
+Execution plan  
+IAC code is compared with state and a plan is created  
+Resource Graph (is data structure used to figure out plan)  
+directed acyclic graph  
+
+
+
+> AWS terraform setup   
+
+IAM -> Add User -> programming access -> AdministratorAccess  
+
+~/.aws/credentials  
+
+[default]  
+aws_access_key_id=  
+aws_secret_access_key=  
+
+
+
+
+
 > Features
 
 Infra automation
@@ -127,17 +150,28 @@ state data
 > commands  
 
 ```
+
 terraform version  
 terraform -help  
 
 terraform init   
 
-terraform plan
+terraform plan    	   	# outputs a plan
+terraform plan -destroy    	# ouputs plan to destroy
+terraform plan -destroy -out=example.plan    	# saves to output file
+terraform show example.plan    	# shows the plan 
+terraform plan --help
 terraform apply
 terraform destroy
 
 
-terraform state list
+terraform state 		# state(reality) of your infra, the local represetation teraform keeps
+terraform state list 		# list all resource names  
+terraform state mv
+terraform state pull
+terraform state push
+terraform state rm
+terraform state show resorce_name 
 
 terraform state show <resource type>
 terraform state show <resource_type.name>
@@ -146,7 +180,42 @@ terraform state mv <source> <destination>
 
 terraform state rm <resource type>
 
+terraform graph      #generates a graph outupt which can be pasted in webgraphviz.com to view graphically
+
+
+
+terraform plan -destroy -out=example.plan    	# saves to output file
+terraform apply example.plan
+terraform apply -auto-approve
+
+
+terraform graph | grep -v -e 'meta' -e 'vpc' 	# -v means to exclude, -e means the expressions to be excluded
+
+
+
 ```
+
+
+Resources 
+- different settngs for every provider  
+
+Terraform style  
+- indent 2 spaces  
+- single meta-arguments first  
+- block meta-aruments last  
+- blank lines for clarity  
+- group single arguments  
+- readability  
+- equal signs should be lined up  
+
+
+Terraform Advanced  
+- variables  
+- spliting out data  
+- modules  
+
+
+registry.terraform.io    # here there are prewritten modules that u can use in your code  
 
 
 
@@ -236,6 +305,9 @@ module components:
 input variables  
 output values  
 resources and data sources  
+
+
+
 
 
 
