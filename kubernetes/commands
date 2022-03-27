@@ -1,0 +1,8 @@
+
+
+alias k='kubectl'
+
+export KUBECONFIG=$HOME/.kube/config
+
+alias setkns="kubectl config set-context \$(kubectl config current-context) --namespace"
+

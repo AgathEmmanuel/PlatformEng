@@ -287,7 +287,21 @@ Application Observability and Maintenance – 15%
 
 ## Links
 
-Certified Kubernetes Administrator: [https://www.cncf.io/certification/cka/](https://www.cncf.io/certification/cka/)  
-Exam Curriculum (Topics): [https://github.com/cncf/curriculum](https://github.com/cncf/curriculum)  
-Candidate Handbook: [https://www.cncf.io/certification/candidate-handbook](https://www.cncf.io/certification/candidate-handbook)  
-Exam Tips: [http://training.linuxfoundation.org/go//Important-Tips-CKA-CKAD](http://training.linuxfoundation.org/go//Important-Tips-CKA-CKAD)  
+[https://www.cncf.io/certification/cka/](https://www.cncf.io/certification/cka/)  
+[https://github.com/cncf/curriculum](https://github.com/cncf/curriculum)  
+[https://www.cncf.io/certification/candidate-handbook](https://www.cncf.io/certification/candidate-handbook)  
+[http://training.linuxfoundation.org/go//Important-Tips-CKA-CKAD](http://training.linuxfoundation.org/go//Important-Tips-CKA-CKAD)  
+[https://platform9.com/blog/tutorial-dynamic-provisioning-of-persistent-storage-in-kubernetes-with-minikube/](https://platform9.com/blog/tutorial-dynamic-provisioning-of-persistent-storage-in-kubernetes-with-minikube/)  
+[https://platform9.com/blog/kubernetes-storage-dynamic-volumes-and-the-container-storage-interface/](https://platform9.com/blog/kubernetes-storage-dynamic-volumes-and-the-container-storage-interface/)  
+[https://vocon-it.com/2018/12/20/kubernetes-local-persistent-volumes/](https://vocon-it.com/2018/12/20/kubernetes-local-persistent-volumes/)  
+[https://vocon-it.com/2018/12/10/kubernetes-4-persistent-volumes-hello-world/](https://vocon-it.com/2018/12/10/kubernetes-4-persistent-volumes-hello-world/)  
+[https://platform9.com/blog/top-storage-solutions-for-kubernetes/](https://platform9.com/blog/top-storage-solutions-for-kubernetes/)  
+[https://cloud.google.com/solutions/automatically-bootstrapping-gke-nodes-with-daemonsets](https://cloud.google.com/solutions/automatically-bootstrapping-gke-nodes-with-daemonsets)  
+[https://www.eksworkshop.com/beginner/190_efs/](https://www.eksworkshop.com/beginner/190_efs/)  
+[Deploying Couchbase on Kubernetes](https://youtu.be/bzBtR0N0QBI)  
+[https://blog.couchbase.com/databases-on-kubernetes/](https://blog.couchbase.com/databases-on-kubernetes/)  
+[https://medium.com/ibm-cloud/diving-into-kubernetes-mutatingadmissionwebhook-6ef3c5695f74](https://medium.com/ibm-cloud/diving-into-kubernetes-mutatingadmissionwebhook-6ef3c5695f74)
+[https://blog.couchbase.com/compression-and-ipv6-in-kafka-connector-3-3/](https://blog.couchbase.com/compression-and-ipv6-in-kafka-connector-3-3/)  
+[https://banzaicloud.com/blog/k8s-custom-scheduler/](https://banzaicloud.com/blog/k8s-custom-scheduler/)  
+
+

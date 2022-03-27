@@ -326,7 +326,10 @@ resources and data sources
 - AWS localstack   
 Easy-to-use test/mocking framework for developing Cloud applications.  
 https://localstack.cloud/  
-https://github.com/localstack/localstack  
-- [https://www.fairwinds.com/blog/terraform-and-eks-a-step-by-step-guide-to-deploying-your-first-cluster](https://www.fairwinds.com/blog/terraform-and-eks-a-step-by-step-guide-to-deploying-your-first-cluster)
-- [https://learn.hashicorp.com/terraform?utm_source=terraform_io_download](https://learn.hashicorp.com/terraform?utm_source=terraform_io_download)
-- [https://learn.hashicorp.com/collections/terraform/cloud-get-started](https://learn.hashicorp.com/collections/terraform/cloud-get-started)
+https://github.com/localstack/localstack 
+- [https://www.fairwinds.com/blog/terraform-and-eks-a-step-by-step-guide-to-deploying-your-first-cluster](https://www.fairwinds.com/blog/terraform-and-eks-a-step-by-step-guide-to-deploying-your-first-cluster)  
+- [https://learn.hashicorp.com/terraform?utm_source=terraform_io_download](https://learn.hashicorp.com/terraform?utm_source=terraform_io_download)  
+- [https://learn.hashicorp.com/collections/terraform/cloud-get-started](https://learn.hashicorp.com/collections/terraform/cloud-get-started)  
+- [https://www.freecodecamp.org/news/how-to-deploy-aws-infrastructure-with-terraform-and-github-actions-a-practical-multi-environment-ci-cd-guide/](https://www.freecodecamp.org/news/how-to-deploy-aws-infrastructure-with-terraform-and-github-actions-a-practical-multi-environment-ci-cd-guide/)  
+- [https://towardsdatascience.com/deploy-cloud-functions-on-gcp-with-terraform-111a1c4a9a88](https://towardsdatascience.com/deploy-cloud-functions-on-gcp-with-terraform-111a1c4a9a88)  
+
