@@ -285,6 +285,40 @@ Application Observability and Maintenance – 15%
 
 
 
+
+
+
+
+
+
+
+
+## Notes
+
+```
+
+Minikube Users:
+
+If you are using a vm driver, you will need to tell Kubernetes to use the Docker daemon running inside of the single node cluster instead of the host.
+
+Run the following command:
+
+eval $(minikube docker-env)
+
+Note - This command will need to be repeated anytime you close and restart the terminal session.
+
+Afterward, you can build your image:
+
+docker build -t USERNAME/REPO .
+
+Update, your pod manifest as shown above and then run:
+
+kubectl apply -f infra/k8s/
+
+https://minikube.sigs.k8s.io/docs/commands/docker-env/
+
+```
+
 ## Links
 
 [https://www.cncf.io/certification/cka/](https://www.cncf.io/certification/cka/)  
@@ -303,5 +337,22 @@ Application Observability and Maintenance – 15%
 [https://medium.com/ibm-cloud/diving-into-kubernetes-mutatingadmissionwebhook-6ef3c5695f74](https://medium.com/ibm-cloud/diving-into-kubernetes-mutatingadmissionwebhook-6ef3c5695f74)
 [https://blog.couchbase.com/compression-and-ipv6-in-kafka-connector-3-3/](https://blog.couchbase.com/compression-and-ipv6-in-kafka-connector-3-3/)  
 [https://banzaicloud.com/blog/k8s-custom-scheduler/](https://banzaicloud.com/blog/k8s-custom-scheduler/)  
+[https://aws.amazon.com/blogs/containers/amazon-eks-cluster-multi-zone-auto-scaling-groups/](https://aws.amazon.com/blogs/containers/amazon-eks-cluster-multi-zone-auto-scaling-groups/)  
+[https://aws.amazon.com/blogs/containers/three-things-to-consider-when-implementing-mutual-tls-with-aws-app-mesh/](https://aws.amazon.com/blogs/containers/three-things-to-consider-when-implementing-mutual-tls-with-aws-app-mesh/)  
+[https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html)  
+[https://www.eksworkshop.com/beginner/190_efs/launching-efs/](https://www.eksworkshop.com/beginner/190_efs/launching-efs/)  
+[https://dev.to/stack-labs/use-google-kubernetes-engine-with-a-on-premises-non-internet-facing-docker-registry-284e](https://dev.to/stack-labs/use-google-kubernetes-engine-with-a-on-premises-non-internet-facing-docker-registry-284e)  
+[https://medium.com/solacedotcom/scaling-microservices-with-kubernetes-event-driven-autoscaler-keda-and-solace-pubsub-c6c2b6708275](https://medium.com/solacedotcom/scaling-microservices-with-kubernetes-event-driven-autoscaler-keda-and-solace-pubsub-c6c2b6708275)  
+[https://www.containiq.com/post/kubernetes-controllers](https://www.containiq.com/post/kubernetes-controllers)  
+[https://kubernetes.io/blog/2021/06/21/writing-a-controller-for-pod-labels/](https://kubernetes.io/blog/2021/06/21/writing-a-controller-for-pod-labels/)  
+[https://medium.com/building-the-open-data-stack/deploying-to-multiple-kubernetes-clusters-with-the-k8ssandra-operator-f7562bee1841](https://medium.com/building-the-open-data-stack/deploying-to-multiple-kubernetes-clusters-with-the-k8ssandra-operator-f7562bee1841)  
+[https://medium.com/building-the-open-data-stack/part-two-multi-cluster-cassandra-deployment-with-google-kubernetes-engine-fbc02575d296](https://medium.com/building-the-open-data-stack/part-two-multi-cluster-cassandra-deployment-with-google-kubernetes-engine-fbc02575d296)  
+[https://blog.edgeless.systems/how-to-make-your-existing-microservice-architecture-end-to-end-confidential-74fe91c04fd2](https://blog.edgeless.systems/how-to-make-your-existing-microservice-architecture-end-to-end-confidential-74fe91c04fd2)  
+[https://medium.com/microservices-learning/micoservices-security-pattern-implementing-a-policy-based-security-for-microservices-with-opa-f15164a79b0e](https://medium.com/microservices-learning/micoservices-security-pattern-implementing-a-policy-based-security-for-microservices-with-opa-f15164a79b0e)  
+[https://aws.amazon.com/blogs/containers/secure-end-to-end-traffic-on-amazon-eks-using-tls-certificate-in-acm-alb-and-istio/](https://aws.amazon.com/blogs/containers/secure-end-to-end-traffic-on-amazon-eks-using-tls-certificate-in-acm-alb-and-istio/)  
+[https://cloud.google.com/kubernetes-engine/docs/how-to/scaling-apps](https://cloud.google.com/kubernetes-engine/docs/how-to/scaling-apps)  
+[https://learnk8s.io/autoscaling-apps-kubernetes](https://learnk8s.io/autoscaling-apps-kubernetes)  
+[https://cloud.redhat.com/blog/kubernetes-autoscaling-3-common-methods-explained](https://cloud.redhat.com/blog/kubernetes-autoscaling-3-common-methods-explained)  
+[https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)  
 
 

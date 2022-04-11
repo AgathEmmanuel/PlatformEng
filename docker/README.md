@@ -1121,3 +1121,17 @@ docker stop newos1
 
 
 ```
+
+---
+
+```
+docker build -t <dockerhub username>/post-service .	#to add tag
+docker push <dockerhub username>/post-service
+docker run [image id or image tag]
+docker run [image id or image tag] [cmd] 
+docker run [image id or image tag] sh			#to get a shell
+docker ps
+docker exec -it [container id][cmd]
+docker logs [container id]
+
+```
