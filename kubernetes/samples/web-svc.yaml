@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2022-04-13T02:13:11Z"
+  labels:
+    app: web
+  name: web
+  namespace: ingress-nginx
+  resourceVersion: "68353"
+  uid: 1ab5e97c-e0ce-45e2-81bd-372de124635a
+spec:
+  clusterIP: 10.43.123.203
+  clusterIPs:
+  - 10.43.123.203
+  externalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 30021
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: web
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
