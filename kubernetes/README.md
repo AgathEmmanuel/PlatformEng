@@ -2,6 +2,9 @@
 # Kubernetes 
 
 
+
+[https://kubernetes.io/docs/tasks/administer-cluster/](https://kubernetes.io/docs/tasks/administer-cluster/)  
+
 - Core Concepts
   - Cluster Architecture
   - API Primitives
@@ -377,4 +380,32 @@ https://minikube.sigs.k8s.io/docs/commands/docker-env/
 [https://docs.microsoft.com/en-us/azure/architecture/checklist/data-ops](https://docs.microsoft.com/en-us/azure/architecture/checklist/data-ops)  
 [https://medium.com/beyond-coding/nats-streaming-server-in-the-node-js-world-with-kubernetes-how-to-guide-2595dd598acc](https://medium.com/beyond-coding/nats-streaming-server-in-the-node-js-world-with-kubernetes-how-to-guide-2595dd598acc)  
 [https://medium.com/beyond-coding/take-advantage-of-node-js-cluster-and-child-processes-with-pm2-rabbitmq-redis-and-nginx-c83eccfb8af8](https://medium.com/beyond-coding/take-advantage-of-node-js-cluster-and-child-processes-with-pm2-rabbitmq-redis-and-nginx-c83eccfb8af8)  
+[https://kubernetes.io/docs/concepts/cluster-administration/networking/](https://kubernetes.io/docs/concepts/cluster-administration/networking/)  
+[https://kubernetes.io/docs/concepts/services-networking/ingress/](https://kubernetes.io/docs/concepts/services-networking/ingress/)  
+[https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/)  
+[https://kubernetes.github.io/ingress-nginx/deploy/](https://kubernetes.github.io/ingress-nginx/deploy/)  
+[https://docs.portworx.com/key-management/kubernetes-secrets/pvc-encryption-using-storageclass/](https://docs.portworx.com/key-management/kubernetes-secrets/pvc-encryption-using-storageclass/)  
+[https://docs.portworx.com/key-management/kubernetes-secrets/pvc-encryption-using-csi/](https://docs.portworx.com/key-management/kubernetes-secrets/pvc-encryption-using-csi/)  
+[https://docs.portworx.com/key-management/ibm-key-protect/](https://docs.portworx.com/key-management/ibm-key-protect/)  
+[https://www.katacoda.com/portworx/scenarios/px-k8s-encryption](https://www.katacoda.com/portworx/scenarios/px-k8s-encryption)  
+[https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/)  
+[https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/)  
+[https://kubernetes.io/docs/tasks/administer-cluster/](https://kubernetes.io/docs/tasks/administer-cluster/)  
+[https://www.cncf.io/wp-content/uploads/2020/08/ZettasetCNCFWebinar20200506.pdf](https://www.cncf.io/wp-content/uploads/2020/08/ZettasetCNCFWebinar20200506.pdf)  
+[https://www.cncf.io/wp-content/uploads/2020/08/ZettasetCNCFWebinar20200506.pdf](https://www.cncf.io/wp-content/uploads/2020/08/ZettasetCNCFWebinar20200506.pdf)  
+[https://www.cncf.io/wp-content/uploads/2020/08/ZettasetCNCFWebinar20200506.pdf](https://www.cncf.io/wp-content/uploads/2020/08/ZettasetCNCFWebinar20200506.pdf)  
+[https://docs.portworx.com/reference/cli/encrypted-volumes/](https://docs.portworx.com/reference/cli/encrypted-volumes/)  
+[https://docs.portworx.com/key-management/kubernetes-secrets/pvc-encryption-using-annotations/](https://docs.portworx.com/key-management/kubernetes-secrets/pvc-encryption-using-annotations/)  
+[https://docs.portworx.com/key-management/kubernetes-secrets/pvc-encryption-using-csi/](https://docs.portworx.com/key-management/kubernetes-secrets/pvc-encryption-using-csi/)  
+[https://docs.portworx.com/portworx-install-with-kubernetes/storage-operations/csi/](https://docs.portworx.com/portworx-install-with-kubernetes/storage-operations/csi/)  
+[https://portworx.com/products/open-source/](https://portworx.com/products/open-source/)  
+[https://www.strongdm.com/blog/difference-between-proxy-and-reverse-proxy](https://www.strongdm.com/blog/difference-between-proxy-and-reverse-proxy)  
+[https://jaygorrell.medium.com/kubernetes-ingress-82aa960f658e](https://jaygorrell.medium.com/kubernetes-ingress-82aa960f658e)  
+[https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/](https://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/)  
+[https://awkwardferny.medium.com/getting-started-with-kubernetes-ingress-nginx-on-minikube-d75e58f52b6c](https://awkwardferny.medium.com/getting-started-with-kubernetes-ingress-nginx-on-minikube-d75e58f52b6c)  
+[https://stackoverflow.com/questions/59844622/ingress-configuration-for-k8s-in-different-namespaces](https://stackoverflow.com/questions/59844622/ingress-configuration-for-k8s-in-different-namespaces)  
+[https://kubernetes.io/docs/concepts/services-networking/service/#externalname](https://kubernetes.io/docs/concepts/services-networking/service/#externalname)  
+[https://github.com/nginxinc/kubernetes-ingress/tree/main/examples/externalname-services](https://github.com/nginxinc/kubernetes-ingress/tree/main/examples/externalname-services)  
+[https://medium.com/beyond-coding/nats-streaming-server-in-the-node-js-world-with-kubernetes-how-to-guide-2595dd598acc](https://medium.com/beyond-coding/nats-streaming-server-in-the-node-js-world-with-kubernetes-how-to-guide-2595dd598acc)  
+[https://medium.com/@niravshah2705/bind-istio-with-api-gateway-iaac-aa44e908eb4a](https://medium.com/@niravshah2705/bind-istio-with-api-gateway-iaac-aa44e908eb4a)  
 

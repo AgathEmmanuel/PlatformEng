@@ -3,6 +3,97 @@
 # istio  
 
 
+
+
+## Why service mesh  
+
+
+
+
+Each pod runs a microservice that plays a different but vital role in fulfilling that request. Let us call this role played by each pod or container as a business logic. Each Microservice has to communicate with another MS depending on the type of request.
+
+
+
+Reason 1 :
+
+These clusters of pods are managed by Kubernetes and are protected by an external firewall. See picture above. The overall application is protected by a firewall and all requests from the World wide web are encrypted. But inside the kubernetes cluster, the system without a service mesh  will communicate with each other in simple plain text.
+
+
+
+
+The communications inside the cluster are insecure. This poses a very serious threat to the overall security of the application. Once an attacker is inside the cluster, he will have complete freedom with no hurdles to do anything he wants. Developers can solve this by integrating additional authentication protocols known as security logics. The added security layer needs to be integrated with the business logic making the overall code complex.
+
+
+
+
+
+Reason 2 :
+
+Inside a Kubernetes cluster, these pods can communicate with any other pod inside the cluster. But to ensure fast communications, we need to define communication logic. An additional logic integration further complicates the code.  Developers need to manage their core business logic and on top of additional security and communication logic.
+Reason 3
+
+Running a monitoring service is essential, as we need to monitor logs and performance. This is done by implementing monitoring agents or monitoring logic.
+Reason 4
+
+Think of the developer’s plight when he must add each type of logic into each of these containers /pods. This is a very wasteful practice, and developers end up spending more time on writing these logics than on writing the core business logic of the application. Besides taking time, it aggravates the complexity of these microservices. This goes against the vision of a microservice that is simple and lightweight.
+
+
+
+
+
+
+# How does A Service Mesh Solve this problem?
+
+The solution was pretty simple. Automate all repetitive and static logic tasks. Service mesh groups these tasks into a sidecar application called a sidecar proxy. With the help of a control plane, service mesh can automatically configure and inject these proxies into each pod so that developers can focus on only building business logic. Now the pods can communicate with each other securely through the sidecar proxy injected into each pod.
+
+
+
+# What more can Service Mesh do for me?
+
+Service mesh can act as a brilliant load balancer and is also one of the core features. It can be easily configured to split traffic. Let us take an example to understand how. Consider you are running an application on multiple clusters. One of your developers has added a new feature to the core application and wants to test it out on production with live traffic. The easiest deployment strategy that he can test out his latest feature is by pushing it into a container or pod inside the cluster and then diverting a portion of the over traffic to collect essential logs and metrics. 
+
+The service mesh sidecar is also designed to collect APM and logs that he can use for performing his analysis on the canary instance. These logs and metrics are collected using a tool like Splunk or Datadog. But With the help of OpsMx Autopilot, one can automate the whole process of testing out a deployment using a canary analysis and perform automatic rollbacks whenever necessary.
+
+
+
+
+Istio’s powerful features provide a uniform and more efficient way to secure, connect, and monitor services. Istio is the path to load balancing, service-to-service authentication, and monitoring–with few or no service code changes. Its powerful control plane brings vital features, including features like Dynamic service discovery, Load balancing, TLS termination, HTTP/2 and proxies, Circuit breakers, Health checks, Staged rollouts with%-based traffic split, Fault injection and Rich metrics.
+
+
+
+
+The benefits of putting everything into a daemon i.e. Istiod
+
+    Easy Installation: Fewer configurations enable developers to kick-start istio control plane with all features, even for a single pod.
+    Easy Configuration: in the 1.5 version, we needed multiple configurations to orchestrate a control plane which is now redundant. 
+    Easy Maintenance: Installing, upgrading, and removing Istio no longer requires a complicated process of version dependencies and startup orders. For example: To upgrade, you only need to start a new istiod version alongside your existing control plane, canary it, and then move all traffic over to it.
+    Scalability 
+    Faster Troubleshooting: Fewer components allow for fast environmental debugging.
+    Quick Startup time: Components no longer need to wait for each other to start in a defined order.
+    Reduced Resource usage and improved responsiveness: Communication between components becomes guaranteed. Caches can be shared safely, which decreases the resource footprint.
+
+# components
+
+Mixer : Mixer is a platform independent component that enforces access control and policies across the service mesh and collects metrics and logs to be used by other analysis tools like Splunk and DataDog. Read more on how integrating Autopilot with Splunk and Datadog can unlock multiple benefits for your pipeline.
+
+Pilot : Pilot provides service discovery for the Envoy sidecars, traffic management capabilities for intelligent routing (e.g., A/B tests, canary rollouts, etc.), and resiliency (timeouts, retries, circuit breakers, etc.).
+
+Citadel : Citadel enables strong service-to-service and end-user authentication with built-in identity and credential management. 
+
+Galley : Galley is Istio’s configuration validation, ingestion, processing and distribution component. It is responsible for insulating the rest of the Istio components from the details of obtaining user configuration from the underlying platform (e.g. Kubernetes).
+
+
+# Benefits of using Istio with Kubernetes
+
+    Secure cloud-native apps : Focus on security at the application level with strong identity-based authentication, authorization, and encryption.
+    Manage traffic effectively: Get fine-grained control of traffic behavior with rich routing rules, retries, failovers, and fault injection. In post production testing chaos monkey integration allows SRE’s to inject delays, faults to improve the robustness . 
+    Monitor service mesh : Itsio provides a service level visibility that allows for tracing and monitoring. This improves troubleshooting. A bottleneck issue without granular level details will take a lot of time to fish out. With service mesh, you can easily break the circuit to failed services to disable non-functioning replicas and keep the API responsive.
+    Easily deploy with Kubernetes and virtual machines : Istio provides visibility and network controls for both traditional and modern workloads including containers and virtual machines. 
+    Simplify load balancing with advanced features : Use automated load balancing for all of your traffic, along with advanced features like client-based routing and canary rollouts. 
+    Enforce policies : Enforce policies with a pluggable policy layer and configuration API that supports access controls, rate limits, and quotas.
+
+
+
 Simplify observability, traffic management, security, and policy with the leading service mesh.  
 
 
@@ -111,3 +202,6 @@ making it easy to direct and control traffic around your mesh without making any
 [https://cloud.google.com/migrate/compute-engine/docs/4.8/how-to/monitoring/using-stackdriver-monitoring](https://cloud.google.com/migrate/compute-engine/docs/4.8/how-to/monitoring/using-stackdriver-monitoring)  
 [https://medium.com/avmconsulting-blog/service-discovery-for-microservices-with-kubernetes-bf4353953553](https://medium.com/avmconsulting-blog/service-discovery-for-microservices-with-kubernetes-bf4353953553)  
 [https://github.com/GoogleCloudPlatform/istio-samples/tree/master/istio-stackdriver](https://github.com/GoogleCloudPlatform/istio-samples/tree/master/istio-stackdriver)  
+[https://docs.eupraxia.io/docs/how-to-guides/deploy-nginx-webserver-to-istio/](https://docs.eupraxia.io/docs/how-to-guides/deploy-nginx-webserver-to-istio/)  
+[https://medium.com/@niravshah2705/bind-istio-with-api-gateway-iaac-aa44e908eb4a](https://medium.com/@niravshah2705/bind-istio-with-api-gateway-iaac-aa44e908eb4a)  
+

@@ -6,3 +6,94 @@ export KUBECONFIG=$HOME/.kube/config
 
 alias setkns="kubectl config set-context \$(kubectl config current-context) --namespace"
 
+
+
+
+
+
+```
+
+When we're testing, it’s a good idea to set the verbose mode on:
+
+curl -v http://www.example.com/  
+
+
+
+By default, curl outputs the response body to standard output. Additionally, we can provide the output option to save to a file:
+
+curl -o out.json http://www.example.com/index.html
+
+
+
+While running a local instance of a service at port 8082, we'd use something like this command to make a GET call:
+
+curl -v http://localhost:8082/spring-rest/foos/9
+
+
+
+POST We use this method to send data to a receiving service, which means we use the data option.
+The simplest way of doing this is to embed the data in the command:
+
+curl -d 'id=9&name=baeldung' http://localhost:8082/spring-rest/foos/new
+
+
+curl -d @request.json -H "Content-Type: application/json" 
+  http://localhost:8082/spring-rest/foos/new
+
+
+
+
+This is also what the browsers use in a plain POST. In our usage, we’d usually want to customize the headers depending on our needs.
+
+For instance, if our service expects JSON content-type, then we can use the -H option to modify our original POST request:
+
+curl -d '{"id":9,"name":"baeldung"}' -H 'Content-Type: application/json' 
+  http://localhost:8082/spring-rest/foos/new
+Windows command prompt has no support for single quotes like the Unix-like shells.
+
+As a result, we'd need to replace the single quotes with double quotes, though we try to escape them wherever necessary:
+
+curl -d "{\"id\":9,\"name\":\"baeldung\"}" -H "Content-Type: application/json" 
+  http://localhost:8082/spring-rest/foos/new
+Besides, when we want to send a somewhat larger amount of data, it is usually a good idea to use a data file.
+
+
+
+
+
+Without any mention of a request method type, curl defaults to using GET; therefore, we explicitly mention the method type in the case of PUT:
+
+curl -d @request.json -H 'Content-Type: application/json' 
+  -X PUT http://localhost:8082/spring-rest/foos/9
+
+
+
+DELETE
+Again, we specify that we want to use DELETE by using the -X option:
+
+curl -X DELETE http://localhost:8082/spring-rest/foos/9
+
+
+
+
+Custom Headers
+We can replace the default headers or add headers of our own.
+
+For instance, to change the Host header, we do this:
+
+curl -H "Host: com.baeldung" http://example.com/
+To switch off the User-Agent header, we put in an empty value:
+
+curl -H "User-Agent:" http://example.com/
+The most common scenario while testing is changing the Content-Type and Accept header. We just have to prefix each header with the -H option:
+
+curl -d @request.json -H "Content-Type: application/json" 
+  -H "Accept: application/json" http://localhost:8082/spring-rest/foos/new
+
+
+
+
+
+```
+
+
