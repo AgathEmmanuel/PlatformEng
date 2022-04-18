@@ -123,20 +123,16 @@ Manage your cluster
   
 ```  
   
-Pause Kubernetes without impacting deployed applications:  
   
-minikube pause  
+minikube pause  	# Pause Kubernetes without impacting deployed applications:  
   
-Unpause a paused instance:  
   
-minikube unpause  
+minikube unpause  	# Unpause a paused instance:  
   
-Halt the cluster:  
   
-minikube stop  
+minikube stop 		# Halt the cluster:  
   
 Increase the default memory limit (requires a restart):  
-  
 minikube config set memory 16384  
   
 Browse the catalog of easily installed Kubernetes services:  
@@ -174,7 +170,8 @@ So to use an image without uploading it, you can follow these steps:
     Set the image in the pod spec like the build tag (eg my-image)
     Set the imagePullPolicy to Never, otherwise Kubernetes will try to download the image.
 
-  
+```  
+```  
   
 # Links    
 [https://minikube.sigs.k8s.io/docs/](https://minikube.sigs.k8s.io/docs/)    
