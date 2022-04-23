@@ -2,7 +2,23 @@
 
 
 
+```
 
+curl -X POST \
+	'<cloud-function-url>/compile-gif?rate=10' \ 
+	-H 'Content-Type: application/json' \ 
+	-d '{
+		"frames": [ 
+			"frame1.png", 
+			"frame2.png",
+			"frame0.png",
+			"frame4.png",
+			"frame5.png",
+			"frame6.png"
+		]
+	}'
+
+```
 
 ```
 

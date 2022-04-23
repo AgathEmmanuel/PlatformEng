@@ -102,7 +102,7 @@ Allow the request if the method it uses is GET, the path is /payments/customer_i
 
 
 
-
+```
 
 
 # Links  
@@ -118,4 +118,11 @@ Allow the request if the method it uses is GET, the path is /payments/customer_i
 [Rego Playground  https://play.openpolicyagent.org/](https://play.openpolicyagent.org/)  
 [https://www.openpolicyagent.org/docs/v0.11.0/guides-identity/](https://www.openpolicyagent.org/docs/v0.11.0/guides-identity/)  
 [https://oxfordcomputergroup.com/resources/o365-security-native-cloud-authentication/](https://oxfordcomputergroup.com/resources/o365-security-native-cloud-authentication/)  
+[https://www.infracloud.io/blogs/opa-microservices-authorization-simplified/](https://www.infracloud.io/blogs/opa-microservices-authorization-simplified/)  
+[https://www.openpolicyagent.org/docs/latest/envoy-tutorial-istio/](https://www.openpolicyagent.org/docs/latest/envoy-tutorial-istio/)  
+[Customizing OPA for a "Perfect Fit" Authorization Sidecar - Patrick East, Styra](https://youtu.be/uCra4Uq9bCM)  
+[https://www.openpolicyagent.org/docs/latest/extensions/](https://www.openpolicyagent.org/docs/latest/extensions/)  
+[https://www.openpolicyagent.org/docs/latest/rest-api/](https://www.openpolicyagent.org/docs/latest/rest-api/)  
+[https://dzone.com/articles/open-policy-agent-part-iii-integrating-with-your-a](https://dzone.com/articles/open-policy-agent-part-iii-integrating-with-your-a)  
+[Episode 8: Integrating Open Policy Agent with Envoy Proxy and Istio](https://youtu.be/X1sdpMkHW9U)  
 

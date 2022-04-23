@@ -15,7 +15,8 @@ Microservices authentication and authorization problems
 
 
 
-## Atuthentication  uthentication and authorization logic needs to be handled in each microservice, and this part of the global logic needs to be implemented repeatedly in each microservice. Although we can use the code base to reuse part of the code, this will in turn cause all micro services to have a dependency on a particular code base and its version, affecting the flexibility of the microservice language/framework selection.
+## Atuthentication  
+authentication and authorization logic needs to be handled in each microservice, and this part of the global logic needs to be implemented repeatedly in each microservice. Although we can use the code base to reuse part of the code, this will in turn cause all micro services to have a dependency on a particular code base and its version, affecting the flexibility of the microservice language/framework selection.
     Microservices should follow the principle of single responsibility. A microservice only handles a single business logic. The global logic of authentication and authorization should not be placed in the microservice implementation.
     HTTP is a stateless protocol. For the server, each time the user’s HTTP request is independent. Stateless means that the server can send client requests to any node in the cluster as needed. The stateless design of HTTP has obvious benefits for load balancing. Because there is no state, user requests can be distributed to any server. For services that do not require authentication, such as browsing news pages, there is no problem. However, many services, such as online shopping and enterprise management systems, need to authenticate the user’s identity. Therefore, it is necessary to save the user’s login status in a manner based on the HTTP protocol so as to prevent the user from needing to perform verification for each request. The traditional way is to use a session on the server side to save the user state. Because the server is stateful, it affects the horizontal expansion of the server.
     The authentication and authorization in the microservices architecture involves scenarios that are more complex, involving users accessing microservice applications, third-party applications accessing microservice applications, and multiple microservice applications accessing each other, and in each scenario, The following authentication and authorization schemes need to be considered to ensure the security of the application.
@@ -103,6 +104,41 @@ OpenID Connect (OIDC) extends OAuth to add federated identities, making it possi
 
 
 
+
+
+
+
+
+What is the difference between OpenID and OAuth?
+
+ 
+
+The main difference between OpenID and OAuth is that OpenID is an authentication protocol while OAuth is an authorization framework. OpenID and OAuth are both open standards that complement each other, but OpenID allows users to be authenticated by relying parties. An OIDC relying party is an OAuth 2.0 Client application that requires user authentication and claims from an OIDC provider. OAuth allows access tokens to be issued to third-party clients by an authorization server. OpenID Connect is built on a profile of OAuth and provides additional capabilities in conveying the identity of the user using the application. Clients use OAuth to request access to an API on a user’s behalf, but nothing in the OAuth protocol tells the client user information. OpenID Connect enables a client to access additional information about a user, such as the user's real name, email address, birthdate or other profile information.
+
+
+
+How does OpenID Connect work?
+
+ 
+
+The application starts with an OAuth flow that asks the user to authorize a request. As part of that flow, the client will include the OpenID Connect scope along with scopes for any additional information it wants about the user.
+
+ 
+
+After the request is processed, the client will receive an access token as well as an ID token issued by the authorization server that contains claims that carry information about the user. The user’s SSO experience is made possible by the delivery of the ID token from the authorization server to the client. The client can then contact a special endpoint on the authorization server known as the UserInfo endpoint to receive the remaining claims about the user.
+
+ 
+
+OpenID Connect also defines mechanisms for discovery and session management beyond OAuth.
+
+
+
+
+
+
+
+
+
 # Links  
 
 [https://frontegg.com/blog/authentication-in-microservices](https://frontegg.com/blog/authentication-in-microservices)  
@@ -142,6 +178,8 @@ OpenID Connect (OIDC) extends OAuth to add federated identities, making it possi
 [What is service discovery really all about? - Microservices Basics Tutorial](https://youtu.be/GboiMJm6WlA)  
 [Forward proxy vs reverse proxy difference explained - Brain Bytes (Java Brains)](https://youtu.be/AuINJdBPf8I)  
 [What is OAuth really all about - OAuth tutorial - Java Brains](https://youtu.be/t4-416mg6iU)  
-
-	
+[https://niravshah2705.medium.com/bind-istio-with-api-gateway-iaac-aa44e908eb4a](https://niravshah2705.medium.com/bind-istio-with-api-gateway-iaac-aa44e908eb4a)  
+[https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_deployment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_deployment)  
+[https://www.pingidentity.com/en/resources/content-library/articles/openid-connect.html](https://www.pingidentity.com/en/resources/content-library/articles/openid-connect.html)  
+[https://konghq.com/blog/authorize-api-opa-kuma](https://konghq.com/blog/authorize-api-opa-kuma)  
 

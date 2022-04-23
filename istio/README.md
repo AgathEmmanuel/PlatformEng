@@ -204,4 +204,11 @@ making it easy to direct and control traffic around your mesh without making any
 [https://github.com/GoogleCloudPlatform/istio-samples/tree/master/istio-stackdriver](https://github.com/GoogleCloudPlatform/istio-samples/tree/master/istio-stackdriver)  
 [https://docs.eupraxia.io/docs/how-to-guides/deploy-nginx-webserver-to-istio/](https://docs.eupraxia.io/docs/how-to-guides/deploy-nginx-webserver-to-istio/)  
 [https://medium.com/@niravshah2705/bind-istio-with-api-gateway-iaac-aa44e908eb4a](https://medium.com/@niravshah2705/bind-istio-with-api-gateway-iaac-aa44e908eb4a)  
+[https://aspenmesh.io/api-gateway-vs-service-mesh/](https://aspenmesh.io/api-gateway-vs-service-mesh/)  
+[https://medium.com/microservices-in-practice/service-mesh-vs-api-gateway-a6d814b9bf56](https://medium.com/microservices-in-practice/service-mesh-vs-api-gateway-a6d814b9bf56)  
+[https://blog.christianposta.com/microservices/do-i-need-an-api-gateway-if-i-have-a-service-mesh/](https://blog.christianposta.com/microservices/do-i-need-an-api-gateway-if-i-have-a-service-mesh/)  
+[https://blog.getambassador.io/api-gateway-vs-service-mesh-104c01fa4784](https://blog.getambassador.io/api-gateway-vs-service-mesh-104c01fa4784)  
+[https://community.ibm.com/community/user/integration/blogs/kim-clark1/2018/11/13/comparing-a-service-mesh-with-api-management-in-a-microservice-architecture](https://community.ibm.com/community/user/integration/blogs/kim-clark1/2018/11/13/comparing-a-service-mesh-with-api-management-in-a-microservice-architecture)  
+[Istio as an API Gateway](https://youtu.be/NRh0waZAmeQ)  
+[https://www.openpolicyagent.org/docs/latest/envoy-tutorial-istio/](https://www.openpolicyagent.org/docs/latest/envoy-tutorial-istio/)  
 

@@ -1,0 +1,14 @@
+
+
+
+gcloud init
+
+gcloud config list 
+
+
+gcloud config configurations describe [NAME]
+
+
+gcloud config configurations delete [NAME]
+
+
