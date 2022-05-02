@@ -188,6 +188,59 @@ All traffic that your mesh services send and receive (data plane traffic) is pro
 making it easy to direct and control traffic around your mesh without making any changes to your services.
 
 
+How do I expose services in the Istio service mesh?  
+
+Approach 			Controller 				Features  
+NodePort/LoadBalancer 		Kubernetes 		Load balancing  
+Kubernetes Ingress 		Ingress controller 	Load balancing, TLS, virtual host, traffic routing  
+Istio Gateway 			Istio  			Load balancing, TLS, virtual host, advanced traffic routing,   
+							other advanced Istio features  
+API Gateway 			API Gateway 		Load balancing, TLS, virtual host, advanced traffic routing, API  
+							lifecycle management, billing, rate limiting, policy enforcement, data aggregation  
+
+
+Summary  
+
+In the Istio service mesh, you can use a variety of Kubernetes Ingress Controllers to act as entry gateways, but of course, you can also use Istio’s built-in Istio Gateway directly, for policy control, traffic management, and usage monitoring. The advantage of this is that the gateway can be managed directly through Istio’s control plane, without the need for additional tools. But for functions such as API statement cycle management, complex billing, protocol conversion, and authentication, a traditional API gateway may be a better fit for you. So, you can choose according to your needs, or you can use a combination.  
+
+Some traditional reverse proxies are also moving towards service mesh, such as Nginx with Nginx Service Mesh and Traefik with Traefik Mesh, and some API gateway products are also moving towards service mesh, such as Kong with Kuma, and in the future, we will see more convergence of API gateways, reverse proxies, and service meshes.  
+
+
+
+There isn’t a lot of agreement in the industry about what capabilities are “must haves” for a tool to serve as an API gateway. We typically see customers requiring the following abilities (grouped by use case):
+Resilience Use Cases
+
+    A/B testing, canary deployments, and blue‑green deployments
+    Protocol transformation (between JSON and XML, for example)
+    Rate limiting
+    Service discovery
+
+Traffic Management Use Cases
+
+    Method‑based routing and matching
+    Request/response header and body manipulation
+    Request routing at Layer 7
+
+Security Use Cases
+
+    API schema enforcement
+    Client authentication and authorization
+    Custom responses
+    Fine‑grained access control
+    TLS termination
+
+
+Ingress controllers have the potential to enable many API gateway use cases. In addition to the ones outlined in Definitions, we find organizations most value an Ingress controller that can implement:
+
+    Offload of authentication and authorization
+    Authorization‑based routing
+    Layer 7 level routing and matching (HTTP, HTTP/S, headers, cookies, methods)
+    Protocol compatibility (HTTP, HTTP/2, WebSocket, gRPC)
+    Rate limiting
+
+
+
+
 ## Links  
 
 [https://istio.io/](https://istio.io/)
@@ -211,4 +264,8 @@ making it easy to direct and control traffic around your mesh without making any
 [https://community.ibm.com/community/user/integration/blogs/kim-clark1/2018/11/13/comparing-a-service-mesh-with-api-management-in-a-microservice-architecture](https://community.ibm.com/community/user/integration/blogs/kim-clark1/2018/11/13/comparing-a-service-mesh-with-api-management-in-a-microservice-architecture)  
 [Istio as an API Gateway](https://youtu.be/NRh0waZAmeQ)  
 [https://www.openpolicyagent.org/docs/latest/envoy-tutorial-istio/](https://www.openpolicyagent.org/docs/latest/envoy-tutorial-istio/)  
+[https://www.tetrate.io/blog/istio-service-mesh-api-gateway/](https://www.tetrate.io/blog/istio-service-mesh-api-gateway/)  
+[https://banzaicloud.com/blog/backyards-api-gateway/](https://banzaicloud.com/blog/backyards-api-gateway/)  
+[https://www.nginx.com/blog/how-do-i-choose-api-gateway-vs-ingress-controller-vs-service-mesh/](https://www.nginx.com/blog/how-do-i-choose-api-gateway-vs-ingress-controller-vs-service-mesh/)  
+[https://www.nginx.com/blog/deploying-nginx-plus-as-an-api-gateway-part-1/](https://www.nginx.com/blog/deploying-nginx-plus-as-an-api-gateway-part-1/)  
 

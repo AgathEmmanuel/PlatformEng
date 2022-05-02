@@ -111,4 +111,5 @@ We've been asked to write a web-service to provide SHA-256 hashes on demand, we 
 [https://blog.alexellis.io/prometheus-monitoring/](https://blog.alexellis.io/prometheus-monitoring/)  
 [https://github.com/alexellis/hash-browns](https://github.com/alexellis/hash-browns)  
 [https://levelup.gitconnected.com/building-a-prometheus-exporter-8a4bbc3825f5](https://levelup.gitconnected.com/building-a-prometheus-exporter-8a4bbc3825f5)  
+[https://medium.com/swlh/application-monitoring-with-prometheus-and-grafana-part-3-1c4ad5e1b042](https://medium.com/swlh/application-monitoring-with-prometheus-and-grafana-part-3-1c4ad5e1b042)  
 

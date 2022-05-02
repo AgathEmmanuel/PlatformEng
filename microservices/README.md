@@ -182,4 +182,8 @@ OpenID Connect also defines mechanisms for discovery and session management beyo
 [https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_deployment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/api_gateway_deployment)  
 [https://www.pingidentity.com/en/resources/content-library/articles/openid-connect.html](https://www.pingidentity.com/en/resources/content-library/articles/openid-connect.html)  
 [https://konghq.com/blog/authorize-api-opa-kuma](https://konghq.com/blog/authorize-api-opa-kuma)  
+[https://medium.com/@philipfeng/modern-open-source-messaging-apache-kafka-rabbitmq-nats-pulsar-and-nsq-ca3bf7422db5](https://medium.com/@philipfeng/modern-open-source-messaging-apache-kafka-rabbitmq-nats-pulsar-and-nsq-ca3bf7422db5)  
+[https://itnext.io/contrasting-nats-with-apache-kafka-1d3bdb9aa767](https://itnext.io/contrasting-nats-with-apache-kafka-1d3bdb9aa767)  
+[https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning)  
+[https://docs.microsoft.com/en-us/dotnet/architecture/microservices/multi-container-microservice-net-applications/data-driven-crud-microservice](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/multi-container-microservice-net-applications/data-driven-crud-microservice)  
 

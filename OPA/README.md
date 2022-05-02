@@ -102,7 +102,16 @@ Allow the request if the method it uses is GET, the path is /payments/customer_i
 
 
 
+
+[https://curity.io/resources/learn/curity-opa-kong-api/](https://curity.io/resources/learn/curity-opa-kong-api/)  
 ```
+
+The Curity Identity Server, Open Policy Agent, and Kong Gateway all play their part in a robust architecture to provide fine-grained authorization for APIs. An identity server that leverages standards like OpenID Connect and OAuth2 is well suited to provide solid authentication and issue tokens with scopes and claims. An API Gateway like Kong can then consume this for coarse-grained authorization and further exchange of tokens to provide richer data that can hold PII information leveraged later in the chain. The API Gateway can pass that data on to an external authorization such as OPA that holds a fine-grained authorization policy capable of making an extremely detailed authorization decision. It makes a decision based on claims or attributes and shares the result with the API gateway, allowing or denying the upstream API to be called.
+
+These components are great at what they do and can be configured to work together to provide strong security for APIs.
+
+```
+
 
 
 # Links  
@@ -125,4 +134,14 @@ Allow the request if the method it uses is GET, the path is /payments/customer_i
 [https://www.openpolicyagent.org/docs/latest/rest-api/](https://www.openpolicyagent.org/docs/latest/rest-api/)  
 [https://dzone.com/articles/open-policy-agent-part-iii-integrating-with-your-a](https://dzone.com/articles/open-policy-agent-part-iii-integrating-with-your-a)  
 [Episode 8: Integrating Open Policy Agent with Envoy Proxy and Istio](https://youtu.be/X1sdpMkHW9U)  
-
+[How Netflix Is Solving Authorization Across Their Cloud I - Manish Mehta & Torin Sandall, Netflix](https://youtu.be/R6tUNpRpdnY)  
+[https://helpfulbadger.github.io/blog/envoy_opa_5_opa_jws/](https://helpfulbadger.github.io/blog/envoy_opa_5_opa_jws/)  
+[https://www.openpolicyagent.org/docs/v0.11.0/http-api-authorization/](https://www.openpolicyagent.org/docs/v0.11.0/http-api-authorization/)  
+[https://medium.com/digio-australia/organisation-wide-user-access-management-with-open-policy-agent-opa-5815483251ba](https://medium.com/digio-australia/organisation-wide-user-access-management-with-open-policy-agent-opa-5815483251ba)  
+[https://medium.com/trendyol-tech/first-look-to-opa-open-policy-agent-3542810941c9](https://medium.com/trendyol-tech/first-look-to-opa-open-policy-agent-3542810941c9)  
+[https://www.openpolicyagent.org/docs/latest/integration/](https://www.openpolicyagent.org/docs/latest/integration/)  
+[https://curity.io/resources/learn/curity-opa-kong-api/](https://curity.io/resources/learn/curity-opa-kong-api/)  
+[https://oauth.tools/](https://oauth.tools/)  
+[Using Curity, OPA and Kong for end-to-end API authentication and authorization](https://youtu.be/D_STqxrJu4k)  
+[https://www.infracloud.io/blogs/opa-and-gatekeeper/](https://www.infracloud.io/blogs/opa-and-gatekeeper/)  
+[https://devopslearners.com/comprehensive-guide-on-integrating-open-policy-agent-opa-with-kubernetes-25efc0cb2436](https://devopslearners.com/comprehensive-guide-on-integrating-open-policy-agent-opa-with-kubernetes-25efc0cb2436)  

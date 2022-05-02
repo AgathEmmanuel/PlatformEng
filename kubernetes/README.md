@@ -413,4 +413,13 @@ https://minikube.sigs.k8s.io/docs/commands/docker-env/
 [https://kubernetes.io/docs/concepts/extend-kubernetes/operator/](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/)  
 [https://www.magalix.com/blog/extending-the-kubernetes-controller](https://www.magalix.com/blog/extending-the-kubernetes-controller)  
 [https://kubernetes.io/docs/tutorials/](https://kubernetes.io/docs/tutorials/)  
+[https://phoenixnap.com/kb/kubernetes-mongodb](https://phoenixnap.com/kb/kubernetes-mongodb)  
+[https://developers.redhat.com/blog/2020/12/16/create-a-kubernetes-operator-in-golang-to-automatically-manage-a-simple-stateful-application](https://developers.redhat.com/blog/2020/12/16/create-a-kubernetes-operator-in-golang-to-automatically-manage-a-simple-stateful-application)  
+[https://portal.gitnation.org/contents/mern-stack-application-deployment-in-kubernetes](https://portal.gitnation.org/contents/mern-stack-application-deployment-in-kubernetes)  
+[https://www.ibm.com/docs/en/cloud-paks/cp-applications/4.1?topic=stacks-developing-nodejs-express-stack](https://www.ibm.com/docs/en/cloud-paks/cp-applications/4.1?topic=stacks-developing-nodejs-express-stack)  
+[https://github.com/mongodb/mongodb-kubernetes-operator](https://github.com/mongodb/mongodb-kubernetes-operator)  
+[https://www.linkedin.com/pulse/simplifying-mongodb-kubernetes-operator-rafael-turino](https://www.linkedin.com/pulse/simplifying-mongodb-kubernetes-operator-rafael-turino)  
+[https://www.velotio.com/engineering-blog/getting-started-with-kubernetes-operators-golang-based-part-3](https://www.velotio.com/engineering-blog/getting-started-with-kubernetes-operators-golang-based-part-3)  
+[https://developer.okta.com/blog/2021/11/08/k8s-api-server-oidc](https://developer.okta.com/blog/2021/11/08/k8s-api-server-oidc)  
+[https://stackoverflow.com/questions/23746038/canary-release-strategy-vs-blue-green](https://stackoverflow.com/questions/23746038/canary-release-strategy-vs-blue-green)  
 

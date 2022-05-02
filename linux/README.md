@@ -2,6 +2,67 @@
 
 
 
+
+
+[https://www.serverlab.ca/scripting-programming/using-git-show-to-view-contents-of-files/](https://www.serverlab.ca/scripting-programming/using-git-show-to-view-contents-of-files/)  
+
+```
+ git show <version>:<file>
+
+The version can be a commit ID, tag, or even a branch name. The file must be the path to a file. For example, the following would output a contents of a file named internal/example/module.go file from a tagged commit called “release-23”.
+
+git show release-23:internal/example/module.go
+
+
+```
+
+
+
+[https://stackoverflow.com/questions/15438915/git-diff-filtered-by-file-name](https://stackoverflow.com/questions/15438915/git-diff-filtered-by-file-name)  
+
+
+
+```
+File arguments to git diff need to be delimited by -- - try this:
+
+find . -name <pattern> | xargs git diff --
+
+xargs makes sure spaces, tabs, newlines, etc are handled correctly.
+
+You could debug it with the --name-status argument to git diff. You could also try:
+
+git diff --name-only | grep <pattern>
+
+[edit] Try:
+
+git diff --name-status -- `find . -name '<pattern>'`
+ebg@taiyo(98)$ git diff --name-status -- `find . -name '*.scm'`
+M       scheme/base/boolean.scm
+M       surf/compiler/common.scm
+M       surf/compiler/compile.scm
+M       surf/compiler/expand.scm
+
+
+```
+
+
+[https://www.google.com/search?channel=fs&client=ubuntu&q=how+to+replace+a+word+in+all+files+in+a+directory+linux](https://www.google.com/search?channel=fs&client=ubuntu&q=how+to+replace+a+word+in+all+files+in+a+directory+linux)  
+
+
+
+```
+
+A variation that takes into account subdirectories (untested):
+
+find /var/www -type f -exec sed -i 's/privelages/privileges/g' {} \;
+
+This will find all files (not directories, specified by -type f) under /var/www, and perform a sed command to replace "privelages" with "privileges" on each file it finds.
+
+
+
+```
+
+
 ```
 
 curl -X POST \
