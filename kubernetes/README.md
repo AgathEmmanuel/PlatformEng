@@ -423,3 +423,36 @@ https://minikube.sigs.k8s.io/docs/commands/docker-env/
 [https://developer.okta.com/blog/2021/11/08/k8s-api-server-oidc](https://developer.okta.com/blog/2021/11/08/k8s-api-server-oidc)  
 [https://stackoverflow.com/questions/23746038/canary-release-strategy-vs-blue-green](https://stackoverflow.com/questions/23746038/canary-release-strategy-vs-blue-green)  
 
+[https://blog.realkinetic.com/using-google-cloud-service-accounts-on-gke-e0ca4b81b9a2](https://blog.realkinetic.com/using-google-cloud-service-accounts-on-gke-e0ca4b81b9a2)  
+
+[https://deeptiman.medium.com/mongodb-statefulset-in-kubernetes-87c2f5974821](https://deeptiman.medium.com/mongodb-statefulset-in-kubernetes-87c2f5974821)  
+[https://www.mongodb.com/docs/kubernetes-operator/master/tutorial/plan-k8s-op-architecture/](https://www.mongodb.com/docs/kubernetes-operator/master/tutorial/plan-k8s-op-architecture/)  
+[https://medium.com/@ronyrv13/connect-mongodb-hosted-in-kubernetes-cluster-54fc4d0bd1bf](https://medium.com/@ronyrv13/connect-mongodb-hosted-in-kubernetes-cluster-54fc4d0bd1bf)  
+[https://www.mongodb.com/docs/kubernetes-operator/master/tutorial/om-arch/#meko-om-arch](https://www.mongodb.com/docs/kubernetes-operator/master/tutorial/om-arch/#meko-om-arch)  
+[https://github.com/mongodb/mongodb-kubernetes-operator](https://github.com/mongodb/mongodb-kubernetes-operator)  
+[https://github.com/mongodb/mongodb-kubernetes-operator/blob/master/README.md](https://github.com/mongodb/mongodb-kubernetes-operator/blob/master/README.md)  
+
+
+
+[https://www.magalix.com/blog/kubernetes-statefulsets-101-state-of-the-pods](https://www.magalix.com/blog/kubernetes-statefulsets-101-state-of-the-pods)  
+
+[https://platform9.com/blog/why-and-how-to-run-machine-learning-workloads-on-kubernetes/](https://platform9.com/blog/why-and-how-to-run-machine-learning-workloads-on-kubernetes/)  
+[https://www.kubeflow.org/docs/started/installing-kubeflow/](https://www.kubeflow.org/docs/started/installing-kubeflow/)  
+
+
+
+[https://naiveskill.com/jenkins-operator/](https://naiveskill.com/jenkins-operator/)  
+
+[https://www.magalix.com/blog/kubernetes-automatic-scaling](https://www.magalix.com/blog/kubernetes-automatic-scaling)  
+[https://www.magalix.com/blog/kubernetes-patterns-capacity-planning](https://www.magalix.com/blog/kubernetes-patterns-capacity-planning)  
+[https://www.magalix.com/blog/integrating-open-policy-agent-opa-with-kubernetes-a-deep-dive-tutorial](https://www.magalix.com/blog/integrating-open-policy-agent-opa-with-kubernetes-a-deep-dive-tutorial)  
+
+
+
+[https://www.magalix.com/blog/deploy-react-app-to-kubernetes-cluster](https://www.magalix.com/blog/deploy-react-app-to-kubernetes-cluster) [https://medium.com/geekculture/dockerizing-a-react-application-with-multi-stage-docker-build-4a5c6ca68166](https://medium.com/geekculture/dockerizing-a-react-application-with-multi-stage-docker-build-4a5c6ca68166)  
+[https://enlear.academy/deploy-a-react-application-in-kubernetes-69bd07e375ab](https://enlear.academy/deploy-a-react-application-in-kubernetes-69bd07e375ab)  
+[https://stackoverflow.com/questions/18861300/how-to-run-nginx-within-a-docker-container-without-halting](https://stackoverflow.com/questions/18861300/how-to-run-nginx-within-a-docker-container-without-halting)  
+[http://nginx.org/en/docs/ngx_core_module.html](http://nginx.org/en/docs/ngx_core_module.html)  
+
+
+[https://medium.com/binbash-inc/when-and-why-use-multiple-k8s-namespaces-237b632bac5](https://medium.com/binbash-inc/when-and-why-use-multiple-k8s-namespaces-237b632bac5)  

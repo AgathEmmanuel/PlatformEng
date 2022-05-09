@@ -161,3 +161,29 @@ git reflog expire --expire=now --all && git gc --prune=now --aggressive
 
 ```
 
+
+
+[https://stackoverflow.com/questions/7167645/how-do-i-create-a-new-git-branch-from-an-old-commit](https://stackoverflow.com/questions/7167645/how-do-i-create-a-new-git-branch-from-an-old-commit)  
+
+```
+
+
+git checkout -b NEW_BRANCH_NAME COMMIT_ID
+
+This will create a new branch called 'NEW_BRANCH_NAME' and check it out.
+
+("check out" means "to switch to the branch")
+
+git branch NEW_BRANCH_NAME COMMIT_ID
+
+This just creates the new branch without checking it out.
+
+in the comments many people seem to prefer doing this in two steps. here's how to do so in two steps:
+
+git checkout COMMIT_ID
+# you are now in the "detached head" state
+git checkout -b NEW_BRANCH_NAME
+
+
+```
+

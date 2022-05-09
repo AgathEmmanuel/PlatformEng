@@ -187,3 +187,17 @@ OpenID Connect also defines mechanisms for discovery and session management beyo
 [https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning)  
 [https://docs.microsoft.com/en-us/dotnet/architecture/microservices/multi-container-microservice-net-applications/data-driven-crud-microservice](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/multi-container-microservice-net-applications/data-driven-crud-microservice)  
 
+[https://blog.stackpath.com/microservice-video-streaming/](https://blog.stackpath.com/microservice-video-streaming/)  
+
+[https://docs.confluent.io/platform/current/tutorials/examples/microservices-orders/docs/index.html](https://docs.confluent.io/platform/current/tutorials/examples/microservices-orders/docs/index.html)  
+[https://eyevinntechnology.medium.com/example-of-microservices-for-a-streaming-service-e2b2c556442e](https://eyevinntechnology.medium.com/example-of-microservices-for-a-streaming-service-e2b2c556442e)  
+
+[Using Skaffold and GitHub Actions for Deployments to Amazon EKS](https://youtu.be/NPUBIkQayRw)  
+[https://github.com/LukeMwila/nodejs-skaffold-app](https://github.com/LukeMwila/nodejs-skaffold-app)  
+
+
+[https://threedots.tech/post/running-integration-tests-on-google-cloud-build/](https://threedots.tech/post/running-integration-tests-on-google-cloud-build/)  
+[https://threedots.tech/series/modern-business-software-in-go/?utm_source=about-wild-workouts](https://threedots.tech/series/modern-business-software-in-go/?utm_source=about-wild-workouts)  
+
+[GitHub Actions Bash Shell Commands](https://youtu.be/FsOtTYJ8KhQ)  
+

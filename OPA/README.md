@@ -145,3 +145,18 @@ These components are great at what they do and can be configured to work togethe
 [Using Curity, OPA and Kong for end-to-end API authentication and authorization](https://youtu.be/D_STqxrJu4k)  
 [https://www.infracloud.io/blogs/opa-and-gatekeeper/](https://www.infracloud.io/blogs/opa-and-gatekeeper/)  
 [https://devopslearners.com/comprehensive-guide-on-integrating-open-policy-agent-opa-with-kubernetes-25efc0cb2436](https://devopslearners.com/comprehensive-guide-on-integrating-open-policy-agent-opa-with-kubernetes-25efc0cb2436)  
+
+
+[https://www.magalix.com/blog/integrating-open-policy-agent-opa-with-kubernetes-a-deep-dive-tutorial](https://www.magalix.com/blog/integrating-open-policy-agent-opa-with-kubernetes-a-deep-dive-tutorial)  
+[https://www.redhat.com/en/blog/open-policy-agent-part-i-%E2%80%94-introduction](https://www.redhat.com/en/blog/open-policy-agent-part-i-%E2%80%94-introduction)  
+[https://www.redhat.com/en/blog/open-policy-agent-part-ii-%E2%80%94-developing-policies](https://www.redhat.com/en/blog/open-policy-agent-part-ii-%E2%80%94-developing-policies)  
+[https://www.redhat.com/en/blog/open-policy-agent-part-iii-%E2%80%94-integrating-your-application](https://www.redhat.com/en/blog/open-policy-agent-part-iii-%E2%80%94-integrating-your-application)  
+
+
+
+[https://www.openpolicyagent.org/docs/v0.12.2/kubernetes-admission-control/](https://www.openpolicyagent.org/docs/v0.12.2/kubernetes-admission-control/)  
+[https://www.openpolicyagent.org/docs/v0.12.2/http-api-authorization/](https://www.openpolicyagent.org/docs/v0.12.2/http-api-authorization/)  
+[https://www.infracloud.io/blogs/opa-microservices-authorization-simplified/](https://www.infracloud.io/blogs/opa-microservices-authorization-simplified/)  
+[https://www.openpolicyagent.org/docs/latest/envoy-tutorial-istio/](https://www.openpolicyagent.org/docs/latest/envoy-tutorial-istio/)  
+
+

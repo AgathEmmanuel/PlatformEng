@@ -9,13 +9,29 @@ https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
 
 
-alias k='kubectl'
+alias k='kubectl'  
 
-export KUBECONFIG=$HOME/.kube/config
+export KUBECONFIG=$HOME/.kube/config  
 
-alias setkns="kubectl config set-context \$(kubectl config current-context) --namespace"
+alias setkns="kubectl config set-context \$(kubectl config current-context) --namespace"  
 
-kubectl run nginx --image=nginx --restart=Never
+kubectl run nginx --image=nginx --restart=Never  
+
+
+
+kubectl create deployment nginx --image=nginx  
+
+# create a Job which prints "Hello World"  
+kubectl create job hello --image=busybox:1.28 -- echo "Hello World"  
+
+# create a CronJob that prints "Hello World" every minute  
+kubectl create cronjob hello --image=busybox:1.28   --schedule="*/1 * * * *" -- echo "Hello World"  
+
+
+kubectl scale --replicas=3 rs/foo                                 # Scale a replicaset named 'foo' to 3  
+
+k delete all --all  
+
 
 
 

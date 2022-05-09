@@ -294,4 +294,5 @@ Storage:
 
 ## Links
 
-- [https://aws.amazon.com/certification/certified-solutions-architect-professional/](https://aws.amazon.com/certification/certified-solutions-architect-professional/)
+[https://aws.amazon.com/certification/certified-solutions-architect-professional/](https://aws.amazon.com/certification/certified-solutions-architect-professional/)
+[https://www.eksworkshop.com/beginner/110_irsa/](https://www.eksworkshop.com/beginner/110_irsa/)  

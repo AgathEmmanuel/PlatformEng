@@ -1,10 +1,103 @@
 
 # GCP  
 
+
+
+[https://cloud.google.com/compute/docs/general-purpose-machines](https://cloud.google.com/compute/docs/general-purpose-machines)  
+
+[https://cloud.google.com/compute/all-pricing](https://cloud.google.com/compute/all-pricing)  
+
+[https://cloud.google.com/kubernetes-engine/docs/concepts/spot-vms](https://cloud.google.com/kubernetes-engine/docs/concepts/spot-vms)  
+
+
+[https://cloud.google.com/kubernetes-engine/docs/concepts/spot-vms](https://cloud.google.com/kubernetes-engine/docs/concepts/spot-vms)  
+
+
+[https://blog.realkinetic.com/using-google-cloud-service-accounts-on-gke-e0ca4b81b9a2](https://blog.realkinetic.com/using-google-cloud-service-accounts-on-gke-e0ca4b81b9a2)  
+
+
 ```
+
+
+gcloud config set project <project-name>  
+
+gcloud config set compute/zone us-central1-a  
+
+
+
+https://cloud.google.com/binary-authorization/docs/getting-started-cli  
+
+
+gcloud container clusters get-credentials <cluster-name>  
+
+
+
+
+
+
+gcloud container clusters create test-cluster --num-nodes=1  
+
+ Node Pools
+default-pool 	
+Ok 	1.21.10-gke.2000 	1 	e2-medium 	Container-Optimized OS with containerd (cos_containerd) 	Off 
+
+
+
+
+Machine type 	vCPUs 	Memory 	Price (USD) 	Spot price*(USD) 	1 year commitment (USD) 	3 year commitment (USD)
+e2-micro 	2 	1GB 	$0.008376 	$0.002513 	$0.00528 	$0.00377
+e2-small 	2 	2GB 	$0.016751 	$0.005025 	$0.01055 	$0.00754
+e2-medium 	2 	4GB 	$0.033503 	$0.010051 	$0.02111 	$0.01508
+
+
+
+
+gcloud container clusters get-credentials test-cluster   		# configures kubectl to use the cluser u created  
+
+gcloud container clusters create \
+  --machine-type n1-standard-2 \
+  --num-nodes 2 \
+  --zone <compute zone from the list linked below> \
+  --cluster-version latest \
+  <CLUSTERNAME>
+
+
+gcloud container clusters delete \
+    --zone=us-central1-a \
+    test-cluster
+
+
+
+
+
+kubectl create deploy web-server --image=nginx  
+
+kubectl expose deploy web-server --type LoadBalancer --port 80 --target-port 8080  
+
+kubectl get service web-server  
+
+
+
+
+```
+
+
+```
+
+
+gcloud config set project <project-name>
+
+gcloud config set compute/zone us-central1-a
+
+
+
+
 gcloud auth login  
 
 gcloud init  
+
+
+
 
 
 
@@ -15,9 +108,130 @@ gcloud container clusters get-credentials <cluster name>
 
 
 
+gcloud alpha storage ls			# list buckets in gcp  
+
+
+
+https://cloud.google.com/storage/docs/listing-buckets#cli-list-buckets  
+
+
+
+
+gcloud alpha storage cp --recursive gs://SOURCE_BUCKET/* gs://DESTINATION_BUCKET
+
+gcloud alpha storage rm --recursive gs://SOURCE_BUCKET
+
+gcloud alpha storage rm --all-versions gs://SOURCE_BUCKET/**
+
+gcloud alpha storage ls --recursive gs://BUCKET_NAME/**
+
+gcloud alpha storage rm gs://BUCKET_NAME/OBJECT_NAME
+
+
+
+
+
+[https://cloud.google.com/kubernetes-engine/docs/how-to/node-pools](https://cloud.google.com/kubernetes-engine/docs/how-to/node-pools)  
+
+
+
+gcloud container node-pools create POOL_NAME \
+    --cluster CLUSTER_NAME \
+    --service-account SERVICE_ACCOUNT
+
+
+gcloud container node-pools list --cluster CLUSTER_NAME
+
+
+gcloud container node-pools list --cluster CLUSTER_NAME
+
+
+gcloud container node-pools describe POOL_NAME \
+    --cluster CLUSTER_NAME
+
+
+gcloud container clusters resize CLUSTER_NAME \
+    --node-pool POOL_NAME \
+    --num-nodes NUM_NODES
+
+
+gcloud container clusters upgrade CLUSTER_NAME
+
+
+gcloud container clusters upgrade CLUSTER_NAME \
+  --node-pool=NODE_POOL_NAME
+
+
+gcloud container clusters upgrade CLUSTER_NAME \
+  --node-pool=NODE_POOL_NAME \
+  --cluster-version VERSION
+
+
+gcloud container node-pools delete POOL_NAME \
+    --cluster CLUSTER_NAME
+
+
+
+
+https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-autoscaler
+
+
+gcloud container clusters create CLUSTER_NAME \
+    --enable-autoscaling \
+    --num-nodes NUM_NODES \
+    --min-nodes MIN_NODES \
+    --max-nodes MAX_NODES \
+    --region=COMPUTE_REGION
+
+
+gcloud container clusters create my-cluster --enable-autoscaling \
+    --num-nodes 30 \
+    --min-nodes 15 --max-nodes 50 \
+    --zone us-central1-c
+
+
+gcloud container node-pools create POOL_NAME \
+    --cluster=CLUSTER_NAME \
+    --enable-autoscaling \
+    --min-nodes=MIN_NODES \
+    --max-nodes=MAX_NODES \
+    --region=COMPUTE_REGION
+
+
+gcloud container node-pools create my-node-pool \
+    --cluster my-cluster \
+    --enable-autoscaling \
+    --min-nodes 1 --max-nodes 5 \
+    --zone us-central1-c
+
+
+gcloud container clusters update CLUSTER_NAME \
+    --enable-autoscaling \
+    --node-pool=POOL_NAME \
+    --min-nodes=MIN_NODES \
+    --max-nodes=MAX_NODES \
+    --region=COMPUTE_REGION
+
+
+gcloud container clusters update CLUSTER_NAME \
+    --no-enable-autoscaling \
+    --node-pool=POOL_NAME \
+    --region=COMPUTE_REGION
+
+
+
+
+
+
 ```
+
+
+
 google cloud build  
 google cloud VM  
+
+
+
 
 ```
 
@@ -30,6 +244,217 @@ update our host file to point to the remote cluster
 Restart Skaffold  
 
 
+
+
+
+
+
+
+
+
+
+[https://pnatraj.medium.com/how-to-run-gcloud-command-line-using-a-service-account-f39043d515b9](https://pnatraj.medium.com/how-to-run-gcloud-command-line-using-a-service-account-f39043d515b9)  
+
+
+1) Create a Service Account
+
+gcloud iam service-accounts create gcpcmdlineuser --display-name "GCP Service Account"
+
+gcloud iam service-accounts create gcpcmdlineuser
+
+2) List the users
+
+gcloud iam service-accounts list --filter gcpcmdlineuser@someproject.gserviceaccount.com
+
+3) Download the service account key
+
+gcloud iam service-accounts keys create ./somekey.json --iam-account <EMAIL ADDRESS>
+
+gcloud iam service-accounts keys create gcpcmdlineuser.json --iam-account gcpcmdlineuser@someproject.iam.gserviceaccount.com
+
+4) Associate a ROLE
+
+gcloud iam roles create <ROLE NAME> --project <YOUR PROJECT ID> --file ./rolename.yaml
+
+gcloud projects add-iam-policy-binding someprojecthere --member "serviceAccount:gcpcmdlineuser@someproject.iam.gserviceaccount.com" --role "roles/owner"
+
+gcloud projects add-iam-policy-binding <PROJECT ID> --role <ROLE NAME> --member serviceAccount:<EMAIL ADDRESS>
+
+5) Activate the service account
+
+gcloud auth activate-service-account --project=someproject --key-file=gcpcmdlineuser.json
+
+gcloud auth activate-service-account --key-file=gcpcmdlineuser.json
+
+GCP CLI’s which might help
+
+gcloud init --console-only
+
+gcloud config set account gcpcmdline@someproject.iam.gserviceaccount.com
+
+gcloud auth application-default login --no-launch-browser
+
+gcloud compute instances list
+
+gcloud auth list
+
+gcloud auth revoke
+
+gcloud info
+
+From GCP Console
+
+    Create a service account with GCP console
+    Download the json key file
+    Create a role and assign proper required permissions to the role.
+    gcloud config set account gcli@someproject.iam.gserviceaccount.com
+    gcloud auth activate-service-account — key-file=gcli.json — project=someprojectname
+
+Role template could be as below
+
+title: CLI Service Role
+description: “CLI Service Role.”
+stage: “ROLE”
+includedPermissions:
+— compute.autoscalers.get
+— compute.autoscalers.list
+— compute.autoscalers.update
+— compute.instances.start
+— compute.instances.startWithEncryptionKey
+— compute.instances.stop
+— compute.instances.get
+— compute.instances.list
+— compute.instanceGroupManagers.get
+— compute.instanceGroupManagers.list
+— compute.instanceGroupManagers.update
+— compute.instanceGroupManagers.use
+— compute.zones.get
+— compute.zones.list
+— monitoring.groups.get
+— monitoring.groups.list
+— monitoring.metricDescriptors.get
+— monitoring.metricDescriptors.list
+— monitoring.monitoredResourceDescriptors.get
+— monitoring.monitoredResourceDescriptors.list
+— monitoring.timeSeries.list
+— resourcemanager.projects.get
+
+
+
+[https://cloud.google.com/storage/docs/access-control](https://cloud.google.com/storage/docs/access-control)  
+[https://cloud.google.com/storage/docs/access-control/iam-permissions](https://cloud.google.com/storage/docs/access-control/iam-permissions)  
+[https://www.edureka.co/community/96208/gcp-custom-iam-role-creation-with-terraform](https://www.edureka.co/community/96208/gcp-custom-iam-role-creation-with-terraform)  
+
+[https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam_custom_role](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam_custom_role)  
+
+[https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/service_account_id_token](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/service_account_id_token)  
+
+[https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/client_openid_userinfo](https://registry.terraform.io/providers/hashicorp/google/latest/docs/data-sources/client_openid_userinfo)  
+
+```
+
+Example Usage - OpenID Connect w/ Kubernetes provider + RBAC IAM role
+
+data "google_client_openid_userinfo" "provider_identity" {
+}
+
+data "google_client_config" "provider" {
+}
+
+data "google_container_cluster" "my_cluster" {
+  name = "my-cluster"
+  zone = "us-east1-a"
+}
+
+provider "kubernetes" {
+  host  = "https://${data.google_container_cluster.my_cluster.endpoint}"
+  token = data.google_client_config.provider.access_token
+  cluster_ca_certificate = base64decode(
+    data.google_container_cluster.my_cluster.master_auth[0].cluster_ca_certificate,
+  )
+}
+
+resource "kubernetes_cluster_role_binding" "user" {
+  metadata {
+    name = "provider-user-admin"
+  }
+
+  role_ref {
+    api_group = "rbac.authorization.k8s.io"
+    kind      = "ClusterRole"
+    name      = "cluster-admin"
+  }
+
+  subject {
+    kind = "User"
+    name = data.google_client_openid_userinfo.provider_identity.email
+  }
+}
+
+
+```
+
+
+
+[https://cloud.google.com/iam/docs/policies](https://cloud.google.com/iam/docs/policies) 
+```
+Example: Policy with multiple role bindings
+
+Consider the following allow policy that contains more than one role binding. Each role binding grants a different role:
+
+{
+  "bindings": [
+    {
+      "members": [
+        "user:jie@example.com"
+      ],
+      "role": "roles/resourcemanager.organizationAdmin"
+    },
+    {
+      "members": [
+        "user:raha@example.com",
+        "user:jie@example.com"
+      ],
+      "role": "roles/resourcemanager.projectCreator"
+    }
+  ],
+  "etag": "BwUjMhCsNvY=",
+  "version": 1
+}
+
+```
+
+[https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account_iam](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account_iam) 
+
+```
+google_service_account_iam_policy
+
+data "google_iam_policy" "admin" {
+  binding {
+    role = "roles/iam.serviceAccountUser"
+
+    members = [
+      "user:jane@example.com",
+    ]
+  }
+}
+
+resource "google_service_account" "sa" {
+  account_id   = "my-service-account"
+  display_name = "A service account that only Jane can interact with"
+}
+
+resource "google_service_account_iam_policy" "admin-account-iam" {
+  service_account_id = google_service_account.sa.name
+  policy_data        = data.google_iam_policy.admin.policy_data
+}
+
+```
+
+
+[https://learn.hashicorp.com/tutorials/terraform/gke](https://learn.hashicorp.com/tutorials/terraform/gke)  
+
+[https://cloud.google.com/kubernetes-engine/docs/concepts/node-pools](https://cloud.google.com/kubernetes-engine/docs/concepts/node-pools)  
 
 
 
@@ -130,4 +555,24 @@ Restart Skaffold
 [Flexible, Easy Data Pipelines on Google Cloud with Cloud Composer Cloud Next '18](https://youtu.be/GeNFEtt-D4k)  
 [https://googlecloudcheatsheet.withgoogle.com/architecture](https://googlecloudcheatsheet.withgoogle.com/architecture)  
 [https://cloud.nih.gov/resources/guides/science-at-cloud-providers/science-on-gcp/GCPHealthcareSolutionsPlaybook.pdf](https://cloud.nih.gov/resources/guides/science-at-cloud-providers/science-on-gcp/GCPHealthcareSolutionsPlaybook.pdf)  
+[Creating Bucket on GCP | Cloud Storage | Google Cloud | MLAIT](https://youtu.be/sIni4YO6rnY)  
 
+
+
+
+
+[https://cloud.google.com/binary-authorization/docs/getting-started-cli](https://cloud.google.com/binary-authorization/docs/getting-started-cli)  
+[https://zero-to-jupyterhub.readthedocs.io/en/latest/kubernetes/google/step-zero-gcp.html](https://zero-to-jupyterhub.readthedocs.io/en/latest/kubernetes/google/step-zero-gcp.html)  
+[https://cloud.google.com/compute/vm-instance-pricing](https://cloud.google.com/compute/vm-instance-pricing)  
+[https://cloud.google.com/kubernetes-engine/pricing/](https://cloud.google.com/kubernetes-engine/pricing/)  
+[https://cloud.google.com/kubernetes-engine/docs/concepts/types-of-clusters#modes](https://cloud.google.com/kubernetes-engine/docs/concepts/types-of-clusters#modes)  
+[https://cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview](https://cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview)  
+[https://cloud.google.com/compute/vm-instance-pricing](https://cloud.google.com/compute/vm-instance-pricing)  
+[https://cloud.google.com/kubernetes-engine/docs/how-to/creating-an-autopilot-cluster](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-an-autopilot-cluster)  
+
+
+
+[https://cloud.google.com/compute/docs/regions-zones](https://cloud.google.com/compute/docs/regions-zones)  
+[https://blog.realkinetic.com/using-google-cloud-service-accounts-on-gke-e0ca4b81b9a2](https://blog.realkinetic.com/using-google-cloud-service-accounts-on-gke-e0ca4b81b9a2)  
+
+[https://pnatraj.medium.com/how-to-run-gcloud-command-line-using-a-service-account-f39043d515b9](https://pnatraj.medium.com/how-to-run-gcloud-command-line-using-a-service-account-f39043d515b9)  

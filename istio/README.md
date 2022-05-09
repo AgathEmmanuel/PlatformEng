@@ -268,4 +268,17 @@ Ingress controllers have the potential to enable many API gateway use cases. In 
 [https://banzaicloud.com/blog/backyards-api-gateway/](https://banzaicloud.com/blog/backyards-api-gateway/)  
 [https://www.nginx.com/blog/how-do-i-choose-api-gateway-vs-ingress-controller-vs-service-mesh/](https://www.nginx.com/blog/how-do-i-choose-api-gateway-vs-ingress-controller-vs-service-mesh/)  
 [https://www.nginx.com/blog/deploying-nginx-plus-as-an-api-gateway-part-1/](https://www.nginx.com/blog/deploying-nginx-plus-as-an-api-gateway-part-1/)  
+[https://github.com/istio/istio/tree/master/samples/bookinfo/networking](https://github.com/istio/istio/tree/master/samples/bookinfo/networking)  
+[https://istio.io/latest/docs/examples/bookinfo/](https://istio.io/latest/docs/examples/bookinfo/)  
+
+[https://www.mirantis.com/blog/your-app-deserves-more-than-kubernetes-ingress-kubernetes-ingress-vs-istio-gateway-webinar/](https://www.mirantis.com/blog/your-app-deserves-more-than-kubernetes-ingress-kubernetes-ingress-vs-istio-gateway-webinar/)  
+
+
+[https://www.istioworkshop.io/09-traffic-management/01-ingress-gateway/](https://www.istioworkshop.io/09-traffic-management/01-ingress-gateway/)  
+[https://www.istioworkshop.io/09-traffic-management/03-traffic-splitting/](https://www.istioworkshop.io/09-traffic-management/03-traffic-splitting/)  
+[https://www.istioworkshop.io/09-traffic-management/04-canary-deployment/](https://www.istioworkshop.io/09-traffic-management/04-canary-deployment/)  
+[https://www.istioworkshop.io/09-traffic-management/05-fault-injection/](https://www.istioworkshop.io/09-traffic-management/05-fault-injection/)  
+[https://www.istioworkshop.io/09-traffic-management/06-circuit-breaker/](https://www.istioworkshop.io/09-traffic-management/06-circuit-breaker/)  
+[https://www.istioworkshop.io/09-traffic-management/07-retry-strategy/](https://www.istioworkshop.io/09-traffic-management/07-retry-strategy/)  
+[https://www.istioworkshop.io/09-traffic-management/08-egress-gateway/](https://www.istioworkshop.io/09-traffic-management/08-egress-gateway/)  
 

@@ -2,6 +2,17 @@
 
 # Terraform
 
+
+
+[https://cloud.google.com/storage/docs/access-control/create-manage-lists#json-api](https://cloud.google.com/storage/docs/access-control/create-manage-lists#json-api)  
+
+
+
+[https://cloud.google.com/sdk/gcloud/reference/container](https://cloud.google.com/sdk/gcloud/reference/container)  
+[https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_iam](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/storage_bucket_iam)  
+
+
+
 ```
 1 	Understand infrastructure as code (IaC) concepts
 
@@ -314,22 +325,23 @@ resources and data sources
 ## Links
 
 
-- Hashicorp Certification [https://www.hashicorp.com/certification/terraform-associate](https://www.hashicorp.com/certification/terraform-associate)
-- Provision an EKS cluster(AWS)
+Hashicorp Certification [https://www.hashicorp.com/certification/terraform-associate](https://www.hashicorp.com/certification/terraform-associate)
+Provision an EKS cluster(AWS)
 [https://learn.hashicorp.com/tutorials/terraform/eks](https://learn.hashicorp.com/tutorials/terraform/eks) 
 
-- [https://medium.com/javarevisited/7-best-terraform-online-courses-for-devops-engineers-5e4dab297785](https://medium.com/javarevisited/7-best-terraform-online-courses-for-devops-engineers-5e4dab297785)
-- [https://www.udemy.com/course/terraform-beginner-to-advanced](https://www.udemy.com/course/terraform-beginner-to-advanced)
-- [https://www.pluralsight.com/courses/terraform-getting-started-2021](https://www.pluralsight.com/courses/terraform-getting-started-2021)
-- [https://www.udemy.com/course/learn-devops-infrastructure-automation-with-terraform](https://www.udemy.com/course/learn-devops-infrastructure-automation-with-terraform)
-- [https://app.pluralsight.com/library/courses/terraform-deep-dive](https://app.pluralsight.com/library/courses/terraform-deep-dive)
-- AWS localstack   
+[https://medium.com/javarevisited/7-best-terraform-online-courses-for-devops-engineers-5e4dab297785](https://medium.com/javarevisited/7-best-terraform-online-courses-for-devops-engineers-5e4dab297785)
+[https://www.udemy.com/course/terraform-beginner-to-advanced](https://www.udemy.com/course/terraform-beginner-to-advanced)
+[https://www.pluralsight.com/courses/terraform-getting-started-2021](https://www.pluralsight.com/courses/terraform-getting-started-2021)
+[https://www.udemy.com/course/learn-devops-infrastructure-automation-with-terraform](https://www.udemy.com/course/learn-devops-infrastructure-automation-with-terraform)
+[https://app.pluralsight.com/library/courses/terraform-deep-dive](https://app.pluralsight.com/library/courses/terraform-deep-dive)
+AWS localstack   
 Easy-to-use test/mocking framework for developing Cloud applications.  
 https://localstack.cloud/  
 https://github.com/localstack/localstack 
-- [https://www.fairwinds.com/blog/terraform-and-eks-a-step-by-step-guide-to-deploying-your-first-cluster](https://www.fairwinds.com/blog/terraform-and-eks-a-step-by-step-guide-to-deploying-your-first-cluster)  
-- [https://learn.hashicorp.com/terraform?utm_source=terraform_io_download](https://learn.hashicorp.com/terraform?utm_source=terraform_io_download)  
-- [https://learn.hashicorp.com/collections/terraform/cloud-get-started](https://learn.hashicorp.com/collections/terraform/cloud-get-started)  
-- [https://www.freecodecamp.org/news/how-to-deploy-aws-infrastructure-with-terraform-and-github-actions-a-practical-multi-environment-ci-cd-guide/](https://www.freecodecamp.org/news/how-to-deploy-aws-infrastructure-with-terraform-and-github-actions-a-practical-multi-environment-ci-cd-guide/)  
-- [https://towardsdatascience.com/deploy-cloud-functions-on-gcp-with-terraform-111a1c4a9a88](https://towardsdatascience.com/deploy-cloud-functions-on-gcp-with-terraform-111a1c4a9a88)  
+[https://www.fairwinds.com/blog/terraform-and-eks-a-step-by-step-guide-to-deploying-your-first-cluster](https://www.fairwinds.com/blog/terraform-and-eks-a-step-by-step-guide-to-deploying-your-first-cluster)  
+[https://learn.hashicorp.com/terraform?utm_source=terraform_io_download](https://learn.hashicorp.com/terraform?utm_source=terraform_io_download)  
+[https://learn.hashicorp.com/collections/terraform/cloud-get-started](https://learn.hashicorp.com/collections/terraform/cloud-get-started)  
+[https://www.freecodecamp.org/news/how-to-deploy-aws-infrastructure-with-terraform-and-github-actions-a-practical-multi-environment-ci-cd-guide/](https://www.freecodecamp.org/news/how-to-deploy-aws-infrastructure-with-terraform-and-github-actions-a-practical-multi-environment-ci-cd-guide/)  
+[https://towardsdatascience.com/deploy-cloud-functions-on-gcp-with-terraform-111a1c4a9a88](https://towardsdatascience.com/deploy-cloud-functions-on-gcp-with-terraform-111a1c4a9a88)  
+
 
