@@ -345,3 +345,9 @@ https://github.com/localstack/localstack
 [https://towardsdatascience.com/deploy-cloud-functions-on-gcp-with-terraform-111a1c4a9a88](https://towardsdatascience.com/deploy-cloud-functions-on-gcp-with-terraform-111a1c4a9a88)  
 
 
+[https://brad-simonin.medium.com/learning-how-to-execute-a-bash-script-from-terraform-for-aws-b7fe513b6406](https://brad-simonin.medium.com/learning-how-to-execute-a-bash-script-from-terraform-for-aws-b7fe513b6406)  
+
+[https://www.freecodecamp.org/news/terraform-syntax-for-beginners/](https://www.freecodecamp.org/news/terraform-syntax-for-beginners/)  
+
+
+[https://medium.com/google-cloud/deploy-a-go-api-to-google-kubernetes-engine-via-terraform-bb3eb7a479a4](https://medium.com/google-cloud/deploy-a-go-api-to-google-kubernetes-engine-via-terraform-bb3eb7a479a4)  

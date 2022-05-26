@@ -2,6 +2,7 @@
 # GCP  
 
 
+[https://cloud.google.com/compute/all-pricing#lb](https://cloud.google.com/compute/all-pricing#lb)  
 
 [https://cloud.google.com/compute/docs/general-purpose-machines](https://cloud.google.com/compute/docs/general-purpose-machines)  
 
@@ -576,3 +577,59 @@ resource "google_service_account_iam_policy" "admin-account-iam" {
 [https://blog.realkinetic.com/using-google-cloud-service-accounts-on-gke-e0ca4b81b9a2](https://blog.realkinetic.com/using-google-cloud-service-accounts-on-gke-e0ca4b81b9a2)  
 
 [https://pnatraj.medium.com/how-to-run-gcloud-command-line-using-a-service-account-f39043d515b9](https://pnatraj.medium.com/how-to-run-gcloud-command-line-using-a-service-account-f39043d515b9)  
+
+
+[https://cloud.google.com/kubernetes-engine/docs/deploy-app-cluster](https://cloud.google.com/kubernetes-engine/docs/deploy-app-cluster)  
+[https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/)  
+
+
+
+[https://cloud.google.com/architecture/exposing-service-mesh-apps-through-gke-ingress](https://cloud.google.com/architecture/exposing-service-mesh-apps-through-gke-ingress)  
+
+
+[https://github.com/AckeeCZ/terraform-gke-vpc/blob/master/main.tf](https://github.com/AckeeCZ/terraform-gke-vpc/blob/master/main.tf)  
+
+[https://istio.io/v0.7/docs/setup/kubernetes/quick-start-gke-dm.html](https://istio.io/v0.7/docs/setup/kubernetes/quick-start-gke-dm.html)  
+
+
+
+[https://programmaticponderings.com/2017/12/22/deploying-and-configuring-istio-on-google-kubernetes-engine-gke/](https://programmaticponderings.com/2017/12/22/deploying-and-configuring-istio-on-google-kubernetes-engine-gke/)  
+
+
+[https://istio.io/latest/docs/setup/platform-setup/gke/](https://istio.io/latest/docs/setup/platform-setup/gke/)  
+
+
+
+
+
+[https://cloud.google.com/service-mesh/docs/onlineboutique-install-kpt](https://cloud.google.com/service-mesh/docs/onlineboutique-install-kpt)  
+[https://cloud.google.com/service-mesh/docs/deploy-bookinfo](https://cloud.google.com/service-mesh/docs/deploy-bookinfo)  
+[https://cloud.google.com/service-mesh/docs/deploy-demo-telemetry-addons](https://cloud.google.com/service-mesh/docs/deploy-demo-telemetry-addons)  
+
+[https://cloud.google.com/community/tutorials/terraform-asm-in-cluster](https://cloud.google.com/community/tutorials/terraform-asm-in-cluster)  
+
+
+
+[https://cloud.google.com/istio/docs/istio-on-gke/adding-gateways](https://cloud.google.com/istio/docs/istio-on-gke/adding-gateways)  
+
+
+[https://cloud.google.com/blog/products/identity-security/enabling-keyless-authentication-from-github-actions](https://cloud.google.com/blog/products/identity-security/enabling-keyless-authentication-from-github-actions)  
+
+
+[https://gmusumeci.medium.com/how-to-create-a-service-account-for-terraform-in-gcp-google-cloud-platform-f75a0cf918d1](https://gmusumeci.medium.com/how-to-create-a-service-account-for-terraform-in-gcp-google-cloud-platform-f75a0cf918d1)  
+
+[https://cloud.google.com/blog/products/identity-security/how-to-authenticate-service-accounts-to-help-keep-applications-secure](https://cloud.google.com/blog/products/identity-security/how-to-authenticate-service-accounts-to-help-keep-applications-secure)  
+
+
+[https://cloud.google.com/deploy/docs/using-skaffold/managing-manifests](https://cloud.google.com/deploy/docs/using-skaffold/managing-manifests)  
+
+
+[https://stackoverflow.com/questions/52908401/pulling-images-from-gcr-into-gke](https://stackoverflow.com/questions/52908401/pulling-images-from-gcr-into-gke)  
+
+
+[https://blog.container-solutions.com/using-google-container-registry-with-kubernetes](https://blog.container-solutions.com/using-google-container-registry-with-kubernetes)  
+[https://stackoverflow.com/questions/68497046/error-pulling-docker-image-from-gcr-into-gke-failed-to-pull-image-403-forb](https://stackoverflow.com/questions/68497046/error-pulling-docker-image-from-gcr-into-gke-failed-to-pull-image-403-forb)  
+
+[https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster](https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster)  
+[https://ryaneschinger.com/blog/using-google-container-registry-gcr-with-minikube/](https://ryaneschinger.com/blog/using-google-container-registry-gcr-with-minikube/)  
+

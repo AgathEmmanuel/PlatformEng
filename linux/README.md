@@ -1,7 +1,7 @@
 # Linux
 
 
-
+nautilus --browser ~/some/directory  
 
 
 [https://www.serverlab.ca/scripting-programming/using-git-show-to-view-contents-of-files/](https://www.serverlab.ca/scripting-programming/using-git-show-to-view-contents-of-files/)  

@@ -201,3 +201,13 @@ OpenID Connect also defines mechanisms for discovery and session management beyo
 
 [GitHub Actions Bash Shell Commands](https://youtu.be/FsOtTYJ8KhQ)  
 
+
+[https://wso2.com/library/articles/api-management-in-istio-microservices-using-the-kubernetes-api-operator/](https://wso2.com/library/articles/api-management-in-istio-microservices-using-the-kubernetes-api-operator/)  
+
+[https://learnk8s.io/kubernetes-ingress-api-gateway](https://learnk8s.io/kubernetes-ingress-api-gateway)  
+
+
+[https://itnext.io/github-actions-ship-code-to-gcp-cloud-run-8d607f34e1cd](https://itnext.io/github-actions-ship-code-to-gcp-cloud-run-8d607f34e1cd)  
+[https://github.com/efiShtain/github-action-cloud-run/blob/master/.github/workflows/cloud-run.yml](https://github.com/efiShtain/github-action-cloud-run/blob/master/.github/workflows/cloud-run.yml)  
+
+[https://blog.dreamfactory.com/restful-api-and-microservices-the-differences-and-how-they-work-together/](https://blog.dreamfactory.com/restful-api-and-microservices-the-differences-and-how-they-work-together/)  

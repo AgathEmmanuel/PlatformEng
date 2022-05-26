@@ -322,6 +322,23 @@ https://minikube.sigs.k8s.io/docs/commands/docker-env/
 
 ```
 
+
+## Kubernetes Essentials - Application development  
+
+kubectl diff  
+kubectl debug  
+kubectl sniff  
+kubectl attach  
+kubectl run -it net-debug --image=nixery.dev/shell/curl/wget/htop /bin/bash  
+
+
+Helm  
+Kustomize  
+Advice  
+Skaffold  
+Telepresence  
+
+
 ## Links
 
 [https://www.cncf.io/certification/cka/](https://www.cncf.io/certification/cka/)  
@@ -456,3 +473,81 @@ https://minikube.sigs.k8s.io/docs/commands/docker-env/
 
 
 [https://medium.com/binbash-inc/when-and-why-use-multiple-k8s-namespaces-237b632bac5](https://medium.com/binbash-inc/when-and-why-use-multiple-k8s-namespaces-237b632bac5)  
+
+
+
+[https://cloud.redhat.com/blog/the-best-laptop-for-data-science-is-a-kubernetes-cluster](https://cloud.redhat.com/blog/the-best-laptop-for-data-science-is-a-kubernetes-cluster)  
+[https://cloud.redhat.com/blog/how-to-build-a-medical-ai/ml-application-on-kubernetes](https://cloud.redhat.com/blog/how-to-build-a-medical-ai/ml-application-on-kubernetes)  
+
+
+[https://docs.garden.io/guides/in-cluster-building](https://docs.garden.io/guides/in-cluster-building)  
+
+
+[https://stackoverflow.com/questions/65732647/how-to-backup-pvc-regularly](https://stackoverflow.com/questions/65732647/how-to-backup-pvc-regularly)  
+[https://kubernetes.io/docs/concepts/storage/persistent-volumes/](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)  
+[https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/](https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/)  
+[https://kubernetes.io/blog/2016/10/dynamic-provisioning-and-storage-in-kubernetes/](https://kubernetes.io/blog/2016/10/dynamic-provisioning-and-storage-in-kubernetes/)  
+[https://kubernetes.io/docs/concepts/storage/storage-classes/](https://kubernetes.io/docs/concepts/storage/storage-classes/)  
+[https://kubernetes.io/docs/concepts/storage/volumes/](https://kubernetes.io/docs/concepts/storage/volumes/)  
+[https://kubernetes.io/docs/concepts/storage/persistent-volumes/#volume-snapshot-and-restore-volume-from-snapshot-support](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#volume-snapshot-and-restore-volume-from-snapshot-support)  
+[https://kubernetes.io/docs/concepts/storage/volume-snapshots/](https://kubernetes.io/docs/concepts/storage/volume-snapshots/)  
+[https://kubernetes.io/docs/concepts/storage/volume-snapshot-classes/](https://kubernetes.io/docs/concepts/storage/volume-snapshot-classes/)  
+[https://kubernetes.io/docs/concepts/storage/volume-pvc-datasource/](https://kubernetes.io/docs/concepts/storage/volume-pvc-datasource/)  
+
+[ Kube 102  Getting started with Longhorn | Cloud Native Distributed Storage for Kubernetes](https://youtu.be/SDI9Tly5YDo)  
+
+
+[Disk Backup with Volume Snapshot in Kubernetes](https://youtu.be/bo21p0c7j9o)  
+[Using CSI snapshots to backup and restore your data in Kubernetes](https://youtu.be/wALuRLSELRQ)  
+[Backup and Restore Persistent Volumes with Google Cloud Storage](https://youtu.be/3doFk56drxw)  
+
+
+
+[https://cloud.redhat.com/blog/how-to-backup-clone-and-migrate-persistent-volume-claims-on-openshift](https://cloud.redhat.com/blog/how-to-backup-clone-and-migrate-persistent-volume-claims-on-openshift)  
+
+[https://content.cloud.redhat.com/blog/how-to-secure-cloud-native-applications-with-hashicorp-vault-and-cert-manager](https://content.cloud.redhat.com/blog/how-to-secure-cloud-native-applications-with-hashicorp-vault-and-cert-manager)  
+
+
+
+[https://www.ibm.com/garage/method/practices/manage/backup-cloudnative/](https://www.ibm.com/garage/method/practices/manage/backup-cloudnative/)  
+[https://www.ibm.com/cloud/learn/backup-and-restore](https://www.ibm.com/cloud/learn/backup-and-restore)  
+[https://cloudian.com/guides/data-backup/data-backup-in-depth/](https://cloudian.com/guides/data-backup/data-backup-in-depth/)  
+[https://blog.sepusa.com/snapshots-vs-backups](https://blog.sepusa.com/snapshots-vs-backups)  
+[https://parablu.com/demystifying-data-backups-types-of-backups/](https://parablu.com/demystifying-data-backups-types-of-backups/)  
+
+
+[https://devops.cisel.ch/backup-kubernetes-pv-with-velero-the-new-approach](https://devops.cisel.ch/backup-kubernetes-pv-with-velero-the-new-approach)  
+
+[How to backup and restore data in pvc through Velero #1862](https://github.com/vmware-tanzu/velero/issues/1862)  
+[https://blog.kubernauts.io/backup-and-restore-pvcs-using-velero-with-restic-and-openebs-from-baremetal-cluster-to-aws-d3ac54386109](https://blog.kubernauts.io/backup-and-restore-pvcs-using-velero-with-restic-and-openebs-from-baremetal-cluster-to-aws-d3ac54386109)  
+[https://blog.kubernauts.io/backup-and-restore-of-kubernetes-applications-using-heptios-velero-with-restic-and-rook-ceph-as-2e8df15b1487](https://blog.kubernauts.io/backup-and-restore-of-kubernetes-applications-using-heptios-velero-with-restic-and-rook-ceph-as-2e8df15b1487)  
+[https://medium.com/techlogs/using-velero-and-restic-to-backup-kubernetes-2f0f812da4db](https://medium.com/techlogs/using-velero-and-restic-to-backup-kubernetes-2f0f812da4db)  
+[https://www.humblec.com/ceph-csi-v3-0-0-released-snapshot-clone-multi-arch-rox/](https://www.humblec.com/ceph-csi-v3-0-0-released-snapshot-clone-multi-arch-rox/)  
+[https://restic.net/](https://restic.net/)  
+
+[https://www.veeam.com/blog/how-snapshots-backups-work-together.html](https://www.veeam.com/blog/how-snapshots-backups-work-together.html)  
+
+[https://cloud.redhat.com/blog/red-hat-releases-open-source-stackrox-to-the-community](https://cloud.redhat.com/blog/red-hat-releases-open-source-stackrox-to-the-community)  
+
+
+[https://kubernetes.io/docs/tutorials/stateful-application/mysql-wordpress-persistent-volume/](https://kubernetes.io/docs/tutorials/stateful-application/mysql-wordpress-persistent-volume/)  
+[https://portworx.com/blog/basic-guide-kubernetes-storage/](https://portworx.com/blog/basic-guide-kubernetes-storage/)  
+[https://datamattsson.tumblr.com/post/182297931146/highly-available-stateful-workloads-on-kubernetes](https://datamattsson.tumblr.com/post/182297931146/highly-available-stateful-workloads-on-kubernetes)  
+[https://www.ondat.io/blog/volume-replication-ha-k8s-openshift](https://www.ondat.io/blog/volume-replication-ha-k8s-openshift)  
+[https://kubernetes.io/docs/tasks/run-application/run-replicated-stateful-application/](https://kubernetes.io/docs/tasks/run-application/run-replicated-stateful-application/)  
+
+
+[https://github.com/csi-addons/volume-replication-operator](https://github.com/csi-addons/volume-replication-operator)  
+
+[https://community.hitachivantara.com/blogs/jose-perez/2022/02/22/persistent-volume-replication-data-services-for-ku](https://community.hitachivantara.com/blogs/jose-perez/2022/02/22/persistent-volume-replication-data-services-for-ku)  
+
+[https://stash.run/docs/v0.9.0-rc.4/guides/latest/workloads/statefulset/](https://stash.run/docs/v0.9.0-rc.4/guides/latest/workloads/statefulset/)  
+
+
+[https://www.velotio.com/engineering-blog/exploring-upgrade-strategies-for-stateful-sets-in-kubernetes](https://www.velotio.com/engineering-blog/exploring-upgrade-strategies-for-stateful-sets-in-kubernetes)  
+
+[https://kubernetes.io/docs/reference/using-api/api-concepts/](https://kubernetes.io/docs/reference/using-api/api-concepts/)  
+
+
+
+

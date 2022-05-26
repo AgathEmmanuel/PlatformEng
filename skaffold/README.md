@@ -33,3 +33,7 @@
 [https://medium.com/flant-com/skaffold-kubernetes-development-tool-2897d6903e02](https://medium.com/flant-com/skaffold-kubernetes-development-tool-2897d6903e02)  
 [https://www.katacoda.com/lizrice/courses/containers-and-go/skaffold](https://www.katacoda.com/lizrice/courses/containers-and-go/skaffold)  
 
+[https://lifesaver.codes/answer/skaffold-rebuilds-all-images-on-every-run-github-action-also-the-unaffected-ones-4842](https://lifesaver.codes/answer/skaffold-rebuilds-all-images-on-every-run-github-action-also-the-unaffected-ones-4842)  
+[https://skaffold.dev/docs/pipeline-stages/builders/](https://skaffold.dev/docs/pipeline-stages/builders/)  
+
+[https://codelabs.developers.google.com/skaffold-deep-dive#0](https://codelabs.developers.google.com/skaffold-deep-dive#0)  

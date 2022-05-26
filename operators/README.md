@@ -3,6 +3,17 @@
 
 
 
+
+```
+operator-sdk init --domain dev.testoperator --repo=github.com/AgathEmmanuel/test-operator
+
+
+
+operator-sdk create api --version=v1alpha1 --kind=Test --group=test
+
+```
+
+
     Custom Controllers: those are controllers that act upon the standard Kubernetes resources. They are used to enhance the platform and add new features.
     Operator: at their heart, they are custom controllers. However, instead of using the standard K8s resources, they act upon custom resource definitions (CRDs). Those are resources that were created specifically for the operator. Together, an operator and its CRD can handle complex business logic that a native or an extended controller cannot handle.
 
@@ -120,6 +131,243 @@ A larger challenge is managing stateful applications, like databases, caches, an
 
 
 
+
+Ten years ago, creating an automated management system for databases required a lot of effort, as it had to be built from scratch. This naturally caused the emergence of managed database-as-a-service (DBaaS) solutions. AWS was the first big company to create such a service with their DynamoDB launching in 2012. Following its success, other big players rushed to the new market as well. Using a generic DBaaS, however, has its problems (e.g. vendor lock-in, usage requirements for specific versions, minimal customization for specialized workloads, etc.).  
+
+Employing elements of control theory, Operators work as Kubernetes extensions/plugins and use custom resource definitions (CRDs) to define and control the state of your services. Building your database environment with declarative CRDs is fairly easy: What you type is literally what you get. The operator reads your CRDs of the desired state of the system and not only creates it for you but also monitors the environment using internal events and ensures that the system is always close to the desired state. No more complicated setup scripts — your whole database system is standardized, described in a declarative language (YAML) and is self-explanatory.  
+
+
+
+
+
+
+
+
+
+StatefulSets are great for certain use cases, but they don’t work that well for running complex software like databases because they focus on creating and managing pods, not on managing the software running on them. So if you wanted a four-node cluster and deployed Couchbase using StatefulSets, you would get four uninitialized Couchbase pods that don’t know about each other. It would then be up to you to join the nodes together into a cluster, and that means extra operational tasks.  
+
+
+
+By deploying Couchbase Autonomous Operator with a unique custom Couchbase controller, Kubernetes gets Couchbase-specific knowledge so that whenever a Couchbase pod is deployed, it can properly configure and join it with other Couchbase pods in the cluster.
+
+Cluster provisioning, node failure, ad-hoc scaling, and many other management tasks also require Couchbase-specific knowledge within Kubernetes in order to be properly automated. Therefore, a Kubernetes operator is the best way to make the database a prime choice for cloud-native development on Kubernetes. However, when trying to find out which database is truly cloud-native and best fits your organization’s goals, you should consider multiple factors.  
+
+
+
+
+## What is an Operator  
+- software that run within kubernetes  
+- interacts with the kubernetes API to create/manage objects  
+- works on the model of eventual consistency  
+
+Workflow  
+
+user -> creates an object (custom resource) -> k8s API 
+k8s API -> k8s notifies operator about object creation -> operator  
+operator -> runs a reconcile loop -> operator  
+operator -> creates new object in k8s -> k8s API  
+
+
+When to use an Operator  
+- Applications have a more complicated state model (over and beyond a health check)  
+- multiple copies of the application is to be deployed  
+- time available to continously upgrade the operator through k8s releases  
+
+
+How do Civo use Operators  
+- Manage the state of customer instanceses ( ip address, networking, virtual machines, cluster)  
+- Operation on Customer environments ( reboots, rebuilds )  
+
+Demo Goals  
+- scaffolding using kubebuilder  
+- creating a custom resource  
+- running operator in a cluster  
+- creating native resources related to Custom resource  
+
+
+
+
+Operator Capability Level  
+- basic install (automated application provisioning and configuration management)  
+- seamless upgrades (patch and minor version upgrades supported)   
+- full lifescycle (backup, failure, recovery)  
+- deep insights (metrics, alerts, processing, workload analysis)  
+- auto pilot ( horizontal/vertical scaling, auto config tuning, abnormal detection, scheduled tuning)  
+
+
+
+[https://book.kubebuilder.io/](https://book.kubebuilder.io/)  
+```
+to develop their own Kubernetes APIs and the principles from which the core Kubernetes APIs are designed.
+
+Including:
+
+    The structure of Kubernetes APIs and Resources
+    API versioning semantics
+    Self-healing
+    Garbage Collection and Finalizers
+    Declarative vs Imperative APIs
+    Level-Based vs Edge-Base APIs
+    Resources vs Subresources
+
+
+Kubernetes API extension developers
+
+API extension developers will learn the principles and concepts behind implementing canonical Kubernetes APIs, as well as simple tools and libraries for rapid execution. This book covers pitfalls and misconceptions that extension developers commonly encounter.
+
+Including:
+
+    How to batch multiple events into a single reconciliation call
+    How to configure periodic reconciliation
+    Forthcoming
+        When to use the lister cache vs live lookups
+        Garbage Collection vs Finalizers
+        How to use Declarative vs Webhook Validation
+        How to implement API versioning
+
+
+https://go.dev/blog/using-go-modules
+
+
+go mod init example.com/hello
+
+go test  
+
+go list -m all
+
+go get rsc.io/quote
+
+go mod tidy
+
+
+```
+
+
+
+
+## Extending Kubernetes with Operator Pattern  
+
+Automate Repeatable Operations in kubernetes  
+Kubernetes Operator Pattern  
+Kubernetes Control loop  
+Custom Resource Definitions  
+Declarative API vs Imperative API  
+
+Operations  
+- Humana tasks that are repeatable  
+- Management of deployments  
+- Configuring  
+- Scaling  
+- Upgrading  
+- Backups and Restore  
+- Controlling flow  
+- Extending functionality  
+- Remediations  
+- Changing  
+- Deployments  
+- Bring services to applications  
+- Chaos  
+
+
+
+
+software extensions of kubernetes  
+make use of custom resources  
+used to manage applications and components  
+relies on k8s principles, especially control loop  
+
+.
+
+Control Loop  
+- infinite loop  
+- regulates the system  
+- maintain desired state  
+- respond to current state to converge  
+
+Controllers  
+- responsible for maintaining the control loop  
+- track atleast one resource type  
+- spec field of resource definition defines desired state  
+- can act on own or leverage kubernetes api  
+
+
+Custom Resource Definitions  
+- Resources are endpoints in kubernetes API  
+- Resources Contain a collection of object  
+- custom resources can exist without controllers to store data  
+
+
+Operator usually includes both custom resources and controllers to act upon them.  
+
+
+Declarative API  
+- API consist of relatively small no of relatively samll objects  
+- objects define configuration of applications or infrastructure  
+- objects are updated relatively frequently  
+- humans often need to read and write the objects  
+- main operations on the objects are CRUD-y  
+- API represents a desired state not an exact state  
+
+
+Kubebuilder  
+
+groups: logical grouping, related functionality, versioned functionality  
+
+kinds: API types within a group, must remain passvie but can change  
+resource: is a use of a kind  
+kind can be returned by many resources  
+a kind may be subkinds of others  
+refer kubebuilder api documentations  
+
+
+
+Example Project: an Operater that provisions S3 bucket for our application on deployment  
+- Every application in a namespace require an S3  
+- Our operator is going to be an API gateway for S3  
+- an api gateway gateway for the creation and management of the bucket not the objects in them  
+
+
+
+
+
+Operator Similarities  
+
+step 1: Implement the operator  
+step 2: Dockerize your operator  
+step 3: Create CRD ( Custom Resource Definition )  
+step 4: Create RBAC ( Role and Role Binding )  
+step 5: Deploy the operator  
+step 6: Create you custom resource  
+
+
+Helm: Generate Operator  
+
+operator-sdk init --plugins=helm  
+operator-sdk create api --group=<group-name> --version=v1 --helm-chart=./chart  
+
+Common Operator Steps: build, install, and use  
+
+docker build -t <user>/<operator-name> .  
+docker push <user>/<operator-name>  
+make install  
+make deploy IMG=<user>/<operator-name>  
+kubectl apply -f config/samples/operator-name_v1_operator-name.yml  
+
+
+[https://github.com/leszko/build-your-operator/tree/main/operator-sdk-go](https://github.com/leszko/build-your-operator/tree/main/operator-sdk-go)  
+
+
+
+
+
+
+
+Conclusion  
+
+Both kubebuilder and operator-sdk are good tools to start writing k8s controllers, they are well documented, having good communities and provide helper commands to start a new project or adding new controller. The operator-sdk has better integration with helm, and having better integration with the operator-framework ecosystem, while the kuebuilder integrates with existing kubernetes-sigs projects naturally. This post goes through background , installing and development process for both tools, and I think the kuebuilder could provides better management over codes, so I would suggest to use kuebuilder to start a new projects.  
+
+
+
 # Links  
 [https://kubernetes.io/docs/concepts/extend-kubernetes/operator/](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/)  
 [https://www.magalix.com/blog/extending-the-kubernetes-controller](https://www.magalix.com/blog/extending-the-kubernetes-controller)  
@@ -151,6 +399,9 @@ A larger challenge is managing stateful applications, like databases, caches, an
 [https://www.linkedin.com/pulse/simplifying-mongodb-kubernetes-operator-rafael-turino](https://www.linkedin.com/pulse/simplifying-mongodb-kubernetes-operator-rafael-turino)  
 [https://www.velotio.com/engineering-blog/getting-started-with-kubernetes-operators-golang-based-part-3](https://www.velotio.com/engineering-blog/getting-started-with-kubernetes-operators-golang-based-part-3)  
 [https://www.velotio.com/engineering-blog/getting-started-with-kubernetes-operators-helm-based-part-1](https://www.velotio.com/engineering-blog/getting-started-with-kubernetes-operators-helm-based-part-1)  
+[https://www.velotio.com/engineering-blog/exploring-upgrade-strategies-for-stateful-sets-in-kubernetes](https://www.velotio.com/engineering-blog/exploring-upgrade-strategies-for-stateful-sets-in-kubernetes)  
+[https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/#updating-statefulsets](https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/#updating-statefulsets)  
+
 [https://www.giantswarm.io/blog/vertical-autoscaling-in-kubernetes](https://www.giantswarm.io/blog/vertical-autoscaling-in-kubernetes)  
 [https://cloud.google.com/kubernetes-engine/docs/concepts/verticalpodautoscaler](https://cloud.google.com/kubernetes-engine/docs/concepts/verticalpodautoscaler)  
 [https://spot.io/resources/kubernetes-autoscaling-3-methods-and-how-to-make-them-great/](https://spot.io/resources/kubernetes-autoscaling-3-methods-and-how-to-make-them-great/)  
@@ -196,3 +447,146 @@ A larger challenge is managing stateful applications, like databases, caches, an
 [https://book.kubebuilder.io/reference/controller-gen.html](https://book.kubebuilder.io/reference/controller-gen.html)  
 [https://medium.com/ibm-data-ai/when-and-why-create-a-kubernetes-operator-7a87f912a5bc](https://medium.com/ibm-data-ai/when-and-why-create-a-kubernetes-operator-7a87f912a5bc)  
 
+
+
+[https://developers.redhat.com/articles/2021/09/07/build-kubernetes-operator-six-steps#](https://developers.redhat.com/articles/2021/09/07/build-kubernetes-operator-six-steps#)  
+[https://developers.redhat.com/blog/2020/08/21/hello-world-tutorial-with-kubernetes-operators#test_the_service](https://developers.redhat.com/blog/2020/08/21/hello-world-tutorial-with-kubernetes-operators#test_the_service)  
+[https://developers.redhat.com/articles/2021/06/11/kubernetes-operators-101-part-1-overview-and-key-features#](https://developers.redhat.com/articles/2021/06/11/kubernetes-operators-101-part-1-overview-and-key-features#)  
+
+
+[https://book-v1.book.kubebuilder.io/getting_started/installation_and_setup.html#](https://book-v1.book.kubebuilder.io/getting_started/installation_and_setup.html#)  
+
+
+[Get on board with Kubernetes Operators!](https://youtu.be/JNDjE9-2Bg4)  
+[Kubernetes operator GAME?! - yes, I made three silly operators including a game!](https://youtu.be/WIfk7jiMFMI)  
+[Writing your own Operator from scratch  Part 1 ](https://youtu.be/08O9eLJGQRM)  
+[Kubernetes CRDs (Custom Resource Definitions) and CRs (Custom Resources) explained, with examples](https://youtu.be/notRETiHQew)  
+[Writing Custom K8S Controller](https://youtube.com/playlist?list=PLh4KH3LtJvRQ43JAwwjvTnsVOMp0WKnJO)  
+[client-go Kubernetes](https://youtube.com/playlist?list=PLh4KH3LtJvRTb_J-8T--wZeOBV3l3uQhc)  
+[Generating ClientSet/Informers/Lister and CRD for Custom Resources | Writing K8S Operator - Part 1](https://youtu.be/89PdRvRUcPU)  
+
+[https://book.kubebuilder.io/cronjob-tutorial/controller-implementation.html](https://book.kubebuilder.io/cronjob-tutorial/controller-implementation.html)  
+[https://book.kubebuilder.io/architecture.html](https://book.kubebuilder.io/architecture.html)  
+
+[https://go.dev/blog/using-go-modules](https://go.dev/blog/using-go-modules)  
+
+
+
+
+
+[https://access.redhat.com/documentation/en-us/openshift_container_platform/4.7/html-single/operators/index#osdk-golang-tutorial](https://access.redhat.com/documentation/en-us/openshift_container_platform/4.7/html-single/operators/index#osdk-golang-tutorial)  
+
+[https://tiewei.github.io/posts/kubebuilder-vs-operator-sdk](https://tiewei.github.io/posts/kubebuilder-vs-operator-sdk)  
+[https://www.nearform.com/blog/an-easy-approach-to-building-kubernetes-operators/](https://www.nearform.com/blog/an-easy-approach-to-building-kubernetes-operators/)  
+[https://github.com/operator-framework/operator-sdk/issues/1758](https://github.com/operator-framework/operator-sdk/issues/1758)  
+
+
+
+[https://sdk.operatorframework.io/docs/building-operators/golang/advanced-topics/](https://sdk.operatorframework.io/docs/building-operators/golang/advanced-topics/)  
+
+
+[https://banzaicloud.com/blog/operator-sdk/](https://banzaicloud.com/blog/operator-sdk/)  
+
+
+
+[https://www.ibm.com/cloud/blog/resource-group-support-in-ibm-cloud-kubernetes-service](https://www.ibm.com/cloud/blog/resource-group-support-in-ibm-cloud-kubernetes-service)  
+
+
+[https://medium.com/velotio-perspectives/extending-kubernetes-apis-with-custom-resource-definitions-crds-139c99ed3477](https://medium.com/velotio-perspectives/extending-kubernetes-apis-with-custom-resource-definitions-crds-139c99ed3477)  
+
+
+
+[https://v1-20-x.sdk.operatorframework.io/build/](https://v1-20-x.sdk.operatorframework.io/build/)  
+[https://v1-20-x.sdk.operatorframework.io/docs/building-operators/golang/quickstart/](https://v1-20-x.sdk.operatorframework.io/docs/building-operators/golang/quickstart/)  
+[https://v1-20-x.sdk.operatorframework.io/docs/building-operators/golang/tutorial/](https://v1-20-x.sdk.operatorframework.io/docs/building-operators/golang/tutorial/)  
+
+[https://v1-20-x.sdk.operatorframework.io/docs/building-operators/helm/quickstart/](https://v1-20-x.sdk.operatorframework.io/docs/building-operators/helm/quickstart/)  
+[https://v1-20-x.sdk.operatorframework.io/docs/building-operators/helm/tutorial/](https://v1-20-x.sdk.operatorframework.io/docs/building-operators/helm/tutorial/)  
+[https://v1-20-x.sdk.operatorframework.io/docs/olm-integration/tutorial-bundle/#enabling-olm](https://v1-20-x.sdk.operatorframework.io/docs/olm-integration/tutorial-bundle/#enabling-olm)  
+[https://olm.operatorframework.io/](https://olm.operatorframework.io/)  
+
+
+[https://medium.com/ibm-data-ai/when-and-why-create-a-kubernetes-operator-7a87f912a5bc](https://medium.com/ibm-data-ai/when-and-why-create-a-kubernetes-operator-7a87f912a5bc)  
+
+
+[Demo: Creating Golang-based Operators using Operator SDK 1.2.0](https://youtu.be/9QR3sRp-6Xk)  
+[Cross region replication in Percona Kubernetes Operators // DoK Talks #107](https://youtu.be/3aMTd2zEuao)  
+[Julian Fischer @ DoK Day Talk - Principles For Building Operators PART 1](https://youtu.be/RnzDCzr-_sc)  
+[A chat around kubernetes operators - #6 Dok community](https://youtu.be/j60Ge1RijMA)  
+[What is an operator? Karuna Tata in DoK Students Day 2021](https://youtu.be/YERy7Uqt_J4)  
+[Kanister: Application Level Data Operations on Kubernetes - Pavan Navarathna](https://youtu.be/ooJFt0bid1I)  
+[Databases Operations and the Cloud - DoK Talks #129](https://youtu.be/75AnPvwGWs4)  
+[Hyperledger Fabric on Kubernetes using HLF Operator](https://youtu.be/ygQmjpqKkTo)  
+[OCB: Operator-SDK Update/Road Map - Varsha Prasad Narsing, Rashmi Gottipati, Joe Lanford (Red Hat)](https://youtu.be/4y6RoCCLSDw)  
+
+
+
+
+[https://faun.pub/writing-kubernetes-operator-using-operator-sdk-c2e7f845163a](https://faun.pub/writing-kubernetes-operator-using-operator-sdk-c2e7f845163a)  
+[https://github.com/operator-framework/awesome-operators](https://github.com/operator-framework/awesome-operators)  
+[https://github.com/shubhomoy/loggingoperator](https://github.com/shubhomoy/loggingoperator)  
+[https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/)  
+
+[https://github.com/instaclustr/cassandra-operator](https://github.com/instaclustr/cassandra-operator)  
+[https://github.com/GoogleCloudPlatform/spark-on-k8s-operator](https://github.com/GoogleCloudPlatform/spark-on-k8s-operator)  
+
+[https://docs.okd.io/3.11/admin_guide/custom_resource_definitions.html](https://docs.okd.io/3.11/admin_guide/custom_resource_definitions.html)  
+
+
+
+
+
+[https://developer.ibm.com/articles/introduction-to-kubernetes-operators/](https://developer.ibm.com/articles/introduction-to-kubernetes-operators/)  
+[https://operatorframework.io/operator-capabilities/](https://operatorframework.io/operator-capabilities/)  
+[https://olm.operatorframework.io/](https://olm.operatorframework.io/)  
+[https://cloud.redhat.com/blog/build-your-kubernetes-operator-with-the-right-tool](https://cloud.redhat.com/blog/build-your-kubernetes-operator-with-the-right-tool)  
+[https://developer.ibm.com/learningpaths/kubernetes-operators/operators-extend-kubernetes/](https://developer.ibm.com/learningpaths/kubernetes-operators/operators-extend-kubernetes/)  
+[https://kubernetes.io/docs/concepts/architecture/controller/](https://kubernetes.io/docs/concepts/architecture/controller/)  
+[https://developer.ibm.com/learningpaths/kubernetes-operators/develop-deploy-simple-operator/installation/](https://developer.ibm.com/learningpaths/kubernetes-operators/develop-deploy-simple-operator/installation/)  
+[https://developer.ibm.com/learningpaths/kubernetes-operators/](https://developer.ibm.com/learningpaths/kubernetes-operators/)  
+[https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/19.0.x?topic=installing-containers-kubernetes-operators](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/19.0.x?topic=installing-containers-kubernetes-operators)  
+[https://www.ibm.com/docs/en/eam/4.1?topic=clusters-developing-kubernetes-operator](https://www.ibm.com/docs/en/eam/4.1?topic=clusters-developing-kubernetes-operator)  
+[https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/](https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/)  
+[https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/operator-introduction/](https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/operator-introduction/)  
+[https://developer.ibm.com/conferences/oscc_become_a_kubernetes_contributor/kubernetes_operators_and_operatorsdk/](https://developer.ibm.com/conferences/oscc_become_a_kubernetes_contributor/kubernetes_operators_and_operatorsdk/)  
+
+[https://developer.ibm.com/learningpaths/kubernetes-operators/develop-deploy-advanced-operator-janusgraph/how-to-make-an-operator/](https://developer.ibm.com/learningpaths/kubernetes-operators/develop-deploy-advanced-operator-janusgraph/how-to-make-an-operator/)  
+[https://github.com/IBM/create-and-deploy-memcached-operator-using-go/blob/main/artifacts/memcached_controller.go](https://github.com/IBM/create-and-deploy-memcached-operator-using-go/blob/main/artifacts/memcached_controller.go)  
+[https://developer.ibm.com/learningpaths/kubernetes-operators/develop-deploy-simple-operator/deep-dive-memcached-operator-code/](https://developer.ibm.com/learningpaths/kubernetes-operators/develop-deploy-simple-operator/deep-dive-memcached-operator-code/)  
+[https://developer.ibm.com/learningpaths/kubernetes-operators/develop-deploy-advanced-operator-janusgraph/how-to-make-an-operator/](https://developer.ibm.com/learningpaths/kubernetes-operators/develop-deploy-advanced-operator-janusgraph/how-to-make-an-operator/)  
+[https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/operator-introduction/](https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/operator-introduction/)  
+[https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/operator-example/](https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/operator-example/)  
+[https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/custom-controller-code/](https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/custom-controller-code/)  
+[https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/why-operator-tutorial/](https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/why-operator-tutorial/)  
+
+
+
+
+[An Introduction to Kubernetes Operators](https://youtu.be/5TPVHndMX8w)  
+
+
+[https://developer.redis.com/create/kubernetes/kubernetes-operator/](https://developer.redis.com/create/kubernetes/kubernetes-operator/)  
+
+[Writing a Kubernetes Operator from Scratch Using Kubebuilder - Dinesh Majrekar](https://youtu.be/LLVoyXjYlYM)   
+
+
+
+
+[https://atlassian.github.io/data-center-helm-charts/userguide/PREREQUISITES/](https://atlassian.github.io/data-center-helm-charts/userguide/PREREQUISITES/)  
+[https://github.com/atlassian/data-center-helm-charts/](https://github.com/atlassian/data-center-helm-charts/)  
+
+
+
+[https://blog.couchbase.com/couchbase-autonomous-operator-for-kubernetes-vs-mongodb-enterprise-kubernetes-operator/](https://blog.couchbase.com/couchbase-autonomous-operator-for-kubernetes-vs-mongodb-enterprise-kubernetes-operator/)  
+[https://www.couchbase.com/products/cloud/kubernetes?ref=blog](https://www.couchbase.com/products/cloud/kubernetes?ref=blog)  
+
+
+[Build Your Kubernetes Operator with the Right Tool! // DoK Talks #90](https://youtu.be/2b_W_gb6O30)  
+[https://github.com/leszko/build-your-operator](https://github.com/leszko/build-your-operator)  
+
+
+
+[https://book.kubebuilder.io/](https://book.kubebuilder.io/)  
+[https://book.kubebuilder.io/reference/markers.html](https://book.kubebuilder.io/reference/markers.html)  
+[https://book.kubebuilder.io/architecture.html](https://book.kubebuilder.io/architecture.html)  
+[https://book.kubebuilder.io/cronjob-tutorial/cronjob-tutorial.html](https://book.kubebuilder.io/cronjob-tutorial/cronjob-tutorial.html)  
