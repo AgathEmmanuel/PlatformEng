@@ -307,3 +307,7 @@ Ingress controllers have the potential to enable many API gateway use cases. In 
 [https://medium.com/intelligentmachines/istio-jwt-step-by-step-guide-for-micro-services-authentication-690b170348fc](https://medium.com/intelligentmachines/istio-jwt-step-by-step-guide-for-micro-services-authentication-690b170348fc)  
 [https://istio.io/latest/docs/tasks/security/authentication/authn-policy/#end-user-authentication](https://istio.io/latest/docs/tasks/security/authentication/authn-policy/#end-user-authentication)  
 [https://github.com/istio/istio/issues/15570](https://github.com/istio/istio/issues/15570)  
+
+[https://developer.ibm.com/articles/using-istio-for-advanced-microservices-deployments/](https://developer.ibm.com/articles/using-istio-for-advanced-microservices-deployments/)  
+[https://istio.io/latest/docs/tasks/traffic-management/ingress/secure-ingress/](https://istio.io/latest/docs/tasks/traffic-management/ingress/secure-ingress/)  
+

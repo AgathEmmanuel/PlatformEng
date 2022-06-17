@@ -551,3 +551,22 @@ Telepresence
 
 
 
+[https://cloud.netapp.com/blog/cvo-blg-kubernetes-deployment-vs-statefulset-which-is-right-for-you](https://cloud.netapp.com/blog/cvo-blg-kubernetes-deployment-vs-statefulset-which-is-right-for-you)  
+[https://cloud.netapp.com/blog/cvo-blg-kubernetes-statefulset-a-practical-guide](https://cloud.netapp.com/blog/cvo-blg-kubernetes-statefulset-a-practical-guide)  
+[https://cloud.google.com/kubernetes-engine/docs/how-to/stateful-apps](https://cloud.google.com/kubernetes-engine/docs/how-to/stateful-apps)  
+[https://platform9.com/blog/stateful-applications-with-kubernetes/](https://platform9.com/blog/stateful-applications-with-kubernetes/)  
+[https://collabnix.github.io/kubelabs/StatefulSets101/](https://collabnix.github.io/kubelabs/StatefulSets101/)  
+[https://docs.portworx.com/portworx-install-with-kubernetes/storage-operations/kubernetes-storage-101/applications/](https://docs.portworx.com/portworx-install-with-kubernetes/storage-operations/kubernetes-storage-101/applications/)  
+[https://www.infoq.com/articles/kubernetes-stateful-applications/](https://www.infoq.com/articles/kubernetes-stateful-applications/)  
+[https://www.cockroachlabs.com/product/kubernetes/](https://www.cockroachlabs.com/product/kubernetes/)  
+[https://github.com/cockroachdb/cockroach-operator](https://github.com/cockroachdb/cockroach-operator)  
+[https://www.ibm.com/docs/ja/cics-tx/10.1.0?topic=SSNAQ8_10.1.0/com.ibm.cics.tx.doc/tasks/t_stateful_set_deployment.html](https://www.ibm.com/docs/ja/cics-tx/10.1.0?topic=SSNAQ8_10.1.0/com.ibm.cics.tx.doc/tasks/t_stateful_set_deployment.html)  
+
+
+[https://play.instruqt.com/embed/portworx/tracks/px-cassandra-2-6?token=em_jXUaiIqY-ytFcXEx](https://play.instruqt.com/embed/portworx/tracks/px-cassandra-2-6?token=em_jXUaiIqY-ytFcXEx)  
+[https://play.instruqt.com/embed/portworx/tracks/px-cassandra-2-6?token=em_jXUaiIqY-ytFcXEx](https://play.instruqt.com/embed/portworx/tracks/px-cassandra-2-6?token=em_jXUaiIqY-ytFcXEx)  
+[https://play.instruqt.com/embed/portworx/tracks/px-kafka?token=em_ZDwFV1S7m6sQCZ5o](https://play.instruqt.com/embed/portworx/tracks/px-kafka?token=em_ZDwFV1S7m6sQCZ5o)  
+[https://play.instruqt.com/embed/portworx/tracks/px-helm-mongo?token=em_mQ7CBQc0ZgRZ0wNE](https://play.instruqt.com/embed/portworx/tracks/px-helm-mongo?token=em_mQ7CBQc0ZgRZ0wNE)  
+
+[https://cloud.google.com/kubernetes-engine/docs/how-to/managed-certs](https://cloud.google.com/kubernetes-engine/docs/how-to/managed-certs)  
+[https://cloud.google.com/kubernetes-engine/docs/concepts/secret](https://cloud.google.com/kubernetes-engine/docs/concepts/secret)  

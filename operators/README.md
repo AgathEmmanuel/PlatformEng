@@ -558,6 +558,26 @@ Both kubebuilder and operator-sdk are good tools to start writing k8s controller
 [https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/operator-example/](https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/operator-example/)  
 [https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/custom-controller-code/](https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/custom-controller-code/)  
 [https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/why-operator-tutorial/](https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/why-operator-tutorial/)  
+[https://blog.harbur.io/kubernetes-crd-and-controllers-to-manage-google-cloud-sql-dbs-91b7c1250a64](https://blog.harbur.io/kubernetes-crd-and-controllers-to-manage-google-cloud-sql-dbs-91b7c1250a64)  
+[https://blog.harbur.io/leverage-k8s-crd-and-kubebuilder-to-create-a-telegram-message-resource-8ce8ac329d89](https://blog.harbur.io/leverage-k8s-crd-and-kubebuilder-to-create-a-telegram-message-resource-8ce8ac329d89)  
+[https://www.aquasec.com/aqua-cloud-native-security-platform/](https://www.aquasec.com/aqua-cloud-native-security-platform/)  
+[https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)  
+[https://kubernetes.io/docs/tasks/extend-kubernetes/configure-aggregation-layer/](https://kubernetes.io/docs/tasks/extend-kubernetes/configure-aggregation-layer/)  
+
+[https://itnext.io/under-the-hood-of-kubebuilder-framework-ff6b38c10796?gi=aef1a4787d16](https://itnext.io/under-the-hood-of-kubebuilder-framework-ff6b38c10796?gi=aef1a4787d16)  
+[https://itnext.io/under-the-hood-of-the-operator-sdk-eebc8fdeebbf](https://itnext.io/under-the-hood-of-the-operator-sdk-eebc8fdeebbf)  
+
+[https://didil.medium.com/autobucket-operator-7e77eca95fcc](https://didil.medium.com/autobucket-operator-7e77eca95fcc)  
+[https://github.com/didil/autobucket-operator/blob/master/controllers/bucket_controller.go](https://github.com/didil/autobucket-operator/blob/master/controllers/bucket_controller.go)  
+
+
+
+[https://www.infracloud.io/blogs/prometheus-operator-helm-guide/](https://www.infracloud.io/blogs/prometheus-operator-helm-guide/)  
+[Setup Prometheus Monitoring on Kubernetes using Helm and Prometheus Operator | Part 1](https://youtu.be/QoDqxm7ybLc)  
+[Introduction to the Prometheus Operator on Kubernetes](https://youtu.be/LQpmeb7idt8)  
+[https://github.com/marcel-dempers/docker-development-youtube-series](https://github.com/marcel-dempers/docker-development-youtube-series)  
+[How Prometheus Monitoring works | Prometheus Architecture explained](https://youtu.be/h4Sl21AKiDg)  
+
 
 
 
@@ -590,3 +610,8 @@ Both kubebuilder and operator-sdk are good tools to start writing k8s controller
 [https://book.kubebuilder.io/reference/markers.html](https://book.kubebuilder.io/reference/markers.html)  
 [https://book.kubebuilder.io/architecture.html](https://book.kubebuilder.io/architecture.html)  
 [https://book.kubebuilder.io/cronjob-tutorial/cronjob-tutorial.html](https://book.kubebuilder.io/cronjob-tutorial/cronjob-tutorial.html)  
+
+
+
+[https://vmblog.com/archive/2019/11/04/operators-a-journey-from-helm-to-golang-to-deliver-on-cloud-native-applications-day-2-operations.aspx#.YpBcjTlBxH4](https://vmblog.com/archive/2019/11/04/operators-a-journey-from-helm-to-golang-to-deliver-on-cloud-native-applications-day-2-operations.aspx#.YpBcjTlBxH4)  
+
