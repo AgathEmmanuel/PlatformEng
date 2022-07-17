@@ -369,3 +369,9 @@ The threading module uses threads, the multiprocessing module uses processes. Th
 [https://python.plainenglish.io/trie-data-structure-and-the-implementation-of-its-methods-with-type-annotations-in-python-1737ba25adc4](https://python.plainenglish.io/trie-data-structure-and-the-implementation-of-its-methods-with-type-annotations-in-python-1737ba25adc4)  
 [https://www.freecodecamp.org/news/trie-data-structure-implementation/](https://www.freecodecamp.org/news/trie-data-structure-implementation/)  
 [https://www.geeksforgeeks.org/python-collections-module/](https://www.geeksforgeeks.org/python-collections-module/)  
+
+
+
+
+
+[https://blog.stackpath.com/microservice-video-streaming/](https://blog.stackpath.com/microservice-video-streaming/)  

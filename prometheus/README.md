@@ -112,4 +112,11 @@ We've been asked to write a web-service to provide SHA-256 hashes on demand, we 
 [https://github.com/alexellis/hash-browns](https://github.com/alexellis/hash-browns)  
 [https://levelup.gitconnected.com/building-a-prometheus-exporter-8a4bbc3825f5](https://levelup.gitconnected.com/building-a-prometheus-exporter-8a4bbc3825f5)  
 [https://medium.com/swlh/application-monitoring-with-prometheus-and-grafana-part-3-1c4ad5e1b042](https://medium.com/swlh/application-monitoring-with-prometheus-and-grafana-part-3-1c4ad5e1b042)  
+[https://www.cloudbees.com/blog/monitoring-your-synchronous-python-web-applications-using-prometheus](https://www.cloudbees.com/blog/monitoring-your-synchronous-python-web-applications-using-prometheus)  
+[https://www.gspann.com/resources/blogs/developing-custom-exporter-for-prometheus-using-python/](https://www.gspann.com/resources/blogs/developing-custom-exporter-for-prometheus-using-python/)  
+[https://www.cloudbees.com/blog/monitoring-your-asynchronous-python-web-applications-using-prometheus](https://www.cloudbees.com/blog/monitoring-your-asynchronous-python-web-applications-using-prometheus)  
+[https://dev.to/camptocamp-ops/implement-prometheus-metrics-in-a-flask-application-p18](https://dev.to/camptocamp-ops/implement-prometheus-metrics-in-a-flask-application-p18)  
+[https://zhimin-wen.medium.com/custom-prometheus-metrics-for-apps-running-in-kubernetes-498d69ada7aa](https://zhimin-wen.medium.com/custom-prometheus-metrics-for-apps-running-in-kubernetes-498d69ada7aa)  
+[https://chronosphere.io/learn/an-introduction-to-the-four-primary-types-of-prometheus-metrics/](https://chronosphere.io/learn/an-introduction-to-the-four-primary-types-of-prometheus-metrics/)  
+[https://stackabuse.com/nodejs-application-monitoring-with-prometheus-and-grafana/](https://stackabuse.com/nodejs-application-monitoring-with-prometheus-and-grafana/)  
 

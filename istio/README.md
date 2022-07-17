@@ -310,4 +310,4 @@ Ingress controllers have the potential to enable many API gateway use cases. In 
 
 [https://developer.ibm.com/articles/using-istio-for-advanced-microservices-deployments/](https://developer.ibm.com/articles/using-istio-for-advanced-microservices-deployments/)  
 [https://istio.io/latest/docs/tasks/traffic-management/ingress/secure-ingress/](https://istio.io/latest/docs/tasks/traffic-management/ingress/secure-ingress/)  
-
+[https://medium.com/intelligentmachines/istio-part-2-traffic-management-consistent-hashing-canary-dark-releases-38ee0334321a](https://medium.com/intelligentmachines/istio-part-2-traffic-management-consistent-hashing-canary-dark-releases-38ee0334321a)  

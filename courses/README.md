@@ -5,20 +5,22 @@
 
 
 [https://www.geeksforgeeks.org/pygorithm-module-in-python/](https://www.geeksforgeeks.org/pygorithm-module-in-python/)  
-
-
 [https://www.geeksforgeeks.org/python-data-structures-and-algorithms/](https://www.geeksforgeeks.org/python-data-structures-and-algorithms/)  
 [https://www.geeksforgeeks.org/python-data-structures/](https://www.geeksforgeeks.org/python-data-structures/)  
 [https://github.com/keon/algorithms](https://github.com/keon/algorithms)  
-
-
 [https://www.geeksforgeeks.org/python-design-patterns/](https://www.geeksforgeeks.org/python-design-patterns/)  
-
 
 
 [https://www.udemy.com/course/certified-kubernetes-administrator-with-practice-tests/](https://www.udemy.com/course/certified-kubernetes-administrator-with-practice-tests/)
 [https://www.udemy.com/course/data-engineering-essentials-sql-python-and-spark/](https://www.udemy.com/course/data-engineering-essentials-sql-python-and-spark/)  
 
+
+
+
+[https://www.udemy.com/course/certified-kubernetes-security-specialist/](https://www.udemy.com/course/certified-kubernetes-security-specialist/)  
+[https://www.coursera.org/specializations/security-google-cloud-platform](https://www.coursera.org/specializations/security-google-cloud-platform)  
+[https://www.coursera.org/learn/security-and-privacy-in-tor-network](https://www.coursera.org/learn/security-and-privacy-in-tor-network)  
+[https://www.coursera.org/specializations/sscp-training](https://www.coursera.org/specializations/sscp-training)  
 
 
 
@@ -32,7 +34,8 @@
 [https://www.coursera.org/specializations/software-design-architecture](https://www.coursera.org/specializations/software-design-architecture)  
 
 
-[https://www.coursera.org/learn/golang-concurrency](https://www.coursera.org/learn/golang-concurrency)  
+
+[https://www.coursera.org/specializations/google-golang](https://www.coursera.org/specializations/google-golang)  
 [https://www.coursera.org/specializations/pcdp](https://www.coursera.org/specializations/pcdp)  
 [https://www.coursera.org/specializations/gpu-programming](https://www.coursera.org/specializations/gpu-programming)  
 
@@ -41,10 +44,13 @@
 
 
 
+
 [https://www.coursera.org/learn/ibm-data-ops-methodology](https://www.coursera.org/learn/ibm-data-ops-methodology)  
+[https://www.coursera.org/specializations/cloudera-big-data-analysis-sql](https://www.coursera.org/specializations/cloudera-big-data-analysis-sql)  
 [https://www.coursera.org/specializations/python-bash-sql-data-engineering-duke](https://www.coursera.org/specializations/python-bash-sql-data-engineering-duke)  
-[https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops](https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops)  
 [https://www.coursera.org/specializations/deep-learning](https://www.coursera.org/specializations/deep-learning)  
+[https://www.coursera.org/specializations/reinforcement-learning](https://www.coursera.org/specializations/reinforcement-learning)  
+[https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops](https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops)  
 
 
 
