@@ -802,3 +802,20 @@ Azure Chaos Studio Preview
 Improve application resilience by introducing faults and simulating outages
 
 
+
+
+
+
+# Links  
+
+[https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy)  
+[https://docs.microsoft.com/en-us/azure/load-balancer/skus](https://docs.microsoft.com/en-us/azure/load-balancer/skus)  
+[https://www.microsoft.com/en-in/security/business/identity-access/azure-active-directory-pricing](https://www.microsoft.com/en-in/security/business/identity-access/azure-active-directory-pricing)  
+[https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction)  
+[https://docs.microsoft.com/en-us/azure/virtual-network/concepts-and-best-practices](https://docs.microsoft.com/en-us/azure/virtual-network/concepts-and-best-practices)  
+[https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction)  
+[https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview)  
+[https://docs.microsoft.com/en-us/azure/governance/blueprints/overview](https://docs.microsoft.com/en-us/azure/governance/blueprints/overview)  
+[https://azure.microsoft.com/en-in/support/plans/](https://azure.microsoft.com/en-in/support/plans/)  
+[https://azure.microsoft.com/en-in/free/](https://azure.microsoft.com/en-in/free/)  
+
