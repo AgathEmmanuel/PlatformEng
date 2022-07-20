@@ -806,6 +806,53 @@ Improve application resilience by introducing faults and simulating outages
 
 
 
+Types of Availability Sets:  
+
+i. Fault Domain: It denotes a cluster of VMs that share common power sources and identical networks.  
+
+ii. Updated Domain: It denotes a group of Virtual Machines that simultaneously accomplish activities like reboot, maintenance, and update.   
+     		    If you want to obtain maximum availability, you need to deploy VMs across multiple Fault Domains.   
+
+
+
+
+
+---
+Amazing Microsoft Resources AZ-204 exam:
+
+
+[Learning paths on MS Learn](https://docs.microsoft.com/en-us/learn/certifications/exams/az-204#two-ways-to-prepare)  
+
+
+[Azure Code Samples:](https://azure.microsoft.com/en-us/resources/samples/?sort=0)  
+
+
+[Official Azure Documentation:](https://docs.microsoft.com/en-us/azure/)  
+
+
+[Official Microsoft Azure YouTube Channel](https://www.youtube.com/user/windowsazure)  
+
+
+[Official Microsoft Developer YouTube Channel](https://www.youtube.com/channel/UCsMica-v34Irf9KVTh6xx-g)  
+
+
+[Azure REST API Browser](https://docs.microsoft.com/en-us/rest/api/?view=Azure)  
+
+
+[Azure Citadel - Labs and Workshops](https://azurecitadel.com/)  
+
+
+[Microsoft Cloud Workshop - More labs and workshops](https://microsoftcloudworkshop.com/)  
+
+
+[Github AZ-204 from Microsoft Training](https://microsoftlearning.github.io/AZ-204-DevelopingSolutionsforMicrosoftAzure/)  
+
+
+[Microsoft has a Github page that contains labs for AZ-204:](https://github.com/MicrosoftLearning/AZ-204-DevelopingSolutionsforMicrosoftAzure)  
+
+---
+
+
 # Links  
 
 [https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy)  
@@ -818,4 +865,8 @@ Improve application resilience by introducing faults and simulating outages
 [https://docs.microsoft.com/en-us/azure/governance/blueprints/overview](https://docs.microsoft.com/en-us/azure/governance/blueprints/overview)  
 [https://azure.microsoft.com/en-in/support/plans/](https://azure.microsoft.com/en-in/support/plans/)  
 [https://azure.microsoft.com/en-in/free/](https://azure.microsoft.com/en-in/free/)  
-
+[https://www.dotnettricks.com/learn/azure/what-is-vm-scale-set-availability-zone-availability-sets-and-regions-in-azure](https://www.dotnettricks.com/learn/azure/what-is-vm-scale-set-availability-zone-availability-sets-and-regions-in-azure)  
+[https://docs.microsoft.com/en-us/cli/azure/](https://docs.microsoft.com/en-us/cli/azure/)  
+[https://docs.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest](https://docs.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest)  
+[https://docs.microsoft.com/en-us/azure/virtual-machines/linux/use-remote-desktop?tabs=azure-cli](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/use-remote-desktop?tabs=azure-cli)  
+[https://ubuntu.com/tutorials/access-remote-desktop#1-overview](https://ubuntu.com/tutorials/access-remote-desktop#1-overview)  

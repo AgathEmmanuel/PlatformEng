@@ -633,3 +633,8 @@ resource "google_service_account_iam_policy" "admin-account-iam" {
 [https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster](https://cloud.google.com/kubernetes-engine/docs/how-to/hardening-your-cluster)  
 [https://ryaneschinger.com/blog/using-google-container-registry-gcr-with-minikube/](https://ryaneschinger.com/blog/using-google-container-registry-gcr-with-minikube/)  
 
+
+
+[https://cloud.google.com/deployment-manager/docs/configuration/templates/create-basic-template](https://cloud.google.com/deployment-manager/docs/configuration/templates/create-basic-template)  
+[https://github.com/GoogleCloudPlatform/deploymentmanager-samples](https://github.com/GoogleCloudPlatform/deploymentmanager-samples)  
+
