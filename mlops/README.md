@@ -1,6 +1,8 @@
 
 
 # ML Ops  
+
+## Course  
 [https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops](https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops)  
 
 
@@ -18,7 +20,79 @@ Systematically plan out the lifecycle of an ML project
     - Deploy in production  
     - Monitor and maintain systems  
 
-Data centric ai vs Model centric  
+## ML Pipelines on GCP  
+
+TFX pipelines  
+MLflow  
+Kubeflow    	: outofbox support for top frameworks like pytorch, tf and xgboost  
+Cloud Composer  
+AI platform pipelines  
+
+
+
+
+- Model should be under version control
+- Entire process from dataset creation to training to deployment must be driven by code  
+- Retraining can be triggered by code changes and no-code changes froma a single entry point  
+- Easy to monitor performance of models and fix some subset of issues arising without modifying model code  
+- CI/CD for kubeflow pipelines  
+- Training, Tuning and Serving on ML Platform  
+- scalable ML services should be setup  
+- Pipelines should be reusable  following the idea of LEGO blocks  
+- a market place to publish your solutions like AI Hub in gcp  
+
+
+
+
+Problems  
+- keeping track of models, code, hyperparameter values chosen, metrics being evaluated, ideas  
+- reproducability is a major concern  
+- data scientists want to rerun the best models with minor parameter sweeps  
+- team should be able to successfully train a model make it ready for production in a streamlined fashion  
+- models in production need to be updated on a regular basis as new data comes in  
+- performance, agility and teaceability is important  
+- Training phase:    Labeled data => Ml algorithm => Trained model  
+- Inference phase:   New data => Served Model => Predictions  
+- reduce the time between analyzing the problem, creating models, deploying the solution, maintaining output quality  
+- DevOps CI/CD :    Check out code => Perform unit testing => merge and Checkout Code => Build => Test => Release  
+- MlOPs CI/CD  :    DevOps CI/CD +   Continous Training:    Serve => Monitor => Measure => Retrain   
+- need to test and validate data, data schemes and models  
+- need to consider technical depth while building and operating ML system  
+- challenges:  model decay, deployment & testing complexity, multi-functional teams, experimental nature  
+- Automate training, validation, and depoloyment with inclution of human validation in the loop  
+- anyone in the organisation should be able to use the pipelines, modify it and use it  
+
+
+Ml Project life cycle  
+- Defining business use case  
+- Data exploration  
+- selecting algorithm  
+- Data pipeline & feature engineering  
+- Build ML model  
+- Evaluate  
+- Presenting results  
+- Deployment of the model  
+- Operationalizing the model  
+- Monitoring model  
+ 
+Ml Pipeline  
+```
+				       ________________performance monitoring___________perdiction service _____________________________________
+                  		      | 													^
+				      |		 												|
+Raw data  =>  Data extraction  =>  Data analysis  =>  Data preparation  => Model training  => Model evaluation  =>  Model validation  =>  Trained Model  => Model Registry  
+```
+
+
+
+
+
+
+
+
+
+
+### Data centric ai vs Model centric  
 Caring more about data quality than data quantity
 
 1. Data label quality  
@@ -133,6 +207,11 @@ ML Ops Tools:
 
 [https://dvc.org/doc/use-cases/versioning-data-and-model-files/tutorial](https://dvc.org/doc/use-cases/versioning-data-and-model-files/tutorial)  
 [https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html](https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html)  
+
+
+
+[https://github.com/GoogleCloudPlatform/data-science-on-gcp](https://github.com/GoogleCloudPlatform/data-science-on-gcp)  
+
 
 
 
