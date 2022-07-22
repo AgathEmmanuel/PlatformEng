@@ -26,5 +26,19 @@ Features
     - can be overriden by other classes  
     - can be refered from any other class 
 
+Generators  
+- An approach that allows to "generate" configuration straight from inventory in yaml  
+- released Kubernetes generator, with plans to release generators for Terraform, Spinnaker, Istio  
+
+
+Kapitan Workflow  
+- Edit => Compile => Review (Iterate if needed) => Deploy  
+- 
+
+
+
+
+
+
 # Links  
 [Introduction to Kapitan | Rawkode Live](https://youtu.be/8QZvgJi0vII)  

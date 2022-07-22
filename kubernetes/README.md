@@ -598,4 +598,5 @@ Telepresence
 [https://kubernetes.io/docs/concepts/services-networking/_print/](https://kubernetes.io/docs/concepts/services-networking/_print/)  
 [https://learnk8s.io/kubernetes-long-lived-connections](https://learnk8s.io/kubernetes-long-lived-connections)  
 [https://medium.com/swlh/understanding-socket-connections-in-computer-networking-bac304812b5c](https://medium.com/swlh/understanding-socket-connections-in-computer-networking-bac304812b5c)  
+[https://www.xenonstack.com/insights/container-design-patterns-for-kubernetes](https://www.xenonstack.com/insights/container-design-patterns-for-kubernetes)  
 

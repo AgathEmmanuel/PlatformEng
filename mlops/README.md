@@ -81,9 +81,26 @@ Ml Pipeline
                   		      | 													^
 				      |		 												|
 Raw data  =>  Data extraction  =>  Data analysis  =>  Data preparation  => Model training  => Model evaluation  =>  Model validation  =>  Trained Model  => Model Registry  
+
+
+
+
+					  __  Confustion Matrix  
+Pre-process  =>  Train  =>  Predict  =>  |
+                                         |__   ROC  
+
+
+DAC  :  Directed Acyclic Graph  
+
+
 ```
 
 
+Vertex AI  
+```
+
+Ingest => Analyse => Tansform => Train (Autom ML or custom ML)  => Model => Evaluate (Explainable AI) => Deploy => Predict  
+```
 
 
 
@@ -214,4 +231,14 @@ ML Ops Tools:
 
 
 
+[What is Vertex AI?](https://youtu.be/gT4qqHMiEpA)  
+[https://cloud.google.com/vertex-ai](https://cloud.google.com/vertex-ai)  
+
+
+
+[https://cloud.google.com/vertex-ai/docs/pipelines/migrate-kfp](https://cloud.google.com/vertex-ai/docs/pipelines/migrate-kfp)  
+
+[https://stackoverflow.com/questions/70358400/kubeflow-vs-vertex-ai-pipelines](https://stackoverflow.com/questions/70358400/kubeflow-vs-vertex-ai-pipelines)  
+[https://medium.com/datasparq-technology/kubeflow-pros-and-cons-kubeflow-vs-airflow-vs-sagemaker-4942d7e7910a](https://medium.com/datasparq-technology/kubeflow-pros-and-cons-kubeflow-vs-airflow-vs-sagemaker-4942d7e7910a)  
+[https://medium.com/@vignesh093/running-preprocessing-and-ml-workflow-in-kubeflow-with-google-dataproc-84103a9ef67e](https://medium.com/@vignesh093/running-preprocessing-and-ml-workflow-in-kubeflow-with-google-dataproc-84103a9ef67e)  
 
