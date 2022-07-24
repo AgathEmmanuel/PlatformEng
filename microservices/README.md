@@ -375,3 +375,7 @@ The threading module uses threads, the multiprocessing module uses processes. Th
 
 
 [https://blog.stackpath.com/microservice-video-streaming/](https://blog.stackpath.com/microservice-video-streaming/)  
+
+
+[https://medium.com/cuddle-ai/concurrency-with-fastapi-1bd809916130](https://medium.com/cuddle-ai/concurrency-with-fastapi-1bd809916130)  
+

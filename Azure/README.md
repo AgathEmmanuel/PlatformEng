@@ -853,6 +853,298 @@ Amazing Microsoft Resources AZ-204 exam:
 ---
 
 
+
+
+# Notes  
+
+
+```
+There are two ways to scale your Redis (cluster mode enabled) cluster; horizontal and vertical scaling.
+
+    Horizontal scaling allows you to change the number of node groups (shards) in the replication group by adding or removing node groups (shards). The online resharding process allows scaling in/out while the cluster continues serving incoming requests.
+
+    Configure the slots in your new cluster differently than they were in the old cluster. Offline method only.
+
+    Vertical Scaling - Change the node type to resize the cluster. The online vertical scaling allows scaling up/down while the cluster continues serving incoming requests.
+
+Redis Cluster supports up to 10 shards to create 1.2 TB of memory.
+
+
+
+
+Policies allow you to modify the inbound request as well as the outbound results without modifying the API code itself.
+
+
+
+Core (SQL) API stores data in JSON document format. 
+Cassandra API stores data in column-oriented schema. 
+Gremlin(Graph) API allows users to make graph queries and stores data as edges and vertices. 
+MongoDB API also uses documents but is BSON format, which is a binary format and not text-based. 
+Refer to Microsoft Doc: https://docs.microsoft.com/en-us/azure/cosmos-db/introduction
+
+
+
+Service Bus Queue is enterprise-grade message queue.
+
+
+
+
+Service 	Purpose 		Type 	When to use
+Event Grid 	Reactive programming 	Event distribution (discrete) 	React to status changes
+Event Hubs 	Big data pipeline 	Event streaming (series) 	Telemetry and distributed data streaming
+Service Bus 	High-value enterprise  	Message 			Order processing and 
+		messaging						financial transactions
+
+
+
+
+1 throughput unit represent 1 MB per second or 1000 events per second (whichever comes first) data coming in to an Event Hub 
+
+
+
+
+Managed identity types
+
+There are two types of managed identities:
+
+    System-assigned. Some Azure services allow you to enable a managed identity directly on a service instance. When you enable a system-assigned managed identity, an identity is created in Azure AD. The identity is tied to the lifecycle of that service instance. When the resource is deleted, Azure automatically deletes the identity for you. By design, only that Azure resource can use this identity to request tokens from Azure AD.
+    User-assigned. You may also create a managed identity as a standalone Azure resource. You can create a user-assigned managed identity and assign it to one or more instances of an Azure service. For user-assigned managed identities, the identity is managed separately from the resources that use it. 
+
+
+
+Property 	System-assigned managed identity 		User-assigned managed identity
+Creation 	Created as part of an Azure resource (for example, Azure Virtual Machines or Azure App Service). 	Created as a stand-alone Azure resource.
+Life cycle 	Shared life cycle with the Azure resource that the managed identity is created with.
+When the parent resource is deleted, the managed identity is deleted as well. 	Independent life cycle.
+Must be explicitly deleted.
+Sharing across Azure resources 	Can’t be shared.
+It can only be associated with a single Azure resource. 	Can be shared.
+The same user-assigned managed identity can be associated with more than one Azure resource.
+Common use cases 	Workloads that are contained within a single Azure resource.
+Workloads for which you need independent identities.
+For example, an application that runs on a single virtual machine. 	Workloads that run on multiple resources and can share a single identity.
+Workloads that need pre-authorization to a secure resource, as part of a provisioning flow.
+Workloads where resources are recycled frequently, but permissions should stay consistent.
+For example, a workload where multiple virtual machines need to access the same resource.
+
+
+
+
+
+
+ASP.NET
+
+ASP.NET apps only run on Windows app services. To log information to the app diagnostics log, use the System.Diagnostics.Trace class. There are four trace levels you can use, and these correlate with error, warning, information, and verbose logging levels shown in the Azure portal:
+
+    Trace.TraceError("Message"); // Writes an error message
+    Trace.TraceWarning("Message"); // Writes a warning message
+    Trace.TraceInformation("Message"); // Writes an information message
+    Trace.WriteLine("Message"); // Writes a verbose message
+
+ASP.NET Core apps
+
+ASP.NET Core apps can run on either Windows or Linux. To log information to Azure app logs, use the logger factory class, and then use one of six-log levels:
+
+    logger.LogCritical("Message"); // Writes a critical message at log level 5
+    logger.LogError("Message"); // Writes an error message at log level 4
+    logger.LogWarning("Message"); // Writes a warning message at log level 3
+    logger.LogInformation("Message"); // Writes an information message at log level 2
+    logger.LogDebug("Message"); // Writes a debug message at log level 1
+    logger.LogTrace("Message"); // Writes a detailed trace message at log level 0
+
+For ASP.NET Core apps on Windows, these messages relate to the filters in the Azure portal in this way:
+
+    Levels 4 and 5 are "error" messages.
+    Level 3 is a "warning" message.
+    Level 2 is an "information" message.
+    Levels 0 and 1 are "verbose" messages.
+
+For ASP.NET Core apps on Linux, only "error" messages (levels 4 and 5) are logged.
+Node.js apps
+
+For script-based Web apps, such as Node.js apps on Windows or Linux, app logging is enabled using the console() method:
+
+    console.error("Message") - writes a message to STDERR
+    console.log("Message") - writes a message to STDOUT
+
+Both types of message are written to the Azure app service error-level logs.
+
+
+
+
+
+
+
+
+A shared access signature (SAS) provides secure delegated access to resources in your storage account. With a SAS, you have granular control over how a client can access your data. For example:
+
+    What resources the client may access.
+
+    What permissions they have to those resources.
+
+    How long the SAS is valid.
+
+Types of shared access signatures
+
+Azure Storage supports three types of shared access signatures:
+
+    User delegation SAS
+
+    Service SAS
+
+    Account SAS
+
+
+
+
+
+
+
+
+
+Durable functons  
+
+Durable Functions is an extension of Azure Functions that lets you write stateful functions in a serverless compute environment. The extension lets you define stateful workflows by writing orchestrator functions and stateful entities by writing entity functions using the Azure Functions programming model. Behind the scenes, the extension manages state, checkpoints, and restarts for you, allowing you to focus on your business logic.
+
+
+
+Application patterns
+
+The primary use case for Durable Functions is simplifying complex, stateful coordination requirements in serverless applications. The following sections describe typical application patterns that can benefit from Durable Functions:
+
+    Function chaining
+    Fan-out/fan-in
+    Async HTTP APIs
+    Monitoring
+    Human interaction
+    Aggregator (stateful entities)
+
+
+
+
+
+
+
+
+Azure Functions custom handlers
+
+    Article
+    12/17/2021
+    12 minutes to read
+
+Every Functions app is executed by a language-specific handler. While Azure Functions features many language handlers by default, there are cases where you may want to use other languages or runtimes.
+
+Custom handlers are lightweight web servers that receive events from the Functions host. Any language that supports HTTP primitives can implement a custom handler.
+
+Custom handlers are best suited for situations where you want to:
+
+    Implement a function app in a language that's not currently offered out-of-the box, such as Go or Rust.
+    Implement a function app in a runtime that's not currently featured by default, such as Deno.
+
+With custom handlers, you can use triggers and input and output bindings via extension bundles.
+
+Get started with Azure Functions custom handlers with quickstarts in Go and Rust.
+
+
+Application structure
+
+To implement a custom handler, you need the following aspects to your application:
+
+    A host.json file at the root of your app
+    A local.settings.json file at the root of your app
+    A function.json file for each function (inside a folder that matches the function name)
+    A command, script, or executable, which runs a web server
+
+
+
+
+
+
+
+
+
+Guarantees associated with consistency levels
+
+Azure Cosmos DB guarantees that 100 percent of read requests meet the consistency guarantee for the consistency level chosen. The precise definitions of the five consistency levels in Azure Cosmos DB using the TLA+ specification language are provided in the azure-cosmos-tla GitHub repo.
+
+The semantics of the five consistency levels are described in the following sections.
+Strong consistency
+
+Strong consistency offers a linearizability guarantee. Linearizability refers to serving requests concurrently. The reads are guaranteed to return the most recent committed version of an item. A client never sees an uncommitted or partial write. Users are always guaranteed to read the latest committed write.
+
+
+Bounded staleness consistency
+
+In bounded staleness consistency, the reads are guaranteed to honor the consistent-prefix guarantee. The reads might lag behind writes by at most "K" versions (that is, "updates") of an item or by "T" time interval, whichever is reached first. In other words, when you choose bounded staleness, the "staleness" can be configured in two ways:
+
+    The number of versions (K) of the item
+    The time interval (T) reads might lag behind the writes
+
+For a single region account, the minimum value of K and T is 10 write operations or 5 seconds. For multi-region accounts the minimum value of K and T is 100,000 write operations or 300 seconds.
+
+Bounded staleness offers total global order outside of the "staleness window." When a client performs read operations within a region that accepts writes, the guarantees provided by bounded staleness consistency are identical to those guarantees by the strong consistency. As the staleness window approaches for either time or updates, whichever is closer, the service will throttle new writes to allow replication to catch up and honor the consistency guarantee.
+
+Inside the staleness window, Bounded Staleness provides the following consistency guarantees:
+
+    Consistency for clients in the same region for an account with single write region = Strong
+
+    Consistency for clients in different regions for an account with single write region = Consistent Prefix
+
+    Consistency for clients writing to a single region for an account with multiple write regions = Consistent Prefix
+
+    Consistency for clients writing to different regions for an account with multiple write regions = Eventual
+
+    Bounded staleness is frequently chosen by globally distributed applications that expect low write latencies but require total global order guarantee. Bounded staleness is great for applications featuring group collaboration and sharing, stock ticker, publish-subscribe/queueing etc. 
+
+
+Session consistency
+
+In session consistency, within a single client session reads are guaranteed to honor the consistent-prefix, monotonic reads, monotonic writes, read-your-writes, and write-follows-reads guarantees. This assumes a single "writer" session or sharing the session token for multiple writers.
+
+Clients outside of the session performing writes will see the following guarantees:
+
+    Consistency for clients in same region for an account with single write region = Consistent Prefix
+
+    Consistency for clients in different regions for an account with single write region = Consistent Prefix
+
+    Consistency for clients writing to a single region for an account with multiple write regions = Consistent Prefix
+
+    Consistency for clients writing to multiple regions for an account with multiple write regions = Eventual
+
+    Consistency for clients using the Azure Cosmos DB integrated cache = Eventual
+
+    Session consistency is the most widely used consistency level for both single region as well as globally distributed applications. It provides write latencies, availability, and read throughput comparable to that of eventual consistency but also provides the consistency guarantees that suit the needs of applications written to operate in the context of a user. 
+
+
+Consistent prefix consistency
+
+In consistent prefix option, updates that are returned contain some prefix of all the updates, with no gaps. Consistent prefix consistency level guarantees that reads never see out-of-order writes.
+
+If writes were performed in the order A, B, C, then a client sees either A, A,B, or A,B,C, but never out-of-order permutations like A,C or B,A,C. Consistent Prefix provides write latencies, availability, and read throughput comparable to that of eventual consistency, but also provides the order guarantees that suit the needs of scenarios where order is important.
+
+Below are the consistency guarantees for Consistent Prefix:
+
+    Consistency for clients in same region for an account with single write region = Consistent Prefix
+    Consistency for clients in different regions for an account with single write region = Consistent Prefix
+    Consistency for clients writing to a single region for an account with multiple write region = Consistent Prefix
+    Consistency for clients writing to multiple regions for an account with multiple write region = Eventual
+
+
+
+
+Eventual consistency
+
+In eventual consistency, there's no ordering guarantee for reads. In the absence of any further writes, the replicas eventually converge.
+
+Eventual consistency is the weakest form of consistency because a client may read the values that are older than the ones it had read before. Eventual consistency is ideal where the application does not require any ordering guarantees. Examples include count of Retweets, Likes, or non-threaded comments. 
+
+
+
+
+
+
+```
+
 # Links  
 
 [https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy)  
@@ -870,3 +1162,101 @@ Amazing Microsoft Resources AZ-204 exam:
 [https://docs.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest](https://docs.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest)  
 [https://docs.microsoft.com/en-us/azure/virtual-machines/linux/use-remote-desktop?tabs=azure-cli](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/use-remote-desktop?tabs=azure-cli)  
 [https://ubuntu.com/tutorials/access-remote-desktop#1-overview](https://ubuntu.com/tutorials/access-remote-desktop#1-overview)  
+
+
+[https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.1.0](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-8.1.0)  
+[https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroup?view=azps-8.1.0](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroup?view=azps-8.1.0)  
+[https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azvm?view=azps-8.1.0](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azvm?view=azps-8.1.0)  
+
+[https://docs.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount?view=azps-8.1.0](https://docs.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount?view=azps-8.1.0)  
+
+
+
+
+[https://docs.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest](https://docs.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest)  
+
+[https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest)  
+[https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest)  
+
+
+[https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azps-8.1.0](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azps-8.1.0)  
+
+
+[https://azure.microsoft.com/en-in/services/api-management/](https://azure.microsoft.com/en-in/services/api-management/)  
+
+[https://azure.microsoft.com/en-us/solutions/scaling-out-vs-scaling-up/#scale-up-vertically](https://azure.microsoft.com/en-us/solutions/scaling-out-vs-scaling-up/#scale-up-vertically)  
+
+
+
+[https://docs.microsoft.com/en-us/azure/app-service/deploy-best-practices](https://docs.microsoft.com/en-us/azure/app-service/deploy-best-practices)  
+[https://docs.microsoft.com/en-us/azure/app-service/deploy-continuous-deployment?tabs=github](https://docs.microsoft.com/en-us/azure/app-service/deploy-continuous-deployment?tabs=github)  
+[https://stackify.com/azure-deployment-slots/](https://stackify.com/azure-deployment-slots/)  
+
+
+
+
+[https://docs.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest](https://docs.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest)  
+[https://docs.microsoft.com/en-us/powershell/module/az.websites/new-azappserviceplan?view=azps-8.1.0](https://docs.microsoft.com/en-us/powershell/module/az.websites/new-azappserviceplan?view=azps-8.1.0)  
+[https://docs.microsoft.com/en-us/powershell/module/az.websites/new-azwebapp?view=azps-8.1.0](https://docs.microsoft.com/en-us/powershell/module/az.websites/new-azwebapp?view=azps-8.1.0)  
+
+
+[https://docs.microsoft.com/en-us/cli/azure/appservice/plan?view=azure-cli-latest](https://docs.microsoft.com/en-us/cli/azure/appservice/plan?view=azure-cli-latest)  
+
+
+
+[https://docs.microsoft.com/en-us/graph/overview](https://docs.microsoft.com/en-us/graph/overview)  
+[https://docs.microsoft.com/en-us/azure/app-service/troubleshoot-diagnostic-logs](https://docs.microsoft.com/en-us/azure/app-service/troubleshoot-diagnostic-logs)  
+
+
+[https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview?tabs=csharp](https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview?tabs=csharp)  
+
+
+[https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/scaling-redis-cluster-mode-enabled.html](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/scaling-redis-cluster-mode-enabled.html)  
+
+[https://docs.microsoft.com/en-us/azure/event-grid/compare-messaging-services](https://docs.microsoft.com/en-us/azure/event-grid/compare-messaging-services)  
+
+
+
+[https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy)   
+
+
+[https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)  
+
+[https://docs.microsoft.com/en-us/learn/modules/capture-application-logs-app-service/2-enable-and-configure-app-service-application-logging](https://docs.microsoft.com/en-us/learn/modules/capture-application-logs-app-service/2-enable-and-configure-app-service-application-logging)  
+
+
+
+[https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview](https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview)  
+
+
+
+[https://docs.microsoft.com/en-us/azure/azure-functions/functions-custom-handlers](https://docs.microsoft.com/en-us/azure/azure-functions/functions-custom-handlers)  
+[https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview?tabs=csharp](https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview?tabs=csharp)  
+[https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings)  
+[https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview?tabs=csharp#monitoring](https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview?tabs=csharp#monitoring)  
+
+
+
+
+[https://docs.microsoft.com/en-us/azure/azure-functions/scripts/functions-cli-create-serverless](https://docs.microsoft.com/en-us/azure/azure-functions/scripts/functions-cli-create-serverless)  
+
+
+
+[https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings?tabs=csharp](https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings?tabs=csharp)  
+
+
+
+[https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/app-service/environment/using-an-ase.md](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/app-service/environment/using-an-ase.md)  
+
+[https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure)  
+
+[https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview?view=azuresql](https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview?view=azuresql)  
+
+
+[https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-how-to-premium-clustering](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-how-to-premium-clustering)  
+
+
+[https://docs.microsoft.com/en-us/azure/cdn/cdn-features](https://docs.microsoft.com/en-us/azure/cdn/cdn-features)  
+
+[https://docs.microsoft.com/en-us/answers/questions/39015/azure-app-service-arr-affinity-auto-scaling-statef.html](https://docs.microsoft.com/en-us/answers/questions/39015/azure-app-service-arr-affinity-auto-scaling-statef.html)  
+
