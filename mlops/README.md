@@ -106,6 +106,14 @@ Ingest => Analyse => Tansform => Train (Autom ML or custom ML)  => Model => Eval
 
 
 
+### Distributed Computing with Ray.io  
+- execute remotely functions as tasks 
+- instantiate remotely classes as actors  
+- support both statefull and stateless computations  
+- asynchronous execution using features  
+- enable parallelism  
+- distributed (immutable) object store  
+
 
 
 
@@ -209,6 +217,71 @@ ML Ops Tools:
 
  
 
+
+## Migrating Apache Spark ML Jobs to Spark + Tensorflow on Kubeflow  
+- Install Kubeflow on kubeflow ( use the spark-operator )   
+- Use spark in notebook on KF  
+- Take Spark job and split it into feature prep and model training  
+- have the feature prep job save results in a TF-compatible format  
+- create a TF-job  
+- Create a Kubeflow (or Argo..) pipeline to train the new model  
+- Optional: Use katib to do hyper-parameter tuning  
+- Validate if the classic ML or new fancy ML works better  
+
+
+A traditional Spark ML pipeline  
+```
+prepPipeline.setStages(Array(
+ extensionIndexer,
+ tokenizer,
+ word2vec,
+ featureVec, calssifier))
+```
+Splitting the Spark ML pipline  
+```
+prepPipeline.setStages(Array(
+ extensionIndexer,
+ tokenizer,
+ word2vec,
+ featureVec))  
+```
+Making a TF job to use the Spark job output  
+
+
+
+## Kubeflow is a Buffet and it includes many options  
+- argo  
+- automation  
+- chainer-job  
+- core  
+- credential-pod-preset  
+- katlib  
+- mpi-job  
+- mxnet-job  
+- openmpi  
+- pachyderm  
+- pytorch-job  
+- seldon  
+- spark  
+- tfServing  
+
+In General the peices in ML should inclde  
+- ML libraries  
+- ML models which are version controlled  
+- data prep  
+- Model management (persistance/deployment/CI)  
+- Model Serving  
+
+
+
+Research is great  
+Everyone else have to manage and put models in prod  
+Kubeflow bridges the gap from lab to production  
+Allows to answer questions like  
+- We want to know in the middle of quarter Why sales are down, and How to fix them  
+
+
+
 # Links  
 
 
@@ -241,4 +314,52 @@ ML Ops Tools:
 [https://stackoverflow.com/questions/70358400/kubeflow-vs-vertex-ai-pipelines](https://stackoverflow.com/questions/70358400/kubeflow-vs-vertex-ai-pipelines)  
 [https://medium.com/datasparq-technology/kubeflow-pros-and-cons-kubeflow-vs-airflow-vs-sagemaker-4942d7e7910a](https://medium.com/datasparq-technology/kubeflow-pros-and-cons-kubeflow-vs-airflow-vs-sagemaker-4942d7e7910a)  
 [https://medium.com/@vignesh093/running-preprocessing-and-ml-workflow-in-kubeflow-with-google-dataproc-84103a9ef67e](https://medium.com/@vignesh093/running-preprocessing-and-ml-workflow-in-kubeflow-with-google-dataproc-84103a9ef67e)  
+
+
+
+
+
+
+
+[https://www.arrikto.com/blog/kubeflow/news/minikf-a-fast-and-easy-way-to-deploy-kubeflow-on-your-laptop/](https://www.arrikto.com/blog/kubeflow/news/minikf-a-fast-and-easy-way-to-deploy-kubeflow-on-your-laptop/)
+[Introduction to Kubeflow: Fundamentals - Install MiniKF 1.4 on GCP](https://youtu.be/6QdVAbjnoXI)
+[webinar MiniKF: Kubeflow on your laptop](https://youtu.be/oDGr6biTvwQ)
+[Migrating Apache Spark ML Jobs to Spark + Tensorflow on Kubeflow - Holden Karau Independent](https://youtu.be/0P5WO8f8qJg)
+
+
+
+
+
+
+
+
+
+[https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning](https://cloud.google.com/architecture/mlops-continuous-delivery-and-automation-pipelines-in-machine-learning)
+[https://cloud.google.com/architecture/architecture-for-mlops-using-tfx-kubeflow-pipelines-and-cloud-build](https://cloud.google.com/architecture/architecture-for-mlops-using-tfx-kubeflow-pipelines-and-cloud-build)
+[https://neptune.ai/mlops-tool-stack](https://neptune.ai/mlops-tool-stack)
+[https://neptune.ai/blog/best-open-source-mlops-tools](https://neptune.ai/blog/best-open-source-mlops-tools)
+[https://www.kubeflow.org/docs/components/pipelines/introduction/](https://www.kubeflow.org/docs/components/pipelines/introduction/)
+[https://neptune.ai/blog/ways-ml-teams-use-ci-cd-in-production](https://neptune.ai/blog/ways-ml-teams-use-ci-cd-in-production)
+[How does Ray compare to Apache Spark??](https://youtu.be/yLKHHiT2nWw)
+[Introduction to Distributed Computing with the Ray Framework](https://youtu.be/cEF3ok1mSo0)
+[Autoscaling machine learning APIs in Python with Ray](https://youtu.be/Xa_94PuUYQI)
+[https://tryolabs.com/guides/retail-innovations-machine-learning](https://tryolabs.com/guides/retail-innovations-machine-learning)
+[https://medium.com/@karl.utermohlen/4-applications-of-machine-learning-ml-in-retail-f637c2fe196a](https://medium.com/@karl.utermohlen/4-applications-of-machine-learning-ml-in-retail-f637c2fe196a)
+[https://analyticsindiamag.com/how-can-ai-iot-data-help-streamline-vehicle-rental-services/](https://analyticsindiamag.com/how-can-ai-iot-data-help-streamline-vehicle-rental-services/)
+[https://towardsdatascience.com/ai-and-real-state-renting-in-amsterdam-part-1-5fce18238dbc](https://towardsdatascience.com/ai-and-real-state-renting-in-amsterdam-part-1-5fce18238dbc)
+[https://venturebeat.com/2021/11/04/using-ai-to-verify-renter-eligibility-and-risk/](https://venturebeat.com/2021/11/04/using-ai-to-verify-renter-eligibility-and-risk/)
+
+
+
+[Deep Reinforcement Learning-Based Dynamic Scheduling in Smart Manufacturing](https://youtu.be/AE7Mz21dYww)  
+[AlphaDow: Reinforcement Learning for Industrial Production Scheduling - Adam Kelloway, Dow Chemical](https://youtu.be/DQm3e7mMBt4)  
+
+
+
+
+[https://docs.ray.io/en/latest/cluster/kubernetes.html](https://docs.ray.io/en/latest/cluster/kubernetes.html)  
+
+[Distributed Computing is the Future of Computing with Robert Nishihara](https://youtu.be/zRaWCFJcagI)  
+
+
 

@@ -28,6 +28,156 @@ unique for  		|data science/ Ml ecosystem 		|batch & stream processing data   |U
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+##  Airflow vs Apache Spark: What are the differences  
+
+Airflow: 
+A platform to programmaticaly author, schedule and monitor data pipelines, by Airbnb.  
+Use Airflow to author workflows as directed acyclic graphs (DAGs) of tasks.  
+The Airflow scheduler executes your tasks on an array of workers while following the specified dependencies.  
+Rich command lines utilities makes performing complex surgeries on DAGs a snap.  
+The rich user interface makes it easy to visualize pipelines running in production, monitor progress and troubleshoot issues when needed.  
+
+Apache Spark: 
+Fast and general engine for large-scale data processing.  
+Spark is a fast and general processing engine compatible with Hadoop data.  
+It can run in Hadoop clusters through YARN or Spark's standalone mode,  
+and it can process data in HDFS, HBase, Cassandra, Hive, and any Hadoop InputFormat.  
+It is designed to perform both batch processing (similar to MapReduce) and new workloads like streaming, interactive queries, and machine learning.
+
+
+Airflow can be classified as a tool in the "Workflow Manager" category, while Apache Spark is grouped under "Big Data Tools".
+
+Some of the features offered by Airflow are:
+
+    Dynamic: Airflow pipelines are configuration as code (Python), allowing for dynamic pipeline generation. This allows for writting code that instantiate pipelines dynamically.
+    Extensible: Easily define your own operators, executors and extend the library so that it fits the level of abstraction that suits your environment.
+    Elegant: Airflow pipelines are lean and explicit. Parameterizing your scripts is built in the core of Airflow using powerful Jinja templating engine.
+
+On the other hand, Apache Spark provides the following key features:
+
+    Run programs up to 100x faster than Hadoop MapReduce in memory, or 10x faster on disk
+    Write applications quickly in Java, Scala or Python
+    Combine SQL, streaming, and complex analytics
+
+
+## Things you should avoid when designing a Data Warehouse  
+
+Fact and Dimension tables are the main two tables that are used when designing a data warehouse.  
+The fact table contains measures of columns and surrogate keys that link to the dimension tables.  
+Measure columns are the values that you store in order to measure the business fact.  
+For example, sales amount, quantity are examples for measure columns in a data warehouse.  
+These measures are analyzed with the dimension attributes.  
+Therefore, a fact table should have surrogate keys to join with dimension tables.  
+
+
+facts and dimensions are the fundamental elements that define a data warehouse.  
+They record relevant events of a subject or functional area (facts) and the characteristics that define them (dimensions).
+
+Data warehouses are data storage and retrieval systems (i.e., databases) specifically designed to  
+support business intelligence (BI) and OLAP (online analytical processing) activities.  
+A well-designed data warehouse is high-performance and responsive to queries.  
+It also provides flexibility so that business analysts (or any other end user of the data warehouse) can query from different points of view. 
+Users can alternate between a high-level overview and deep queries at the greatest level of detail as they wish.  
+
+
+The Four Pillars of the Data Warehouse:  
+
+- Oriented to a single subject or a particular functional area. For example, it is oriented to company sales.
+- They unify and create consistency among data from disparate sources.
+- Persistent and immutable. Once data enters a data warehouse, it stays there and does not change.
+- Structured in time intervals. To provide information from a historical perspective, data warehouses record information over different intervals, such as weekly, monthly, quarterly, etc.
+
+
+In particular, data warehouse tables are divided into two main categories: fact tables and dimension tables.  
+
+
+Facts and dimensions in a data warehouse should form a layout that responds to a particular topology.  
+There are two main topologies: the star schema and the snowflake schema.  
+In a star schema, individual dimensions surround a single fact table, while a snowflake schema has a hierarchy of dimensions.    
+Facts are the measurable events related to the functional area covered by a data warehouse  
+Fact tables are the core tables of a data warehouse  
+They contain quantitative information, commonly associated with points in time  
+Dimensions, on the other hand, are collections of reference information about the facts in a data warehouse  
+Dimensions categorize and describe the facts recorded in a data warehouse to provide meaningful, categorized, and descriptive answers to business questions.  
+In the design of a data warehouse, it is common to create dimension tables first and then create fact tables by relating them to the dimension tables through foreign keys.  
+
+
+## Overview of CUBE, ROLLUP, and Top-N Queries  
+ROLLUP and CUBE are simple extensions to the SELECT statement's GROUP BY clause.  
+ROLLUP creates subtotals at any level of aggregation needed, from the most detailed up to a grand total.  
+CUBE is an extension similar to ROLLUP, enabling a single statement to calculate all possible combinations of subtotals.  
+CUBE can generate the information needed in cross-tab reports with a single query.  
+To enhance performance, both CUBE and ROLLUP are parallelized: multiple processes can simultaneously execute both types of statements.  
+
+
+```
+ ROLLUP
+
+ROLLUP enables a SELECT statement to calculate multiple levels of subtotals across a specified group of dimensions. It also calculates a grand total. ROLLUP is a simple extension to the GROUP BY clause, so its syntax is extremely easy to use. The ROLLUP extension is highly efficient, adding minimal overhead to a query.
+Syntax
+
+ROLLUP appears in the GROUP BY clause in a SELECT statement. Its form is:
+
+SELECT ... GROUP BY
+   ROLLUP(grouping_column_reference_list)
+
+Details
+
+ROLLUP's action is straightforward: it creates subtotals which "roll up" from the most detailed level to a grand total, following a grouping list specified in the ROLLUP clause. ROLLUP takes as its argument an ordered list of grouping columns. First, it calculates the standard aggregate values specified in the GROUP BY clause. Then, it creates progressively higher-level subtotals, moving from right to left through the list of grouping columns. Finally, it creates a grand total.
+
+ROLLUP will create subtotals at n+1 levels, where n is the number of grouping columns. For instance, if a query specifies ROLLUP on grouping columns of Time, Region, and Department ( n=3), the result set will include rows at four aggregation levels.
+Example
+
+This example of ROLLUP uses the data in the video store database.
+
+  SELECT Time, Region, Department,
+   sum(Profit) AS Profit FROM sales
+   GROUP BY ROLLUP(Time, Region, Dept)
+
+
+ CUBE
+
+Note that the subtotals created by ROLLUP are only a fraction of possible subtotal combinations. For instance, in the cross-tab shown in Table 20-1, the departmental totals across regions (279,000 and 319,000) would not be calculated by a ROLLUP(Time, Region, Department) clause. To generate those numbers would require a ROLLUP clause with the grouping columns specified in a different order: ROLLUP(Time, Department, Region). The easiest way to generate the full set of subtotals needed for cross-tabular reports such as those needed for Figure 20-1 is to use the CUBE extension.
+
+CUBE enables a SELECT statement to calculate subtotals for all possible combinations of a group of dimensions. It also calculates a grand total. This is the set of information typically needed for all cross-tabular reports, so CUBE can calculate a cross-tabular report with a single SELECT statement. Like ROLLUP, CUBE is a simple extension to the GROUP BY clause, and its syntax is also easy to learn.
+Syntax
+
+CUBE appears in the GROUP BY clause in a SELECT statement. Its form is:
+
+SELECT ...  GROUP BY
+  CUBE (grouping_column_reference_list)
+
+Details
+
+CUBE takes a specified set of grouping columns and creates subtotals for all possible combinations of them. In terms of multi-dimensional analysis, CUBE generates all the subtotals that could be calculated for a data cube with the specified dimensions. If you have specified CUBE(Time, Region, Department), the result set will include all the values that would be included in an equivalent ROLLUP statement plus additional combinations. For instance, in Table 20-1, the departmental totals across regions (279,000 and 319,000) would not be calculated by a ROLLUP(Time, Region, Department) clause, but they would be calculated by a CUBE(Time, Region, Department) clause. If there are n columns specified for a CUBE, there will be 2n combinations of subtotals returned. Table 20-3 gives an example of a three-dimension CUBE.
+Example
+
+This example of CUBE uses the data in the video store database.
+
+SELECT Time, Region, Department, 
+   sum(Profit) AS Profit FROM sales
+   GROUP BY CUBE  (Time, Region, Dept)
+
+
+
+```
+
+
+
+
+
+
 ## Data Ops
 
 - involves utilizing, transforming, and orchestrating data workflows.
@@ -129,6 +279,89 @@ Accessibility   Highly accessible and quick to update   More complicated and cos
 
 
 
+
+## Exercise Controlled Freedom when dealing with stakeholders
+
+Alex has built decentralized access to data at Fox on a foundation he calls “controlled freedom.” In fact, he believes using your data team as the single source of truth within an organization actually creates the biggest silo.
+
+"If you think about a centralized data reporting structure, where you used to come in, open a ticket, and wait for your turn, by the time you get an answer, it’s often too late,” Alex said. Businesses are evolving and growing at a pace I’ve never seen before, and decisions are being made at a blazing speed. You have to have data at your fingertips to make the correct decision."
+
+I believe this is the way forward: “striving towards giving people trust in the data platforms while supplying them with the tools and skill sets they need to be self-sufficient.
+
+data tagging and collections,
+data engineering,
+data analytics,
+data science,
+data architecture
+
+
+While members of different data teams collaborate to deliver value to the business, there’s a clear delineation between analysts and engineers within the Fox data organization. Analysts sit close to the business units, understanding pain points and working to find and validate new data sources. This knowledge informs what Alex and his teams call an STM, or Source to Target Mapping — a spec that essentially allows engineers to operate from a well-defined playbook to build the pipelines and architecture necessary to support the data needs of the business.
+
+
+The Fox data team built their tech stack to meet a specific need: enabling self-service analytics. “We embarked on the journey of adopting a lakehouse architecture because it would give us both the beauty and control of a data lake, as well as the cleanliness and structure of a data warehouse.”
+
+Several types of data flow into the Fox digital ecosystem, including batched, micro-batched, streaming, structured, and unstructured. After ingestion, data goes through what Alex refers to as a “three-layer cake.
+
+
+
+First, we have the data exposed at its raw state, exactly how we ingest it,” said Alex. “But that raw data is often not usable for people who want to do discovery and exploration. That’s why we’re building the optimized layer, where data gets sorted, sliced-and-diced, and optimized in different file formats for the speed of reading, writing, and usability. After that, when we know something needs to be defined as a data model or included in a data set, we engage in that within the publishing layer and then build it out for broader consumption within the company. Inside of the published layer, data can be exposed via our tool stack.  
+
+The optimized layer makes up the pool of data that Alex and his team provide to internal stakeholders under the “controlled freedom” model. With self-serve analytics, data users can discover and work with data assets that they already know are trustworthy and secure.  
+
+If you don’t approach your data from the angle that it’s easy to discover, easy to search, and easy to observe, it becomes more like a swamp,” said Alex. “We need to instill and enforce some formats and strict regulations to make sure the data is getting properly indexed and properly stored so that people can find and make sense of the data.  
+
+
+
+
+
+The data mesh is a type of data platform architecture that embraces the ubiquity of data in the enterprise by leveraging a domain-driven, self-serve design.  
+
+
+
+Unlike traditional monolithic data infrastructures that handle the ETL in one central data lake, a data mesh supports distributed, domain-specific data consumers and views “data-as-a-product,” with each domain handling their own data pipelines. Underlying the data mesh is a standardized layer of observability and governance that ensures data is reliable and trustworthy at all times.  
+
+
+
+
+## Core principles and logical architecture of data mesh  
+
+Data mesh objective is to create a foundation for getting value from analytical data and historical facts at scale - scale being applied to constant change of data landscape, proliferation of both sources of data and consumers, diversity of transformation and processing that use cases require, speed of response to change.  
+To achieve this objective, there are four underpinning principles that any data mesh implementation embodies to achieve the promise of scale, while delivering quality and integrity guarantees needed to make data usable :  
+- domain-oriented decentralized data ownership and architecture,  
+- data as a product,  
+- self-serve data infrastructure as a platform,  
+- federated computational governance  
+
+
+```
+Pre data mesh governance aspect					Data mesh governance aspect
+
+
+Centralized team						Federated team
+
+Responsible for data quality					Responsible for defining how to model what constitutes quality
+
+Responsible for data security					Responsible for defining aspects of data security i.e. data sensitivity levels for the platform to build in and monitor automatically
+
+Responsible for complying with regulation			Responsible for defining the regulation requirements for the platform to build in and monitor automatically
+
+Centralized custodianship of data				Federated custodianship of data by domains
+
+Responsible for global canonical data modeling			Responsible for modeling polysemes - data elements that cross the boundaries of multiple domains
+
+Team is independent from domains				Team is made of domains representatives
+Aiming for a well defined static structure of data		Aiming for enabling effective mesh operation embracing a continuously changing and a dynamic topology of the mesh
+
+Centralized technology used by monolithic lake/warehouse	Self-serve platform technologies used by each domain
+
+Measure success based on number or volume of governed data(tables)	Measure success based on the network effect - the connections representing the consumption of data on the mesh
+
+Manual process with human intervention				Automated processes implemented by the platform
+
+Prevent error							Detect error and recover through platform’s automated processing
+```
+
+
 # Links
 
 [https://analyticsindiamag.com/data-mesh-vs-data-fabric-whats-the-difference/](https://analyticsindiamag.com/data-mesh-vs-data-fabric-whats-the-difference/)
@@ -161,7 +394,69 @@ Accessibility   Highly accessible and quick to update   More complicated and cos
 
 
 [https://towardsdatascience.com/scalable-efficient-big-data-analytics-machine-learning-pipeline-architecture-on-cloud-4d59efc092b5](https://towardsdatascience.com/scalable-efficient-big-data-analytics-machine-learning-pipeline-architecture-on-cloud-4d59efc092b5)  
+[https://sbakiu.medium.com/orchestrating-spark-jobs-with-kubeflow-for-ml-workflows-830f802a99fe](https://sbakiu.medium.com/orchestrating-spark-jobs-with-kubeflow-for-ml-workflows-830f802a99fe)  
 
-
+[https://cloud.google.com/blog/products/infrastructure-modernization/running-spark-on-kubernetes-with-dataproc](https://cloud.google.com/blog/products/infrastructure-modernization/running-spark-on-kubernetes-with-dataproc)  
+[https://cloud.google.com/dataproc/docs/guides/dpgke/quickstarts/dataproc-gke-quickstart-create-cluster](https://cloud.google.com/dataproc/docs/guides/dpgke/quickstarts/dataproc-gke-quickstart-create-cluster)  
 [https://wisdomplexus.com/blogs/dataproc-vs-dataflow-vs-dataprep/](https://wisdomplexus.com/blogs/dataproc-vs-dataflow-vs-dataprep/)  
+
+[https://github.com/GoogleCloudPlatform/spark-on-k8s-operator#installation](https://github.com/GoogleCloudPlatform/spark-on-k8s-operator#installation)  
+
+[https://github.com/kubeflow/pipelines/blob/master/components/gcp/dataproc/submit_pyspark_job/README.md](https://github.com/kubeflow/pipelines/blob/master/components/gcp/dataproc/submit_pyspark_job/README.md)  
+
+[Comparing Apache Spark on Kubernetes to Kubeflow](Comparing Apache Spark on Kubernetes to Kubeflow)  
+[https://stackshare.io/stackups/airflow-vs-spark](https://stackshare.io/stackups/airflow-vs-spark)  
+
+
+
+
+
+
+
+
+
+
+
+[https://vertabelo.com/blog/facts-dimensions-data-warehouse/](https://vertabelo.com/blog/facts-dimensions-data-warehouse/)  
+[https://www.vertabelo.com/blog/data-warehouse-modeling-the-star-schema/](https://www.vertabelo.com/blog/data-warehouse-modeling-the-star-schema/)  
+[https://www.vertabelo.com/blog/data-warehouse-modeling-the-snowflake-schema/](https://www.vertabelo.com/blog/data-warehouse-modeling-the-snowflake-schema/)  
+[https://www.vertabelo.com/blog/dimensions-of-dimensions-a-look-at-data-warehousings-most-common-dimensional-table-types/](https://www.vertabelo.com/blog/dimensions-of-dimensions-a-look-at-data-warehousings-most-common-dimensional-table-types/)  
+
+
+
+
+
+[https://medium.com/fox-tech/data-reliability-at-scale-how-fox-digital-architected-its-modern-data-stack-d04c1f7ce201](https://medium.com/fox-tech/data-reliability-at-scale-how-fox-digital-architected-its-modern-data-stack-d04c1f7ce201)  
+
+[https://medium.com/swlh/dataflow-and-apache-beam-the-result-of-a-learning-process-since-mapreduce-c591b2ab180e](https://medium.com/swlh/dataflow-and-apache-beam-the-result-of-a-learning-process-since-mapreduce-c591b2ab180e)  
+[https://www.montecarlodata.com/blog-automatic-detection-and-alerting-for-data-incidents-with-monte-carlo/](https://www.montecarlodata.com/blog-automatic-detection-and-alerting-for-data-incidents-with-monte-carlo/)  
+[https://www.montecarlodata.com/blog-data-observability-tools-data-engineerings-next-frontier/](https://www.montecarlodata.com/blog-data-observability-tools-data-engineerings-next-frontier/)  
+[https://www.montecarlodata.com/blog-how-to-make-your-data-pipelines-more-reliable-with-slas/](https://www.montecarlodata.com/blog-how-to-make-your-data-pipelines-more-reliable-with-slas/)  
+[https://www.montecarlodata.com/blog-decoding-the-data-mesh/](https://www.montecarlodata.com/blog-decoding-the-data-mesh/)  
+[https://martinfowler.com/articles/data-monolith-to-mesh.html](https://martinfowler.com/articles/data-monolith-to-mesh.html)  
+[https://towardsdatascience.com/data-mesh-101-everything-you-need-to-know-to-get-started-72087f5a7d91](https://towardsdatascience.com/data-mesh-101-everything-you-need-to-know-to-get-started-72087f5a7d91)  
+[https://towardsdatascience.com/data-catalogs-are-dead-long-live-data-discovery-a0dc8d02bd34](https://towardsdatascience.com/data-catalogs-are-dead-long-live-data-discovery-a0dc8d02bd34)  
+
+
+
+
+
+
+
+[https://towardsdatascience.com/data-mesh-101-everything-you-need-to-know-to-get-started-72087f5a7d91](https://towardsdatascience.com/data-mesh-101-everything-you-need-to-know-to-get-started-72087f5a7d91)  
+
+[https://martinfowler.com/articles/data-monolith-to-mesh.html](https://martinfowler.com/articles/data-monolith-to-mesh.html)  
+[https://martinfowler.com/articles/data-mesh-principles.html](https://martinfowler.com/articles/data-mesh-principles.html)  
+[https://towardsdatascience.com/data-mesh-applied-21bed87876f2](https://towardsdatascience.com/data-mesh-applied-21bed87876f2)  
+[https://towardsdatascience.com/what-is-a-data-mesh-and-how-not-to-mesh-it-up-210710bb41e0](https://towardsdatascience.com/what-is-a-data-mesh-and-how-not-to-mesh-it-up-210710bb41e0)  
+[https://read.hyperight.com/is-data-mesh-right-for-your-organisation/](https://read.hyperight.com/is-data-mesh-right-for-your-organisation/)  
+[https://www.starburst.io/resources/datanova-2021/?wchannelid=d4oyeh306b&wmediaid=1z50qr8fh6](https://www.starburst.io/resources/datanova-2021/?wchannelid=d4oyeh306b&wmediaid=1z50qr8fh6)  
+[https://databricks.com/session_na20/data-mesh-in-practice-how-europes-leading-online-platform-for-fashion-goes-beyond-the-data-lake](https://databricks.com/session_na20/data-mesh-in-practice-how-europes-leading-online-platform-for-fashion-goes-beyond-the-data-lake)  
+[https://medium.com/intuit-engineering/intuits-data-mesh-strategy-778e3edaa017](https://medium.com/intuit-engineering/intuits-data-mesh-strategy-778e3edaa017)  
+[https://www.youtube.com/watch?v=TO_IiN06jJ4](https://www.youtube.com/watch?v=TO_IiN06jJ4)  
+[https://martinfowler.com/articles/data-monolith-to-mesh.html](https://martinfowler.com/articles/data-monolith-to-mesh.html)  
+[https://martinfowler.com/articles/data-monolith-to-mesh.html#ArchitecturalFailureModes](https://martinfowler.com/articles/data-monolith-to-mesh.html#ArchitecturalFailureModes)  
+[https://www.guru99.com/etl-vs-elt.html](https://www.guru99.com/etl-vs-elt.html)  
+
+
 
