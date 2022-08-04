@@ -4,6 +4,8 @@
 ## Big Data, Data Lakes and Data Warehouses with GCP
 
 
+
+
 - Big Data Text Processing Pipeline in Cloud Dataflow  
 
 
@@ -12,6 +14,7 @@ A data pipeline architecture is a system that captures, organizes, and routes da
 
 
 Real-time data collection with Hadoop and Spark integration feature is more prominent in Dataproc. The data lake, data collection, cleaning, cloud, and workload processing are highly rated for the Dataflow. Visual analytics and processing data with the help of Dataprep is seen as its plus-point.  
+
 
 ```
 
@@ -24,6 +27,7 @@ approach                |hands-on, Dev-Ops approach             |Fully managed, 
 unique for  		|data science/ Ml ecosystem 		|batch & stream processing data   |UI driven processing of data  
 
 ```
+
 
 
 
@@ -417,6 +421,8 @@ Prevent error							Detect error and recover through platform’s automated proc
 
 
 
+
+
 [https://vertabelo.com/blog/facts-dimensions-data-warehouse/](https://vertabelo.com/blog/facts-dimensions-data-warehouse/)  
 [https://www.vertabelo.com/blog/data-warehouse-modeling-the-star-schema/](https://www.vertabelo.com/blog/data-warehouse-modeling-the-star-schema/)  
 [https://www.vertabelo.com/blog/data-warehouse-modeling-the-snowflake-schema/](https://www.vertabelo.com/blog/data-warehouse-modeling-the-snowflake-schema/)  
@@ -460,3 +466,6 @@ Prevent error							Detect error and recover through platform’s automated proc
 
 
 
+[https://db-engines.com/en/system/Google+Cloud+Datastore%3BIBM+Db2](https://db-engines.com/en/system/Google+Cloud+Datastore%3BIBM+Db2)  
+[https://cloud.google.com/sql/docs/introduction](https://cloud.google.com/sql/docs/introduction)  
+[https://developer.confluent.io/learn-kafka/data-pipelines/intro/](https://developer.confluent.io/learn-kafka/data-pipelines/intro/)  

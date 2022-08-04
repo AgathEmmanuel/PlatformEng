@@ -107,12 +107,28 @@ Ingest => Analyse => Tansform => Train (Autom ML or custom ML)  => Model => Eval
 
 
 ### Distributed Computing with Ray.io  
+
+Ray:  universal framework for distributed computing 
+      Comprehensive ecosystem of scalable libraries  
+
+
 - execute remotely functions as tasks 
 - instantiate remotely classes as actors  
 - support both statefull and stateless computations  
 - asynchronous execution using features  
 - enable parallelism  
 - distributed (immutable) object store  
+- efficient communication (send arguments by reference)  
+- distributed scheduler  
+- direct calls  
+- central control store  
+- stateless components  
+- rlib: scalable RL library  
+- tune: hyperparameter tuning library  
+- ray serve: deploy ml models in production  
+- raysgd: elastic distributed training of machine learning models  
+
+
 
 
 
@@ -354,6 +370,8 @@ Allows to answer questions like
 [Deep Reinforcement Learning-Based Dynamic Scheduling in Smart Manufacturing](https://youtu.be/AE7Mz21dYww)  
 [AlphaDow: Reinforcement Learning for Industrial Production Scheduling - Adam Kelloway, Dow Chemical](https://youtu.be/DQm3e7mMBt4)  
 
+[Deep Reinforcement Learning in Python Tutorial - A Course on How to Implement Deep Learning Papers](https://youtu.be/GJJc1t0rtSU)  
+
 
 
 
@@ -363,3 +381,9 @@ Allows to answer questions like
 
 
 
+[https://cloud.google.com/dataproc/docs/guides/dpgke/quickstarts/dataproc-gke-quickstart-create-cluster](https://cloud.google.com/dataproc/docs/guides/dpgke/quickstarts/dataproc-gke-quickstart-create-cluster)  
+
+
+[https://www.slideshare.net/databricks/migrating-apache-spark-ml-jobs-to-spark-tensorflow-on-kubeflow](https://www.slideshare.net/databricks/migrating-apache-spark-ml-jobs-to-spark-tensorflow-on-kubeflow)  
+
+[https://learnopencv.com/pytorch-to-tensorflow-model-conversion/](https://learnopencv.com/pytorch-to-tensorflow-model-conversion/)  
