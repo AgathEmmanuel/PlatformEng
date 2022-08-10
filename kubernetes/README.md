@@ -597,6 +597,7 @@ Telepresence
 [https://severalnines.com/blog/how-does-database-load-balancer-work/](https://severalnines.com/blog/how-does-database-load-balancer-work/)  
 [https://kubernetes.io/docs/concepts/services-networking/_print/](https://kubernetes.io/docs/concepts/services-networking/_print/)  
 [https://learnk8s.io/kubernetes-long-lived-connections](https://learnk8s.io/kubernetes-long-lived-connections)  
+[Using Curl telnet to test port connectivity](https://kb.vmware.com/s/article/2097039)  
 [https://medium.com/swlh/understanding-socket-connections-in-computer-networking-bac304812b5c](https://medium.com/swlh/understanding-socket-connections-in-computer-networking-bac304812b5c)  
 [https://www.xenonstack.com/insights/container-design-patterns-for-kubernetes](https://www.xenonstack.com/insights/container-design-patterns-for-kubernetes)  
 

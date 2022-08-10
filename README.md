@@ -48,3 +48,38 @@ Requirements / Responsibilities
     multi-cluster and multi-tenant setup
     observability for large scale clusters
 ```
+
+
+Infrastructure  
+```
+
+bind  
+squid  
+linux machine  
+route tables  
+DNS route server  
+dig  
+dhcp
+k8s ports
+tcp port number  
+nslookup 
+k8s from scratch  
+ldap
+lvm
+
+
+Open Stack  
+
+trouble shooting  
+
+```
+
+
+Middleware  
+```
+
+Middleware is software which lies between an operating system and the applications running on it  
+
+
+```
+

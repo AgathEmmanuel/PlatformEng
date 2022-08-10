@@ -387,3 +387,10 @@ Allows to answer questions like
 [https://www.slideshare.net/databricks/migrating-apache-spark-ml-jobs-to-spark-tensorflow-on-kubeflow](https://www.slideshare.net/databricks/migrating-apache-spark-ml-jobs-to-spark-tensorflow-on-kubeflow)  
 
 [https://learnopencv.com/pytorch-to-tensorflow-model-conversion/](https://learnopencv.com/pytorch-to-tensorflow-model-conversion/)  
+
+
+[How does Ray compare to Apache Spark??](https://youtu.be/yLKHHiT2nWw)  
+[Introduction to Distributed Computing with the Ray Framework](https://youtu.be/cEF3ok1mSo0)  
+[Autoscaling machine learning APIs in Python with Ray](https://youtu.be/Xa_94PuUYQI)  
+[https://towardsdatascience.com/deep-learning-with-apache-spark-part-1-6d397c16abd](https://towardsdatascience.com/deep-learning-with-apache-spark-part-1-6d397c16abd)  
+

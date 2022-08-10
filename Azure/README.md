@@ -1451,6 +1451,230 @@ Analyze metrics
 
 
 
+
+
+
+Developing Security and Compliance  
+
+automate
+container scanning  
+OWASP
+depndency scanning 
+licenses: MIT,GPL  
+asess and report risks
+source code compliance solution
+github code scanning
+github secret scanning
+pipeline-based scans
+git hooks
+SonarQube
+Dependabot
+Azure DevOps
+Github
+DevSecOps
+
+Static Application Security Testing (SAST) 
+White Box testing done during CI and PR
+SonarCloud
+PMD static analysis tool
+
+
+Dynamic Application Security Testing (SAST) 
+testing a deployed application
+balck box testing
+indentify common security vulnerabilities
+OWASP ZAP
+ZAP Zed Attack Proxy
+Free and Open Source
+Passive scan
+fast running
+Active scan
+long running
+nightly builds 
+
+Dependency scanning
+scanning libraries, packages, etc
+National Vulnerability Database (NVD) 
+Permissive license
+Copyleft license
+WhiteSource Bolt
+Black Duck or Synopsys Detect
+OWASP dependency check
+
+Container scanning
+Qualys scanning
+Snyk scanning
+Trivy scanner
+
+Scanning for secrets
+CredScan
+gitLeaks
+
+Automating scans
+SonarCloud in a build pipeline  
+configuring OWASP zap scan in a release pipeline
+
+
+
+
+Designing Governance Enforcement
+Azure policies
+container scanning
+azure container registry tasks
+break-the-glass strategy for responding to security incidents  
+hot-fix strategy
+policy compliance check
+azure policy
+governance requirements
+enforced and audited at the cloudAPI
+shift to self-service in cloud
+deny, audit, remidiate
+azure policy for AKS
+azure security center integration
+azure defender  for container registries
+
+
+Designing Build automation
+examination on content(static) and performance(dynamic)
+SonaQube
+PMD Programming Mistake Detector
+dependency management
+SCA Software Composition Analysis
+WhiteSource Bolt
+BlackDuck
+Snyk
+dynamic analysis
+
+
+
+
+Understanding Testing Strategies
+multiple dimesions of quality
+testing measurment
+performance measure
+load testing
+performance under load
+maximum load
+load testing production
+blue green deployment
+Apache JMeter
+Robustness
+Fuzz testing
+OneFuzz
+Availability Measure
+Postman
+Intergration testing
+Chaos testing
+Chaos Monkey
+Simian Army
+
+service hooks
+service connections
+
+
+
+Designing a Package Management Strategy
+software reuse
+package source
+package management tool
+WebPack, Parcel, Yarn
+NPM
+Maven
+NuGet
+RubyGems
+PyPI
+
+Upstream Proxy
+Azure artifacts
+Github packages
+managing software supply chain
+Dependabot, Nukeeper, GreenKeeper
+
+Versioning strategy
+dependency hell
+semantic versioning
+MAJOR.MINOR.PATCH-QUALITY
+1.2.3-beta1
+GitVersion tool
+Gitflow branching strategy
+
+
+
+
+Application infrastructure management strategy
+configuration management in Azure
+feature flags
+one configuration, multiple environments
+azure continous assurance
+
+
+
+Implementing, Maintaining, and Standardizing Build Strategies
+planning your agents
+self hosted agents
+batching and branching
+build triggers
+push, pull request, pipeline, scheduled trigger
+
+dependency packaging
+dependency equiped container
+
+
+
+Developing deployment scripts and templates
+IaC
+Database deployments
+configuration management
+release stages and triggers
+deployment gates
+Azure state configuration
+DSC Desired State Configuration
+App Center Distribution Groups
+Multi region deployments with Azure Traffic Manager
+
+
+
+
+Implementing Orchestration Automation Solutions
+CI CD
+unit test
+platform test
+deploy to staging environment
+acceptance tests
+deploy to production environment
+
+
+
+
+Plannin Deployment Environment Strategies
+Blue-Green, Rolling, Canary
+Azure Application Gateway
+Schema-on-read
+Reconcile the existing state with the changes
+Blow away whats there and replace it with the changes
+Create a brand-new environment and replace the old one
+Snowflake server
+Immutable server
+Hotfixes
+Release branch
+Gitflow
+ReleaseFlow
+
+Understanding state configuration tools
+Idempotence
+Mitigating Configuration drift
+
+
+
+
+Developing a Modern Source Control Strategy
+
+
+
+
+
+
+
 ```
 
 
