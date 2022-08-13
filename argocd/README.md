@@ -21,4 +21,9 @@ Application definitions, configurations, and environments should be declarative 
 # Links
 
 
-- [https://argo-cd.readthedocs.io/en/stable/](https://argo-cd.readthedocs.io/en/stable/)
+[https://argo-cd.readthedocs.io/en/stable/](https://argo-cd.readthedocs.io/en/stable/)
+
+[Kubernetes CI/CD with GitLab & ArgoCD | Mirantis Labs - Tech Talks](https://youtu.be/kRmnvIZ5X7w)  
+
+
+
