@@ -3,20 +3,20 @@
 
 ## Objectives 
 
-1. Architecting Cloud Native, Multi-Cloud and Polyglot Cloud applications that need to scale to millions.
-2. Architecting Data Intensive and Big Data applications.
-3. Building Machine and Deep learning pipelines and infrastructure.
+1. Architecting Cloud Native, Multi-Cloud and Polyglot Cloud applications that need to scale to millions.  
+2. Architecting Data Intensive and Big Data applications.  
+3. Building Machine and Deep learning pipelines and infrastructure.  
+
+## Key Considerations  
+
+- Distributed resilient system design  
+- Continous Integration / Continous Deployment pipelines  
+- Data pipelines  
+- Continous Training pipelines  
+- Cybersecurity  
 
 
 ```
-
-
-Objectives 
-
-1. Architecting Cloud Native, Multi-Cloud and Polyglot Cloud applications that need to scale to millions.
-2. Architecting Data Intensive and Big Data applications.
-3. Building Machine and Deep learning pipelines and infrastructure.
-
 
 
 Requirements / Responsibilities
@@ -247,4 +247,9 @@ Middleware is software which lies between an operating system and the applicatio
 
 
 ```
+
+
+# Links
+
+[https://youtube.com/playlist?list=PLj6h78yzYM2PyeHXo0wdOp9oCf45SZS86](https://youtube.com/playlist?list=PLj6h78yzYM2PyeHXo0wdOp9oCf45SZS86)  
 

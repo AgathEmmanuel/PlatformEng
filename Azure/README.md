@@ -2131,6 +2131,529 @@ troubleshoot a failed pipeline run
 
 
 
+
+
+
+
+
+Data Storage
+Data Processing
+Visualizing your data
+
+
+Data Lake is used for storing large amounts of data in its native, raw format  
+- optimized for storing terabytes and petabytes of data  
+- data could be from a variety of data sources  
+- data could be of various formats structured, semi-structured, and unstructured data  
+- working with large data sets  
+- here data arrrives in large volumes  
+- the data arrives at a fast rate  
+
+
+
+Azure Data Lake Storage Gen2  
+- this service is built on top of Azure Blob storage  
+- gives ability to host an enterprise data lake on Azure  
+- you get features of hierarchical namespace on top of Azure blob storage  
+- helps to organize objects/files into a hierarchy of directories for efficient data access  
+
+
+
+Redundancy  
+
+
+
+
+SQL commands  
+
+SQL Datawarehouse  
+
+the database engine will process the operation and return the result to the user  
+
+select * from Sales.Product  
+select productId,Name,Prize from Sales.Product  
+select count(*) as Count from Sales.Product  
+
+select * from Sales.Product where productId=80
+select * from Sales.Product where productId>80
+select * from Sales.Product where productId between 80 and 100
+
+select * from Sales.Product where productId from Sales.Product where Name like '%brush%'
+
+
+
+when we use WHERE caluse in sql queries we should be using something called Partitions  
+in the datawarehouse to ensure that we increase the efficiency of queries that are doing
+filtering  
+
+
+select * from Sales.Product order by Prize  
+select * from Sales.Product order by Prize Desc   
+
+
+aggregate functions  
+
+
+selct count(ProductId) from Sales.Product where Name Like '%Gold%'  
+selct max(ProductId) from Sales.Product where Name Like '%Gold%'  
+selct min(ProductId) from Sales.Product where Name Like '%Gold%'  
+selct sum(ProductId) from Sales.Product where Name Like '%Gold%'  
+selct avg(ProductId) from Sales.Product where Name Like '%Gold%'  
+
+
+GROUP By  is used to group rows into summary rows  
+and can also be used along with the 
+aggregation functions of (COUNT, MAX, MIN, SUM, AVG)  
+
+select count(ProductId) from Sales.Product group by Color  
+select count(ProductId) as 'Product Id Count' from Sales.Product group by Color  
+select count(ProductId) as 'Product Id Count',Color from Sales.Product group by Color  
+
+select count(ProductId) as 'Product Id Count',Color from Sales.Product where Color IS NOT NULL group by Color  
+
+
+
+If you want to increase the efficiency of group by clause, we will use different
+types of tables    Hash-distributed tables  and  Replicated distribution tables  
+
+
+
+aggregation functions of (COUNT, MAX, MIN, SUM, AVG)  cannot be used along with WHERE clause 
+in that cases we have HAVING clause in SQL  
+
+select count(ProductId) as 'Product Id Count',Color from Sales.Product where Color IS NOT NULL group by Color HAVING count(Color)>10  
+
+Primary and Foreign Key
+
+Based on relationships and coloumns we can construct something known as dimension tables 
+which will be used in something known as a star schema  
+
+
+create table Orders (
+    OrderId varchar(100) Not Null,
+    CourseId varchar(100),
+    CustomerId varchar(100),
+    Discountperscent int,
+    Foreign Key (CustomerId) reference Customer(CustomerId),
+    Foreign Key (CourseId) reference Course(CourseId) );
+
+Insert into Orders(OrderId,CourseId,Discountperscent) values ('O1','C1',90)
+
+
+perform join on two tables
+
+select Sales.Product.ProductId,Price,OrderQty
+from Sales.Product join Sales.SalesOrderDetail
+on Sales.Product.ProductId=Sales.SalesOrderDetail.ProductID
+
+
+Azure synapse warehouse do not have foreign keys 
+
+
+
+
+
+Azure Synaps Analytics  
+
+dedicated sql pool
+dimesion and fact tables  
+
+hash distributed tables 
+replicated tables 
+round robin tables 
+
+
+transactional data store
+online analytical processing system
+
+example udemy
+how many student are registering per day
+which countries have max no of students 
+
+visualization tools such as powerBI
+
+
+you can use pipelines for data integration
+which allows u to perfome ETL/ELT in bringing data into data warehouse
+
+you can use spark to process your data 
+
+
+Azure Synapase Workplace
+Analytic pools
+- SQL pools
+- Apache Spark pools  
+
+
+2 available compute options
+Serverless SQL pool
+SQL pool
+
+
+DTU  Database Transaction Unit
+DWU  Data Warehousing Unit
+
+
+
+External tables 
+
+-Here the data lies in another source and we just defined the table structure in Azure Synapse
+-When we query for data within the table, the data is queried from the external source
+-An external table can point to data that is located in Hadoop, Azure Blob storage or Azure Data Lake Storage
+
+Azure Syanapse :  serverles pool
+
+PolyBase is the feature used to access data in external tables  
+
+the purpose of external table is your table definition will be in Azure synapse
+and your data will be located somewhere else
+this is usefull when you dont want to bring the data on the server itself
+While in the case of an sql server the table definition and data is on sql server itself
+
+Steps
+step1: authorization to use the data lake storage account
+step2: define the format of external file we are going to work with - Parquet, CSV
+step3: create the external table
+
+
+
+dedicated SQL pool
+
+
+Data Cleansing  
+
+process of finding and correcting/removing corrupt or inaccurate records in a record set
+what to do with rows that have columns with NULL values
+Sometimes values may not be in the defined range like the age of person
+Formating dates, different systems might store dates in different formats  
+
+
+
+
+Data Cleansing Cycle 
+
+Import Data
+Merge Data sets
+Rebuild Missing Data
+Standardize
+Normalize
+De-Duplicate
+Verify and Encrich
+Export Data
+
+
+Data Science Process
+
+Business Understanding
+Data Understanding
+Data Preparation
+Model Building
+Evaluating Model
+Model Deployment
+
+
+
+
+	
+
+
+
+
+# load data from log.csv file
+
+copy into logdata from 'https://datalake2000.blob.core.windows.net/data/raw/log.csv'
+with
+(
+firstrow=2
+)
+
+select * from [logdata]
+
+# delete the existing data from the table
+
+delete from [logdata]
+
+# load data from praquet file
+
+create table [logdata]
+(
+  [Id] [int] ,
+  [Correlationid] [varchar](200) ,
+  [Operationname] [varchar](200) ,
+  [Time] [datetime] ,
+  [Subscription] [varchar](200)
+)
+
+
+copy into [logdata] from 'https://datalake200.blob.core.windows.net/data/raw/parquet/*.parquet'
+with
+(
+FILE_TYPE='PARQUET',
+credential=(identity='Shared Access Signature', SECRET='fadfafadfaf'
+)
+
+select * from [logdata]
+
+
+
+
+Pausing dedicated sql pool to not get charged
+If you delete the pool all data will be lost
+
+
+Loading data using PolyBase
+
+
+
+# creating an external target
+
+create master key encryption by password = 'passswor';
+
+# to see existing database scoped credentials
+
+select * from sys.database_scoped_credentials
+
+
+# to see external file formats
+
+select * from sys.external_file_formats
+
+create external file format parquetfile
+with (
+   format_type = PARQUET,
+   data_compression = 'org.apache.hadoop.io.compress.SnappyCodec'
+);
+
+
+
+# create the external table as the admin user
+
+create external table [logdata_external]
+(
+ [Id] [int] ,
+    [Correlationid] [varchar](200) ,
+    [Operationname] [varchar](200) ,
+    [Status] [varchar](100) ,
+    [Time] [datetime] ,
+)
+with (
+ location = '/raw/parquet/',
+    data_source = log_data,
+    file_format = parquetfile
+)
+
+
+# to create a normal table by selecting all data
+
+create table [logdata]
+with
+(
+distribution = round_robin,
+clustered index (id)
+)
+select * 
+from [logdata_external];
+
+
+
+
+
+SQL Data Warehouse
+
+
+# Designing a Data Warehouse
+
+- patterns in building tables in a data warehouse
+- Star schema or SnowFlake schema
+- database Normalization
+- OLTP workloads ( transactional workloads )
+
+
+Fact Tables
+- measurments or metrics that correspond to facts
+- example: sales table - this records all the sales that have been made
+- sales data are facts that sales have actually been made
+
+Dimension Tables
+- this helps to provide some sort of context to the facts that are presented
+- example: what products were sold
+- who are the customers who bought the products
+
+
+Star Schema
+- fact table will be in the middle
+- dimension tables supporting the facts will be there in dimension tables around the fact table
+- fact table will contain primary keys used in the dimension table
+
+
+
+Why we need to build fact and dimension tables in the first place?
+Its very useful in using Power BI for star schema
+
+
+
+
+Understanding Azure Synapse Architecture
+
+
+Dedicated sql Pool - data warehouse
+
+available table types in dedicatd sql pool
+- hash-distributed tables
+- replicated tables
+- round-robin distributed tables
+
+
+
+
+
+
+Windowing functions
+- allows to apply a mathematical eqn on a set of data that is defined within a window
+- you can split the rows of data into different sets and apply an aggregate to the data in each set
+- when using windowing functions with sql pools, you will use the OVER clause
+- clause determines the partitioning and ordering of a rowset before the associated window function is applied
+
+
+Surrogate keys
+
+
+Slowly changing dimensions
+
+
+
+
+Snowflake schema
+
+
+
+
+Pratitions in Azure synapse
+
+Table partitions
+- helps to divide data into smaller groups of data
+- normally data is partitioned by dates
+- helps in filtering data when using the WHERE clause in queries
+- here the engine can then just process the data in the partitions
+  based on the condition mentioned in the WHERE clause
+
+
+Try not to create too many partitions
+The data will be distributed across distributions and partitions
+For optimal compression and performance of clustered columnstore tables,
+a minimum of 1 million rows per distribution and partition is needed
+
+
+Indexes
+
+Normally database system have a feature available for table known as indexes
+Indexes help reduce time taken to search table for data based on queries that are fired
+
+Clustered Columnstore indexes
+- by default for Azure Synapse SQL pool table, ther is a clustered cloumnar store index that gets created
+- this sort of index provides the highes level of data compression and best overall query performance
+- this cant be created if there are columns that are of the type varchar(max), nvarchar(max) or varbinary(max)
+
+
+
+Heap tables
+- used when temporarily loading data into a table for staging purpose
+- are faster to load and reads can be taken from the cache
+
+Clustered indexes
+- clustered index can be created on just a specific column of a table
+- used when there are a few lookup making use of very specific column
+
+non Clustered indexes
+- if you want to improve the filtering on other columns, you can create a 
+  non clustered index for the other columns
+- but this adds to table space and processing time to load on table
+
+
+
+Data Warehouse Architecture
+- data warehouse can pull data from the Data Lake
+- you can use this data lake to store files in JSON, Parquet, CSV format
+- then you can use this data along with data from Structured data stores
+  and create tables in a data warehouse
+
+
+Serverless SQL pool
+Dedicated SQL pool
+Spark Pool
+
+
+
+Azure Data Factory
+- ETL tool
+- batch processing needs
+- copy activity
+- mapping data flow
+- create data-driven workflows
+- workflows help orchestrate data movement
+- help to transform the data
+
+
+
+Extract, transform and load process ETL
+- transformation engine
+- extract data from various data sources
+- filtering, sorting, aggregation, joining data, cleaning data
+
+Tools
+- Azure Data Factory
+- SQL server ingtegration service
+
+
+ELT
+- load and transform actions happen on the target itself
+- here thers no need of a seperate transformation engine
+- target system must be powerful enough to do the transformation
+
+
+
+Azure Data Factory process
+- connect to required data source
+- ingest data from the source
+- transform data in pipeline
+- publish data onto a destination
+
+Azure Data Factory components
+- linked service: enables to ingest data from data source
+                  create required compute resources to take data from data source
+- datasets: represents data structue within data store thats being 
+            being referenced by the linked service object
+- activity: contains the actual transformation logic, you can also have simple
+            copy activities to copy data from source to destination
+
+
+
+Azure pipelines
+- logical grouping of activities
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ```
 
 
@@ -2251,4 +2774,10 @@ troubleshoot a failed pipeline run
 [https://docs.microsoft.com/en-us/azure/cdn/cdn-features](https://docs.microsoft.com/en-us/azure/cdn/cdn-features)  
 
 [https://docs.microsoft.com/en-us/answers/questions/39015/azure-app-service-arr-affinity-auto-scaling-statef.html](https://docs.microsoft.com/en-us/answers/questions/39015/azure-app-service-arr-affinity-auto-scaling-statef.html)  
+
+
+[https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is)  
+[https://docs.microsoft.com/en-us/sql/relational-databases/polybase/polybase-guide?toc=%2Fazure%2Fsynapse-analytics%2Fsql-data-warehouse%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fsql-data-warehouse%2Fbreadcrumb%2Ftoc.json&view=azure-sqldw-latest&preserve-view=true](https://docs.microsoft.com/en-us/sql/relational-databases/polybase/polybase-guide?toc=%2Fazure%2Fsynapse-analytics%2Fsql-data-warehouse%2Ftoc.json&bc=%2Fazure%2Fsynapse-analytics%2Fsql-data-warehouse%2Fbreadcrumb%2Ftoc.json&view=azure-sqldw-latest&preserve-view=true)  
+
+
 

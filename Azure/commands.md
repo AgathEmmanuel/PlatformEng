@@ -248,4 +248,10 @@ func azure functionapp publish "name of the funcion"
 
 
 
+
+
+
+
+
+
 ```

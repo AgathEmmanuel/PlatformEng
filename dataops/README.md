@@ -366,6 +366,21 @@ Prevent error							Detect error and recover through platform’s automated proc
 ```
 
 
+
+
+## Data Engineering Pipelines - SQL, Python, Spark  
+```
+processing data depending upon our downstream needs  
+batch pipelines
+
+
+
+
+
+```
+
+
+
 # Links
 
 [https://analyticsindiamag.com/data-mesh-vs-data-fabric-whats-the-difference/](https://analyticsindiamag.com/data-mesh-vs-data-fabric-whats-the-difference/)

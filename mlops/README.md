@@ -394,3 +394,24 @@ Allows to answer questions like
 [Autoscaling machine learning APIs in Python with Ray](https://youtu.be/Xa_94PuUYQI)  
 [https://towardsdatascience.com/deep-learning-with-apache-spark-part-1-6d397c16abd](https://towardsdatascience.com/deep-learning-with-apache-spark-part-1-6d397c16abd)  
 
+
+[https://eng.lyft.com/flyte-joins-lf-ai-data-48c9b4b60eec](https://eng.lyft.com/flyte-joins-lf-ai-data-48c9b4b60eec)  
+
+[https://github.com/flyteorg/flyte](https://github.com/flyteorg/flyte)  
+[https://www.union.ai/](https://www.union.ai/)  
+[https://www.ray.io/](https://www.ray.io/)  
+[https://github.com/ray-project/ray](https://github.com/ray-project/ray)  
+
+[https://medium.com/riselab/rayonspark-running-emerging-ai-applications-on-big-data-clusters-with-ray-and-analytics-zoo-923e0136ed6a](https://medium.com/riselab/rayonspark-running-emerging-ai-applications-on-big-data-clusters-with-ray-and-analytics-zoo-923e0136ed6a)  
+[https://www.businesswire.com/news/home/20201021005541/en/Anyscale-Announces-40M-in-Series-B-Funding-Led-by-NEA](https://www.businesswire.com/news/home/20201021005541/en/Anyscale-Announces-40M-in-Series-B-Funding-Led-by-NEA)  
+
+[https://docs.flyte.org/projects/cookbook/en/latest/](https://docs.flyte.org/projects/cookbook/en/latest/)  
+[https://lfaidata.foundation/blog/2021/03/17/flyte-joins-lf-ai-data-as-new-incubation-project/](https://lfaidata.foundation/blog/2021/03/17/flyte-joins-lf-ai-data-as-new-incubation-project/)  
+
+
+[https://medium.com/paypal-tech/tuning-spark-applications-to-efficiently-utilize-dataproc-cluster-11bd51b36fe1](https://medium.com/paypal-tech/tuning-spark-applications-to-efficiently-utilize-dataproc-cluster-11bd51b36fe1)  
+[https://towardsdatascience.com/the-what-why-and-when-of-apache-spark-6c27abc19527](https://towardsdatascience.com/the-what-why-and-when-of-apache-spark-6c27abc19527)  
+[https://eng.lyft.com/lyftlearn-ml-model-training-infrastructure-built-on-kubernetes-aef8218842bb](https://eng.lyft.com/lyftlearn-ml-model-training-infrastructure-built-on-kubernetes-aef8218842bb)  
+[https://eng.lyft.com/ml-feature-serving-infrastructure-at-lyft-d30bf2d3c32a](https://eng.lyft.com/ml-feature-serving-infrastructure-at-lyft-d30bf2d3c32a)  
+[https://eng.lyft.com/how-lyftlearn-democratizes-distributed-compute-through-kubernetes-spark-and-fugue-c0875b97c3d9](https://eng.lyft.com/how-lyftlearn-democratizes-distributed-compute-through-kubernetes-spark-and-fugue-c0875b97c3d9)  
+
