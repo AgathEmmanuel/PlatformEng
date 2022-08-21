@@ -460,6 +460,38 @@ resource "google_service_account_iam_policy" "admin-account-iam" {
 
 
 
+DevOps Professional
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
+
+
+Data Engineer Professional
+
+
+```
+
+
+
+
+
+```
+
+
 # Links  
 
 [https://cloud.google.com/deployment-manager/docs/dm-convert?_ga=2.17739513.-1342917718.1650208535](https://cloud.google.com/deployment-manager/docs/dm-convert?_ga=2.17739513.-1342917718.1650208535)  
