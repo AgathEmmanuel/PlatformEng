@@ -2633,6 +2633,36 @@ Azure pipelines
 
 
 
+Git for Version Control of pipelines in Azure Data Factory
+
+
+
+
+
+Data Processing Azure Event Hubs and Stream Analytics
+
+Batch Processing
+- large set of semi-structured files processed into structured files 
+  that can be used for future Analysis needs
+- Web Server logs copied to (Azure Data lake Gen2) storage accounts over the data
+  then a batch process (Spark) happens in night that process the data and send to
+  Analytical dat store (Azure Synapse) for daily reporting (Power BI) purposes
+  and the orchestration is handled by (Azure Data Factory)  
+
+
+Real Time Processing
+- data captured in real-time and processed with minimal latency to generate real-time reports
+- processing of data need to be done fast so that it does not block incoming stream of data
+- platform should be available to ingest large amounts of data at a fast rate
+- Real-time message Ingestion (Apache Kafka, Azure Event Hubs)
+  Data Storage (Azure Blob Storage, Azure Data Lake Store)
+  Stream Processing (Azure Stream Analytics, Storm, Spark Streaming)
+  Analytical data store (Azure Synapse, Spark, Hive, HBase)
+  Reporting (Power BI)
+
+
+
+
 
 
 
