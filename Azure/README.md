@@ -2663,8 +2663,112 @@ Real Time Processing
 
 
 
+Azure Event Hubs Capture  
+
+Azure Event Hubs  
+Azure Stream Analytics  
+Azure Data Lake  
+Azure Data Factory  
 
 
+
+
+
+Scala
+REPL is a command line utility that can be used for running scala commands  
+REPL: Read, Evaluate, Print, Loop
+
+
+
+Jupyter Notebook
+we need to run the commands in notebook in spark pool and azure databricks
+you can run python, scala and scala commands in notebook
+and the notebook commands can target the spark cluster
+
+
+Azure Synapse - Spark pool
+
+Spark is used as a parallel processing framework
+for big-data analytical applications
+
+driver nodes
+executor nodes
+
+
+
+
+
+Databricks
+
+- makes use of apache spark to provide a Unified Analytics platform
+- the entire environment can be provisioned with just a few clicks  
+- will create the undelying compute infra for you
+- has its own underlying file system which is an abstraction of 
+  underlying storage layer  
+- it will install Spark and other ML libraries  
+- provides a workspace
+
+
+Azure Databricks
+Cluster
+
+Worker nodes
+- distributes the task to worker nodes
+Driver node
+- nodes that actually perform the underlying tasks  
+
+
+Interactive cluster
+- analyze data with interactive notebooks
+
+Job cluster
+- runs a job on the cluster
+- when job is complete cluster will be terminated  
+
+
+
+Data Security
+- Azure Data Factory already encrypts data at rest which also includes
+  entity definitions and any data thats cached
+- Encryption is carried out with Microsoft-managed keys
+- Aure data factory encryption
+- customer managed keys
+- azure dedicated sql pool transparent data encryption
+- Azure synapse data masking
+- Azure synapse auditing
+- data discovery and classification
+- Azure AD authentication setting admin and user
+- Azure Synapse Row & Column level security
+- Azure Data Lake Role Based Access Control
+- Access Control Lists
+- External table authorization via Managed Identity
+- External table authorization via AD Authentication
+- Azure Synapse Firewall
+- Azure Data Lake Virtual Network Service Endpoint
+- Azure Data Lake Managed Identity Data Factory  
+
+
+
+Monitor and Optimize Data Storage and Processing  
+- structuring files in your data lake
+- well egineered data lake structure
+- different zones can be mapped to separate containers  
+- Raw Zone, Filtered Zone, Curated Zone  
+- Azure monitor
+- result set caching
+- system views
+- workload management
+- retention points
+- monitoring
+- alerts and mertics
+- annotations
+- integration runtime
+- pipeline failures
+- high availability
+- Azure Stream Analytics metrics
+- streaming units
+- partitions
+- diagnostics
 
 
 
