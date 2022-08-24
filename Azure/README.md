@@ -2775,9 +2775,34 @@ Monitor and Optimize Data Storage and Processing
 
 
 
+[https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/massively-parallel-processing-mpp-architecture](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/massively-parallel-processing-mpp-architecture)  
+
+[https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/design-guidance-for-replicated-tables](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/design-guidance-for-replicated-tables)  
+
+
+[https://docs.microsoft.com/en-us/stream-analytics-query/stream-analytics-query-language-reference](https://docs.microsoft.com/en-us/stream-analytics-query/stream-analytics-query-language-reference)  
 
 
 
+
+
+[https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-window-functions](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-window-functions)  
+
+
+
+[https://docs.microsoft.com/en-us/stream-analytics-query/windowing-azure-stream-analytics](https://docs.microsoft.com/en-us/stream-analytics-query/windowing-azure-stream-analytics)  
+[https://docs.microsoft.com/en-us/stream-analytics-query/session-window-azure-stream-analytics](https://docs.microsoft.com/en-us/stream-analytics-query/session-window-azure-stream-analytics)  
+[https://docs.microsoft.com/en-us/stream-analytics-query/hopping-window-azure-stream-analytics](https://docs.microsoft.com/en-us/stream-analytics-query/hopping-window-azure-stream-analytics)  
+[https://docs.microsoft.com/en-us/stream-analytics-query/snapshot-window-azure-stream-analytics](https://docs.microsoft.com/en-us/stream-analytics-query/snapshot-window-azure-stream-analytics)  
+[https://docs.microsoft.com/en-us/stream-analytics-query/tumbling-window-azure-stream-analytics](https://docs.microsoft.com/en-us/stream-analytics-query/tumbling-window-azure-stream-analytics)  
+[https://docs.microsoft.com/en-us/stream-analytics-query/sliding-window-azure-stream-analytics](https://docs.microsoft.com/en-us/stream-analytics-query/sliding-window-azure-stream-analytics)  
+
+
+
+[https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-streaming-unit-consumption](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-streaming-unit-consumption)  
+[https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-parallelization](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-parallelization)  
+[https://docs.microsoft.com/en-us/azure/stream-analytics/repartition](https://docs.microsoft.com/en-us/azure/stream-analytics/repartition)  
+[https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-scale-jobs](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-scale-jobs)  
 
 
 
