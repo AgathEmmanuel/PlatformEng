@@ -2775,12 +2775,14 @@ Monitor and Optimize Data Storage and Processing
 
 
 
-[https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/massively-parallel-processing-mpp-architecture](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/massively-parallel-processing-mpp-architecture)  
 
 [https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/design-guidance-for-replicated-tables](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/design-guidance-for-replicated-tables)  
 
 
 [https://docs.microsoft.com/en-us/stream-analytics-query/stream-analytics-query-language-reference](https://docs.microsoft.com/en-us/stream-analytics-query/stream-analytics-query-language-reference)  
+
+
+
 
 
 
@@ -2806,6 +2808,75 @@ Monitor and Optimize Data Storage and Processing
 
 
 
+
+
+[https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview)  
+[https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/massively-parallel-processing-mpp-architecture](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/massively-parallel-processing-mpp-architecture)  
+[https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/cheat-sheet](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/cheat-sheet)  
+
+
+
+[https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition)  
+
+
+
+[https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-tables-external-tables?tabs=hadoop](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/develop-tables-external-tables?tabs=hadoop)  
+
+
+
+[https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime](https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime)  
+
+
+
+[https://docs.microsoft.com/en-us/azure/data-factory/concepts-data-flow-overview](https://docs.microsoft.com/en-us/azure/data-factory/concepts-data-flow-overview)  
+
+
+[https://docs.microsoft.com/en-us/azure/data-factory/create-azure-integration-runtime](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-integration-runtime)  
+[https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime](https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime)  
+[https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime)  
+
+
+
+
+
+
+[https://docs.microsoft.com/en-us/azure/data-factory/how-to-create-schedule-trigger?tabs=data-factory](https://docs.microsoft.com/en-us/azure/data-factory/how-to-create-schedule-trigger?tabs=data-factory)  
+[https://docs.microsoft.com/en-us/azure/data-factory/how-to-create-tumbling-window-trigger](https://docs.microsoft.com/en-us/azure/data-factory/how-to-create-tumbling-window-trigger)  
+[https://docs.microsoft.com/en-us/azure/data-factory/how-to-create-event-trigger?tabs=data-factory](https://docs.microsoft.com/en-us/azure/data-factory/how-to-create-event-trigger?tabs=data-factory)  
+
+
+
+
+
+
+[https://docs.microsoft.com/en-us/sql/relational-databases/security/row-level-security?view=sql-server-ver16](https://docs.microsoft.com/en-us/sql/relational-databases/security/row-level-security?view=sql-server-ver16)  
+[https://docs.microsoft.com/en-us/sql/relational-databases/security/dynamic-data-masking?view=sql-server-ver16](https://docs.microsoft.com/en-us/sql/relational-databases/security/dynamic-data-masking?view=sql-server-ver16)  
+[https://docs.microsoft.com/en-us/sql/relational-databases/security/sql-server-certificates-and-asymmetric-keys?view=sql-server-ver16](https://docs.microsoft.com/en-us/sql/relational-databases/security/sql-server-certificates-and-asymmetric-keys?view=sql-server-ver16)  
+[https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/column-level-security](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/column-level-security)  
+
+
+
+
+
+[https://docs.microsoft.com/en-us/learn/modules/design-multidimensional-schema-to-optimize-analytical-workloads/](https://docs.microsoft.com/en-us/learn/modules/design-multidimensional-schema-to-optimize-analytical-workloads/)  
+[https://docs.microsoft.com/en-us/learn/modules/populate-slowly-changing-dimensions-azure-synapse-analytics-pipelines/](https://docs.microsoft.com/en-us/learn/modules/populate-slowly-changing-dimensions-azure-synapse-analytics-pipelines/)  
+
+
+
+
+[https://docs.microsoft.com/en-us/azure/architecture/data-guide/relational-data/data-warehousing](https://docs.microsoft.com/en-us/azure/architecture/data-guide/relational-data/data-warehousing)  
+
+[https://docs.microsoft.com/en-us/power-bi/guidance/star-schema](https://docs.microsoft.com/en-us/power-bi/guidance/star-schema)  
+
+
+
+
+[https://medium.com/@datacouch/star-and-snowflake-schema-in-azure-sql-7b68113b63fb](https://medium.com/@datacouch/star-and-snowflake-schema-in-azure-sql-7b68113b63fb)  
+
+
+
+[https://docs.microsoft.com/en-us/azure/data-explorer/kusto/concepts/fact-and-dimension-tables](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/concepts/fact-and-dimension-tables)  
+[https://www.sqlshack.com/implementing-slowly-changing-dimensions-scds-in-data-warehouses/](https://www.sqlshack.com/implementing-slowly-changing-dimensions-scds-in-data-warehouses/)  
 
 
 
