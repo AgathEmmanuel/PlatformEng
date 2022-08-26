@@ -298,6 +298,13 @@ Allows to answer questions like
 
 
 
+
+
+```
+How to Make Your Choice between Saprk Dask and Ray (hint: do you really need to?)
+
+Now that we've looked at the pros and cons of Spark, Dask, and Ray —and after briefly discussing the Dask-on-Ray hybrid— it is clear that this won't be the case of "one size fits all." The three frameworks have had different design goals from the get-go, and trying to shoehorn fundamentally different workflows into a single one of them is probably not the wisest choice. A much better approach would be to design your data science process and accompanying infrastructure with flexibility in mind, ideally enabling you to spin up and use the right tool for the job. A typical pipeline could involve some ETL-like data processing conducted in Spark, followed by a machine learning workflow executed in Ray. A platform that provides the freedom to run both in a controlled, fault-tolerant, and on-demand manner enables the data science team to leverage the benefits of both frameworks.
+```
 # Links  
 
 
@@ -414,4 +421,30 @@ Allows to answer questions like
 [https://eng.lyft.com/lyftlearn-ml-model-training-infrastructure-built-on-kubernetes-aef8218842bb](https://eng.lyft.com/lyftlearn-ml-model-training-infrastructure-built-on-kubernetes-aef8218842bb)  
 [https://eng.lyft.com/ml-feature-serving-infrastructure-at-lyft-d30bf2d3c32a](https://eng.lyft.com/ml-feature-serving-infrastructure-at-lyft-d30bf2d3c32a)  
 [https://eng.lyft.com/how-lyftlearn-democratizes-distributed-compute-through-kubernetes-spark-and-fugue-c0875b97c3d9](https://eng.lyft.com/how-lyftlearn-democratizes-distributed-compute-through-kubernetes-spark-and-fugue-c0875b97c3d9)  
+
+
+
+
+
+
+[https://www.bmc.com/blogs/hadoop-cloud-native-kubernetes/](https://www.bmc.com/blogs/hadoop-cloud-native-kubernetes/)  
+[https://www.databricks.com/session/hdfs-on-kubernetes-lessons-learned](https://www.databricks.com/session/hdfs-on-kubernetes-lessons-learned)  
+[https://techgenix.com/kubernetes-hadoop-big-data/](https://techgenix.com/kubernetes-hadoop-big-data/)  
+
+
+[https://itnext.io/running-spark-job-on-kubernetes-minikube-958cadaddd55](https://itnext.io/running-spark-job-on-kubernetes-minikube-958cadaddd55)  
+[https://kienmn97.medium.com/deployment-of-standalone-spark-cluster-on-kubernetes-ba15978658bf](https://kienmn97.medium.com/deployment-of-standalone-spark-cluster-on-kubernetes-ba15978658bf)   
+[https://towardsdatascience.com/apache-spark-with-kubernetes-and-fast-s3-access-27e64eb14e0f](https://towardsdatascience.com/apache-spark-with-kubernetes-and-fast-s3-access-27e64eb14e0f)  
+
+
+[https://www.dominodatalab.com/blog/spark-dask-ray-choosing-the-right-framework](https://www.dominodatalab.com/blog/spark-dask-ray-choosing-the-right-framework)  
+[https://docs.ray.io/en/latest/data/raydp.html](https://docs.ray.io/en/latest/data/raydp.html)  
+
+
+
+[https://vishnudeva.medium.com/scaling-applications-on-kubernetes-with-ray-23692eb2e6f0](https://vishnudeva.medium.com/scaling-applications-on-kubernetes-with-ray-23692eb2e6f0)  
+[https://scalingpythonml.com/2020/08/16/poke-at-ray.html](https://scalingpythonml.com/2020/08/16/poke-at-ray.html)  
+
+
+
 

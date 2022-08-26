@@ -484,3 +484,6 @@ batch pipelines
 [https://db-engines.com/en/system/Google+Cloud+Datastore%3BIBM+Db2](https://db-engines.com/en/system/Google+Cloud+Datastore%3BIBM+Db2)  
 [https://cloud.google.com/sql/docs/introduction](https://cloud.google.com/sql/docs/introduction)  
 [https://developer.confluent.io/learn-kafka/data-pipelines/intro/](https://developer.confluent.io/learn-kafka/data-pipelines/intro/)  
+
+
+

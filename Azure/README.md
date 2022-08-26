@@ -2772,11 +2772,16 @@ Monitor and Optimize Data Storage and Processing
 
 
 
+[https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview)  
+[https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/massively-parallel-processing-mpp-architecture](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/massively-parallel-processing-mpp-architecture)  
 
 
 
 
 [https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/design-guidance-for-replicated-tables](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/design-guidance-for-replicated-tables)  
+[https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute)  
+
+
 
 
 [https://docs.microsoft.com/en-us/stream-analytics-query/stream-analytics-query-language-reference](https://docs.microsoft.com/en-us/stream-analytics-query/stream-analytics-query-language-reference)  
@@ -2810,8 +2815,6 @@ Monitor and Optimize Data Storage and Processing
 
 
 
-[https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-overview)  
-[https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/massively-parallel-processing-mpp-architecture](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/massively-parallel-processing-mpp-architecture)  
 [https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/cheat-sheet](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/cheat-sheet)  
 
 
@@ -2878,6 +2881,58 @@ Monitor and Optimize Data Storage and Processing
 [https://docs.microsoft.com/en-us/azure/data-explorer/kusto/concepts/fact-and-dimension-tables](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/concepts/fact-and-dimension-tables)  
 [https://www.sqlshack.com/implementing-slowly-changing-dimensions-scds-in-data-warehouses/](https://www.sqlshack.com/implementing-slowly-changing-dimensions-scds-in-data-warehouses/)  
 
+
+
+[https://docs.microsoft.com/en-us/sql/t-sql/language-elements/case-transact-sql?view=sql-server-ver16](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/case-transact-sql?view=sql-server-ver16)  
+
+
+[https://docs.microsoft.com/en-us/azure/stream-analytics/repartition](https://docs.microsoft.com/en-us/azure/stream-analytics/repartition)  
+
+
+[https://docs.microsoft.com/en-us/azure/databricks/clusters/clusters-manage](https://docs.microsoft.com/en-us/azure/databricks/clusters/clusters-manage)  
+
+
+
+data sources    ->   data storage   ->  batch processing   ->  anlytical datastore  ->  analytics
+
+data sources    -> real-time message ingestion   ->   stream processing     ->     analytics
+
+                    -------   Orchestration    ---------
+
+
+key selection criteria
+design and implement star schema
+slowly changing dimesion types
+dealing with dimensional hierarchies
+
+
+create and monitor data pipelines for a batch processing solution  
+
+
+
+
+
+
+Process Big Data:    Lambda and Kappa Architectures  
+
+
+data may need real time processing  
+
+anomaly detection  
+cruises at sea  
+
+
+lambda architecture duplicates processing logic in both hot and cold paths
+
+kappa needs that every report and metric is incremental
+
+
+
+data storage:   azure sql database, azure cosmosDB, Azure data lake storage gen 2  
+
+analytical data store:  azure synapse analytics,  spark SQL,  HBase  
+
+orchestration:   azure data factory
 
 
 
