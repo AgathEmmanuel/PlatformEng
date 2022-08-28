@@ -2922,9 +2922,18 @@ anomaly detection
 cruises at sea  
 
 
-lambda architecture duplicates processing logic in both hot and cold paths
+lambda architecture 
+- duplicates processing logic in both hot and cold paths
+- has an accurate cold path and less accurate hot path
 
-kappa needs that every report and metric is incremental
+
+
+kappa architecture
+- needs that every report and metric is incremental
+- for real-time processing
+
+
+[https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/](https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/)  
 
 
 
@@ -2933,6 +2942,201 @@ data storage:   azure sql database, azure cosmosDB, Azure data lake storage gen 
 analytical data store:  azure synapse analytics,  spark SQL,  HBase  
 
 orchestration:   azure data factory
+
+batch processing engine:   azure synapse analytics, azure data lake analytics, azure databricks, HDinsight  
+visualisation engine:   power BI
+
+
+
+
+
+Data factory components
+- data set
+- activity
+- pipeline
+- linked service
+
+
+slowly changing dimensions
+- SCD is the most commonly used advanced dimensional
+  technique used in dimensional data warehouse  
+- SCD is a column that need to change the allowed values
+  due to a refactoring need in the business
+
+
+copy the newst data
+- implement a data factory pipeline that
+  incrementally loads data from sql 
+  database into blob storage
+- implement a data factory pipeline that
+  handles exceptions 
+
+
+
+incremental loading strategy
+- get last watermark
+- get last watermark again
+- delta load data b/w 2 watermarks from 
+  source table to destination 
+- update watermarks for delta data
+  loading next time
+
+
+
+
+
+Stream processing solutions  
+- event hubs
+- stream analytics
+- databricks
+- synapse analytics  
+
+
+
+
+Design a data masking strategy  
+Design a data retention policy
+Design a data encryption strategy
+Design a data auditing strategy
+
+
+
+
+Designing a stream processing pipeline
+- data producers
+- message ingestion
+- stream processing
+- analytical data store
+- analysis and reporting
+
+
+
+
+Handling time with window functions
+- tumbling
+- hopping
+- sliding
+- session
+- snapshot
+
+
+
+Stream Processing Real-life Example
+
+Transportation: check areas with high traffic volumes and suggest alternatives
+Health-care: monitor patients in critical condition every few seconds  
+Trading: oversee and process in real-time the financial transactions  
+Polling: analyze and interpret on the spot the response of the pllsters
+Wheather Research: record the temparature in serveral locations every few 
+		   seconds to create accurate weather reports  
+
+
+
+
+Process time series data with window functions  
+
+working with temporal functions that create non-overlapping windows
+
+
+example:
+you receive data from a device that monitors a persions pulse
+
+requirements:
+- no of values over 130 recorded every 10 seconds
+- no of values over 130 that appeared more than 5 times in the last 30 seconds
+- no of abnormal values from different sensors, occuring at the same time
+
+
+apply functions that group data based on time 
+
+Temporal functions (window functions)  
+
+
+
+non overlapping windows:  tumbling, session, snapshot
+
+overlapping windows:   hopping, sliding  
+
+
+
+
+tumbling window
+- splits data stream into distinct time segments and performs a
+  function against them
+- {TUMBLINGWINDOW | TUMBLING} ( time unit, window size )
+- how many events are recorded every 10 seconds
+  select count(*) as Events from Source timestamp by CreatedAt group by tumblingwindow(second, 10)
+- fixed size
+- non overlapping
+- contiguous
+- an event cannot belong to more than one window
+
+
+session window
+- groups or  aggregates events that arrive at similar times
+- {SESSIONWINDOW | SESSION} ( time unit, timeout size, max duration size )
+- how many events occur within 5 seconds of each other
+  select count(*) as Events from Source timestamp by CreatedAt group by sessionwindow(second, 5, 10)
+- filters out periods with no data
+- session window begins when the first event occurs
+- if another event appears within the timeout frame, the window extends
+- if no event appears within the timeout frame, the window closes at timout
+
+
+snapshot window
+- groups events that have the same timestamp
+- does not require a specific window function
+- can apply a snapshot window by adding System.Timestamp() in the Group By clause
+  select count(*) as Events from Source timestamp by CreatedAt group by System.Timestamp()
+
+
+
+hoping window
+- hops forward in time by a fixed period
+  {HOPPINGWINDOW | HOPPING} ( time unit, window size, hop size )
+- every 5 seconds, calculate the no of events recorded in the last 10 seconds
+  select count(*) as Events from Source timestamp by CreatedAt group by hoppingwindow(second, 10, 5)
+- hop size tells how much the window moves forward relative to the previous one
+- windows can overlap
+- windows can be emitted more often than the window size
+- events can belong to more than one window
+- if hop size = window size,  hopping = tumbling
+
+
+
+sliding window
+- doesn't aggregate values after a fixed period
+  {SLIDINGWINDOW | SLIDING} (time unit, window size)
+- creates a new output every time an event is recorded or when an existing event falls out of the time window
+- no of events recorded in the last 10 seconds
+  select count(*) as Events from Source timestamp by CreatedAt group by slidingwindow(second, 10)
+- intervals are not fixed
+- outputs are produced only when the content of the window changes
+- a window must have at least one event
+- events can belong to more than one window
+
+
+
+
+Example:  real time processing solution for
+  every 10 seconds retrieve the products analyzed by the customers of an online store in the
+  last 60 seconds, generate outputs even if no events occurred, an event can be part of multiple
+  windows
+  can be solved usin hopping window
+
+
+Example:  real time processing solution for
+   to count the no of orders received in the last 60 seconds, if no orders were registered
+   the query should not generate a window
+   use sliding window
+
+
+
+
+https://www.geeksforgeeks.org/difference-between-clustered-and-non-clustered-index/
+
+
+https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition
 
 
 
