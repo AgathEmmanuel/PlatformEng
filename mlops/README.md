@@ -49,6 +49,50 @@ challenges
   Security and Privacy
 
 
+scoping => data => modeling => deployment
+
+
+
+Deployment patterns 
+- human only without any AI  
+- shodow human and run prallely  
+- AI assistance with human in the loop  
+- partial automation with human in the loop  
+- full automation with AI  
+- canary  
+- blue green  
+
+
+Monitoring ML systems  
+- software metrics: server load, memory, compute, latency, throughput 
+- input metrics:  fraction of non-null outputs, avg input length, avg input volume, num missing value   
+- output metrics: fraction of missing input values, time return null, time user redoes search, times user swithes to typing   
+
+ML modeling is iterative  
+- ML model/data
+- experiment
+- error analysis
+
+ML deployment is iterative  
+- deployment/monitoring
+- traffic
+- performance analysis
+
+
+Model maintainance
+- set threshold for alarms
+- adapt metrics and threshold over time
+- manual retraining
+- automatic retraining
+
+
+Pipeling monitoring
+
+
+
+
+
+
 
 ```
 
