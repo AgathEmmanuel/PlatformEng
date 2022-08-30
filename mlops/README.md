@@ -20,6 +20,38 @@ Systematically plan out the lifecycle of an ML project
     - Deploy in production  
     - Monitor and maintain systems  
 
+
+
+
+```
+
+Deployment
+
+
+challenges
+- concept drift
+  size of houses havent changed but prize has changed due to inflation
+  definition of what if Y given X
+
+- data drift
+  people stoped building larger houses and is building smaller houses
+  distribution of X changes event if the mapping of X and Y changes
+
+
+- software engineering challenges
+  Realtime predictions
+  Batch predictions
+  Cloud service
+  Edge service
+  Computer Resources Required (CPU/GPU/memory)
+  Latency and Throughput (QPS Queries per second)
+  Logging
+  Security and Privacy
+
+
+
+```
+
 ## ML Pipelines on GCP  
 
 TFX pipelines  
