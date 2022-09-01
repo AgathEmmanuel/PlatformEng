@@ -90,6 +90,154 @@ Pipeling monitoring
 
 
 
+Selecting a Training Model
+
+- model centric ai development
+- data centric ai development
+- ai system = code + data
+- model + hyperparameters + data
+- error analysis
+- audit performance
+- low average error isn't good enough
+- do not discriminate on any protected attributes
+- performance on disproportionately important examples is important
+- performance on key slices of the dataset
+- its not enought to do well on the test set
+- establish a baseline level of performance HLP(human level performance)
+- take into account deployment constraints when picking up model
+- try to overfit a small training dataset befor training on a large one
+
+
+Error Analysis and performance auditing
+
+- examine and tag with an initial set of tags
+- propose more tags
+- what fraction of errors has a specific tag
+- what fraction of miclassified data with tag
+- what fraction of data that has tag
+- can there be an improvement in data with tag
+- prioritizing what to work on 
+- adding or improving data for specific categories
+- skewed datasets 
+- performance auditing
+- performance on subsets of data, cerain errors, rare classes
+
+
+
+Data iteration
+- data centric AI development
+- use tools to improve data quality
+- hold code/model fixed & iteratively improve data
+- graph of possible inputs to performances
+- creating lot of data using data augmentation
+- Add/improve data => training => error analysis
+- product reocommendation with Collaborative vs Content based filtering
+- adding more features
+- robust experiment tracking
+- track algorithm/code, dataset, hyperparameter, results
+- experiment tracking systems
+- desirable features like infor to replicate, results, resource monitoring, error analysis
+- moving from big data to good data
+- features of good data:
+   covers important use cases
+   defined consistently
+   timely feedback from production data ( with data drift and concept drift )
+   is sized properly
+
+
+
+
+
+Data Stage 
+
+Define Data and Establish Baseline
+- small data and label consistency
+- improving label consistency
+
+Lable and Organize data
+- get into iteration loops asap
+- purchasing data
+- labeling data in house, outsourced, crowdsourced
+
+
+Data pipeline
+- multiprocessing data in various stages
+- data cleaning
+- preprocessing scripts
+- ex: spam cleanup, user ID merge
+- how to replicate preprocessin from dev to prod
+- its ok if some data pre-processing is manual
+- use tools to make sure data pipeline is replicable
+- ex: tensorflow transform, apache beam, airflow, ...
+- meta-data, data performance, lineage
+- ex: predict if someone looking for rentals
+  spam dataset => ml code => anti-spam model => user data => despammed user data
+  id merge data => ml code => id merge model
+  despammed user data => id merge model => clean user data => ml code => rental search model => prediction
+- keep track of dat provenance(where it comes from) and lineage(sequence of steps) 
+- make extensive use of meta-data ( data about data )
+- balanced train/dev/test splits in small data problems
+- random split will be representative in large datasets
+
+
+
+
+
+ML egnineering Data Lifecycle in production
+
+Collecting data
+Lableing data
+Validating data
+ML Pipelines
+Directed Acyclic Graphs and Pipeline Orchestration Frameworks
+Intro to Tensorflow Extended (TFX)
+
+
+"Broken data is the most common cause of problems in production ML systems"
+
+
+Data Prep
+
+Data cleansing => ingestion => analysis & transformation => validation => feature engineering => data splitting
+
+Model creation
+
+Building model => training optimization => model validation => training at scale => model
+
+Model Rollout
+
+Deploying => serving => monitoring & logging + explainability => fineturen and improvements
+
+
+
+Pipeline Orchestration frameworks
+- responsible for scheduling various components in an ml pipeline DAG dependencies
+- help in pipeline automation
+- ex: airflow, argo, celery, luigi, kubeflow
+
+
+
+Tensorflow Extended (TFX)
+
+Data ingestion => validation => feature engineering => train model => validate model => push if good => serve model
+
+
+
+Preprocessing Operations
+- Feature engineering
+- never skip normalizing
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
