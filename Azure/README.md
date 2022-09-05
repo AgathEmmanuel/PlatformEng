@@ -3143,6 +3143,286 @@ https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-
 
 
 
+
+Managing Sensitive Data with Dynamic Data Masking and Data Encryption
+- Create a Sample Database
+- Create an SQL User Account
+- Set up Dynamic Data Masking from the Azure Portal
+- Mask String Values with a Custom Format
+- Grant Access to Users to View Masked Data
+- Manage Transparent Data Encryption in Azure Portal
+
+Azure Data Studio
+user accounts can only be created from the master database which is currently not available in Query editoron the Azure portal but is available on Azure Data Studio
+
+SQL Server Management Studio (SSMS)
+
+
+Dynamic Data Masking
+Masking rules
+Masking field format: Custom string
+Transparent data encryption (TDE)
+- TDE performs real-time encryption as well as decryption of the database, associated backups, and transaction log files at rest without you having to make changes to the application.
+- help you protect Azure Synapse Analytics and Azure SQL database.
+
+
+
+
+Manage Authorization through Column and Row Level Security
+- Create SQL User Accounts
+- Prepare Database Tables
+
+- Configure Column Level Security (CLS)
+- GRANT SELECT ON DetailsToBeSecured 
+
+- Configure Row Level Security (RLS)
+- CREATE SCHEMA Security
+- CREATE FUNCTION Security.fn_security
+- CREATE SECURITY POLICY DimFilter
+
+
+run the following script to grant column level permissions
+
+GRANT SELECT ON DetailsToBeSecured(details1, details2, details3, details4) TO UserType1;
+GRANT SELECT ON DetailsToBeSecured(details1, details2, details3, details4) TO UserType2;
+GRANT SELECT ON DetailsToBeSecured(details1, details2, details3, details4) TO UserType3;
+
+
+run the following script to create a schema to implement row level permissions:
+
+
+CREATE SCHEMA Security;
+GO
+ CREATE FUNCTION Security.fn_security(@specialFunction AS selectedname)
+   RETURNS TABLE
+WITH SCHEMABINDING
+AS
+   RETURN SELECT 1 AS fn_security_result
+WHERE @specialFunction = USER_NAME() OR USER_NAME() = 'UserType3';
+
+
+Next, run the script below to create the security policy DimStaffDetailsSecured table according to the business requirement:
+
+CREATE SECURITY POLICY DimDetailsFilter
+ADD FILTER PREDICATE 
+Security.fn_security(specialFunction)
+ON dbo.DimDetailsSecured 
+WITH (STATE = ON);
+
+
+
+
+Clustered Columnstore Index is the physical storage for the entire table.
+A columnstore index is a technology for storing, retrieving, and managing data by using a columnar data format, called a columnstore.
+To reduce fragmentation of the column segments and improve performance, the columnstore index might store some data temporarily into a clustered index called a deltastore and a B-tree list of IDs for deleted rows.
+
+Consider using a clustered columnstore index when: Each partition has at least a million rows. Columnstore indexes have rowgroups within each partition. If the table is too small to fill a rowgroup within each partition, you won't get the benefits of columnstore compression and query performance.
+
+
+https://docs.microsoft.com/en-us/sql/relational-databases/indexes/indexes?view=sql-server-ver16
+https://docs.microsoft.com/en-us/sql/relational-databases/indexes/columnstore-indexes-overview?view=sql-server-ver16
+
+https://techcommunity.microsoft.com/t5/datacat/choosing-hash-distributed-table-vs-round-robin-distributed-table/ba-p/305247
+
+
+
+Here are considerations for choosing whether to use a round-robin distributed table or a hash distributed table: 
+
+- To choose a good distribution design with SQL DW, one should know their data, DDL and queries.
+- A nullable column is a bad candidate for any hash distributed table.
+- Any fact tables that has a default value in a column is also not a good candidate to create a hash distributed table.
+- Large fact tables or historical transaction tables are usually stored as hash distributed tables.
+- Dimension tables or other lookup tables in a schema can usually be stored as round-robin tables. 
+- If you are unsure of query patterns and data, you can start with all tables in round-robin distribution. 
+- When using ‘group by’ SQL DW will shuffle the data on the group by key. 
+
+
+
+
+
+
+
+
+
+
+
+
+Optimize Data Pipelines with Azure Data Factory and Synapse Analytics
+
+Data movement
+Data transformation
+Data control
+
+
+
+
+
+https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy
+
+https://docs.microsoft.com/en-us/azure/synapse-analytics/data-integration/concepts-data-factory-differences
+
+
+Pipeline Scheduling and Error-handling
+
+- working with triggers
+- monitoring your azure pipelines
+- alerts and reruns
+- on-demand execution
+
+
+Triggers
+
+Schedule: ideal for periodic packages
+Tumbling window: ideal for time sliced data
+Event based: fired based on event
+
+trigger, monitor and troubleshoot data pipelines
+
+
+Event based
+- storage event
+- custom event
+
+
+Azure pipline monitoring
+- native interface
+- azure monitor
+
+monitoring on azure data factory
+- default view
+- triggered vs debug
+- detailed view
+- gantt view
+- dashboards
+
+
+Rerunning failed pipelines
+- one or many
+- rerun activities
+- review reruns
+
+
+
+
+Working with alerts
+- ADF interface
+- azure monitor
+
+
+
+
+
+CosmosDB Table API in Python
+- a low-latency, high-throughput application that enables writes all over the world
+- a key-value store for the state of incoming requests that offers an SLA of uptime and latency
+- Azure CosmosDB Table API excels in providing enterprise capabilities and latency with a simple-to-use API
+
+
+pip install azure-cosmosdb-table
+
+
+
+
+import os
+from azure.cosmosdb.table.tableservice import TableService
+from azure.cosmosdb.table.models import Entity
+from azure.cosmosdb.table.tablebatch import TableBatch
+connection_string = os.environ['COSMOSDB_CONNECTION_STRING']
+table_service = TableService(connection_string=connection_string)
+print('CosmosDB Connection Success')
+
+
+
+- You need to specify both a PartitionKey and a RowKey property for every entity. 
+- These are the unique identifiers of your entities, as together they form the primary key of an entity. 
+- Query using these values are much faster than any other entity properties because only these properties are indexed.
+- Table service uses PartitionKey to intelligently distribute table entities across storage nodes. 
+- Entities that have the same PartitionKey are stored on the same node. 
+- RowKey is the unique ID of the entity within the partition it belongs to.
+- Every Batch operation, as is atomic, need to happen within the same PartitionKey
+
+
+
+
+
+Security on Azure Data Lakes
+
+- data lifecycle management
+- immutable data
+- role-based access control
+- access control lists
+
+
+Azure Data Lake Gent2 is a set of capabilities dedicated to big data
+analytics, built on Azure Blob Storage
+
+
+
+Azure Data Lake Gen2 Data Retention
+
+data retention policy
+- deletion
+- immutability
+- lifecycle management policy
+ 
+
+firewall rules for storage accounts to provide exceptions for trusted microsoft services
+
+WORM (Write Once Read Many)
+
+Azure Data Lake Gen2 Immutability
+- regulatory compliance
+- secure document retention
+- legal hold
+- time based retention
+
+
+
+
+
+Azure Data Lake Gen2 Authorization
+- Azure RBAC
+- POSIX-like ACLs (Access Control Lists)
+- shared key authorization
+- shared access signature (SAS) authorization
+
+
+Shared key & SAS auth grants access to user or app
+without requiring them to have identity in Azure Active Directory
+
+
+
+Users and Identities
+- Azure AD user
+- service principal
+- managed identity
+- security group
+
+
+
+
+Data Pipeline for Batch Processing 
+- Upload into Batch Files in Azure Data Lake
+- Set up an Azure SQL Database 
+- Create Azure Data Factory Linked Services, Datasets and Trigger
+- Set up Lookup and Set Variable Activities
+- Set up the Copy Data Activity
+- Set up Stored Procedure Activities
+
+
+
+- Azure data factory will act as the orchestrator 
+- Linked Services section of Azure Data Factory under Connections
+- Open Azure Data Factory Studio
+
+
+
+	
+
+
+
+
+
 ```
 
 

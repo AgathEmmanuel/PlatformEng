@@ -232,6 +232,40 @@ Preprocessing Operations
 
 
 
+Data Journey and Storage
+
+Evolving data
+- iterative schema development and evolution
+- developing enterprise schema environments
+- iteratively generate and maintain enterprise data schemas
+-
+
+
+
+
+
+
+
+Model Serving
+
+- training model is only first part
+- make your model available to end user
+- provide service or app fro interaction
+- key components: model, interpreter, input data
+- model training => batch inference
+- model prediction => realtime inference
+- online learning or dynamic learning
+  model is regularly being retrained as new data arives as data streams
+  ex: ml systems that use time series data like sensors
+- metrics to optimize: latency, cost, throughput
+- latency: sending data to server, performing inference using model and returning response
+- throughput: no of successful requests served per unit time 
+- cost: associated with each inference should be minimised
+        cpu, GPU, caching infrastructure for faster data retrieval
+        reduce costs by gpu sharing, multi model serving, optimizing model used for inference
+
+
+
 
 
 
