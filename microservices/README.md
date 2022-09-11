@@ -379,3 +379,17 @@ The threading module uses threads, the multiprocessing module uses processes. Th
 
 [https://medium.com/cuddle-ai/concurrency-with-fastapi-1bd809916130](https://medium.com/cuddle-ai/concurrency-with-fastapi-1bd809916130)  
 
+
+
+[Authorization at Netflix Scale](https://youtu.be/NVO3PUyEpkM)  
+
+[Running Kafka in Kubernetes](https://youtu.be/r9ydV0Y0duo)  
+
+
+[https://www.simplilearn.com/kafka-vs-rabbitmq-article](https://www.simplilearn.com/kafka-vs-rabbitmq-article)  
+[https://www.educba.com/activemq-vs-kafka/](https://www.educba.com/activemq-vs-kafka/)  
+
+[https://cloud.google.com/architecture/migrating-from-kafka-to-pubsub](https://cloud.google.com/architecture/migrating-from-kafka-to-pubsub)  
+
+
+[https://ably.com/blog/realtime-ticket-booking-solution-kafka-fastapi-ably](https://ably.com/blog/realtime-ticket-booking-solution-kafka-fastapi-ably)  

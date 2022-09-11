@@ -2,6 +2,8 @@
 # Operators  
 
 
+Kubernetes Operators. There are not only increasing amount of existing solutions, with an increasingly mature and well documented Kubebuilder and Operator-SDK enables DevOps Engineers to potentially provide custom solutions for enterprise costumers too.  
+
 
 
 ```
@@ -558,6 +560,7 @@ Both kubebuilder and operator-sdk are good tools to start writing k8s controller
 [https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/operator-example/](https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/operator-example/)  
 [https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/custom-controller-code/](https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/custom-controller-code/)  
 [https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/why-operator-tutorial/](https://developer.ibm.com/learningpaths/why-when-kubernetes-operators/why-operator-tutorial/)  
+
 [https://blog.harbur.io/kubernetes-crd-and-controllers-to-manage-google-cloud-sql-dbs-91b7c1250a64](https://blog.harbur.io/kubernetes-crd-and-controllers-to-manage-google-cloud-sql-dbs-91b7c1250a64)  
 [https://blog.harbur.io/leverage-k8s-crd-and-kubebuilder-to-create-a-telegram-message-resource-8ce8ac329d89](https://blog.harbur.io/leverage-k8s-crd-and-kubebuilder-to-create-a-telegram-message-resource-8ce8ac329d89)  
 [https://www.aquasec.com/aqua-cloud-native-security-platform/](https://www.aquasec.com/aqua-cloud-native-security-platform/)  
@@ -614,4 +617,12 @@ Both kubebuilder and operator-sdk are good tools to start writing k8s controller
 
 
 [https://vmblog.com/archive/2019/11/04/operators-a-journey-from-helm-to-golang-to-deliver-on-cloud-native-applications-day-2-operations.aspx#.YpBcjTlBxH4](https://vmblog.com/archive/2019/11/04/operators-a-journey-from-helm-to-golang-to-deliver-on-cloud-native-applications-day-2-operations.aspx#.YpBcjTlBxH4)  
+
+
+[https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/)  
+
+
+[https://cloudark.medium.com/kubernetes-custom-controllers-b6c7d0668fdf](https://cloudark.medium.com/kubernetes-custom-controllers-b6c7d0668fdf)  
+[https://itnext.io/under-the-hood-of-the-operator-sdk-eebc8fdeebbf](https://itnext.io/under-the-hood-of-the-operator-sdk-eebc8fdeebbf)  
+[https://itnext.io/under-the-hood-of-kubebuilder-framework-ff6b38c10796](https://itnext.io/under-the-hood-of-kubebuilder-framework-ff6b38c10796)  
 
