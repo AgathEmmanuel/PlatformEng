@@ -460,9 +460,169 @@ resource "google_service_account_iam_policy" "admin-account-iam" {
 
 
 
-DevOps Professional
+DevOps Engineer
 
 ```
+
+Compute
+Storage
+Big Data
+Machine Learning
+
+
+
+on demand service
+broad network access
+resource pooling
+rapid elasticity
+measured service
+
+
+every company is a data company
+
+
+compute engine 
+kubernetes engine
+app engine
+cloud functions
+managed services
+
+
+GCP regions and Zones
+
+15 regions
+
+
+
+Cloud Bigtable  -  Apache HBAse like interface
+Cloud Dataproc  -  similar to Hadoop
+
+
+Tensorflow
+Kubernetes
+Forseti security
+
+Google stackdriver
+
+
+
+Compute
+  compute engine
+  kubernetes engine
+  app engine
+  cloud functions
+
+Storage
+  bigtable
+  cloud storage
+  cloud sql
+  cloud spanner
+  cloud datastore
+
+
+Bigdata
+  big query
+  pub/sub
+  data flow
+  data proc
+  data lab
+
+
+Machine Learning
+  Natural Language API
+  Vision API
+  Machine Learning 
+  Speech API
+  Translate API
+
+
+
+Budgets and Alerts
+Billing export
+Reports
+Quotas (rate and allocation quota)
+
+
+
+IAM
+Projects
+Folders
+
+
+All resources in the project inherite the IAM policies
+
+
+Owner 
+Editor
+Viewer 
+Billing administrator
+
+
+IAM custome roles
+- can only be used at project or organizational level not at the folder level
+
+Service Accounts
+- control server to server communication
+
+
+Cloud client libraries
+Google API client libraries
+
+
+Cloud Launcher
+
+
+
+
+
+VPC network
+
+gcp VPC network are global, subnets are regional
+
+Compute Engine
+
+boot image : linux or windows server
+memory
+cpu
+gpu
+persistent disks
+standard
+ssd
+startup script
+disk snapshot as backups or migration tools
+
+
+Preemptible instances
+
+
+VPC capabilities
+
+- we can use its route table to forward traffic within the network, even across subnets
+- use its firewall to control what network traffic is allowed
+- use shared vpc to share a network or individual subnets with other gcp projects
+- use vpc peering to interconnect networks in gcp projects
+- with global cloud load balancing your application presents a single front-end to the world
+- users get a single global anycast IP address
+
+Global VPC offers a suite of load balancing options
+- Global HTTP(s)
+- Global SSL Proxy
+- Global TCP Proxy
+- Regional
+- Regional internal
+
+
+
+Cloud DNS
+Cloud CDN
+
+
+Interconnection options
+
+VPN
+Direct peering
+Carrier peering
+Dedicated interconnect
 
 
 
