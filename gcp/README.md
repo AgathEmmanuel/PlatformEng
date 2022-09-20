@@ -628,6 +628,39 @@ Dedicated interconnect
 
 
 
+---- Cloud Storage
+
+large-object storage
+data encryption at rest and in transit
+ACLs
+object lifecycle management
+classes:  multi-regional, regional, nearline, coldline
+
+
+Ways to bring data into Cloud Storage
+- Online transfer
+- Storage transfer service
+- Transfer appliance
+
+
+---- Cloud Bigtable
+
+fully managed NoSQL
+wide column database
+store large amounts of data with very low latency
+both read and write
+analytical applications, IOT, user analytics, financial data analytics
+accessed using HBase API
+native compatibility with big data, Hadoop ecosystems
+managed, scalable storage
+data encyption in-flight and at rest
+control access with IAM
+
+Bigtable Access Patterns
+- Application API
+- Streaming
+- Batch Processing
+
 
 
 
