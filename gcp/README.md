@@ -662,11 +662,54 @@ Bigtable Access Patterns
 - Batch Processing
 
 
+---- Cloud SQL
+
+managed RDBMS
+offers MySql and ProstgreSql database as a service
+automatic replication
+managed backups
+vertical scaling (read and write)
+horizontal scaling (read)
+google security
+
+---- Cloud Spanner
+
+strong global consistency
+managed instances with high availability
+SQL quries   ANSI 2011 with extensions
+automatic replications
+
+
+
+---- Cloud Datastore
+
+horizontally scalable NoSql DB
+for application backends
+supports transactions
+includes a free daily quota
+automatically handles sharding and replication
 
 
 
 
+coparing storage options
+  
+            cloudDatastore   bigTable          cloudStorage   cloudSql           cloudSpanner       bigQuery
+type        noSql document  Nosql wide column  blobstore   relationalSql/OLTP  relationalSql/OLTP relationalSql/OLTP   
+transactions    yes           single-row         no             yes                    yes             no
+complex query   no              no               no             yes                    yes             yes
+capacity      terabytes+      petabytes+       petabytes+      terabytes             petabytes         petabytes+
+unit size     1MB/entity    10MB/cell 100MB/row   5TB/Object Determined by DBengine   10,240 MiB/row   10MB/row 
+best for     semi structured  flat data          structured and     web frameworks    large-scale      Interactive
+            application data  heavy read/write   unstructured binary   existing      db applications   querying,
+      durable key-value data  events,analyticaldata  or object data    applications    (> 2TB)         offline anlaytics
+use cases    getting started,  AdTech, finacial    images, large    user credentials,  when high I/O   Data warehousing
+     app engine applications   and IoT data      media files, backups   customer orders  glbal consistency is needed
 
+
+
+
+Containers in Cloud
 
 
 
