@@ -709,7 +709,457 @@ use cases    getting started,  AdTech, finacial    images, large    user credent
 
 
 
+
+
+
+
 Containers in Cloud
+
+
+Kubernetes
+
+
+modern distributed systems allow a more agile approach to 
+managing your compute resources
+
+- move only some of your compute workloads to cloud
+- move at your own pace
+- take advantage of clouds scalability and lower costs
+- add specialized services to your compute resources stack
+
+
+
+Anthos is Google solution for hybrid multi-cloud systems
+- kubernetes and GKE on prem create the foundation
+- on premises and cloud environments stay in sync
+
+
+Google Cloud Platform
+- cloud console
+- Anthos config management
+- Anthos service mesh
+- gke
+
+On prem Data center
+- policy repocitory on git
+- istio open source
+- anthos config management
+- gke on-prem
+
+
+cloud interconnect
+gcp marketplace
+stackdriver ( logging and monitoring )
+
+
+GKE
+- configuring health checks
+- setting session affinity
+- managing different rollout strategies
+- deploying pods across regions for HA
+
+
+
+
+App Engine  PaaS
+- for building scalable applications
+- make deployment, maintenance, scalability easy
+- suited for scalable web applications and mobile backends
+- SDKs for development, testing and deployment
+
+
+Cloud Endpoints
+- distributed api management through an API console
+- expose your api using a restful interface
+- control access and validate calls with json web tokesn and google api keys
+- identify web and mobile users with Auth0 and firebase authentication
+- generate client libraries
+
+
+Apigee Edge
+
+
+https://github.com/GoogleCloudPlatform/appengine-guestbook-python
+
+
+Developing, Deploying and Monitoring in cloud
+
+Cloud Source Repositories
+
+Cloud functions
+
+GCP Deployment Manager
+Deployment: Infrastructure as code
+
+
+Stackdirver
+- monitoring
+- logging
+- trace
+- error reporting
+- debugger
+- profiler
+
+
+
+
+
+Big data and Machine Learning in cloud
+
+- Cloud Dataproc
+- Cloud Dataflow
+- BigQuery
+- Cloud Pub/Sub
+- Cloud Datalab
+
+
+
+
+
+
+# Comparing loadbalancing options
+
+Global HTTP(S)       
+layer 7 load balancing based on load
+can route different URLs to different back ends
+
+Global SSL Proxy
+layer 4 load balancing of non-SSL TCP traffic
+supported on specific port numbers
+
+Global TCP Proxy
+layer 4 load balancing of non-SSL TCP traffic
+supported on specific port numbers
+
+Regional
+load balancing of any traffic (TCP, UDP)
+supported on any port number
+
+Regional internal
+load balancing of traffic inside a VPC
+use for the internal tiers of multi-tier applications
+
+
+# Comparing interconnect options
+VPN              secure multi-Gbps connection over VPN tunnels
+Direct Peering   private connection bw you and google for your hybrid cloud workloads
+Carrier Peering  connection through the largest partner n/w of service providers
+Dedicated Interconnect    connect N X 10G transport circuit for private
+                          cloud traffic to Google Cloud at Google POPs
+
+
+
+
+-------- Developing a Google SRE culture
+
+DevOps philosophy
+IT operations
+
+
+DevOps
+- reduce organizational silos
+- accept failure as normal
+- implement gradual change
+- leverage tooling and automation
+- measure everything
+
+
+SRE
+- share ownership
+- SLO ( service level objectives )
+- Blamelessness
+- reduce cost of failure
+- toil automation
+- measure toil and reliability
+- software engineers responsible for operations
+
+
+
+
+the value of SRE to your organization
+blameless post mortems
+psychological safety
+SLOs
+Error budgets
+sharing vision and knowledge
+
+
+
+protect, provide for and progress software and systems
+with consistent forcus on availability, latency,
+performance, and capacity
+
+
+incentivize automation with time for creativity
+launching and iterating allows teams to fail fast
+
+
+
+Experienced SREs
+- are comfortable with failure
+- eleminate ambiguity with monitoring
+- establish and document processes
+
+
+Components of postmortem
+- details of the incident and its timeline
+- actions taken to mitigate or resolve the incident
+- incidents impact
+- trigger and root cause or causes
+- follow-up actions to prevent its recurrence
+- take effective action to prevent issue from occuring again
+- reduce likelihood of stressful outages
+- avoid multiplying complexity
+
+
+Psycological safety:  belief that a person will not be punished or 
+                      humiliated for speaking up with ideas, questions,
+                      concerns, or mistakes
+
+
+Work environments wit low psycological safety:
+- people keep concerns or ideas to themselves
+- people are afraid of looking incompetent or ignorant
+- people are afraid of being ridiculed
+
+
+
+Blamelessness fosters psychological safety
+- Hindsight bias
+- Discomfor discharge
+
+focus on systems and processes, not people
+innovation requires some degree of risk taking
+
+
+
+Reduce orgnanisational silos with SLOs and error budgets
+
+- 40% to 90% of total software engineering costs are incurred after launch
+- SRE promotes shared ownership
+- Reliability = Good time / Total time
+- fraction of time the service is available and working
+- Availability = Good interactions / Total interactions
+- fraction of real users who experience a service thats working and available
+- Error Budget = amount of unreliability you are willing to tolerate
+- error budget help priorize engineering work
+- SLO - service level objectives : precise numerical target for system reliability
+- SLI - service level indicators
+- SLI = how well a service is doing at any moment in time
+- SLI = ( good events / valid events ) * 100%
+- SLI should generally be just short of 100%, 99.9%
+- SLA is a promise about health of your service to your customers
+
+
+
+Create a unified vision
+Determine what collaboration looks like
+Share knowldge among teams
+Google uses OKRs ( Objectives and Key Results )
+
+
+
+Team composition roles
+- Tech lead: who sets technical direction of the team
+- Manager: who runs performance management
+- Project manager: comments on design doc and writes code
+
+
+
+Effective communication between product development and SRE teams is vital
+This collaboration is best if its as early in the design phase as possible
+SRE make recommendations about architecture and software behaviour
+SRE leverages automation to put more time and effort into software
+development than to operations
+
+
+
+
+Knowledge Sharing
+Cross training
+Employee to employee network
+Job shadowing
+Cross functional collaboration
+Pair up with team members to scale and retain knowledge
+
+
+
+
+CI/CD
+Canarying
+Toil
+Automation
+
+
+
+CI - building, integrating and testing code within dev environment
+
+
+code -> build -> integrate -> test -> release -> deploy -> operate
+
+
+
+Design thinking
+- empathize
+- define
+- ideate
+- prototype
+- test
+
+
+
+If a human operato needs to touch your system during normal
+operations, then you have a bug. The definition of normal
+changes as your systems grow.
+
+
+
+
+Toil
+- manual
+- repetitive
+- automatable
+- tactical
+- without enduring value
+- scales linearly as the service grows
+
+
+Exessive toil
+- career stagnation
+- low morale
+- confusion
+- slower progress
+- precedence
+- attrition
+- breach of faith
+
+
+Psycology of change
+- navigators
+- critics
+- victims
+- bystanders
+
+How to incoporate a change
+- involve people in the change
+- set realistic expectations
+- identify opportunities for co-creation and provide coaching instead of solutions
+- simplify messaging and focus on key concepts per user group
+- ensure that communications are engaging and training is interactive
+- allow people time to build new habits
+
+
+Emotional response to change
+- denial
+- resistence
+- acceptance
+- exploration
+- commitment
+- growth
+
+
+Head ( rational )
+Heart ( emotional )
+Feet ( behavioral )
+
+
+
+Regulate Workload
+
+- measuring reliability
+- measuring toil
+- monitoring
+
+
+
+cpu utilization
+memory usage
+load avaerage
+
+
+Four Golden signals
+- latency
+- traffic
+- errors
+- saturation
+
+
+Goal setting, transperancy and data-driven decision making
+- google uses OKRs as KPIs, graded from 0.0 to 1.0
+- OKR grading 60-70 % is a good score
+- transperency
+- feedback loop
+- data-driven decision making
+- remove bias ( affinity bias, confirmation bias, labeling bias, selective attention bias )
+- question your first impressions
+- justify decisions
+- make decisions collectively
+
+
+Apply SRE in Organization
+- operations and software engineering
+- monitoring systems
+- production automation
+- system architecture
+- troubleshooting
+- culture of trust
+- incident management
+
+SRE team implementations
+- Kitchen Sink or "Everything SRE"
+- Infrastructure
+- Tools
+- Product/Application
+- Embedded
+- Consulting
+
+Kitchen Sink or "Everything SRE"
+- there are no coverage gaps
+- easy to spot patterns & similarities bw services and projects
+- acts as glue between teams
+- may write code and maintain tools for themselves and developers
+- could be hands-on changing code and configuraton of service
+- may need to work on reliability of many critical applications
+- could focus on building software to help developers with aspects of SRE work
+- maintain shared services related to infrastructure
+
+
+Infrastructure team
+- help make other teams jobs easier
+- maintains shared services related to infrastructure
+- recommended for organizations with multiple developer teams
+- defines common standards for the IT team
+
+
+Tools team
+- could focus on building software to help developers with aspects of SRE work
+- recommended for orgs that need highly specialized reliability-related tooling
+
+
+Product/Application team
+- improves reliability of a critical application
+- recommended for organizations that have Kitchen Sink, Infrastucture,
+  or Tools SRE team and application with high reliability needs
+
+
+Embedded team
+- SREs are embedded with developers
+- SREs and developers have a project or time bounded relationship
+- hands-on changing code and configs or service
+- recommended for orgs to start a team or scale another implementation
+- can augment impact of tools or infrastructure team
+
+Consulting team
+- similar to embedded team
+- less hands on
+- may write code and maintain tools for themselves and developers
+- not recomended until organizational complexity is large
+
+
+
+
+
+
 
 
 
