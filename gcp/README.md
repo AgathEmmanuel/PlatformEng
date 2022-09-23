@@ -1158,7 +1158,196 @@ Consulting team
 
 
 
+Reliable Google Cloud Infra Design and Process
 
+- architect you application using microservices
+- choose best storage and deployment service using objective criteria
+
+Agenda
+- defining service
+- microservice design and architecture
+- devops automation
+- choosing storage solutions
+- google cloud and hybrid netework architecture
+- deploying applications to google cloud
+- designing reliable systems
+- security
+- maintenance and monitoring
+
+
+
+Challengin ideas
+- online banking portal
+- ride sharing application
+- online shopping site
+- online travel portal
+
+
+Online Shopping
+- customer
+- supplier upload inventory 
+- manager
+- social media intergration
+- unique pricing based on customer preferences
+
+
+users roles and personas
+qualitative requirements
+quantitative requirements usin KPI(key performance indicators)
+evaluate service requirements
+determine appropriate SLOs and SLIs for your service
+
+
+KPIs
+- Business KPIs
+- Technical KPIs
+
+
+
+SMART KPIs
+- specific
+- measurable
+- relevant
+- time-bound
+
+
+
+SLI				      SLO
+HTTP POST photo uploads complete      99%
+within 100ms aggregated per minute    80%
+
+Available as measured with an         100%
+uptime check every 10 seconds         99.999%
+aggregated per minute                 99%
+
+
+
+
+
+SLA  is a business  contract between the provider and customer
+- a penalty will apply to provider if service not maintain certain availability
+  and performance thresholds
+- if SLA broken, customer will receive compensation from the provider
+
+
+Example
+SLI: latency of successful HTTP responses (HTTP-200)
+SLO: latency of 99% of responses must be <= 200 ms
+SLA: user is compensated if 99th percentile latency exceeds 300ms
+
+
+
+
+User Story               SLO                       SLI
+Balance inquiry    available 99.95%        Fraction of 200 vs 500 HTTP
+                                           responses from API endpoint measured per day
+Balance inquiry    95% or requests will    Time to last byte GET requests measured
+                  complete in under 300ms  every 10 seconds aggregated per minute
+search inventory   available 99.9%         Fraction of 200 vs 500 HTTP responses from
+                                           API endpoint measured per month
+analyze user count  95% of queries should  Time to last byte GET requests measured every
+                   complete in under 10s   60 seconds aggregated per 10 minutes
+supply inventory   available 99.9%         Fraction of 200 vs 500 HTTP responses from
+                                           API endpoint measured per month
+supply inventory   error rate < .00001%    Errors in upload measured as % of bulk 
+                                           uploads per day by custom metric
+
+
+
+
+Microservice Design and Architecture
+- monolithic to microservices
+- stateful & stateless services to optimize scalability & reliability
+- services using 12-factor best practices
+- microservice boundaries
+- consistent standard RESTful service APIs
+- loosely coupled services with well-designed REST architecture
+
+
+multiple smaller independent services
+multiple code bases with each service managing its own data
+
+
+Key to architecting Microservices
+- decompose apps by feature to minimize dependencies
+- organize services by architectural layer
+- isolate services that provide shared functionality
+
+Stateful services manage stored data over time
+- harder to scale
+- harder to upgrade
+- need to back up
+
+Stateless services get their data from environment
+or other stateful services
+- easy to scale
+- easy to update to new versions
+- easy to administer
+
+
+
+Avoid storing shared state in-memory on your servers
+- requires sticky sessions to be set up in the load balancer
+- hinders elastic autoscaling
+
+Store ste using backend storage services shared by the frontend stateless servers
+- cache state data for faster access
+- take advantage of Googl Cloud - managed data services
+  - firestore, Cloud SQL, etc. for state
+  - memorystore for caching
+
+
+General solution for large-scale cloud-based systems
+
+              Stateless             Stateless    Stateful
+Cloud DNS      Frontend              Backend     Stateful pods
+                                      pod1
+HTTP load        pod1    Network      pod2
+balancer         pod2     Load        pod3
+                         balancer     pod4
+
+- use DNS and HTTP(S) load balancing to get requests from users
+- use internal load balancers to communicate b/w frontend & backend services
+- use many small stateless servers for scalability and fault tolerance
+- isolate the stateful servers
+
+
+12 Facto App: Best Practice for SaaS apps
+- maximize portability
+- deploy to cloud
+- enable continous deployment
+- scale easily
+
+- codebase: each app has one code repo, git
+- dependencies: declaration and isolation, package mangers pip,maven,npm
+- config: store secrets, connecion strings, endpoints as environment variables
+- backing service: treat them as attached resources
+          databases, caches, queues, & other services are accessed via URLs
+          should be easy to swap one implementation for another
+- build, release, run: strictly separate build and run stages
+          build creates a deployment package from source code
+          release combines deployment with config in runtime environment
+          run executes the application
+- processes:  execute the app as one or more stateless processes
+          apps run in one or more processes
+          each instance of the app gets its data from a separate service
+- port binding:  export services via port binding
+          apps are self contained and expose port and protocol internally
+          apps are not injected into a separate server like Apache
+- concurrency:  scale out via the process model
+          because apps are self-contained and run in separate process,
+          they can scale easily by adding instances
+- disposability: maximize robustness with fast startup and graceful shutdown
+          app instances should scale quickly when needed
+          if and instance isnt needed, we should be able to turn it off with no side effects
+- Dev/prod parity:  keep dev, staging and production as similar as possible
+          container systems makes it easier
+          use IAC to make easy to create environments
+- Logs:   Treat logs as event streams
+          write log messages to standard output and aggregate all logs to single source
+- Admin processes:  Run admin/management tasks as one-off processes
+          admin tasks should be repeatable processes, not one-off manual tasks
+          admin tasks shouldn't be a part of the application
 
 
 
