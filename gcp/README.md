@@ -1350,6 +1350,416 @@ balancer         pod2     Load        pod3
           admin tasks shouldn't be a part of the application
 
 
+Sample Design
+- Web UI
+- Mobile UI
+- Auth Service
+- Search service
+- Orders service | orders database
+- Inventory service | inventory database
+- Analytics service | data warehouse
+- Reporting service
+
+
+Design consistent APIs for services
+OpenAPI is an industry standard for exposing API to clients
+gRPC is a lightweight protocol for fast, binary communincation b/w services or devices
+  - developed at google
+  - support many languages
+  - easy to implement
+  - global load balancer (HTTP/2)
+  - cloud endpoints
+  - can expose gRPC services using an envoy proxy in GKE
+Google Cloud provides 2 tools, Cloud Endpoints and Apigee for managing APIs
+
+
+
+
+
+DevOps Automation
+- automate service deployment using CI/CD pipelines
+- source and version control with Cloud Source Repositories
+- automate build with Cloud build and build triggers
+- manage container images with Container Registry
+- infrastructure with code using Terraform
+
+
+CI
+- developer check-in code
+- run unit tests
+- build deployment package docker image
+- deploy
+- extra steps: linting of code, quality analysis, sonarqube, 
+               integration test, test reports, container scanning
+
+Binary authorization allows you to enforce deploying only 
+trusted containers into GKE
+
+
+
+Terraform
+
+
+
+Choosing GCP storage solutions
+- use case, durability, scalability, cost
+- binary data with Cloud Storage
+- relational data with Cloud SQL and Spanner
+- store NoSQL data using Firestore and Cloud Bigtable
+- Cache data for fast access using Memorystore
+- aggregate data for queries and reports using BigQuery as a data Warehouse
+
+
+Releational: Cloud SQL, Cloud Spanner
+NoSQL:   Firestore, Cloud Bigtable
+Object:  Cloud Storage
+Warehouse: BigQuery
+InMemory: MemoryStore
+
+        Persistent Disk
+
+
+scale horizontally:   Bigtable, Spanner
+scale vertically:    Cloud SQL, Memorystore
+scale auomatically  : Cloud storage, BigQuery, Firestore
+with no limits 
+
+
+
+Strong Consistency
+- databases update all copies of data within a transaction
+- ensures everyone gets latest copy of data on reads
+- storage, cloud sql, spanner, firestore
+
+Eventually Consistent
+- databases update one copy of data and rest asynchronously
+- can handle a large volume of writes
+- bigtable, memorystore replicas
+
+
+Calculate total cost per GB
+
+
+Storage and database decision chart
+
+Is your data structured?
+no : Do you need a shared file system?
+     yes : filestore
+     no  : cloud storage
+yes: Is your workload analytics?
+     yes : Do you need updates or low latency?
+           no  :  BigQuery
+           yes :  Cloud Bigtable
+     no  : Is your data relational?
+           no  :  Firestore
+           yes :  Do you need horizontal scalability?
+                  no  :  Cloud SQL
+                  yes :  Cloud Spanner
+
+
+
+
+Cloud Storage Transfer Service
+Transfer Appliance
+Transfer service for BigQuery
+
+
+
+
+
+
+Google Cloud and Hybrid Network Architecture
+- design VPC networks to optimize for cost, security and performance
+- global and regional load balancers to provide access to services
+- leverage cloud CDN to provide lower latency and decrease network egress
+- evaluate network architecture using Netwok Intelligence Center
+- connect networks using peering, VPNs and Cloud Interconnect
+
+
+
+In Google cloud, VPC networks are global
+- single project can have multiple networks
+- create subnets for regions you want to operate in when creating networks
+- resources across regions can reach each other without any added interconnect
+- regions around world can be chosen for global company
+- choose closest region and a backup region if users are close together
+
+
+When creating subnets, specify region and interal IP address range
+- machines in same VPC can communicate via their interal IP
+- ip aliasing or secondary range can be set on the subnet
+  address regardless of the subnet region
+- subnets don't need to be derived from a single CIDR block
+- ip address ranges cannot overlap
+- subnets are expandable without downtime
+
+
+
+Single VM can have multiple network interfaces connecting to different networks
+- each network must have a subnet in region the VM is created in
+- each interface must be attached to a different VPC
+- maximum of 8 interfaces per VM
+
+Shared VPC created in one project, can be shared and used by other projects
+- requires an organization
+- create VPC in host project
+- shared VPC admin shares VPC with other service projects
+
+Allows centralized control over network configuration
+- network admins configure subnets, firewall rules, routes etc
+- remove network admin rights from developers
+- disable creation of default network using organizational policy
+- devlopers can focus on machine creation and configuration in shared network
+
+
+Designing Google Cloud Load balancer
+- Global load balancing supported by HTTP load balancer and TCP and SSL proxies
+- HTTP load balancer routes requests to region closest to the user using global, anycast IP address
+Regional load balancer can be used to provide access to services deployed in single region
+- Supported by HTTP, TCP and UDP load balancers
+- Can have a public or private IP address
+- Can use any TCP or UDP port
+If load balancers have public IPs, secure them using SSL
+- supported by HTTP and TCP load balancers
+- self-managed and google-managed SSL certificates
+Leverage Cloud CDN, for lower-latency and decreased egress cost
+- can be enabled when configuring the HTTP global load balancer
+- caches static ontent worldwide using Google Cloud edge-caching locations
+- Cache static data from web servers in compute engine instances, gke pod, cloud storage buckets
+
+
+GCP load balancer types
+- HTTP load balancing
+  layer 7 load balancing for HTTP and HTTPS applications
+  Configure    HTTP LB, HTTPS LB
+  Options      Internet facing or internal single or multi-region
+- TCP load balancing
+  layer 4 load balancing or proxy for applications that rely on TCP/SSL protocol
+  Configure    TCP LB, SSL Proxy, TCP Proxy
+  Options      Internet facing or internal Single or multi-region
+- UDP load balancing
+  layer 4 load balancing for applications that rely on UDP protocol
+  Configure    UDP LB
+  Options      Internet facing or internal Single-region
+
+
+http LB: search, analytics, web UI
+tcp LB:  inventory, orders
+
+
+Network Intelligence Center 
+
+
+VPC peering can used to connect networks when they are both in google cloud
+Cloud VPN securely connects your on-premises network to Google Cloud VPC network
+HA VPN to peer VPN gateway
+HA VPN to AWS peer gateway
+HA VPN to peer VPN gateway
+Cloud Router enables dynamic discovery of routes between connected networks BGP (Border Gateway Protocol)
+Cloud Interconnect when a dedicated high-speed connection is required b/w networks
+Dedicated Interconnect provides direct physical connection
+Partner Interconnect provides connectivity through a supported service provider
+
+
+
+Managed instance grous create VMs based on instance templates
+Use one or more instance groups as backend for load balancers
+
+
+  
+Desingning Reliable Systems
+- avialiablity, durability, scalability
+- fault tolerant systems by avoiding single point of failure, correlated failures and cascading failures
+- circuit breakers and exponential backoff design patters to avoid overload failures
+- resilient data storage with lazy deletion
+- design for normal operational state, degraded operational state, and failure scenarios
+- plan, implement, test/simulate for disaster recovery and analyze disaster scenarios
+
+
+Availability: percent of time system is running
+              - achieved with fault tolerance
+              - create backup systems
+              - use health checks
+              - use mertics to count real traffic success and failure
+Durability:   odds of losing data because of hardware or system failure
+              - achieved by replicating data in multiple zones
+              - taking regular backups
+              - practice restoring from backups
+Scalability:  ability of system to work as user load and data grow
+              - monitor usage
+              - capacity autoscaling to add and remove servers in response to change in load
+
+To avoid single points of failure
+- N+2L: Plan to have one unit out for upgrade or testing and survive another failing
+- make units interchangeable stateless clones
+- not make any single unit too large
+- each unit should be able to handle extra load
+
+
+To avoid correlated failure
+- divide business logic into services based on failure domains
+- deploy to multiple zones and or regions
+- split responisbility into components and spread over multiple processes
+- desingning independent, loosely coupled but collaborating services
+- decouple servers and use microservics distributed among multiple failure domains
+- health checks in compute engine or readiness and liveness probe in k8s
+  to detect and the repair unhealthy instances
+- new servers should start fast and ideally not rely on other backend systems to start up
+- prevent query of death oveload, where logic error shows up as overconsumption
+  of resources and the service overloads, monitor query performance and notify
+  developers if there are any issues
+- prevent potential for overload while icreasing reliability by adding retries
+  Positive feedback cycle overload failure
+  Truncated Exponential backoff pattern to avoid positive feedback overload at the client
+  Ciruit Breaker pattern to protect service from too many retries
+  In gke, u can leverage istio to automatically implement circuit breakers
+  Use lazy deletion to reliably recover when users delete data by mistake
+- High availability can be achieved by deploying to multiple zones in a region
+  deploy multiple servers
+  Orchestrate servers with a regional managed instance group
+  Create failover database in another zone or use distributed database like firestore or spanner
+  Regional managed instance groups distribute VMs across zones in the region specified
+  Kubernets cluster can be deployed to single or multiple zones
+  Selecting regional location type in k8s replicates node pools in multiple zones in that region
+  Create health check when creating instance groups to enable auto healing
+    - create test endpoint in the service
+    - test endpoint needs to verify service is up and also that it can communicate
+      with dependent backend database and services
+    - if health check fails, instance group will create new server and delete broken one
+    - load balancers use health checks to ensure they send requests only to healthy instances
+  Use multi-region storage buckets for high availability if latency impact is negligible
+  If using Cloud SQL, create a failover replica for high availability
+  Spanner and Firestore can be deployed in 1 or mutliple regions
+  Deploying for high availability increases cost, do a risk/cost analysis
+  Disaster recovery strategy: Cold standby
+    - create snapshots, machine images and data backups in multi-region storage
+    - if main region fails, spin up servers in backup region
+    - route requests to new region
+    - document and test recovery procedure regularly
+  Disaster recovery strategy: Hot standby
+    - create instance groups in multiple regions
+    - use global load balancer
+    - store unstructured data in multi-region buckets
+    - for structrued data, use multi-region database such as spanner or firestore
+  During disaster planning, consider scenarios that cause data loss and/or service failure
+  Formulate a plan to recover based on your disaster scenarios
+  Preparing the team for disasters by using drills by planning and periodic practice
+
+
+
+Security
+- best practices: separation of concerns, principle of least privilege, regular audits
+- Google's Security Command Center to identify vulenrabilities
+- Organizational policies for cloud governance
+- authenticate and authorize users with IAM roles, Identity-Aware Proxy, Identity platform
+- Service accounts to manage access and authorization of resources by machines and processes
+- secure networks with private IPs, firewalls, and Google Cloud private access
+- mitigate DDoS attacks by leveraging Cloud DNS and Google Cloud Armor
+
+
+
+Maintenance and Moitoring
+- manage new service version using rolling updates, blue/green deployments and canary releases
+- forcast, monitor and optimize sevice cost using Google cloud prizing calculator and
+  billing reports and by analyzing billing data
+- observe whether services are meeting their SLOs using Cloud Monitoring and Dashboard
+- use uptime checks to determine service availability
+- respond to service outage using cloud monitoring alerts
+
+
+In Microservices, make sure not to break clients when services are updated
+- include version in URI
+- if you deploy a breaking change, you need to change the version
+- need to deploy new versions with zero downtime
+- need to effectively test version prior to going live
+
+
+Rolling updates
+- available as a feature of instance groups, just need to change instance template
+- rolling updates are default in kubernetes, just need to change docker image
+- its completely automated in App engine
+
+Blue/Green deployment
+- in compute engine, use DNS to migrate requests from one load balancer to another
+- in kubernetes, configure your service to route to new pods using labels 
+- use traffic splitting feature in App engine
+
+
+Canary can be used before rolling update to reduce risk
+- in compute engine, create a new instance group and add as additional backend in load balancer 
+- in k8s, create new pod with same label as existing pods,
+  the service will automatically route a portion of request to it
+- use traffic splitting feature in App engine
+
+
+
+
+Cost Planning
+
+Capacity planning is a continous, iterative cycle
+- forecast
+- allocate
+- approve
+- deploy
+Optimizing cost of compute
+- start with small VMs
+- use small machines with auto scaling turned on
+- make use of discounts
+- use some preemptible instances 80% discount
+- use auto healing to recreate VMs when they are preempted
+- Google cloud rightsizng recommendations will
+  alert you when VMs are underutilized
+Optimizing cost of disk
+- dont over-allocate disk space
+- depnding on I/O requirements, consider Standard over SSD disks
+- determine performance characteristics of your app
+  I/O pattern: small reads and writes or large reads and writes
+  Configure your instances to optimize storage performance
+Optimizing network costs
+- keep machins close to your data
+- egress within same zone is free
+- egress between zones in same region
+- egress between regions
+- internet egress
+- intercontinental egress
+Use GKE usage metering to prevent over provisioning clusters
+- compares requested resources with consumed resources
+Use alternative services to save cost instead of allocating more resources
+- CDN
+- Caching
+- Messaging
+- Queueing etc..
+Google Cloud Pricing Calculator
+Billing reports
+Export billing data to BigQuery for advanced cost analysis
+Visualize spend with Google Data Studio
+Setup budgets and alerts
+- progrmmatic budgets: Cloud Pub/Sub -> Cloud Functions
+Monitoring Dashboards
+- monitoring
+- loggin
+- trace
+- debugger
+- error reporting
+- profiler
+Monitor key metrics
+- CPU use
+- storage capacity
+- reads and writes
+- network egress etc
+- SLI  (determing whether you are meeting your SLOs)
+- availability
+- latency
+
+
+
+Monitoring and Observability in Google Cloud
+
+
+
+
+  
+
 
 
 ```
