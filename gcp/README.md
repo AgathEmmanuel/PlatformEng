@@ -1754,11 +1754,264 @@ Monitor key metrics
 
 
 Monitoring and Observability in Google Cloud
+- gcp monitoring tools
+- operations based tools
+- application performance management tools
+
+
+
+Compute signals
+- metrics
+- logs
+- trace
+Visualize and Analyze
+- dashboards
+- metrics explorer
+- logs explorer
+- service monitoring
+- health checks
+- debugger
+- profiler
+Manage Incidents
+- alerts
+- error reporting
+- SLO
+
+
+Debugger
+Trace
+Profiler ( production cpu and heap profiling )
+
+
+Four Golden Signals
+- SLIs, SLOs, SLAs
+- choosing a good SLI
+- specifying SLIs
+- developing SLOs and SLIs
+
+
+
+Monitoring
+- product
+- development
+- capacity planning
+- testing and release procedures
+- postmortem / root cause analysis
+- incident response
+- monitoring ( urgent attention, trends, planning, improvements )
+
+
+
+```
+
+[https://sre.google/books/](https://sre.google/books/)  
+
+
+[https://sre.google/workbook/alerting-on-slos/](https://sre.google/workbook/alerting-on-slos/)  
+
+
+[https://cloud.google.com/monitoring/alerts/policies-in-json](https://cloud.google.com/monitoring/alerts/policies-in-json)  
+
+[https://cloud.google.com/monitoring/alerts/target-configuration-library](https://cloud.google.com/monitoring/alerts/target-configuration-library)  
+
+[https://cloud.google.com/stackdriver/docs/managed-prometheus](https://cloud.google.com/stackdriver/docs/managed-prometheus)  
+
+
+
+```
+
+
+```
+
+Advanced Logging and Analysis
+- strategic logging
+  - labeling
+  - working with logs explorer
+  - using logs-based metrics
+- exporting and analyzing logs
+- error reporting
+
+
+Monitoring Network Security
+- VPC flow logs
+- Firewall rules logging
+- Cloud NAT logs
+- Packet Mirroring
+- Network Intelligence Center
+Monitoring GCP Audit Logs
+- Audit Logs
+- Data Access Logging
+- Understanding Audit logs
+- best practices
+
+
+Incident Management
+Declaring an Incident
+Restoring Service
+Preventing Recurrence
+
+
+Postmortem Repost
+- blameless report
+- impact
+- triggering event
+- resolution
+- quantifiable metrics
+- action items
+- lessons learned
+- timeline
+
+
+Always write a Postmortem Report
+- anytime an SLO is breached
+- when an incident required emergency on-call response from another team
+- when an impacted team requests a follow-up communication
+- a draft report should be published within X hours of incident resolution
+- report should be completed within Y business days
+
+Standard Documentation
+- use public postmortem templates
+- document the entire troubleshooting process
+- include any policy changes that should be made
+- include a review of incident response itself
+- never stop learning
+
+
+
+Investigating Application Performance Issues
+- Debugger  ( debug production code to correct code defects )
+- Trace  ( trace latency to see throgh layers of service interaction to eliminate performance bottlenecks )
+- Profiler ( profile and identify resource intensive functions in an application )
+
+
+
+Profile Type
+- cpu time
+- heap
+- allocated heap
+- contention
+- threads
+- wall time
+
+
+Optimizing the cost of Monitoring
+- cost of monitoring
+- bill estimation
+- cost control best practices
 
 
 
 
-  
+Google Kubernetes Engine
+
+- kubernetes concepts
+- kubernetes components
+- gke concepts
+- object management
+- migrate for Anthos
+
+
+Kubernets Control Plane
+- kube APIserver
+- etcd
+- kube scheduler
+- kube cloud manager
+- kube controller manager
+- kubelet
+- kube-proxy
+- node
+
+
+GKE concepts
+- node pools
+- control plane
+- zonal versus regional clusters
+- zonal or regional gke cluster can be set up as a private cluster
+
+
+Kubernetes Object management
+- namespaces ( default, kube-system, kube-public )
+- deployments, statefulsets, daemonset, jobs
+
+
+
+Migrate for Anthos moves VMs to containers
+- move and convert workloads into containers
+- workloads can start as physical servers or VMs
+- moves workload compute to container immediately (<10 min)
+- data can be migrated all at once or streamed to cloud until app is live in cloud
+
+
+
+Migrate for Anthos architecture
+migration is a multi-step process
+- configure processing cluster
+- add migration source
+- generate and review plan
+- generate artifacts 
+- test
+- deploy
+
+
+
+Pod Networking
+- pod is a group of container with shared storage and networking
+- container
+- shared networking namespace in pod
+- pod
+- node networking namespace in node
+- VM NIC
+- nodes get pod IP addresses from address ranges assigned to your VPC
+- VPCs are logically isolated networks that provide connectivity for resources
+  you deploy within gcp
+- VPC can be composed of many different ip subnets and regions all around the world
+- when you deploy gke you can select a VPC along with region or zone
+  by default VPC has an IP subnet preallocated for each gcp region in the world
+  Ip addresses and subnets are then allocated to the compute instances deployed in that region
+- on gcp alias IPs allow you to configure configure additional secondary
+  ip addresses on you compute engine virtual machines
+  VPC native gke clusters automatically create an alias IP range to reserve 
+  approx 4000 ip addresses for cluster wide services, this will mitigate the problem
+  of unexpectedly running out of ip addresses which your apps use to talk to one another
+  VPC native gke cluster also create a separate alias IP range for your pods
+  by default this address uses a /14 block containing over 250000 ip addresses
+  Using this gke divides the ip space amongst the nodes /24 blocks each with 250 ip addreses
+
+
+
+Kubernetes offers storage abstraction options
+
+Volumes
+- are a directory accessible to all conatainers in a pod
+- some volumes are ephemeral ( shared pods lifecycle )
+  ConfigMap, Secret, downwardAPI ( makes data about pods data available to containers )
+  emptyDir ( is removed on pod removal, data in emptyDir volume is safe across container crashes ) 
+- some volumes are persistent
+
+# creating a pod with an emptyDir volume
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web
+spec:
+  containers:
+  - name: web
+    image: nginx
+    volumeMounts:
+    - mountPath: /cache
+      name: cache-volume
+  volumes:
+  - name: cache-volume
+    emptyDir: {}
+    
+
+PersistentVolumes
+- manage durable storage in a cluster
+- are independent of pods lifecycle
+- provision dynamically through PersistentVolumeClaims
+  or explicitly created by a cluster admin
+
+
 
 
 
