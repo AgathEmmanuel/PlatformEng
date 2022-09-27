@@ -2024,6 +2024,494 @@ Data Engineer Professional
 ```
 
 
+Data Driven Decision Making
+- product recommendation using cloud sql and spark
+- demand forecasting using BigQuery ML
+- real-time IOT dashboards with pub/sub, dataflow, data studio
+- text and image classification using ML APIs, AutoML, DialogFlow
+
+
+Big data challenges
+- migrating existing data workloads
+- analyzing datasets at scale
+- building streaming data pipelines
+- applying ml to your data
+
+
+Moores Law
+ASICs (Application Specific Integrated Circuits)
+
+
+
+TPUs enable faster models and more iterations
+ebay used Cloud TPU Pods to train image recognition model
+Google saved data center cooling energy by 40%
+Google improved power usage effectiveness (PUE) by 15%
+
+	
+
+
+Standard storage
+Nearline storage
+Coldline storage
+Archive storage
+
+
+
+Autoscale streaming pipelines with Cloud Dataflow
+
+
+Recommending Products
+- Recommendation systems must scale to meet demand
+- If you like X you also like Y
+- recommendation systems require data, model, training/serving infrstructure
+- ex: RankBrain (ML for search ranking) 
+- ex: recommending housing rental options
+- model is based on 2 things, your rating for other houses 
+  and other peoples rating of the particular house
+  Look at all the people who rated the house, and find 3 users in 
+  that list who are most like you ( with same age, same country, same college, etc )
+  Who is this user like?
+  Is this house similar to houses that people similar to this user like?
+  Predicted rating = users preference * item-quality
+  How often you need to compute predicted ratings?
+  Where to save this ratings?
+  Stream vs Batch processing
+  Compute the ratings once per day
+  Compute ratings quickly using a Hadoop cluster
+  Store the computed ratings, users, and houses in Cloud SQL
+  DataProc Spark Hadoop
+  Lauch DataProc
+  Train and apply ML models in PySpark to create product recommendations
+  Explore inserted rows in Cloud SQL
+  
+- Cloud Dataproc Autoscaling provides flexible character
+  Primary Nodes    standard VMs
+  Primary Workers  standard VMs
+  Secondary Workers  Preemptible VMs
+  HDFS     HDDs and SSDs
+  Persistent storage    Cluster bucket (HDFS connector, Cloud storage), 
+     Tables (HBase connector, Cloud Bigtable) , Data warehouse (BiqQuery connnectory, BigQuery)
+  Off-cluster storage with Google Cloud Storage
+
+
+
+
+BigQuery
+- fast sql query engine
+- managed storage for datasets 
+- creating ML models with SQL
+- petabyte-scale fully managed data warehouse
+- serverless
+- flexible pricing model
+- data encyption and security
+- geospatial data types and fuctions
+- foundation for BI and AI
+- Typical BiqQuery data warehouse architecture
+  
+  real-time-events -> authentication game server -> asynchronous messaging -> steaming pipeline
+                      App engine                      Cloud Pub/Sub              |
+                                                                                 |
+                                                                                       batch
+  batch load  ->  raw log storage  -> batch pipeline ->              Cloud Dataflow   --->    Bigquery
+                   cloud storage                           Parallel Data Processing    streaming
+
+
+- ex: predict visitor purchases using bigquery ML
+
+- ex: query 2 billion lines of code in less than 30 seconds
+      Analyze if its famous to use tabs or spaces in code
+      Parsing and processing each and every line
+
+
+- BigQuery Storage service
+  Bulk data ingest
+  Streaming data ingest
+
+- BigQuery Query service
+  query submitted by:
+  Web UI, bq, REST api
+
+- bigquery public datasets
+  https://cloud.google.com/bigquery/public-data
+
+- end-to-end bigqueryML project
+  Writing code to create the actual model is the easiest part
+  Getting all the required data into the model is the hard part
+  ETL into BigQuery
+  Preprocess Features ( explore, join, create train/test tables )
+  Create the model inside BigQuery
+  CREATE MODEL
+  rental.classification
+  OPTIONS
+    (
+  model_type='logistic_req',
+  input_label_cols = ['buy'] ) AS
+  data
+     # sql query with training data
+  Run the model on running the query, resulting in a dataset object in bigQuery
+  Evaluate the performance of your trained model against evaluation dataset
+  SELECT
+    house,rating,pecision,accuracy,recall
+  FROM
+    ML.EVALUATE(MODEL rental.classification
+     # sql query with eval data 
+  Predict once you are happy with models performance
+  SELECT * FROM
+    ML.PREDICT	
+  (MODEL rental.classification, 
+  (
+     # sql query with test data
+
+- BigQuery ML Cheatsheet
+  label
+  feature
+  model
+  model types
+  training progress
+  inspect weights
+  evaluation
+  prediction
+
+  https://cloud.google.com/blog/topics/developers-practitioners/query-big-bigquery-cheat-sheet
+
+
+
+
+Real-time IoT dashboard with Pub/Sub, Dataflow and Data Studio
+- message oriented architectures
+- serverless data pipelines
+  designing streaming pipelines with Apache Beam
+  implementing streaming pipelines on Cloud Dataflow
+- Distributed Messaging with Pub/Sub
+  at least once delivery
+  no provisioning, auto everything
+  open APIs
+  global by default
+  end-to-end encryption
+  decoupled sources
+  decoupled workers
+  reliable delivery
+  topics
+- Pipeline design with Apache Beam
+  advanced unified & portable data processing programming model
+  Cloud dataflow is one popular choice for running Apache Beam
+  Dataflow offers NoOps data pipelines
+  input -> read -> filter 1 -> group 1 -> filter 2 -> transform 1 -> write -> output
+  Same code can be used for real-time and batch
+- implementing streaming pipelines on Cloud Dataflow
+  Dataflow does ingest, transform and load
+  Apache Beam submit job,  Cloud Dataflow execute job
+
+  https://github.com/GoogleCloudPlatform/DataflowTemplates
+
+- setup steaming Rentit topic in Pub/Sub
+  create a dataflow job from template
+  stream and monitor pipeline in bigQuery
+  analyze results and create views
+  visualize key metrics in data studio
+
+
+Deriving data from unstructured data using ML
+- pre-built AI building blocks
+- pre-built AI to create a chatbot
+- customize pre-build models with autoML
+- building a custom model
+- ex: text classification can be done in three ways
+
+ 
+
+Component of a Data Engineering ecosystem
+- Data sources
+- Data sinks
+  - Central Data Lake repository
+  - Data Warehouse
+- Data pipelines ( batch and streaming )
+- high-level orchestration workflows
+
+
+
+
+
+Modernizing Data Lakes and Data Warehouse with GCP
+
+Building a Data Lake
+- Data lake: a scalable & secure data platform that allows enterprises to 
+  ingest, store, process and analyze any type or volume of information
+- data storage and ETL options on GCP
+- building a data lake using Cloud Storage
+- securing cloud storage
+- storing all sorts of data types
+- cloud SQL as a relational Data lake
+
+
+ 
+ 
+  
+Storage
+- cloud storage
+- cloud sql
+- cloud spanner
+- cloud datastore
+- cloud bigtable
+
+Ingestion
+- compute egine
+- kuberenetes engine
+- cloud dataflow
+- cloud composer
+- cloud pub/sub
+- cloud functions
+
+Analytics
+- BigQuery
+- Cloud Dataproc
+- AI platform notebooks
+
+Machine learning
+- Cloud TPU
+- AI platform
+- Tensorflow
+- Cloud AutoML
+- ML APIs
+
+Serving
+- Data Studio Dashboards/BI
+- Dialogflow
+- App engine
+
+
+Data Lake vs  Data Warehouse
+data lake
+- retain all data in its native format
+- support all data types and all users
+- adapt to changes easily
+- tends to be application-specific
+data warehouse
+- loaded only when its use is defined
+- processed/organized/transformed
+- provide faster insights
+- current/historical data for reporting
+- tends to have consistent schema shared
+  across applications
+
+
+
+Steps
+- bringing in the raw data
+- transform raw materials inta a useful form
+- making the ml model using the clean data
+- orchestrator governs all aspects of workflow ( workflow orchestration )
+  apache airflow running on a cloud composer environment
+
+ 
+Building a Data Lake using Cloud Storage
+- persistence
+- durability
+- strong consistency
+- availability
+- high throughput
+- single global namespace simplifies locating buckets and objects
+- location to control latency
+- long object names simulate structure
+- cloud storage simulates a file system
+
+Modern serverless data management architecture
+
+                   asynchronous messaging   prallel data processing             Analytics    interactive data exploration
+real-time events   Cloud pub/sub             cloud     streaming pipeline     Bigquery       AI platform notebooks
+and IoT devices                             dataflow   batch pipeline
+
+
+Batch load         cloud storage             cloud bigtable                  cloud dataproc
+                                            noSql database                managed spark and hadoop
+
+
+
+
+
+Building  a Modern Data warehouse
+- gigabytes to petabytes
+- serverless and no-op, including ad hoc queries
+- ecosystem of visualization and reporting tools
+- ecosystem of etl and data processing tools
+- up to the minute data
+- machine learning
+- security and collaboration
+- query 10 billion rows of wikipedia data on bigquery
+
+BigQuery
+- bigquery orginizes data tables into units called datasets
+- project.dataset.table
+- biquery datasets belong to a project
+- bigquery provides predefined roles for controlling access to resources
+  views add another degree of access control
+- use query validator with pricing calculator for estimates
+- you can separate cost of storage and cost of queries
+- bigquery data transfer service
+
+
+Batch load supports different file formats
+- CSV
+- NEWLINE_DELIMITED_JSON
+- AVRO
+- DATASTORE_BACKUP
+- PARQUET
+- ORC
+
+https://github.com/GoogleCloudPlatform/bigquery-utils
+
+
+
+Designing schemas that scale is a core job of data engineers
+- normalize for efficiency in transactional database
+  ( only if table has < 1M rows or 10 GB )
+  https://www.guru99.com/database-normalization.html
+
+- denormalize before loading into a data warehouse
+  data must first be normalized befor it can be denormalized
+  Denormalizing is the strategy of allowing duplicat field values for coloumn
+  and in a table in a data to gain processing performance
+  Denormalization is an increase in the orderliness of data
+  Data is repeated rather than being relational
+  Denormalized flattened data
+  Flattened data takes more storage, but flattened non relational organization
+  makes queries more efficient, because it can be processed in parallel using
+  coloumnar processing
+  Denormalizing data enables bigquery to distribute processing among slots,
+  resulting in more parallel processing and query performance
+  Grouping on a 1-to-many field in flattened data can cause shuffling of data
+  over the network
+  Nested and repeated coloumns improve the efficiency of bigqery
+  with relational source data
+
+  https://cloud.google.com/bigquery/docs/best-practices-performance-nested
+
+  Querying a Bitcoin dataset in BigQuery with nested and repeated coloumns
+
+  Nested and Repeated Fields
+  ARRAYs and STRUCTs
+  Optimizing using Partitioning and Clustering
+   
+  woking wih JSON and Array Data in BigQuery
+
+  Reduce cost and amount of data read by partitioning your tables
+  Bigquery supports three ways of partitioning tables
+  Partitioning can improve query cost and performance by reducing data being queried
+  Bigquery automatically sorts the data based on values in clustering coloumns
+  Partitioned tables
+  clustered tables
+  Set up clustering at table creation time
+  In streaming tables, sorting fails over time, and so Bigquery has to recluster
+  Bigquery will automatically recluster your data
+
+  Creating a data-partitioned table
+  
+  https://github.com/GoogleCloudPlatform/training-data-analyst/blob/master/courses/data-engineering/demos/clustering.md
+  https://github.com/GoogleCloudPlatform/training-data-analyst/blob/master/courses/data-engineering/demos/partition.md
+
+- Transforming Batch and Streaming data
+  
+  incoming data is not usable in its original form
+  Data processing
+  Cloud Dataproc
+  Cloud Dataflow
+  data is processed in an intermediate system before its loaded into analytics warehouse
+  
+  Streaming data processing    Cloud pub/sub, Cloud dataflow, Bigquery
+  
+  Real-time data is streamed into Bigquery by inserting records into tables via Cloud Dataflow pipeline
+  You can also use the BigQuery streaming API directly
+  
+
+
+Purposes of Data Quality processing
+- validity
+- accuracy
+- completeness
+- consistency
+- uniformity
+
+
+Building Batch Data Pipelines on GCP
+- EL   data are already clean and correct, 
+  ELT  transform data on fly using Bigquery views or store into new tables  after EL, 
+  ETL 
+- executing spark on Dataproc
+- leveraging GCP in pipelines
+- Dataflow for serverless data processing
+
+- Solving data quality issues using BigQuery operations
+  
+  Filter to identify and isolate valid data
+     anyting that does not comply to the business rules
+     filtering out both NULLS and BLANKS
+     setup filed data type constraints
+     specify fields as NULLABLE or REQUIRED
+     check proactively for NULL values
+     check and filter for allowable range values sql conditionals     
+         CASE WHEN, IF ()
+     filter rows   
+         WHERE(condition)
+     filter aggregations     
+         HAVING(condition)
+     filter NULLs but leave blanks      
+         WHERE field IS NOT NULL
+     filter NULLs and blanks        
+         WHERE field IS NOT NULL AND field <> ""
+     require primary keys/relational constraints in upstream source systems
+     Bigquery is an analytics warehouse not your primary operational database
+  Detect duplication, enforce uniqueness for cosistency
+     duplicate records, concurrency issues
+     store one fact in one location and use IDs for lookup
+     use string functions to clean data 
+         PARSE_DATE()
+         SUBSTR()
+         REPLACE()
+     a difference means there are duplicates
+         COUNT (DISTINCT field)
+         COUNT (field)
+     >1 indicates duplicates
+         COUNT (field)
+         GROUP BY (field)
+  Test data against known good values for accuracy
+     Lookup issues, Datasets do not exist
+     data do not conform to an objective true value
+     create test cases or calculated fields to check values
+          (ordered_volume * price)AS total_cost
+     lookup values against an objective reference dataset
+          IN() with a subquery or JOIN
+  Identify and fill in missing values for completeness
+     missing data, fail to create, save and store whole datasets
+     explore existing dataset shape and skew and look for missing values
+          NULLIF(), IFNULL, COALESCE
+     enrich existing dataset with others using UNIONs and JOINs
+          UNIO, JOIN
+     verify file integrity with checksum values (hash, MD5)
+     Backfilling: automatic process of detecting data drops and 
+                  requesting data items to fill in gaps
+  Make data types and formats explicit for uniformity
+     exploring and presenting data is misleading, same units of measurments
+     use FORMAT() to clearly indicate units
+     CAST() data types to same format and digits
+     label all visulalizations appropriately
+     comment and document your approach
+         
+
+  
+Using ETL to solve data quality issues
+- transformations that cannot be expressed in SQL or too complex to do in SQL
+  then you will have to tranform it before loading it into bigquery
+- build ETL pipelines in Dataflow and land the data in Bigquery
+- Extract data from pub/sub, google cloud storage, cloud spanner, cloud sql
+  Transform data using cloud dataflow
+  Have Dataflow pipeline write to Bigquery
+- Orchestration     Cloud Composer
+- Cloud dataproc is a managed service for batch processing, querying, serving and ML 
+
+
+
+
 
 
 
