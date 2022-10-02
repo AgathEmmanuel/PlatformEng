@@ -2508,6 +2508,27 @@ Using ETL to solve data quality issues
   Have Dataflow pipeline write to Bigquery
 - Orchestration     Cloud Composer
 - Cloud dataproc is a managed service for batch processing, querying, serving and ML 
+- when to look beyond Dataflow and Bigquery
+  latency, throughput             dataflow to bigtable
+  reusing spark pipelines         cloud dataproc
+  need visual pipeline building   cloud data fusion
+- Tracking lineage in ETL pipelines can be important
+  whered did the data came from 
+  the processes it has been through
+  its present location and condition
+
+  Lineage: Metadata about the data
+  Trust and regulatory compliances
+  Labels on datasets, tables, and views can help track data lineage
+
+
+
+Spark on Cloud DataProc
+
+- hadoop ecosystem
+- running hadoop on cloud dataproc
+- using google Cloud Storage instead of HDFS
+- optimizing Dataproc
 
 
 
