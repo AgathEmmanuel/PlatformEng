@@ -4,6 +4,19 @@
 
 
 
+## Learning  
+
+[https://github.com/ned1313/Getting-Started-Terraform](https://github.com/ned1313/Getting-Started-Terraform)  
+
+
+
+
+
+
+
+
+## Introduction  
+
 [https://cloud.google.com/storage/docs/access-control/create-manage-lists#json-api](https://cloud.google.com/storage/docs/access-control/create-manage-lists#json-api)  
 
 
@@ -322,6 +335,65 @@ resources and data sources
 
 
 
+
+
+
+
+
+
+
+## Getting started with Terraform for Google Cloud
+
+
+- terraform resources  
+- variables  
+- output values  
+- declarative  
+- code management  
+- auditable  
+- portable  
+
+
+
+ex
+
+IAC:  Launch a GKE cluster
+Configuration management:  Deploy containers into the GKE cluster
+
+
+HCL:  Hashicoprp Configuration Language
+
+```
+terraform init
+terraform plan
+terraform apply
+terraform destroy
+terraform fmt
+
+
+security and governance team sets constraints
+
+
+terraform validator
+
+gcloud beta terraform vet
+executing the command enforces the policy compliance as part 
+of the infrasturucture CI/CD pipeline
+
+
+
+
+
+
+```
+
+
+
+
+
+
+
+
 ## Links
 
 
@@ -351,3 +423,6 @@ https://github.com/localstack/localstack
 
 
 [https://medium.com/google-cloud/deploy-a-go-api-to-google-kubernetes-engine-via-terraform-bb3eb7a479a4](https://medium.com/google-cloud/deploy-a-go-api-to-google-kubernetes-engine-via-terraform-bb3eb7a479a4)  
+
+
+
