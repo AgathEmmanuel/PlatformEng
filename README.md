@@ -251,6 +251,7 @@ Middleware is software which lies between an operating system and the applicatio
 
 # Links
 
+[https://sre.google/books/](https://sre.google/books/)  
 [Kubernetes Community Days KCD Chennai 2022](https://youtube.com/playlist?list=PLj6h78yzYM2PyeHXo0wdOp9oCf45SZS86)  
 [https://github.com/mxssl/sre-interview-prep-guide](https://github.com/mxssl/sre-interview-prep-guide)  
 [https://github.com/dastergon/awesome-sre](https://github.com/dastergon/awesome-sre)  
