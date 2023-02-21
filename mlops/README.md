@@ -705,4 +705,7 @@ Now that we've looked at the pros and cons of Spark, Dask, and Ray —and after 
 
 
 
+[https://www.datacamp.com/blog/top-mlops-tools](https://www.datacamp.com/blog/top-mlops-tools)  
+[https://www.datacamp.com/cheat-sheet/unsupervised-machine-learning-cheat-sheet](https://www.datacamp.com/cheat-sheet/unsupervised-machine-learning-cheat-sheet)  
 
+[https://github.com/kelvins/awesome-mlops](https://github.com/kelvins/awesome-mlops)  
