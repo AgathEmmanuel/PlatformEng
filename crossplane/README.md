@@ -14,3 +14,4 @@ Crossplane is an open source Kubernetes add-on that enables platform teams to as
 
 
 - [https://crossplane.io/](https://crossplane.io/)
+- [Crossplane: Build and Manage Infrastructure using Kubernetes by Vijin Palazhi](https://youtu.be/JqkwOWYcx2w)  
