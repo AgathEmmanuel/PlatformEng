@@ -486,4 +486,6 @@ batch pipelines
 [https://developer.confluent.io/learn-kafka/data-pipelines/intro/](https://developer.confluent.io/learn-kafka/data-pipelines/intro/)  
 
 
-
+[https://hevodata.com/learn/dataops-trends/](https://hevodata.com/learn/dataops-trends/)  
+[https://towardsdatascience.com/the-rise-of-dataops-2788958034ee](https://towardsdatascience.com/the-rise-of-dataops-2788958034ee)  
+[https://towardsdatascience.com/data-pipeline-design-patterns-100afa4b93e3](https://towardsdatascience.com/data-pipeline-design-patterns-100afa4b93e3)  
