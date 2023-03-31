@@ -258,3 +258,12 @@ Middleware is software which lies between an operating system and the applicatio
 [https://github.com/dastergon/awesome-sre](https://github.com/dastergon/awesome-sre)  
 [https://github.com/linkedin/school-of-sre](https://github.com/linkedin/school-of-sre)  
 [https://github.com/andrealmar/sre-university](https://github.com/andrealmar/sre-university)  
+
+
+[Billions of Messages Per Minute Over TCP/IP](https://www.infoq.com/articles/billions-messages-minute)
+[Enterprise Integration Architecture Patterns](https://medium.com/analysts-corner/enterprise-integration-architecture-patterns-ab26b62c1c3a)
+
+[Navigating the Trade-Offs of Scaling Kubernetes Dev Environments](https://thenewstack.io/navigating-the-trade-offs-of-scaling-kubernetes-dev-environments)  
+[Running Databases on Kubernetes](https://questdb.io/blog/databases-on-k8s/)  
+
+
