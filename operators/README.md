@@ -626,3 +626,10 @@ Both kubebuilder and operator-sdk are good tools to start writing k8s controller
 [https://itnext.io/under-the-hood-of-the-operator-sdk-eebc8fdeebbf](https://itnext.io/under-the-hood-of-the-operator-sdk-eebc8fdeebbf)  
 [https://itnext.io/under-the-hood-of-kubebuilder-framework-ff6b38c10796](https://itnext.io/under-the-hood-of-kubebuilder-framework-ff6b38c10796)  
 
+
+
+
+
+
+
+[https://github.com/Azure/azure-service-operator](https://github.com/Azure/azure-service-operator)  
