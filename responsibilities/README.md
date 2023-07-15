@@ -18,6 +18,67 @@
 
 ```
 
+Sample Site Reliability Engineer Job Description
+
+Do you enjoy working with a highly motivated and talented team to deliver mission critical software? [company name] is growing our Site Reliability Engineering team to help deploy, manage, troubleshoot, and enhance our complex cloud-based services for a wide variety of customers.
+
+As a Site Reliability Engineer you will design and implement web applications and REST API services using a microservice-based infrastructure to replace our current monolith implementation. The new technology stack includes [Amazon Web Services (AWS)/Google Cloud/etc.], [Docker/Kubernetes/other], [relational database], [NoSQL/NewSQL database], and [monitoring tool]. Your focus will be on maximizing system uptime. Team members all participate in an on-call rotation.
+
+You will build innovative automated solutions and tools to help debug and resolve problems in production and prevent them from recurring. Further, you will proactively seek out system weaknesses and find ways to fix them before they cause production issues using monitoring data, watching trends, and using Chaos Engineering.
+Responsibilities
+
+    Keeping your assigned site or service up and running or getting it back up and running quickly when failure occurs
+    Working closely with internal partners and teams to ensure that we ship software that meets security, SLA, and performance requirements
+    Writing, updating, and using documentation, including runbooks/playbooks
+    Automating work including infrastructure needs, testing, failover solutions, failure mitigation, and much more
+    Debugging complex problems across an entire stack and creating solid solutions
+    Developing CI/CD processes to improve cadence
+    Using Chaos Engineering to test what you build under real-world conditions
+
+Key Skills and Attributes
+Required
+
+    7 years experience with software engineering, software development, or system operations
+    Excellent communication skills, both verbal and written
+    Knows their way around a Unix/Linux shell, can write shell scripts, and understands Linux internals
+    Experience debugging complex problems
+    Experience designing, building, and operating large-scale production systems
+    Knows Python, Java, Go, Rust, or similar
+    Understands networking and messaging, especially between services
+    Has hands-on experience using source control (Git, GitHub) and feature branching strategies
+    Has experience with a variety of open-source databases (MySQL, Postgres, Redis, Cassandra, etc.)
+
+Preferred
+
+    Experience with DevOps engineering or SRE
+    Experience with containers, such as with Docker or Kubernetes
+    Experience with monitoring and observability such as with Datadog, Sensu, New Relic, and Nagios
+    Experience automating infrastructure, testing, and deployments using tools like Ansible, Chef, or Terraform and can explain the Infrastructure as Code paradigm
+    Experience with configuration management, such as with Puppet
+    Understands the idea behind Chaos Engineering, even if they haven't yet implemented it themself
+
+It's not expected that any single candidate would have expertise across all of these areas - we're looking for candidates that are particularly strong in a few areas, and have some interest and capabilities in others.
+
+At [company name] our mission is to [insert company mission]. Our products help software companies [do something awesome] - thereby empowering businesses and individuals to [save time and money]. Our customers include [name], [name], [name], and [name]. [company] is a unique place to work and offers competitive compensation packages that include medical, dental, and vision benefits with flexible PTO and a 401k with company-matched contributions [up to X%].
+
+[company] has a [industry] startup culture that emphasizes transparency, collaboration and career growth, with the ability to work on small, nimble teams. Employees are able to create change at scale and have an opportunity to truly disrupt and shape [industry].
+
+[company] is an equal opportunity employer. Qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender perception or identity, national origin, age, marital status, protected veteran status, or disability status.
+
+Learn more at [company URL].
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Requirements / Responsibilities
 
@@ -195,75 +256,13 @@ Preferred
 ```
 
 
-Infrastructure  
-```
-
-bind  
-squid  
-linux machine  
-route tables  
-DNS route server  
-dig  
-dhcp
-k8s ports
-tcp port number  
-nslookup 
-k8s from scratch  
-ldap
-lvm
-
-
-Open Stack  
-
-trouble shooting  
-
-
-
-Middleware  
-
-Middleware is software which lies between an operating system and the applications running on it  
-
-
-
-
-
-• Infrastructure expertise across multiple technologies including storage, server infrastructure, data center operations and virtualisation
-• Strong experience with Linux/Unix
-• Proficiency in one or more scripting languages (Perl/Python/Bash/Ruby)
-• Experience in Mysql and any NoSQL database technology
-• Monitoring and instrumentation setup and design
-• Basic network debugging skills
-• Understanding of TCP/IP stack and related protocols
-• Deep understanding of Layer 7 protocols like HTTP, DHCP, DNS, SSL/TLS
-• Excellent written and verbal communication skills
-• Ability to work under pressure
-• Ability to prioritize and manage time efficiently
-• Sound soft skills to get along with colleagues from other teams in order to harness the development process
-• Expertise in big data applications including Hadoop (CDH/HDP), Hive, Cassandra, Vertical ElasticSearch, etc is a BIG PLUS.
-• Ability to break down a bigger problem into smaller chunks is an added advantage
-• Advanced Network debugging skills with different tools  
-
-
-
-
-```
 
 
 # Links
 
-[https://sre.google/books/](https://sre.google/books/)  
-[https://learn.microsoft.com/en-us/azure/site-reliability-engineering/resources/books](https://learn.microsoft.com/en-us/azure/site-reliability-engineering/resources/books)  
-[Kubernetes Community Days KCD Chennai 2022](https://youtube.com/playlist?list=PLj6h78yzYM2PyeHXo0wdOp9oCf45SZS86)  
-[https://github.com/mxssl/sre-interview-prep-guide](https://github.com/mxssl/sre-interview-prep-guide)  
-[https://github.com/dastergon/awesome-sre](https://github.com/dastergon/awesome-sre)  
-[https://github.com/linkedin/school-of-sre](https://github.com/linkedin/school-of-sre)  
-[https://github.com/andrealmar/sre-university](https://github.com/andrealmar/sre-university)  
 
-
-[Billions of Messages Per Minute Over TCP/IP](https://www.infoq.com/articles/billions-messages-minute)
-[Enterprise Integration Architecture Patterns](https://medium.com/analysts-corner/enterprise-integration-architecture-patterns-ab26b62c1c3a)
-
-[Navigating the Trade-Offs of Scaling Kubernetes Dev Environments](https://thenewstack.io/navigating-the-trade-offs-of-scaling-kubernetes-dev-environments)  
-[Running Databases on Kubernetes](https://questdb.io/blog/databases-on-k8s/)  
-
+[https://www.gremlin.com/site-reliability-engineering/what-is-site-reliability-engineering/](https://www.gremlin.com/site-reliability-engineering/what-is-site-reliability-engineering/)  
+[https://www.gremlin.com/site-reliability-engineering/sre-interview-questions-and-job-descriptions/](https://www.gremlin.com/site-reliability-engineering/sre-interview-questions-and-job-descriptions/)  
+[https://www.gremlin.com/site-reliability-engineering/how-to-become-a-top-notch-sre/](https://www.gremlin.com/site-reliability-engineering/how-to-become-a-top-notch-sre/)  
+[https://www.gremlin.com/site-reliability-engineering/the-role-and-responsibilities-of-sres-in-software-engineering/](https://www.gremlin.com/site-reliability-engineering/the-role-and-responsibilities-of-sres-in-software-engineering/)  
 
