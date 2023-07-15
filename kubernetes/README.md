@@ -595,9 +595,23 @@ Telepresence
 [https://thechief.io/c/editorial/k3d-vs-k3s-vs-kind-vs-microk8s-vs-minikube/](https://thechief.io/c/editorial/k3d-vs-k3s-vs-kind-vs-microk8s-vs-minikube/)  
 [https://medium.com/@serveradmns.seo/how-to-implement-load-balancing-in-database-servers-7ad2b35cc943](https://medium.com/@serveradmns.seo/how-to-implement-load-balancing-in-database-servers-7ad2b35cc943)  
 [https://severalnines.com/blog/how-does-database-load-balancer-work/](https://severalnines.com/blog/how-does-database-load-balancer-work/)  
-[https://kubernetes.io/docs/concepts/services-networking/_print/](https://kubernetes.io/docs/concepts/services-networking/_print/)  
+[https://kubernetes.io/docs/concepts/services-networking/print/](https://kubernetes.io/docs/concepts/services-networking/_print/)  
 [https://learnk8s.io/kubernetes-long-lived-connections](https://learnk8s.io/kubernetes-long-lived-connections)  
 [Using Curl telnet to test port connectivity](https://kb.vmware.com/s/article/2097039)  
 [https://medium.com/swlh/understanding-socket-connections-in-computer-networking-bac304812b5c](https://medium.com/swlh/understanding-socket-connections-in-computer-networking-bac304812b5c)  
 [https://www.xenonstack.com/insights/container-design-patterns-for-kubernetes](https://www.xenonstack.com/insights/container-design-patterns-for-kubernetes)  
 
+
+
+
+
+
+
+
+
+[https://www.linkedin.com/pulse/20-tools-manage-kubernetes-manifests-curtis-collicutt](https://www.linkedin.com/pulse/20-tools-manage-kubernetes-manifests-curtis-collicutt)  
+
+[https://www.aquasec.com/cloud-native-academy/kubernetes-101/kubernetes-devops/](https://www.aquasec.com/cloud-native-academy/kubernetes-101/kubernetes-devops/)  
+
+[Why use Jsonnet](https://youtu.be/W8kFrUOpO7s)  
+[Using Jsonnet to Package Together Dashboards, Alerts and Exporters - Tom Wilkie](https://youtu.be/b7-DtFfsL6E)
