@@ -615,3 +615,14 @@ Telepresence
 
 [Why use Jsonnet](https://youtu.be/W8kFrUOpO7s)  
 [Using Jsonnet to Package Together Dashboards, Alerts and Exporters - Tom Wilkie](https://youtu.be/b7-DtFfsL6E)
+[https://jsonnet.org/articles/kubernetes.html](https://jsonnet.org/articles/kubernetes.html)  
+[https://blog.box.com/kubernetes-box-microservices-maximum-velocity](https://blog.box.com/kubernetes-box-microservices-maximum-velocity)  
+[https://www.databricks.com/blog/2017/06/26/declarative-infrastructure-jsonnet-templating-language.html](https://www.databricks.com/blog/2017/06/26/declarative-infrastructure-jsonnet-templating-language.html)  
+
+
+
+
+[Helm And Kustomize Replacement? Jsonnet With Grafana Tanka](https://youtu.be/-qpcsUXElYc)  
+[Loki: From Jsonnet to Helm](https://medium.com/soluto-engineering/loki-from-jsonnet-to-helm-b080369b1c7f)  
+[New in Grafana Tanka: Customize Helm charts without modifying them](https://grafana.com/blog/2020/10/08/new-in-grafana-tanka-customize-helm-charts-without-modifying-them/)  
+

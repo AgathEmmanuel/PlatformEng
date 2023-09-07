@@ -489,3 +489,8 @@ batch pipelines
 [https://hevodata.com/learn/dataops-trends/](https://hevodata.com/learn/dataops-trends/)  
 [https://towardsdatascience.com/the-rise-of-dataops-2788958034ee](https://towardsdatascience.com/the-rise-of-dataops-2788958034ee)  
 [https://towardsdatascience.com/data-pipeline-design-patterns-100afa4b93e3](https://towardsdatascience.com/data-pipeline-design-patterns-100afa4b93e3)  
+
+
+[Data Engineering Project: Stream Edition](https://www.startdataengineering.com/post/data-engineering-project-for-beginners-stream-edition]  
+
+

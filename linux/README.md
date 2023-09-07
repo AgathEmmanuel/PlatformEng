@@ -1,6 +1,66 @@
 # Linux
 
 
+
+
+[https://techstoriesindia.in/2021/04/how-to-reduce-external-monitor-brightness-in-ubuntu-21-04/](https://techstoriesindia.in/2021/04/how-to-reduce-external-monitor-brightness-in-ubuntu-21-04/)  
+
+How to Reduce External Monitor Brightness in Ubuntu 21.04 [ Solved ]  
+
+Just Disable Wayland and switch back to Xorg. This lazy fix is for people who jusy want an easy and quick way to get back the functionality and not tinker with a lot of commands to make it work with wayland. Just follow the below commands.
+
+How to disable Wayland in Ubuntu 21.04
+
+    Open a Terminal ( Ctrl + Alt + T )
+    Enter this command sudo gedit /etc/gdm3/custom.conf
+    Find the line #WaylandEnable=false in the configuration file
+    Remove the # from the above line – it should now read WaylandEnable=false.
+    Save the file
+    Reboot your system
+
+[https://techstoriesindia.blogspot.com/2020/05/reduce-external-monitor-brightness-ubuntu-linux.html](https://techstoriesindia.blogspot.com/2020/05/reduce-external-monitor-brightness-ubuntu-linux.html)  
+
+
+How to change External Monitor Brightness on Ubuntu Linux
+
+    Open a Terminal ( Ctrl + Alt + T )
+    Enter the command xrandr -q | grep " connected" and press Enter. Find the external monitor name displayed in this command's output. In my case, it is HDMI-1
+    To change the brightness enter this command xrandr --output HDMI-1 --brightness 0.5 and press Enter. ( change the monitor name HDMI-1 with the one you have ). 
+
+
+
+
+[https://askubuntu.com/questions/1003101/how-to-use-xrandr-gamma-for-gnome-night-light-like-usage](https://askubuntu.com/questions/1003101/how-to-use-xrandr-gamma-for-gnome-night-light-like-usage)  
+
+How to use "xrandr --gamma" for Gnome "Night Light"-like usage?  
+
+
+user can change the settings, a good starting point for full brightness setting is:
+
+xrandr --output DP-1-1 --gamma 1:1:1 --brightness 1.0
+
+The nighttime setting (for one of the three monitors) is:
+
+xrandr --output DP-1-1 --gamma 1.0:0.88:0.76 --brightness 0.55
+
+Note: Up to three monitors can be defined with separate settings.
+
+
+explanation: --gamma blue:red:green
+
+ex :
+
+xrandr --output HDMI-1-1 --brightness 0.6 --gamma 1:.8:.8
+xrandr --output eDP-1 --brightness 0.8 --gamma 1:.8:.8
+
+
+
+
+
+
+
+
+
 nautilus --browser ~/some/directory  
 
 

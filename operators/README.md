@@ -632,4 +632,15 @@ Both kubebuilder and operator-sdk are good tools to start writing k8s controller
 
 
 
+
+
+
 [https://github.com/Azure/azure-service-operator](https://github.com/Azure/azure-service-operator)  
+[https://aws.amazon.com/blogs/opensource/aws-service-operator-kubernetes-available/](https://aws.amazon.com/blogs/opensource/aws-service-operator-kubernetes-available/)  
+[https://github.com/aws-controllers-k8s/community](https://github.com/aws-controllers-k8s/community)  
+[https://github.com/operator-framework/awesome-operators](https://github.com/operator-framework/awesome-operators)  
+[https://cloud.google.com/blog/products/containers-kubernetes/config-connector-bridges-kubernetes-gcp-resources](https://cloud.google.com/blog/products/containers-kubernetes/config-connector-bridges-kubernetes-gcp-resources)  
+[https://cloud.google.com/config-connector/docs/overview](https://cloud.google.com/config-connector/docs/overview)  
+[https://github.com/GoogleCloudPlatform/k8s-config-connector](https://github.com/GoogleCloudPlatform/k8s-config-connector)  
+
+
