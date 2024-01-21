@@ -1,22 +1,88 @@
-# SRE_Bench
+# Responsibilities  
 
 
-## Objectives 
-
-1. Architecting Cloud Native, Multi-Cloud and Polyglot Cloud applications that need to scale to millions.  
-2. Architecting Data Intensive and Big Data applications.  
-3. Building Machine and Deep learning pipelines and infrastructure.  
-
-## Key Considerations  
-
-- Distributed resilient system design  
-- Continous Integration / Continous Deployment pipelines  
-- Data pipelines  
-- Continous Training pipelines  
-- Cybersecurity  
 
 
-```
+
+
+
+### Platform Architect  
+
+
+Platform Architect Job Description
+
+
+https://www.velvetjobs.com/job-descriptions/platform-architect  
+
+
+
+Platform architect provides guidance to the team on identifying win strategies against competitors by demonstrating a good understanding of competitive products and solutions, as well as industry trends.
+Platform Architect Duties & Responsibilities
+
+To write an effective platform architect job description, begin by listing detailed duties, responsibilities and expectations. We have included platform architect job description templates that you can modify and use.
+
+Sample responsibilities for this position include:
+You will partner with strategic planning and engineering teams to take ideas from concepts to fruition
+Interact with external customers and partners in the industry
+Participate in the design, build and deployment of a new Open Source DB service and platform including service request, provisioning process, configuration, monitoring definition, backup and recovery strategy, and security
+Ability to develop conceptual and detailed design documentation
+Articulate and present different points-of-views on various technologies with key stakeholders of infrastructure programs via workshop, web conference and PowerPoint presentation
+Mentor team members in technology, architecture and delivery of new solutions
+Participate in POC's with applications and projects interested in using new DB platform capabilities
+Work closely with our Operations Service Delivery partner to perform knowledge transfer (KT) training to Level2 and Level3 staff, support and optimize DB infrastructure
+Identify, investigate, evaluate and quickly become proficient in new technologies and technical disciplines that are of significance to HealthTrust
+Providing technical leadership and setting architectural direction for all the business services in the domain by bringing both technical vision and business objectives together
+
+
+
+
+Platform Architect Job Description
+Job Description Example
+Download
+Our growing company is looking to fill the role of platform architect. Please review the list of responsibilities and qualifications. While this is our ideal list, we will consider candidates that do not necessarily have all of the qualifications, but have sufficient experience and talent.
+Responsibilities for platform architect
+
+    Create, manage and own all service blueprints in the domain
+    Bring consistency in delivery of scalable and resilient solutions by leveraging enterprise architecture patterns and frameworks
+    Ensure architecture governance across the domain
+    Create architecture-driven invest roadmaps of initiatives for the domain
+    Partner with Enterprise Architecture to recommend, define, develop business case and justify dependencies and priorities for investment
+    Work with enterprise architecture make appropriate architecture decisions and document them for transparency and traceability
+    Accountable for aligning business solutions with enterprise patterns and frameworks
+    Expected to acquire and become subject matter expert in the processing business domain and corresponding technology solution
+    As a subject matter expert, partner with technology solution providers to deliver the best solution meeting the needs of our internal clients and customers
+    Architect/Engineer Data Leakage Prevention Security Engineering Team covering
+
+Qualifications for platform architect
+
+    Through understanding of Signon, RPG, Lansa, DB2
+    Familiarity with PMICs and other integrated power components
+    Well versed in VR tuning and efficiency characterization
+    Ability to handle complexity and some program management aspects
+    Solid experience in HW platform architecture
+    Understanding of OS eco-system and requirements
+
+
+
+
+
+### Solution Architecture vs Cloud Architecture   
+
+
+https://www.geeksforgeeks.org/difference-between-solution-architecture-and-cloud-architecture/  
+
+
+1. Solution Architecture :
+Solution Architecture, as name suggests, is basically process of designing one or more applications or services within organization or company. It is generally a part of solution development team that help to ensure that new system will fit existing enterprise environment and provide strategic direction to project.
+
+2. Cloud Architecture :
+Cloud Architecture, as name suggests, a process of developing computing strategy and managing cloud computing architecture in company. It simply reduces IT operating costs and give good accessibility to have access to data and digital tools and bridge gap between complex business problems and solutions in cloud.
+
+
+
+
+
+### Site Reliability Engineer   
 
 Sample Site Reliability Engineer Job Description
 
@@ -253,7 +319,6 @@ Preferred
 
 
 
-```
 
 
 

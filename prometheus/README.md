@@ -1,9 +1,4 @@
-
-
-
-
 # Prometheus  
-
 
      
 
@@ -93,6 +88,16 @@ We've been asked to write a web-service to provide SHA-256 hashes on demand, we 
 
 
 [https://github.com/alexellis/hash-browns](https://github.com/alexellis/hash-browns)  
+
+
+
+
+
+
+# PromQL  
+
+[https://github.com/iximiuz/prometheus-playground](https://github.com/iximiuz/prometheus-playground)  
+
 
 
 
