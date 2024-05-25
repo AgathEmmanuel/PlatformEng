@@ -12,6 +12,14 @@
 
 
 
+[HashiCorp Terraform Associate Certification Course][https://youtu.be/SPcwo0Gq9T8?si=AGGQlc6Gk4C4E9M5]  
+
+
+
+
+
+
+
 
 
 

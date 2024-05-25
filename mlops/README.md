@@ -63,6 +63,31 @@ Deployment patterns
 - blue green  
 
 
+
+
+Other Techs used  
+- pytorch  
+- TorchServe  
+- KFServing  
+- DVC  
+- ML-Metadata  
+- lakeFS  
+- TensorFlow Data Validation (TFDV)  
+- Scikit-multiflow library  
+- Vertex prediction  
+
+
+
+
+GDPR and Privacy  
+
+- CaPC  
+- PATE  
+- Anonymization and Pseudonymisation  
+- Right To be forgotten  
+
+
+
 Monitoring ML systems  
 - software metrics: server load, memory, compute, latency, throughput 
 - input metrics:  fraction of non-null outputs, avg input length, avg input volume, num missing value   
@@ -709,3 +734,10 @@ Now that we've looked at the pros and cons of Spark, Dask, and Ray —and after 
 [https://www.datacamp.com/cheat-sheet/unsupervised-machine-learning-cheat-sheet](https://www.datacamp.com/cheat-sheet/unsupervised-machine-learning-cheat-sheet)  
 
 [https://github.com/kelvins/awesome-mlops](https://github.com/kelvins/awesome-mlops)  
+
+
+
+
+
+
+

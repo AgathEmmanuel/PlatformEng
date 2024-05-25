@@ -2,6 +2,27 @@
 
 
 
+[https://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows](https://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows)  
+
+```
+
+
+Add the following to your ~/.bashrc:
+
+# Avoid duplicates
+HISTCONTROL=ignoredups:erasedups
+# When the shell exits, append to the history file instead of overwriting it
+shopt -s histappend
+
+# After each command, append to the history file and reread it
+PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
+
+```
+
+
+
+
 
 [https://techstoriesindia.in/2021/04/how-to-reduce-external-monitor-brightness-in-ubuntu-21-04/](https://techstoriesindia.in/2021/04/how-to-reduce-external-monitor-brightness-in-ubuntu-21-04/)  
 
@@ -217,6 +238,9 @@ export PATH=$PATH:/usr/local/go/bin
 
 ```
 
+tar -xvzf file.tar.gz -C /path/to/file  
+
+
 ## To download and extract tar files in one command
 
 wget -c http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.tar.gz -O - | tar -xz  
@@ -236,6 +260,15 @@ OR
 
 sudo curl http://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.tar.gz && sudo tar -xzf GeoLite2-Country.tar.gz -C /etc/nginx/
 
+
+
+https://serpapi.com/blog/web-scraping-with-curl-fetching-raw-html-data/  
+
+https://unix.stackexchange.com/questions/29402/most-straightforward-way-of-getting-a-raw-unparsed-https-response  
+
+Save the HTML Content to a File  
+Instead of just displaying the content, you can save it to a file:  
+curl -o filename.html http://example.com  
 
 
 

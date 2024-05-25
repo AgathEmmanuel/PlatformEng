@@ -2,6 +2,15 @@
 # GCP  
 
 
+## Links  
+
+[https://console.cloud.google.com/cloud-resource-manager](https://console.cloud.google.com/cloud-resource-manager)  
+
+
+
+
+
+
 [https://cloud.google.com/compute/all-pricing#lb](https://cloud.google.com/compute/all-pricing#lb)  
 
 [https://cloud.google.com/compute/docs/general-purpose-machines](https://cloud.google.com/compute/docs/general-purpose-machines)  
@@ -15,6 +24,54 @@
 
 
 [https://blog.realkinetic.com/using-google-cloud-service-accounts-on-gke-e0ca4b81b9a2](https://blog.realkinetic.com/using-google-cloud-service-accounts-on-gke-e0ca4b81b9a2)  
+
+
+
+
+## Set up your organization  
+
+To have access to identiy & organization you need to set up Google Cloud for your organization  
+
+
+
+In order to become a Google Cloud administrator, complete the initial task in the checklist, which will create a new administrator account.  
+
+Create an organization  
+Get an organization resource to manage Google Cloud  
+
+Configure users and groups  
+Manage initial identities for Google Cloud colleagues  
+
+Assign administrative access  
+Ensure your admin colleagues responsible for setup have the right level of access  
+
+Set up billing  
+Select your primary billing account for initial setup  
+
+Configure hierarchy and assign access  
+Set up initial folder and project structure, and assign access to colleagues  
+
+Centralize logging  
+Configure and centralize logs  
+
+Set up VPC networks  
+Set up your initial VPC networks  
+
+Configure hybrid connectivity  
+Set up hybrid connections for on-premises infrastructure or for migration purposes  
+
+Enable monitoring  
+Set up initial monitoring  
+
+Enable security capabilities  
+Set up organizational policies and learn more about Google Cloud's security offerings  
+
+Choose a support model  
+Choose online or premium support  
+
+
+
+## Commands  
 
 
 ```

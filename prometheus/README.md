@@ -108,6 +108,15 @@ We've been asked to write a web-service to provide SHA-256 hashes on demand, we 
 # Links  
 
 
+
+[PromCon 2023 - Zero-code application metrics with eBPF and Prometheus](https://youtu.be/AIDZ_owcd0o?si=2ySvMfMSSA5hFqJL)  
+
+
+
+[Introducing Prometheus Agent Mode, an Efficient and Cloud-Native Way for Metric Forwarding](https://prometheus.io/blog/2021/11/16/agent/)  
+
+
+
 [https://prometheus.io/docs/instrumenting/writing_exporters/](https://prometheus.io/docs/instrumenting/writing_exporters/)  
 [https://prometheus.io/docs/instrumenting/exporters/](https://prometheus.io/docs/instrumenting/exporters/)  
 [https://medium.com/teamzerolabs/15-steps-to-write-an-application-prometheus-exporter-in-go-9746b4520e26](https://medium.com/teamzerolabs/15-steps-to-write-an-application-prometheus-exporter-in-go-9746b4520e26)  
@@ -124,4 +133,5 @@ We've been asked to write a web-service to provide SHA-256 hashes on demand, we 
 [https://zhimin-wen.medium.com/custom-prometheus-metrics-for-apps-running-in-kubernetes-498d69ada7aa](https://zhimin-wen.medium.com/custom-prometheus-metrics-for-apps-running-in-kubernetes-498d69ada7aa)  
 [https://chronosphere.io/learn/an-introduction-to-the-four-primary-types-of-prometheus-metrics/](https://chronosphere.io/learn/an-introduction-to-the-four-primary-types-of-prometheus-metrics/)  
 [https://stackabuse.com/nodejs-application-monitoring-with-prometheus-and-grafana/](https://stackabuse.com/nodejs-application-monitoring-with-prometheus-and-grafana/)  
+
 
