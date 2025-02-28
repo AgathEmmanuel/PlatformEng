@@ -195,3 +195,73 @@ systemctl enable --now containerd
 
 ```
 
+
+
+$ containerd-rootless-setuptool.sh install                                                                                                                    
+[INFO] Checking RootlessKit functionality                                                                                                                                                  
+[INFO] Checking cgroup v2                                                                                                                                                                  
+[INFO] Checking overlayfs                                                                                                                                                                  
+[INFO] Requirements are satisfied                                                                                                                                                          
+[INFO] Creating "/home/user_name/.config/systemd/user/containerd.service"                                                                                                                      
+[INFO] Starting systemd unit "containerd.service"                                                                                                                                          
++ systemctl --user start containerd.service                                                                                                                                                
++ sleep 3                                                                                                                                                                                  
++ systemctl --user --no-pager --full status containerd.service                                                                                                                             
+● containerd.service - containerd (Rootless)
+
+
+[INFO] Installed "containerd.service" successfully.
+[INFO] To control "containerd.service", run: `systemctl --user (start|stop|restart) containerd.service`
+[INFO] To run "containerd.service" on system startup automatically, run: `sudo loginctl enable-linger user_name`
+[INFO] ------------------------------------------------------------------------------------------
+[INFO] Use `nerdctl` to connect to the rootless containerd.
+[INFO] You do NOT need to specify $CONTAINERD_ADDRESS explicitly.
+
+
+
+
+
+https://github.com/containerd/nerdctl/blob/main/docs/command-reference.md  
+
+
+
+nerdctl run --name test -d nginx:alpine
+
+nerdctl image ls
+
+nerdctl ps
+
+nerdctl ps -a
+
+nerdctl exec -it test sh
+
+
+
+https://github.com/containerd/nerdctl/blob/main/docs/build.md
+
+
+$ CONTAINERD_NAMESPACE=default containerd-rootless-setuptool.sh install-buildkit-containerd                                                                
+[INFO] Creating "/home/user_name/.config/systemd/user/default-buildkit.service"                  
+[INFO] Starting systemd unit "default-buildkit.service"                     
++ systemctl --user start default-buildkit.service                                                                                                                                          
++ sleep 3                                                                                                                                                                                  
++ systemctl --user --no-pager --full status default-buildkit.service                                                                                                                       
+● default-buildkit.service - BuildKit (Rootless)                                                                                                                                           
+     Loaded: loaded (/home/user_name/.config/systemd/user/default-buildkit.service; disabled; preset: enabled)                                                                                 
+     Active: active (running) since Fri 2025-02-28 15:33:05 IST; 3s ago
+
++ systemctl --user enable default-buildkit.service
+Created symlink /home/user_name/.config/systemd/user/default.target.wants/default-buildkit.service → /home/user_name/.config/systemd/user/default-buildkit.service.
+[INFO] Installed "default-buildkit.service" successfully.
+[INFO] To control "default-buildkit.service", run: `systemctl --user (start|stop|restart) default-buildkit.service`
+
+
+
+nerdctl build -t testnginx .
+
+nerdctl build -t testnginx:v1 .
+
+nerdctl push testnginx
+
+
+

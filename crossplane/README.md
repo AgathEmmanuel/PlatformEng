@@ -49,3 +49,5 @@ Crossplane is an open source Kubernetes add-on that enables platform teams to as
 
 [https://medium.com/google-cloud/build-a-modern-platform-with-crossplane-anthos-and-argocd-the-future-of-infrastructure-management-9211ef107cb9](https://medium.com/google-cloud/build-a-modern-platform-with-crossplane-anthos-and-argocd-the-future-of-infrastructure-management-9211ef107cb9)  
 
+
+[https://youtu.be/S2BQz-5cboA?si=4tiuswF4rB4r-cYU](Crossplane Intro and Deep Dive - the Cloud Native Control Plane Framework)  
