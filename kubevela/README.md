@@ -33,3 +33,19 @@ KubeVela works as an application delivery control plane that is fully decoupled 
 
 - [https://kubevela.io/](https://kubevela.io/)
 - [https://oam.dev/](https://oam.dev/)
+
+[https://kubevela.io/zh/videos/talks/en/devops-toolkit-2/](https://kubevela.io/zh/videos/talks/en/devops-toolkit-2/)  
+
+[Empowering Platform Engineering: Unleashing the Potential of KubeVela and Crossplane](https://youtu.be/Btut2rXJQqA?si=y6ZmAl3LeV-0bWah)  
+
+[Cloud-Native Apps With Open Application Model OAM And KubeVela](https://youtu.be/2CBu6sOTtwk?si=kdbWt-sJYSAigLoK)  
+
+
+
+
+[Empowering Platform Engineering: Unleashing the Potential of KubeVela and Crossplane](https://youtu.be/Btut2rXJQqA?si=vwck-G6jB3PbOfSt)  
+
+[https://github.com/tiagoReichert/PlatformCon-KubeVela-Crossplane](https://github.com/tiagoReichert/PlatformCon-KubeVela-Crossplane)  
+
+
+

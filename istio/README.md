@@ -1,6 +1,4 @@
-
-
-# istio  
+# Istio  
 
 
 
@@ -241,6 +239,15 @@ Ingress controllers have the potential to enable many API gateway use cases. In 
 
 
 
+### [Istio 0 to 60 workshop](https://youtu.be/6NHASise7rQ?si=sPqL2FJdUg8PXFvd)  
+
+[https://tetratelabs.github.io/istio-0to60/](https://tetratelabs.github.io/istio-0to60/)  
+
+
+
+
+
+
 ## Links  
 
 [https://istio.io/](https://istio.io/)
@@ -311,3 +318,7 @@ Ingress controllers have the potential to enable many API gateway use cases. In 
 [https://developer.ibm.com/articles/using-istio-for-advanced-microservices-deployments/](https://developer.ibm.com/articles/using-istio-for-advanced-microservices-deployments/)  
 [https://istio.io/latest/docs/tasks/traffic-management/ingress/secure-ingress/](https://istio.io/latest/docs/tasks/traffic-management/ingress/secure-ingress/)  
 [https://medium.com/intelligentmachines/istio-part-2-traffic-management-consistent-hashing-canary-dark-releases-38ee0334321a](https://medium.com/intelligentmachines/istio-part-2-traffic-management-consistent-hashing-canary-dark-releases-38ee0334321a)  
+
+
+
+[Istio 0 to 60 workshop](https://youtu.be/6NHASise7rQ?si=sPqL2FJdUg8PXFvd)  
