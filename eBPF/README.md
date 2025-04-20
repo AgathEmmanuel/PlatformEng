@@ -29,3 +29,21 @@ From Netflix extracting network flow insight in near real time, to Cloudflare Li
 [https://github.com/lizrice/ebpf-beginners](https://github.com/lizrice/ebpf-beginners)  
 
 [https://youtu.be/Wb_vD3XZYOA?si=FinuzF7uYDZSLVBz](eBPF: Unlocking the Kernel OFFICIAL DOCUMENTARY)
+
+
+
+
+
+[https://youtu.be/0TkyCUsS9Pw?si=XGXC_nu-OUYgyhBi](Introduction & Overview of Parca for Continuous Profiling | Complete Guide to Parca)  
+
+[https://youtu.be/ohjI8PaYaXA?si=UT984d2vZekl6NUQ](What is Continuous Profiling and What is Pyroscope - with Ryan Perry)  
+
+
+[https://youtu.be/Gx_q-QA2r_4?si=XGjZJ4KiNZlW08o2](Continuous Profiling with Parca- Beneath the Kernel to Beyond... - Manoj Vivek & Sumera Priyadarsini)  
+
+[https://youtu.be/F1MnMTDrpVc?si=2UBs3qK7g7xwYR_X](Parca & Grafana | Complete Guide to Parca)  
+
+
+
+
+

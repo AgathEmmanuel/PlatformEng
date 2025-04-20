@@ -4,6 +4,69 @@
 
 
 
+```
+
+If you get this error
+
+Total 39 (delta 9), reused 0 (delta 0), pack-reused 0
+remote: GitLab: You are attempting to check in one or more blobs which exceed the 100.0MiB limit:
+remote: To resolve this error, you must either reduce the size of the above blobs, or utilize LFS.
+
+
+
+Option 1: ⚠️ Remove Large File from Commit
+
+# If you committed a large file by mistake, remove it:
+
+git reset HEAD~  # Unstage last commit
+git rm --cached path/to/large/file
+
+# Then re-commit without the large file:
+
+git commit -m "Removed large file"
+git push origin branch-name
+
+# If it was committed earlier (not the latest commit), you'll need to rewrite history using:
+
+
+
+Option 2: ✅ Use Git LFS (Recommended for Large Files)
+
+# Git LFS handles big files like datasets, binaries, media files, etc.
+# Install Git LFS:
+
+# Ubuntu
+sudo apt install git-lfs
+
+# Mac
+brew install git-lfs
+
+# Then in your repo:
+
+git lfs install
+git lfs track "*.zip"  # or any large file extension
+git add .gitattributes
+git add path/to/large/file.zip
+git commit -m "Add large file with LFS"
+git push origin branch-name
+
+# Git LFS stores the large file outside the repo, and Git only tracks a pointer file.
+
+
+
+🔍 To Find Large Files Before Pushing:
+
+# This shows any files larger than 100 MB.
+
+git rev-list --objects --all | \
+  git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' | \
+  awk '$1 == "blob" && $3 >= 100000000' | \
+  sort -k3 -n
+
+
+```
+
+
 ## Adding a local repository to GitHub with GitHub CLI  
 
     In the command line, navigate to the root directory of your project.

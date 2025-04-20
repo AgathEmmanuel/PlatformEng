@@ -1,6 +1,6 @@
 # GCP Commands  
 
-
+```
 gcloud init
 
 gcloud config list 
@@ -12,6 +12,168 @@ gcloud config configurations describe [NAME]
 gcloud config configurations delete [NAME]
 
 
+gcloud config get-value project
+
+
+gcloud projects list --sort-by=projectId --limit=5
+
+# To list projects that have been marked for deletion: 
+gcloud projects list --filter='lifecycleState:DELETE_REQUESTED'
+
+
+
+
+
+
+# List Enabled APIs for a project:
+
+gcloud services list --enabled
+
+
+
+# To specify a project explicitly:
+
+gcloud services list --enabled --project=PROJECT_ID
+
+
+
+
+# Search for a Specific API (like Compute Engine):
+
+gcloud services list --available --filter="name:compute"
+
+
+# Enable an API
+
+gcloud services enable compute.googleapis.com
+
+# And to disable:
+
+gcloud services disable compute.googleapis.com
+
+
+
+
+
+
+
+# Use gcloud projects describe to get the project number:
+
+gcloud projects describe project-name --format="value(projectNumber)"
+
+
+gcloud projects get-iam-policy project-name \
+  --format="table(bindings.members)" \
+  --flatten="bindings[].members" \
+  | grep compute
+
+
+# Manually grant roles to make it visible:
+# You can assign a role like Viewer just to surface it in the UI:
+
+gcloud projects add-iam-policy-binding project-name \
+  --member="serviceAccount:13413241341-compute@developer.gserviceaccount.com" \
+  --role="roles/viewer"
+
+# After this, it will show up in service account listings.
+
+
+
+
+
+
+
+
+
+
+
+
+gcloud projects add-iam-policy-binding YOUR_PROJECT_ID \
+  --member="user:YOUR_EMAIL" \
+  --role="roles/iam.viewer"
+
+
+gcloud iam service-accounts list --project=YOUR_PROJECT_ID
+
+
+# List All Roles Assigned to the Service Account
+
+gcloud projects get-iam-policy YOUR_PROJECT_ID \
+  --flatten="bindings[].members" \
+  --format='table(bindings.role)' \
+  --filter="bindings.members:serviceAccount:SERVICE_ACCOUNT_EMAIL"
+
+
+# Get Permissions for Each Role
+
+gcloud iam roles describe roles/storage.admin
+
+
+
+# Allow Your User Account to Impersonate the SA
+
+gcloud iam service-accounts add-iam-policy-binding terraform@YOUR_PROJECT_ID.iam.gserviceaccount.com \
+  --member="user:YOUR_USER_EMAIL" \
+  --role="roles/iam.serviceAccountTokenCreator"
+
+
+
+gcloud storage buckets list --impersonate-service-account=SERVICE_ACCT_EMAIL
+
+
+# Use impersonation with the gcloud CLI by default
+# To set up the gcloud CLI to use the identity and access provided by a service account by default, you use the gcloud CLI config command:
+
+gcloud config set auth/impersonate_service_account SERVICE_ACCT_EMAIL
+
+
+
+
+
+
+
+
+
+# To check whether the secure-by-default organization policies are enforced on your organization, use the following command
+
+gcloud resource-manager org-policies list --organization=ORGANIZATION_ID
+
+
+
+# To disable or delete an organization policy, run the following command:
+
+gcloud org-policies delete CONSTRAINT_NAME --organization=ORGANIZATION_ID
+
+
+# To add or update these values listed in the YAML file, run the following command:
+
+gcloud org-policies set-policy POLICY_FILE
+
+
+
+# Set up authentication:
+#    Create the service account:
+
+gcloud iam service-accounts create SERVICE_ACCOUNT_NAME
+
+
+# To provide access to your project and your resources, grant a role to the service account:
+
+gcloud projects add-iam-policy-binding PROJECT_ID --member="serviceAccount:SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com" --role=ROLE
+
+
+# Note: The --role flag affects which resources the service account can access in your project. You can revoke these roles or grant additional roles later. In production environments, do not grant the Owner, Editor, or Viewer roles. Instead, grant a predefined role or custom role that meets your needs.
+
+# To grant another role to the service account, run the command as you did in the previous step.
+# Grant the required role to the principal that will attach the service account to other resources.
+
+
+gcloud iam service-accounts add-iam-policy-binding SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com --member="user:USER_EMAIL" --role=roles/iam.serviceAccountUser
+
+
+
+
+```
 
 
 ##  Network Engineer Learning Path  
@@ -584,3 +746,755 @@ Tips and tricks:
 
 
 ```
+
+
+### Cloud DNS - Traffic Steering using Geolocation Policy  
+
+```
+
+# Cloud DNS routing policies enable users to configure DNS based traffic steering. A user can either create a Weighted Round Robin (WRR) routing policy or a Geolocation (GEO) routing policy. You can configure routing policies by creating special ResourceRecordSets with special routing policy values.
+
+Use WRR to specify different weights per ResourceRecordSet for the resolution of domain names. Cloud DNS routing policies help ensure that traffic is distributed across multiple IP addresses by resolving DNS requests according to the configured weights.
+
+​​In this lab, you will configure and test the Geolocation routing policy. Use GEO to specify source geolocations and to provide DNS answers corresponding to those geographies. The geolocation routing policy applies the nearest match for the source location when the traffic source location doesn't match any policy items exactly.
+
+
+
+
+
+```
+
+
+
+### Implement Private Google Access and Cloud NAT   
+
+
+```
+
+# In this lab, you implement Private Google Access and Cloud NAT for a VM instance that doesn't have an external IP address. Then, you verify access to public IP addresses of Google APIs and services and other connections to the internet.
+
+VM instances without external IP addresses are isolated from external networks. Using Cloud NAT, these instances can access the internet for updates and patches, and in some cases, for bootstrapping. As a managed service, Cloud NAT provides high availability without user management and intervention.
+
+
+# Objectives
+
+
+    Configure a VM instance that doesn't have an external IP address
+    Connect to a VM instance using an Identity-Aware Proxy (IAP) tunnel
+    Enable Private Google Access on a subnet
+    Configure a Cloud NAT gateway
+    Verify access to public IP addresses of Google APIs and services and other connections to the internet
+
+
+# Note: In order to connect to your private instance using SSH, you need to open an appropriate port on the firewall. IAP connections come from a specific set of IP addresses (35.235.240.0/20). Therefore, you can limit the rule to this CIDR range.
+# https://cloud.google.com/iap/docs/using-tcp-forwarding
+
+
+
+# Note: The default setting for a VM instance is to have an ephemeral external IP address. This behavior can be changed with a policy constraint at the organization or project level. To learn more about controlling external IP addresses on VM instances, refer to the external IP address documentation.
+# https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address#disableexternalip  
+
+
+gcloud compute ssh vm-internal --zone ZONE --tunnel-through-iap
+
+
+ping -c 2 www.google.com
+
+
+# Note: When instances do not have external IP addresses, they can only be reached by other instances on the network via a managed VPN gateway or via a Cloud IAP tunnel. Cloud IAP enables context-aware access to VMs via SSH and RDP without bastion hosts. To learn more about this, see the blog post Cloud IAP enables context-aware access to VMs via SSH and RDP without bastion hosts.
+# https://cloud.google.com/blog/products/identity-security/cloud-iap-enables-context-aware-access-to-vms-via-ssh-and-rdp-without-bastion-hosts
+
+
+
+
+# Enable Private Google Access
+
+Private Google Access is enabled at the subnet level. When it is enabled, instances in the subnet that only have private IP addresses can send traffic to Google APIs and services through the default route (0.0.0.0/0) with a next hop to the default internet gateway.
+
+
+
+
+# Configure a Cloud NAT gateway
+
+Although vm-internal can now access certain Google APIs and services without an external IP address, the instance cannot access the internet for updates and patches. Configure a Cloud NAT gateway, which allows vm-internal to reach the internet.
+
+
+Cloud NAT is a regional resource. You can configure it to allow traffic from all ranges of all subnets in a region, from specific subnets in the region only, or from specific primary and secondary CIDR ranges only.
+
+
+
+
+
+# Note: The NAT mapping section allows you to choose the subnets to map to the NAT gateway. You can also manually assign static IP addresses that should be used when performing NAT. Do not change the NAT mapping configuration in this lab.
+
+
+# Note: The Cloud NAT gateway implements outbound NAT, but not inbound NAT. In other words, hosts outside of your VPC network can only respond to connections initiated by your instances; they cannot initiate their own, new connections to your instances via NAT.
+
+
+
+# Configure and view logs with Cloud NAT Logging
+
+Cloud NAT logging allows you to log NAT connections and errors. When Cloud NAT logging is enabled, one log entry can be generated for each of the following scenarios:
+
+    When a network connection using NAT is created.
+    When a packet is dropped because no port was available for NAT.
+
+You can opt to log both kinds of events, or just one or the other. Created logs are sent to Cloud Logging.
+
+
+
+
+```
+
+
+
+## Networking in Google Cloud: Network Architecture  
+
+
+
+
+### Implementing a Hub and Spoke Topology using NCC  
+
+
+```
+
+# In this lab, you design and implement a classic hub-and-spoke network topology. Your pre-configured environment includes three VPC networks—a central hub and two branches (spoke1 and spoke2). You will create virtual machines (VMs) on each network to test connectivity.
+
+You begin by verifying connectivity between the VMs within and across VPCs. Then, you use NCC to implement a hub and spoke. You retest connectivity to confirm that your hub-and-spoke architecture is fully functional.
+
+
+# Objectives
+
+
+    Configure VMs in different VPCs.
+    Test connectivity between networks before implementing a hub and spoke.
+    Use NCC to create a hub and spoke.
+    Test connectivity after implementing a hub and spoke.
+    Use Network Topology to view metrics for traffic between entities.
+
+
+
+
+# Create a hub and spoke using NCC
+
+ping -c 3 <internal IP address of spoke2-vm>
+
+
+
+Task 6. Explore the Network Topology Tool
+
+
+
+# Network Topology is a visualization tool that shows the topology of your network infrastructure. You can also view metrics and details of network traffic to other Shared VPC networks and inter-region traffic.
+
+For each Network Topology hierarchy, the Google Cloud console displays a single metric for Compute Engine virtual machine (VM) instance entities and region entities, as well as for connections.
+
+    On the Google Cloud console title bar, type Network Topology in the Search field, then click Network Topology in the Products & Page section.
+    Hover over an entity to display the Expand icon for expanding or Collapse icon for collapsing.
+    In the Metrics and insights section, select an insight from the options.
+
+
+
+
+
+# https://storage.googleapis.com/cloud-training/gcpnet/v3.0/student/06_Introduction%20to%20Network%20Architecture_ILT.pdf
+
+
+
+# https://storage.googleapis.com/cloud-training/gcpnet/v3.0/student/07%20Network%20Topologies_ILT.pdf
+
+
+
+
+
+```
+
+
+
+## Build Infrastructure with Terraform on Google Cloud  
+
+
+### Terraform Fundamentals   
+
+
+```
+
+
+# Objectives
+
+
+    Get started with Terraform in Google Cloud
+    Install Terraform from installation binaries
+    Create a VM instance infrastructure using Terraform
+
+
+
+# What is Terraform?
+
+Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently. Terraform can manage existing, popular service providers and custom in-house solutions.
+
+Configuration files describe to Terraform the components needed to run a single application or your entire data center. Terraform generates an execution plan describing what it will do to reach the desired state, and then executes it to build the described infrastructure. As the configuration changes, Terraform can determine what changed and create incremental execution plans that can be applied.
+
+The infrastructure Terraform can manage includes both low-level components such as compute instances, storage, and networking, and high-level components such as DNS entries and SaaS features.
+
+
+
+cat > instance.tf
+resource "google_compute_instance" "terraform" {
+  project      = ""
+  name         = "terraform"
+  machine_type = "e2-medium"
+  zone         = ""
+
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-11"
+    }
+  }
+
+  network_interface {
+    network = "default"
+    access_config {
+    }
+  }
+}
+
+
+
+
+terraform init
+
+terraform plan
+
+terraform apply
+
+terraform show
+
+
+
+
+# Defining a provisioner
+
+    To define a provisioner, modify the resource block defining the first vm_instance in your configuration to look like the following:
+
+
+
+resource "google_compute_instance" "vm_instance" {
+  name         = "terraform-instance"
+  machine_type = "e2-micro"
+  tags         = ["web", "dev"]
+
+  provisioner "local-exec" {
+    command = "echo ${google_compute_instance.vm_instance.name}:  ${google_compute_instance.vm_instance.network_interface[0].access_config[0].nat_ip} >> ip_address.txt"
+  }
+
+  # ...
+}
+
+
+
+# This adds a provisioner block within the resource block. Multiple provisioner blocks can be added to define multiple provisioning steps. Terraform supports many provisioners, but for this example you are using the local-exec provisioner.
+
+The local-exec provisioner executes a command locally on the machine running Terraform, not the VM instance itself. You're using this provisioner versus the others so we don't have to worry about specifying any connection info right now.
+
+This also shows a more complex example of string interpolation than you've seen before. Each VM instance can have multiple network interfaces, so refer to the first one with network_interface[0], count starting from 0, as most programming languages do. Each network interface can have multiple access_config blocks as well, so once again you specify the first one.  
+
+
+
+# A tainted resource will be destroyed and recreated during the next apply.
+
+terraform taint google_compute_instance.vm_instance
+
+
+
+
+# Failed provisioners and tainted resources
+
+If a resource is successfully created but fails a provisioning step, Terraform will error and mark the resource as tainted. A resource that is tainted still exists, but shouldn't be considered safe to use, since provisioning failed.
+
+When you generate your next execution plan, Terraform will remove any tainted resources and create new resources, attempting to provision them again after creation.
+
+
+
+# Destroy provisioners
+
+Provisioners can also be defined that run only during a destroy operation. These are useful for performing system cleanup, extracting data, etc.
+
+For many resources, using built-in cleanup mechanisms is recommended if possible (such as init scripts), but provisioners can be used if necessary.
+
+This lab won't show any destroyed provisioner examples. If you need to use destroy provisioners, please see the Provisioners documentation.
+
+
+# https://www.terraform.io/docs/provisioners/
+
+
+
+
+
+
+```
+
+
+
+### Interact with Terraform Modules 
+
+
+```
+# Overview
+
+As you manage your infrastructure with Terraform, increasingly complex configurations will be created. There is no intrinsic limit to the complexity of a single Terraform configuration file or directory, so it is possible to continue writing and updating your configuration files in a single directory. However, if you do, you may encounter one or more of the following problems:
+
+    Understanding and navigating the configuration files will become increasingly difficult.
+    Updating the configuration will become more risky, because an update to one block may cause unintended consequences to other blocks of your configuration.
+    Duplication of similar blocks of configuration may increase, for example, when you configure separate dev/staging/production environments, which will cause an increasing burden when updating those parts of your configuration.
+    If you want to share parts of your configuration between projects and teams, cutting and pasting blocks of configuration between projects could be error-prone and hard to maintain.
+
+
+What are modules for?
+
+Here are some of the ways that modules help solve the problems listed above:
+
+    Organize configuration: Modules make it easier to navigate, understand, and update your configuration by keeping related parts of your configuration together. Even moderately complex infrastructure can require hundreds or thousands of lines of configuration to implement. By using modules, you can organize your configuration into logical components.
+
+    Encapsulate configuration: Another benefit of using modules is to encapsulate configuration into distinct logical components. Encapsulation can help prevent unintended consequences—such as a change to one part of your configuration accidentally causing changes to other infrastructure—and reduce the chances of simple errors like using the same name for two different resources.
+
+    Re-use configuration: Writing all of your configuration without using existing code can be time-consuming and error-prone. Using modules can save time and reduce costly errors by re-using configuration written either by yourself, other members of your team, or other Terraform practitioners who have published modules for you to use. You can also share modules that you have written with your team or the general public, giving them the benefit of your hard work.
+
+    Provide consistency and ensure best practices: Modules also help to provide consistency in your configurations. Consistency makes complex configurations easier to understand, and it also helps to ensure that best practices are applied across all of your configuration. For example, cloud providers offer many options for configuring object storage services, such as Amazon S3 (Simple Storage Service) or Google's Cloud Storage buckets. Many high-profile security incidents have involved incorrectly secured object storage, and because of the number of complex configuration options involved, it's easy to accidentally misconfigure these services.
+
+Using modules can help reduce these errors. For example, you might create a module to describe how all of your organization's public website buckets will be configured, and another module for private buckets used for logging applications. Also, if a configuration for a type of resource needs to be updated, using modules allows you to make that update in a single place and have it be applied to all cases where you use that module.
+
+
+# Objectives
+
+    Use a module from the Registry
+    Build a module
+
+
+# What is a Terraform module?
+
+A Terraform module is a set of Terraform configuration files in a single directory. Even a simple configuration consisting of a single directory with one or more .tf files is a module. When you run Terraform commands directly from such a directory, it is considered the root module. So in this sense, every Terraform configuration is part of a module. You may have a simple set of Terraform configuration files like this:
+
+├── LICENSE
+├── README.md
+├── main.tf
+├── variables.tf
+├── outputs.tf
+
+
+In this case, when you run Terraform commands from within the minimal-module directory, the contents of that directory are considered the root module.
+
+
+Calling modules
+
+Terraform commands will only directly use the configuration files in one directory, which is usually the current working directory. However, your configuration can use module blocks to call modules in other directories. When Terraform encounters a module block, it loads and processes that module's configuration files.
+
+A module that is called by another configuration is sometimes referred to as a "child module" of that configuration.
+Local and remote modules
+
+Modules can be loaded from either the local filesystem or a remote source. Terraform supports a variety of remote sources, including the Terraform Registry, most version control systems, HTTP URLs, and Terraform Cloud or Terraform Enterprise private module registries.
+
+
+
+Module best practices
+
+In many ways, Terraform modules are similar to the concepts of libraries, packages, or modules found in most programming languages, and they provide many of the same benefits. Just like almost any non-trivial computer program, real-world Terraform configurations should almost always use modules to provide the benefits mentioned above.
+
+It is recommended that every Terraform practitioner use modules by following these best practices:
+
+    Start writing your configuration with a plan for modules. Even for slightly complex Terraform configurations managed by a single person, the benefits of using modules outweigh the time it takes to use them properly.
+
+    Use local modules to organize and encapsulate your code. Even if you aren't using or publishing remote modules, organizing your configuration in terms of modules from the beginning will significantly reduce the burden of maintaining and updating your configuration as your infrastructure grows in complexity.
+
+    Use the public Terraform Registry to find useful modules. This way you can quickly and confidently implement your configuration by relying on the work of others.
+
+    Publish and share modules with your team. Most infrastructure is managed by a team of people, and modules are an important tool that teams can use to create and maintain infrastructure. As mentioned earlier, you can publish modules either publicly or privately. You will see how to do this in a later lab in this series.
+
+
+
+
+# Task 1. Use modules from the Registry
+
+https://registry.terraform.io/
+
+https://registry.terraform.io/modules/terraform-google-modules/network/google/3.3.0
+
+
+https://www.terraform.io/docs/modules/sources.html
+
+
+# Create a Terraform configuration
+
+git clone https://github.com/terraform-google-modules/terraform-google-network
+cd terraform-google-network
+git checkout tags/v6.0.1 -b v6.0.1
+
+
+
+
+Set values for module input variables
+
+Some input variables are required, which means that the module doesn't provide a default value; an explicit value must be provided in order for Terraform to run correctly.
+
+    Within the module "test-vpc-module" block, review the input variables you are setting. Each of these input variables is documented in the Terraform Registry. The required inputs for this module are:
+        network_name: The name of the network being created
+        project_id: The ID of the project where this VPC will be created
+        subnets: The list of subnets being created
+
+In order to use most modules, you will need to pass input variables to the module configuration. The configuration that calls a module is responsible for setting its input values, which are passed as arguments to the module block. Aside from source and version, most of the arguments to a module block will set variable values.
+
+On the Terraform Registry page for the Google Cloud network module, an Inputs tab describes all of the input variables that module supports.
+
+
+# Task 2. Build a module
+
+In the last task, you used a module from the Terraform Registry to create a VPC network in Google Cloud. Although using existing Terraform modules correctly is an important skill, every Terraform practitioner will also benefit from learning how to create modules. We recommend that you create every Terraform configuration with the assumption that it may be used as a module, because this will help you design your configurations to be flexible, reusable, and composable.
+
+As you may already know, Terraform treats every configuration as a module. When you run terraform commands, or use Terraform Cloud or Terraform Enterprise to remotely run Terraform, the target directory containing Terraform configuration is treated as the root module.
+
+In this task, you create a module to manage Compute Storage buckets used to host static websites.
+
+
+
+
+Create a module
+
+Navigate to your home directory and create your root module by constructing a new main.tf configuration file. Then create a directory called modules that contains another folder called gcs-static-website-bucket. You will work with three Terraform configuration files inside the gcs-static-website-bucket directory: website.tf, variables.tf, and outputs.tf.
+
+    Create the directory for your new module:
+
+
+
+cd ~
+touch main.tf
+mkdir -p modules/gcs-static-website-bucket
+
+
+
+Navigate to the module directory and run the following commands to create three empty files:
+
+
+cd modules/gcs-static-website-bucket
+touch website.tf variables.tf outputs.tf
+
+
+Inside the gcs-static-website-bucket directory, run the following command to create a file called README.md with the following content:
+
+tee -a README.md <<EOF
+# GCS static website bucket
+
+This module provisions Cloud Storage buckets configured for static website hosting.
+EOF
+
+Note: Choosing the correct license for your modules is out of the scope of this lab. This lab will use the Apache 2.0 open source license. 
+
+
+
+
+Create another file called LICENSE with the following content:
+
+
+
+
+tee -a LICENSE <<EOF
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+EOF
+
+
+
+
+
+Add this Cloud Storage bucket resource to your website.tf file inside the modules/gcs-static-website-bucket directory:
+
+
+resource "google_storage_bucket" "bucket" {
+  name               = var.name
+  project            = var.project_id
+  location           = var.location
+  storage_class      = var.storage_class
+  labels             = var.labels
+  force_destroy      = var.force_destroy
+  uniform_bucket_level_access = true
+
+  versioning {
+    enabled = var.versioning
+  }
+
+  dynamic "retention_policy" {
+    for_each = var.retention_policy == null ? [] : [var.retention_policy]
+    content {
+      is_locked        = var.retention_policy.is_locked
+      retention_period = var.retention_policy.retention_period
+    }
+  }
+
+  dynamic "encryption" {
+    for_each = var.encryption == null ? [] : [var.encryption]
+    content {
+      default_kms_key_name = var.encryption.default_kms_key_name
+    }
+  }
+
+  dynamic "lifecycle_rule" {
+    for_each = var.lifecycle_rules
+    content {
+      action {
+        type          = lifecycle_rule.value.action.type
+        storage_class = lookup(lifecycle_rule.value.action, "storage_class", null)
+      }
+      condition {
+        age                   = lookup(lifecycle_rule.value.condition, "age", null)
+        created_before        = lookup(lifecycle_rule.value.condition, "created_before", null)
+        with_state            = lookup(lifecycle_rule.value.condition, "with_state", null)
+        matches_storage_class = lookup(lifecycle_rule.value.condition, "matches_storage_class", null)
+        num_newer_versions    = lookup(lifecycle_rule.value.condition, "num_newer_versions", null)
+      }
+    }
+  }
+}
+
+
+
+Navigate to the variables.tf file in your module and add the following code:
+
+
+
+
+variable "name" {
+  description = "The name of the bucket."
+  type        = string
+}
+
+variable "project_id" {
+  description = "The ID of the project to create the bucket in."
+  type        = string
+}
+
+variable "location" {
+  description = "The location of the bucket."
+  type        = string
+}
+
+variable "storage_class" {
+  description = "The Storage Class of the new bucket."
+  type        = string
+  default     = null
+}
+
+variable "labels" {
+  description = "A set of key/value label pairs to assign to the bucket."
+  type        = map(string)
+  default     = null
+}
+
+
+variable "bucket_policy_only" {
+  description = "Enables Bucket Policy Only access to a bucket."
+  type        = bool
+  default     = true
+}
+
+variable "versioning" {
+  description = "While set to true, versioning is fully enabled for this bucket."
+  type        = bool
+  default     = true
+}
+
+variable "force_destroy" {
+  description = "When deleting a bucket, this boolean option will delete all contained objects. If false, Terraform will fail to delete buckets which contain objects."
+  type        = bool
+  default     = true
+}
+
+variable "iam_members" {
+  description = "The list of IAM members to grant permissions on the bucket."
+  type = list(object({
+    role   = string
+    member = string
+  }))
+  default = []
+}
+
+variable "retention_policy" {
+  description = "Configuration of the bucket's data retention policy for how long objects in the bucket should be retained."
+  type = object({
+    is_locked        = bool
+    retention_period = number
+  })
+  default = null
+}
+
+variable "encryption" {
+  description = "A Cloud KMS key that will be used to encrypt objects inserted into this bucket"
+  type = object({
+    default_kms_key_name = string
+  })
+  default = null
+}
+
+variable "lifecycle_rules" {
+  description = "The bucket's Lifecycle Rules configuration."
+  type = list(object({
+    # Object with keys:
+    # - type - The type of the action of this Lifecycle Rule. Supported values: Delete and SetStorageClass.
+    # - storage_class - (Required if action type is SetStorageClass) The target Storage Class of objects affected by this Lifecycle Rule.
+    action = any
+
+    # Object with keys:
+    # - age - (Optional) Minimum age of an object in days to satisfy this condition.
+    # - created_before - (Optional) Creation date of an object in RFC 3339 (e.g. 2017-06-13) to satisfy this condition.
+    # - with_state - (Optional) Match to live and/or archived objects. Supported values include: "LIVE", "ARCHIVED", "ANY".
+    # - matches_storage_class - (Optional) Storage Class of objects to satisfy this condition. Supported values include: MULTI_REGIONAL, REGIONAL, NEARLINE, COLDLINE, STANDARD, DURABLE_REDUCED_AVAILABILITY.
+    # - num_newer_versions - (Optional) Relevant only for versioned objects. The number of newer versions of an object to satisfy this condition.
+    condition = any
+  }))
+  default = []
+}
+
+
+
+
+Add an output to your module in the outputs.tf file inside your module:
+
+
+
+output "bucket" {
+  description = "The created storage bucket"
+  value       = google_storage_bucket.bucket
+}
+
+
+
+Like variables, outputs in modules perform the same function as they do in the root module but are accessed in a different way. A module's outputs can be accessed as read-only attributes on the module object, which is available within the configuration that calls the module.
+
+
+
+
+Return to the main.tf in your root directory and add a reference to the new module:
+
+
+
+module "gcs-static-website-bucket" {
+  source = "./modules/gcs-static-website-bucket"
+
+  name       = var.name
+  project_id = var.project_id
+  location   = "REGION"
+
+  lifecycle_rules = [{
+    action = {
+      type = "Delete"
+    }
+    condition = {
+      age        = 365
+      with_state = "ANY"
+    }
+  }]
+}
+
+
+
+In your root directory, create an outputs.tf file for your root module:
+
+
+cd ~
+touch outputs.tf
+
+
+Add the following code in the outputs.tf file:
+
+
+output "bucket-name" {
+  description = "Bucket names."
+  value       = "module.gcs-static-website-bucket.bucket"
+}
+
+
+Add the following code to the variables.tf file. Set the variables project_id and name to default to your Project ID
+
+
+
+variable "project_id" {
+  description = "The ID of the project in which to provision resources."
+  type        = string
+  default     = "FILL IN YOUR PROJECT ID HERE"
+
+}
+
+variable "name" {
+  description = "Name of the buckets to create."
+  type        = string
+  default     = "FILL IN A (UNIQUE) BUCKET NAME HERE"
+}
+
+
+
+
+
+
+```
+
+
+
+
+## Managing Terraform State  
+
+
+```
+
+# Overview
+
+Terraform must store the state about your managed infrastructure and configuration. This state is used by Terraform to map real-world resources to your configuration, keep track of metadata, and improve performance for large infrastructures.
+
+This state is stored by default in a local file named terraform.tfstate, but it can also be stored remotely, which works better in a team environment.
+
+Terraform uses this local state to create plans and make changes to your infrastructure. Before any operation, Terraform does a refresh to update the state with the real infrastructure.
+
+The primary purpose of Terraform state is to store bindings between objects in a remote system and resource instances declared in your configuration. When Terraform creates a remote object in response to a change of configuration, it will record the identity of that remote object against a particular resource instance and then potentially update or delete that object in response to future configuration changes.
+
+
+
+# Objectives
+
+
+    Create a local backend
+    Create a Cloud Storage backend
+    Refresh your Terraform state
+    Import a Terraform configuration
+    Manage the imported configuration with Terraform
+
+
+
+Purpose of Terraform state
+
+State is a necessary requirement for Terraform to function. People sometimes ask whether Terraform can work without state or not use state and just inspect cloud resources on every run. In the scenarios where Terraform may be able to get away without state, doing so would require shifting massive amounts of complexity from one place (state) to another place (the replacement concept). This section will help explain why Terraform state is required.
+
+
+
+Mapping to the real world
+
+Terraform requires some sort of database to map Terraform config to the real world. When your configuration contains a resource resource "google_compute_instance" "foo", Terraform uses this map to know that instance i-abcd1234 is represented by that resource.
+
+Terraform expects that each remote object is bound to only one resource instance, which is normally guaranteed because Terraform is responsible for creating the objects and recording their identities in the state. If you instead import objects that were created outside of Terraform, you must verify that each distinct object is imported to only one resource instance.
+
+If one remote object is bound to two or more resource instances, Terraform may take unexpected actions against those objects because the mapping from configuration to the remote object state has become ambiguous.
+
+
+
+
+
+```
+
+
+
+
